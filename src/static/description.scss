@@ -1,0 +1,74 @@
+.main-wrapper{
+    min-height: calc(100vh - 351px);
+    padding-top: 2rem;
+}
+
+#description, #article{
+    width: 95%;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 8px;
+    padding-bottom: 0;
+}
+#description{
+    padding: 2rem;
+    border-radius: 1rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,.5);
+}
+#description img.round_image{
+    width: 30%;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.5);;
+}
+#description .headline{
+    font-weight: normal;
+    margin-top: 15px;
+    font-size: 2rem;
+    color: #fff;
+}
+#description .subline{
+    font-weight: normal;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: #fff;
+}
+#description .description{
+    margin: 3rem 0 0;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    color: #eee;
+}
+
+.acrylic {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .acrylic::before {
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    z-index: -1;
+    background-blend-mode: exclusion;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    filter: url(#blur);
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='8');
+  }
+  
+  .acrylic::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.7) url("images/noise-20x20.png") repeat;
+  }

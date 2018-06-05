@@ -1,0 +1,27 @@
+:root{
+    --scrollbar-main: #fff9;
+    --scrollbar-secondary: #0005;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+}
+::-webkit-scrollbar-button {
+    display: none;
+}
+::-webkit-scrollbar-corner, 
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-secondary);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-main);
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+} 
+::-webkit-scrollbar-corner,
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-secondary);
+}

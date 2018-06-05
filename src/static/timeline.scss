@@ -1,0 +1,104 @@
+.timeline-header{
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: underline;
+  margin: 2rem 0 1rem;
+  line-height: 100%;
+  font-size: 2rem;
+  letter-spacing: .75rem;
+  text-shadow: 2px 2px 5px rgba(0,0,0,.5);
+}
+
+.timeline-wrapper{
+  width: 100vw;
+  overflow-x: auto;
+  direction: rtl;
+  white-space: nowrap;
+}
+#timeline{
+  padding: 8px;
+  padding-top: 0;
+  direction: ltr;
+}
+
+ul#events {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0 20px 0;
+  position: relative;
+  height: 201px;
+}
+
+ul#events li a {
+    text-decoration: none;
+    border-radius: 32px;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 6px;
+    padding: 8px;
+    position: absolute;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 34px;
+    outline: none;
+    transition: box-shadow .2s ease-in-out;
+}
+
+ul#events li a:hover, ul#events li a:focus{
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+ul#events li span {
+    color: #eee;
+    font-weight: normal;
+    font-size: 0.9em;
+}
+
+ul#events li i.material-icons{
+  display: inline-block !important;
+  font-size: 100% !important;
+  line-height: 100% !important;
+  vertical-align: top;
+}
+
+:root{
+  --color-level1: #4eba6f;
+  --color-level2: #2d95bf;
+  --color-level3: #955ba5;
+  --color-level4: #f15a5a;
+  --color-level5: #f0c419;
+}
+
+#timeline .level-1{ bottom:   0px; background-color: var(--color-level1);}
+#timeline .level-2{ bottom:  40px; background-color: var(--color-level2); }
+#timeline .level-3{ bottom:  80px; background-color: var(--color-level3); }
+#timeline .level-4{ bottom: 120px; background-color: var(--color-level4); }
+#timeline .level-5{ bottom: 160px; background-color: var(--color-level5); text-overflow: unset !important;}
+
+
+ul#intervals {
+    list-style-type: none;
+    padding: 0;
+    display: block;
+    white-space: nowrap;
+}
+
+/* The width depends on the number of intervals. For example 100 / 7 = 14.29% -- then subtract a little bit for room for the borders */
+ul#intervals li {
+    border-right: 1px solid #fff;
+    color: #fff;
+    float: left;
+    font-size: 1.2em;
+    margin: 0;
+    padding: 15px 0;
+    text-align: center;
+}
+
+ul#intervals li:last-of-type{
+  border-right: none;
+}

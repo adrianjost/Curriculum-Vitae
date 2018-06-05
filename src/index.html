@@ -1,0 +1,66 @@
+<html lang="de"><head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Adrian Jost - curriculum vitae</title>
+  <meta name="author" content="Adrian Jost">
+  <meta name="description" content="Curriculum Vitae of Adrian Jost 07.11.1997">
+  
+  <meta name="theme-color" content="#2d95bf">
+  <link rel="manifest" href="manifest.json">
+
+  <script defer language="javascript" type="text/javascript" src="a11y-dialog.min.js"></script>
+  <script defer language="javascript" type="text/javascript" src="script.js"></script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js').then(function(registration) {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function(err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head><body>
+  <main>
+    <div class="main-wrapper">
+      <div id="description" class="acrylic">
+        <picture class="round_image">
+          <source srcset="images/adrianjost.webp" type="image/webp">
+          <source srcset="images/adrianjost.jpg" type="image/jpeg"> 
+          <img class="round_image" src="images/adrianjost.jpg" alt="Profile Image - Adrian Jost">
+        </picture>
+        <h1 class="headline">Adrian Jost</h1>
+        <h2 class="subline">Student - Designer - Developer</h2>
+        <div class="description-wrapper">
+          <p class="description">
+            Andere würden mich als Faul bezeichnen, ich bevorzuge die Wörter <i>"minimalistisch"</i> und <i>"effizient"</i>. </br>
+            Genau diese 2 Wörter sind es auch, die in allen meinen Projekten zu finden sind, denn ein einfaches Produkt ist meist ein besseres. Ladezeiten sind geringer, Benutzeroberflächen leichter verständlich und die gesamte UX steht im Fokus.
+            </br></br>
+            So sollte es meiner Meinung nach sein!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-wrapper">
+      <h2 class="timeline-header">timeline</h2>
+      <div id="timeline">
+        <ul id="events"></ul>
+        <ul id="intervals"></ul>
+      </div>
+    </div>
+
+    <div id="article-dialog" class="dialog" aria-hidden="true">
+      <div class="dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
+      <div class="dialog-content" role="dialog">
+        <button data-a11y-dialog-hide class="dialog-close" aria-label="Close this dialog window">&times;</button>
+        <article id="article" role="document"></article>
+      </div>
+    </div>
+  </main>
+</body></html>
