@@ -1,52 +1,61 @@
+"use strict";
+
 const apiUri = "https://beta-adrianjost.hackedit.de/api.php";
 
-function loadEXT(e,t){var n=new XMLHttpRequest;n.open("GET",e,!0),n.onreadystatechange=function(){4==n.readyState&&"200"==n.status?t(n.responseText):4==n.readyState&&t("noresponse")},n.send(null)}
+@import './src/static/helper.js'
 
-// Instantiate a new A11yDialog module
-var dialog;
 
-const timeline = document.getElementById("timeline");
+var dialog = new A11yDialog(document.getElementById('article-dialog'));
+const timelineWrapper = document.querySelector(".timeline-wrapper");
+const timeline = document.querySelector("#timeline");
 var YearWidthPixel = 300;
-const MinYearWidthPixel = 100;
-const MaxYearWidthPixel = 1000;
+var MinYearWidthPixel = 100;
+var MaxYearWidthPixel = 1000;
 var allEvents = []
 var minDate = 0;
 var timeRange = 0;
 
-function scale(factor){
-  YearWidthPixel += YearWidthPixel * (factor * 0.05);
-  YearWidthPixel = Math.min(Math.max(YearWidthPixel,MinYearWidthPixel),MaxYearWidthPixel);
-  render();
-}
-
 document.addEventListener("DOMContentLoaded", function(event) {
-    loadEXT(apiUri+"?load=all",function(response){
-      initialize(JSON.parse(response.trim()));
-      render();
-      openDialogByHash();
-    });
+  loadEXT(apiUri+"?load=all",function(response){
+    initializeTimeline(JSON.parse(response.trim()));
+    render();
+    openDialogByHash();
+  });
+  initializeDialog();
 });
 
-function render(){
-  setIntervals(minDate);
-  setEvents(allEvents);
-}
-
-function initialize(events){
-  allEvents = events;
-  minDate = getMinDate(events);
-  timeRange = Math.round(((new Date()) - minDate), 0);
-  dialog = new A11yDialog(document.getElementById('article-dialog'));
+// Instantiate a new A11yDialog module
+function initializeDialog(){
   dialog.on('hide', function (dialogEl, event) {
     updateHash(' ');
   });
 }
 
-function getMinDate(events){
-  const minDate = Math.min(...(events.map(event => {
-    return new Date(event.date.from);
-  })));
-  return minDate;
+function initializeTimeline(events){
+  allEvents = events;
+  minDate = getMinDate(events);
+  timeRange = Math.round(((new Date()) - minDate), 0);
+
+  timelineWrapper.addEventListener("wheel", function(event){
+    event.preventDefault();
+    if(event.ctrlKey){
+      scaleTimeline((event.deltaY > 0)?0.05:-0.05);
+
+    }else{
+      timelineWrapper.scrollLeft += event.deltaY;
+    }
+  });  
+}
+
+function scaleTimeline(factor){
+  YearWidthPixel += YearWidthPixel * factor;
+  YearWidthPixel = Math.min(Math.max(YearWidthPixel,MinYearWidthPixel),MaxYearWidthPixel);
+  render();
+}
+
+function render(){
+  setIntervals(minDate);
+  setEvents(allEvents);
 }
 
 function setIntervals(minDate){
@@ -56,6 +65,9 @@ function setIntervals(minDate){
   
   const currentYear = (new Date()).getFullYear();
   const currentMonth = ((new Date()).getMonth()+1);
+
+  MinYearWidthPixel = screen.width / (currentYear - minYear);
+  MaxYearWidthPixel = screen.width;
 
   const yearWidth = (100 / ((currentYear - minYear - 1) * 12 + currentMonth + (12 - minMonth + 1)) * 12);
 
@@ -95,23 +107,11 @@ function setEvents(events){
   });
   document.getElementById("events").innerHTML = eventString;
   document.querySelectorAll("#timeline #events a").forEach(node => {
-    node.addEventListener("click", showTooltip);
+    node.addEventListener("click", openDialogOnEvent);
   });
-}
-
-function updateHash(newHash){
-  if(history.pushState) {
-    history.pushState(null, null, newHash);
-  }
-  else {
-      location.hash = newHash;
-  }
 }
 
 function openDialog(element){
-  loadEXT(apiUri+"?load="+element.getAttribute('data-id'),function(response){
-    document.querySelector(".dialog-description").innerHTML = response.trim();
-  });
   let text = "";
   if(element.getAttribute("data-image").length > 10){
     text += `<img src="${element.getAttribute("data-image")}"/>`
@@ -121,15 +121,18 @@ function openDialog(element){
   <a class="dialog-more ${element.getAttribute('data-level')}" href="${element.href}" target="_blank">open</a>
   `;
   document.getElementById("article").innerHTML = text;
+  loadEXT(apiUri+"?load="+element.getAttribute('data-id'),function(response){
+    document.querySelector(".dialog-description").innerHTML = response.trim();
+  });
   const identifier = element.getAttribute("id");
   updateHash('#'+identifier);
   dialog.show();
 }
 
-function showTooltip(e){
+function openDialogOnEvent(e){
   e.preventDefault();
+  //e.stopPropagation();
   openDialog(this);
-  return false;
 }
 
 function openDialogByHash(){

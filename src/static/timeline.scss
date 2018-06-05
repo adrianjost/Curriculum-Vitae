@@ -84,15 +84,16 @@ ul#events li i.material-icons{
 ul#intervals {
     list-style-type: none;
     padding: 0;
+    margin: 0;
     display: block;
     white-space: nowrap;
 }
 
 /* The width depends on the number of intervals. For example 100 / 7 = 14.29% -- then subtract a little bit for room for the borders */
 ul#intervals li {
+    display: inline-block;
     border-right: 1px solid #fff;
     color: #fff;
-    float: left;
     font-size: 1.2em;
     margin: 0;
     padding: 15px 0;

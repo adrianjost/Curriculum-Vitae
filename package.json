@@ -18,6 +18,7 @@
     "gulp-babel": "^7.0.1",
     "gulp-filelog": "^0.4.1",
     "gulp-imagemin": "^4.1.0",
+    "gulp-js-import": "^1.0.6",
     "gulp-optimize-js": "^1.1.0",
     "gulp-plumber": "^1.2.0",
     "gulp-sass": "^4.0.1",

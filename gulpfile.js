@@ -4,15 +4,17 @@ const autoprefixer = require('gulp-autoprefixer')
 const babel = require('gulp-babel')
 const filelog = require('gulp-filelog')
 const imagemin = require('gulp-imagemin')
-const imageminGuetzli = require('imagemin-guetzli');
-const webp = require('gulp-webp');
+const jsImport = require('gulp-js-import');
 const optimizejs = require('gulp-optimize-js')
 const plumber = require('gulp-plumber')
 const sass = require('gulp-sass')
-const uglify = require('gulp-uglify')
-const map = require('vinyl-map')
-const webserver = require('gulp-webserver');
 const sftp = require('gulp-sftp-clean');
+const uglify = require('gulp-uglify')
+const webp = require('gulp-webp');
+const webserver = require('gulp-webserver');
+const imageminGuetzli = require('imagemin-guetzli');
+const map = require('vinyl-map')
+
 
 const cCSS = new cleancss()
 
@@ -72,6 +74,7 @@ gulp.task('styles', () => {
 //compile/transpile JSX and ES6 to ES5 and minify scripts
 gulp.task('scripts', () => {
     beginPipe(['./src/static/**/*.js','./src/sw.js'])
+        .pipe(jsImport({hideConsole: true}))
         .pipe(babel({
             presets: [["es2015", { modules: false }]],
         }))
