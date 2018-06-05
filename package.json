@@ -7,8 +7,7 @@
     "deploy": "gulp deploy",
     "auto": "auto-install --dont-uninstall"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
@@ -27,6 +26,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-webp": "^3.0.0",
     "gulp-webserver": "^0.9.1",
+    "hoek": "^5.0.3",
     "imagemin-guetzli": "^1.0.0",
     "imagemin-webp": "^4.1.0",
     "plumber": "^0.4.8",
