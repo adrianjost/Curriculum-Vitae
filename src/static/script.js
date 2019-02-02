@@ -8,6 +8,7 @@ const apiUri = "https://beta-adrianjost.hackedit.de/api.php";
 var dialog = new A11yDialog(document.getElementById('article-dialog'));
 const timelineWrapper = document.querySelector(".timeline-wrapper");
 const timeline = document.querySelector("#timeline");
+const body = document.querySelector("body");
 var YearWidthPixel = 300;
 var MinYearWidthPixel = 100;
 var MaxYearWidthPixel = 1000;
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 function initializeDialog(){
   dialog.on('hide', function (dialogEl, event) {
     updateHash(' ');
+    body.classList.remove("dialog-open");
   });
 }
 
@@ -37,17 +39,28 @@ function initializeTimeline(events){
   timeRange = Math.round(((new Date()) - minDate), 0);
 
   timelineWrapper.addEventListener("wheel", function(event){
-    event.preventDefault();
-    if(event.ctrlKey){
-      scaleTimeline((event.deltaY > 0)?0.05:-0.05);
-
+    console.log(event);
+    if(event.ctrlKey && event.path.some((parentSelector) => ((parentSelector.classList || {}).value || "").includes("timeline-wrapper"))){
+      event.preventDefault();
+      const scaleFactor = 0.01;
+      scaleTimeline((event.deltaY < 0)?scaleFactor:-scaleFactor);
+      return;
     }else{
-      timelineWrapper.scrollLeft += event.deltaY;
+      if(event.deltaX == 0){
+        const deltaBottom = body.scrollHeight - window.innerHeight - window.pageYOffset;
+        const deltaRight = timelineWrapper.scrollWidth - (timelineWrapper.scrollLeft + timelineWrapper.offsetWidth)
+        if(deltaBottom <= 0 && event.deltaY > 0 || event.deltaY < 0 && deltaRight > 0){
+          event.preventDefault();
+          timelineWrapper.scrollLeft -= event.deltaY;
+          return;
+        }
+      }
     }
-  });  
+  });
 }
 
 function scaleTimeline(factor){
+  const YearWidthPixelBefore = YearWidthPixel;
   YearWidthPixel += YearWidthPixel * factor;
   YearWidthPixel = Math.min(Math.max(YearWidthPixel,MinYearWidthPixel),MaxYearWidthPixel);
   render();
@@ -112,6 +125,7 @@ function setEvents(events){
 }
 
 function openDialog(element){
+  body.classList.add("dialog-open");
   let text = "";
   if(element.getAttribute("data-image").length > 10){
     text += `<img src="${element.getAttribute("data-image")}"/>`

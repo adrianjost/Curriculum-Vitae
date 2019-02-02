@@ -1,12 +1,12 @@
 .main-wrapper{
     min-height: calc(100vh - 343px);
-    padding-top: 2rem;
+    display: flex;
 }
 
 #description, #article{
     width: 95%;
     max-width: 500px;
-    margin: 0 auto;
+    margin: 1rem auto;
     text-align: center;
     padding: 8px;
     padding-bottom: 0;

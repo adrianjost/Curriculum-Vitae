@@ -88,8 +88,8 @@ gulp.task('webserver', function() {
       .pipe(webserver({
         livereload: true,
         directoryListing: true,
-        open: 'https://localhost:8000/index.html',
-        https: true,
+        open: 'http://localhost:8000/index.html',
+        https: false,
       }));
   });
 
