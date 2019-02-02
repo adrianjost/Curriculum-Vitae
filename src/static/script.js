@@ -39,7 +39,6 @@ function initializeTimeline(events){
   timeRange = Math.round(((new Date()) - minDate), 0);
 
   timelineWrapper.addEventListener("wheel", function(event){
-    console.log(event);
     if(event.ctrlKey && event.path.some((parentSelector) => ((parentSelector.classList || {}).value || "").includes("timeline-wrapper"))){
       event.preventDefault();
       const scaleFactor = 0.01;
