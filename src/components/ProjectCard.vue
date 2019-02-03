@@ -81,4 +81,13 @@ export default {
 	font-weight: bold;
 	color: $color-primary;
 }
+
+@media screen and (max-width: 700px) {
+	.card {
+		display: block;
+	}
+	.desc {
+		padding: 0 1.5rem 1rem;
+	}
+}
 </style>

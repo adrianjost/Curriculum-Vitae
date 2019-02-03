@@ -16,7 +16,12 @@ body,
 	width: 100%;
 	min-height: 100vh;
 	font-family: "Raleway", sans-serif;
+	font-size: 18px;
 	color: #fff;
+}
+
+@media screen and (max-width: 700px) {
+	font-size: 16px;
 }
 
 @for $i from 1 through 6 {
