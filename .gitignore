@@ -1,7 +1,21 @@
-
-.ftppass
-.vscode
-build
+.DS_Store
 node_modules
-.htpasswd
-config.php
+/dist
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+# Cache files
+*.cache
