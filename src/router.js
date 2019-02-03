@@ -19,7 +19,7 @@ const router = new VueRouter({
 			component: loadView("login"),
 		},
 
-		{ path: "/projects", component: loadView("projects") },
+		{ path: "/projects", component: loadView("projects"), alias: "/" },
 		{ path: "/about", component: loadView("about") },
 		{ path: "/contact", component: loadView("contact") },
 

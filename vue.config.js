@@ -2,7 +2,7 @@ module.exports = {
 	pwa: {
 		name: "Adrian Jost",
 		themeColor: "#FF1744",
-		msTileColor: "#1E88E5",
+		msTileColor: "#fff",
 		appleMobileWebAppCapable: "yes",
 		appleMobileWebAppStatusBarStyle: "black",
 		iconPaths: {

@@ -141,6 +141,6 @@
 	],
 	"start_url": "/?homescreen=true",
 	"display": "standalone",
-	"background_color": "#1E88E5",
+	"background_color": "#fff",
 	"theme_color": "#FF1744"
 }
