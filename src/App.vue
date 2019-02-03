@@ -25,12 +25,22 @@ export default {
 $color-range: 10%;
 
 #app {
+	position: relative;
 	padding: 1rem;
 	color: var(--color-text);
-	background: linear-gradient(
-		30deg,
-		darken($color-primary, $color-range * 1.5) 30%,
-		lighten($color-primary, $color-range * 0.5)
-	);
+	&:before {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		content: "";
+		background: linear-gradient(
+			30deg,
+			darken($color-primary, $color-range * 1.5) 30%,
+			lighten($color-primary, $color-range * 0.5)
+		);
+	}
 }
 </style>

@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$space-between: 75px;
+$space-between: 5rem;
 $space-around: 2rem;
 .projectcard {
 	margin-top: $space-between;
