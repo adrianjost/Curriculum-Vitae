@@ -11,11 +11,20 @@ firestore.settings({ timestampsInSnapshots: true });
 
 export default function firebaseSync() {
 	return (store) => {
-		firebase.auth().onAuthStateChanged((user) => {
+		firebase.auth().onAuthStateChanged(async (user) => {
 			if (user) {
-				store.dispatch("auth/login", user);
+				return store.dispatch("auth/login", user);
 			} else {
-				store.dispatch("auth/logout");
+				await store.dispatch("auth/logout");
+				store
+					.dispatch(
+						"projects/openDBChannel",
+						{
+							where: [["isPublished", "==", true]],
+						},
+						{ root: true }
+					)
+					.catch(console.error); // eslint-disable-line no-console
 			}
 		});
 	};
