@@ -98,12 +98,11 @@ input {
 	width: 100%;
 	padding: 8px $input-padding-left;
 	background: transparent;
-	border: 1px solid $color-text;
 	outline: none;
 	transition: color 0.2s linear;
 
 	&:focus {
-		color: var(--color-text-active);
+		color: $color-text;
 	}
 }
 

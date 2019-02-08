@@ -1,6 +1,8 @@
 const getters = {
 	list: (state) => {
-		return Object.values(state.data);
+		return Object.values(state.data).sort((a, b) => {
+			return a.date - b.date;
+		});
 	},
 };
 

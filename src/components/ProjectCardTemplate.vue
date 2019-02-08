@@ -62,6 +62,7 @@ export default {
 	color: $color-text;
 }
 .title {
+	padding-bottom: 0;
 	text-transform: capitalize;
 	.category {
 		&::before {
@@ -80,29 +81,39 @@ export default {
 		color: $color-secondary;
 	}
 }
+.subtitle {
+	padding-top: 0;
+	font-size: 1em;
+	color: #999;
+}
 .description {
 	display: block;
 	width: 100%;
 }
-.actions > a,
-.actions > button {
-	display: inline-block;
-	padding: 0.3em 0.5em;
-	font-family: "Quicksand", sans-serif;
-	font-weight: bold;
-	color: $color-primary;
-	text-decoration: none;
-	text-transform: uppercase;
-	border-radius: 0.25em;
-	&:first-of-type {
-		margin-left: -0.5em;
-	}
-	&:last-of-type {
-		margin-right: -0.5em;
-	}
-	&:hover,
-	&:focus {
-		background: #0002;
+.actions {
+	margin-top: 0.5em;
+	> a,
+	> button {
+		display: inline-block;
+		padding: 0.3em 0.5em;
+		margin: 0 0.25em;
+		font-family: "Quicksand", sans-serif;
+		font-weight: bold;
+		line-height: 100%;
+		color: $color-primary;
+		text-decoration: none;
+		text-transform: uppercase;
+		border-radius: 0.25em;
+		&:first-child {
+			margin-left: -0.5em;
+		}
+		&:last-child {
+			margin-right: -0.5em;
+		}
+		&:hover,
+		&:focus {
+			background: #0002;
+		}
 	}
 }
 

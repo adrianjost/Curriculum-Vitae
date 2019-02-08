@@ -20,16 +20,7 @@ const router = new VueRouter({
 		{ path: "/about", component: loadView("about") },
 		{ path: "/contact", component: loadView("contact") },
 
-		{
-			path: "/settings/add",
-			component: loadView("backend/id"),
-			meta: { isPrivate: true },
-		},
-		{
-			path: "/settings/edit/:id",
-			component: loadView("backend/id"),
-			meta: { isPrivate: true },
-		},
+		{ path: "/:id", component: loadView("details") },
 	],
 });
 

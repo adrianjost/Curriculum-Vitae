@@ -13,11 +13,15 @@
 				{{ data.title }}
 				<small class="category">{{ data.category }}</small>
 			</h2>
+			<h3 class="subtitle">{{ dateToString(data.date) }}</h3>
 			<p class="description">{{ data.description }}</p>
 			<div class="actions">
-				<RouterLink v-if="isAuthenticated" :to="`/settings/edit/${data.id}`">
-					edit
-				</RouterLink>
+				<template v-if="isAuthenticated">
+					<RouterLink :to="`/settings/edit/${data.id}`">
+						edit
+					</RouterLink>
+					<button @click="deleteArticle(data.id)">delete</button>
+				</template>
 				<a v-if="data.src" :href="data.src">Mehr erfahren →</a>
 			</div>
 		</ProjectCardTemplate>
@@ -41,6 +45,21 @@ export default {
 		},
 		isAuthenticated() {
 			return this.$store.getters["auth/isAuthenticated"];
+		},
+	},
+	methods: {
+		deleteArticle(id) {
+			if (window.confirm("sure?")) {
+				this.$store.dispatch("projects/delete", id);
+			}
+		},
+		dateToString(timestamp) {
+			if (!timestamp) {
+				return;
+			}
+			const date = new Date(Date.parse(timestamp));
+			const options = { year: "numeric", month: "long" };
+			return date.toLocaleDateString("de-DE", options);
 		},
 	},
 };

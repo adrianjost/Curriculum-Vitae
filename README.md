@@ -1,11 +1,12 @@
 # [Curriculum Vitae from Adrian Jost](https://adrianjost.hackedit.de)
 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/makes-people-smile.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/makes-people-smile.svg)](https://forthebadge.com)
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d7b37affcb4540f59442d4f87bd88bb8)](https://www.codacy.com/app/adrianjost/Curriculum-Vitae?utm_source=github.com&utm_medium=referral&utm_content=adrianjost/Curriculum-Vitae&utm_campaign=Badge_Grade)
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 yarn install
 
