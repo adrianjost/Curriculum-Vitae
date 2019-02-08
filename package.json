@@ -1,11 +1,11 @@
 {
-	"name": "SmartLight-Web",
+	"name": "CV_of_Adrian_Jost",
 	"version": "3.0.0",
 	"private": true,
 	"scripts": {
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
-		"deploy": "yarn lint && yarn build && firebase deploy --only hosting",
+		"deploy": "yarn lint && yarn build --modern && firebase deploy",
 		"lint:eslint": "eslint --fix",
 		"lint:stylelint": "stylelint --fix",
 		"lint:prettier": "prettier --write --loglevel warn",
