@@ -1,12 +1,18 @@
 <template>
 	<ProjectCardTemplate :img="data.img">
 		<div slot="image"></div>
-		<template slot="title">{{ data.title }}</template>
-		<template slot="category">{{ data.category }}</template>
-		<template slot="description">{{ data.description }}</template>
-		<template slot="actions"
-			><a :href="data.src">Mehr erfahren →</a></template
-		>
+		<template slot="title">
+			{{ data.title }}
+		</template>
+		<template slot="category">
+			{{ data.category }}
+		</template>
+		<template slot="description">
+			{{ data.description }}
+		</template>
+		<template slot="actions">
+			<a :href="data.src">Mehr erfahren →</a>
+		</template>
 	</ProjectCardTemplate>
 </template>
 
