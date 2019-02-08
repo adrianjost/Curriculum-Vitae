@@ -12,13 +12,11 @@ firestore.settings({ timestampsInSnapshots: true });
 export default function firebaseSync() {
 	return (store) => {
 		firebase.auth().onAuthStateChanged((user) => {
-			/*
 			if (user) {
 				store.dispatch("auth/login", user);
 			} else {
 				store.dispatch("auth/logout");
 			}
-			*/
 		});
 	};
 }

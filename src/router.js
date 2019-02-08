@@ -14,10 +14,7 @@ const router = new VueRouter({
 	mode: "history",
 	base: process.env.BASE_URL,
 	routes: [
-		{
-			path: "/nigol",
-			component: loadView("login"),
-		},
+		{ path: "/nigol", component: loadView("Login") },
 
 		{ path: "/projects", component: loadView("projects"), alias: "/" },
 		{ path: "/about", component: loadView("about") },
@@ -37,8 +34,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-	//const isAuthenticated = store.getters["auth/isAuthenticated"];
-	const isAuthenticated = true;
+	const isAuthenticated = store.getters["auth/isAuthenticated"];
 	if (!isAuthenticated && to.matched.some((record) => record.meta.isPrivate)) {
 		return next({
 			path: "/nigol",

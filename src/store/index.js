@@ -6,6 +6,7 @@ import createPersistedState from "vuex-persistedstate";
 import firebaseAuth from "./plugins/firebaseAuth";
 import createEasyFirestore from "vuex-easy-firestore";
 
+import auth from "./auth";
 import projects from "./projects";
 
 // do the magic 🔥🧙‍♂️
@@ -15,5 +16,7 @@ const easyFirestore = createEasyFirestore([projects], {
 
 export default new Vuex.Store({
 	plugins: [createPersistedState(), easyFirestore, firebaseAuth()],
-	modules: {},
+	modules: {
+		auth,
+	},
 });
