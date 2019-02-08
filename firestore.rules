@@ -1,7 +1,7 @@
 service cloud.firestore {
   match /databases/{database}/documents {
     function isPublished(){
-      return true;//request.time > resource.data.publishAt;
+      return resource.data.isPublished;//request.time > resource.data.publishAt;
     }
     function isAuthenticated(){
       return request.auth!=null;
