@@ -28,7 +28,7 @@ export default {
 	props: {
 		value: {
 			type: String,
-			required: true,
+			default: "",
 		},
 		label: {
 			type: String,
@@ -40,7 +40,7 @@ export default {
 		},
 		placeholder: {
 			type: String,
-			default: "text",
+			default: "",
 		},
 		required: {
 			type: Boolean,
@@ -70,6 +70,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/styles/variables.scss";
+
 $input-padding-left: 12px;
 
 label {
@@ -77,7 +79,7 @@ label {
 	display: block;
 	margin: 1em 0 0.75em;
 	clear: both;
-	border: 1px solid var(--color-border);
+	border: 1px solid $color-text;
 	border-radius: 4px;
 }
 
@@ -86,9 +88,9 @@ label {
 	top: 0;
 	left: $input-padding-left;
 	font-size: 0.75em;
-	background: var(--color-background);
-	border-right: 1px solid var(--color-background);
-	border-left: 1px solid var(--color-background);
+	background: #fff;
+	border-right: 1px solid #fff;
+	border-left: 1px solid #fff;
 	transform: translateY(-0.75em);
 }
 
@@ -96,7 +98,7 @@ input {
 	width: 100%;
 	padding: 8px $input-padding-left;
 	background: transparent;
-	border: 0;
+	border: 1px solid $color-text;
 	outline: none;
 	transition: color 0.2s linear;
 

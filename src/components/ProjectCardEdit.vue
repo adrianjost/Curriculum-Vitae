@@ -15,24 +15,34 @@
 				/>
 			</label>
 		</template>
-		<template slot="title"
-			><ContentEditable v-model="data.title"
-		/></template>
-		<template slot="category"
-			><ContentEditable v-model="data.category"
-		/></template>
-		<template slot="description"
-			><ContentEditable v-model="data.description"
-		/></template>
-		<template slot="actions"
-			><button class="button" @click="saveArticle()">Save</button></template
-		>
+		<h2 class="title">
+			<ContentEditable v-model="data.title" placeholder="Titel" />
+			<small class="category">
+				<ContentEditable v-model="data.category" placeholder="Category" />
+			</small>
+		</h2>
+		<p class="description">
+			<ContentEditable
+				v-model="data.description"
+				placeholder="you are awesome!"
+			/>
+		</p>
+		<BaseInput
+			v-model="data.src"
+			label="Link"
+			name="src"
+			placeholder="https://..."
+		/>
+		<div class="actions">
+			<button class="button" @click="saveArticle()">Save</button>
+		</div>
 	</ProjectCardTemplate>
 </template>
 
 <script>
 import ProjectCardTemplate from "./ProjectCardTemplate.vue";
-import ContentEditable from "./picker/ContentEditable.vue";
+import ContentEditable from "./ui/BaseContentEditable.vue";
+import BaseInput from "./ui/BaseInput.vue";
 
 import { firebase } from "@firebase/app";
 import "@firebase/storage";
@@ -41,6 +51,7 @@ const storage = firebase.storage();
 export default {
 	name: "ProjectCard",
 	components: {
+		BaseInput,
 		ContentEditable,
 		ProjectCardTemplate,
 	},

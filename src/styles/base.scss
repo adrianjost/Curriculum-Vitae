@@ -1,14 +1,5 @@
 @import "./reset";
 @import "./variables";
-
-:root {
-	--color-primary: $color-primary;
-	--color-secondary: $color-secondary;
-	--color-text: $color-text;
-	--color-link: $color-link;
-	--color-link-visited: $color-link-visited;
-}
-
 @import url("https://fonts.googleapis.com/css?family=Quicksand:400,700|Raleway");
 
 body,
@@ -17,7 +8,6 @@ body,
 	min-height: 100vh;
 	font-family: "Raleway", sans-serif;
 	font-size: 18px;
-	color: #fff;
 }
 
 @media screen and (max-width: 700px) {
@@ -44,7 +34,7 @@ body,
 
 input:not([type="checkbox"]):not([type="radio"]) {
 	width: 100%;
-	color: var(--color-text);
+	color: $color-text;
 	background: transparent;
 	border: none;
 }

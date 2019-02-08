@@ -5,14 +5,7 @@
 				<slot name="image" />
 			</div>
 		</div>
-		<div class="information">
-			<h2 class="title">
-				<slot name="title" />
-				<small class="category"><slot name="category"/></small>
-			</h2>
-			<p class="description"><slot name="description"/></p>
-			<div class="actions"><slot name="actions"/></div>
-		</div>
+		<div class="information"><slot /></div>
 	</article>
 </template>
 
@@ -71,7 +64,7 @@ export default {
 .title {
 	text-transform: capitalize;
 	.category {
-		&:before {
+		&::before {
 			display: inline-block;
 			width: 0.5em;
 			height: 0.1em;
@@ -82,6 +75,7 @@ export default {
 			background: $color-text;
 			border-radius: 1em;
 		}
+
 		font-size: 0.75em;
 		color: $color-secondary;
 	}
@@ -90,10 +84,26 @@ export default {
 	display: block;
 	width: 100%;
 }
-.actions {
+.actions > a,
+.actions > button {
+	display: inline-block;
+	padding: 0.3em 0.5em;
 	font-family: "Quicksand", sans-serif;
 	font-weight: bold;
 	color: $color-primary;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 0.25em;
+	&:first-of-type {
+		margin-left: -0.5em;
+	}
+	&:last-of-type {
+		margin-right: -0.5em;
+	}
+	&:hover,
+	&:focus {
+		background: #0002;
+	}
 }
 
 @media screen and (max-width: 700px) {

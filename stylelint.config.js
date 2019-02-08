@@ -1,116 +1,56 @@
 module.exports = {
 	extends: [
-		"stylelint-config-recommended",
-		"stylelint-8-point-grid", // https://github.com/dcrtantuco/stylelint-8-point-grid
+		// Use the Standard config as the base
+		// https://github.com/stylelint/stylelint-config-standard
+		"stylelint-config-standard",
 		// Enforce a standard order for CSS properties
 		// https://github.com/stormwarning/stylelint-config-recess-order
 		"stylelint-config-recess-order",
+		// Override rules that would interfere with Prettier
+		// https://github.com/shannonmoeller/stylelint-config-prettier
+		"stylelint-config-prettier",
 	],
 	plugins: [
-		"stylelint-a11y", // https://github.com/YozhikM/stylelint-a11y
-		"stylelint-declaration-block-no-ignored-properties", // https://github.com/kristerkari/stylelint-declaration-block-no-ignored-properties
-		"stylelint-high-performance-animation", // https://github.com/kristerkari/stylelint-high-performance-animation
-		"stylelint-selector-no-empty", // https://github.com/ssivanatarajan/stylelint-selector-no-empty
-		"stylelint-selector-tag-no-without-class", // https://github.com/Moxio/stylelint-selector-tag-no-without-class
+		// Bring in some extra rules for SCSS
+		"stylelint-scss",
 	],
+	// Rule lists:
+	// - https://stylelint.io/user-guide/rules/
+	// - https://github.com/kristerkari/stylelint-scss#list-of-rules
 	rules: {
-		// https://github.com/stylelint/stylelint/blob/master/docs/user-guide/rules.md
+		// Allow newlines inside class attribute values
+		"string-no-newline": null,
+		"selector-class-pattern": /^[a-z][a-z0-9-_]+$/,
+		"selector-id-pattern": /^[a-z][a-z0-9-_]+$/,
+		// Limit the number of universal selectors in a selector,
+		// to avoid very slow selectors
+		"selector-max-universal": 1,
+		// ===
+		// PRETTIER
+		// ===
+		// HACK: to compensate for https://github.com/shannonmoeller/stylelint-config-prettier/issues/4
+		// Modifying setting from Standard: https://github.com/stylelint/stylelint-config-standard/blob/7b76d7d0060f2e13a331806a09c2096c7536b0a6/index.js#L6
+		"at-rule-empty-line-before": [
+			"always",
+			{
+				except: ["blockless-after-same-name-blockless", "first-nested"],
+				ignore: ["after-comment"],
+				ignoreAtRules: ["else"],
+			},
+		],
+		// ===
+		// SCSS
+		// ===
+		"scss/dollar-variable-colon-space-after": "always",
+		"scss/dollar-variable-colon-space-before": "never",
+		"scss/dollar-variable-no-missing-interpolation": true,
+		"scss/dollar-variable-pattern": /^[a-z][a-z0-9-_]+$/,
+		"scss/double-slash-comment-whitespace-inside": "always",
+		"scss/operator-no-newline-before": true,
+		"scss/operator-no-unspaced": true,
+		"scss/selector-no-redundant-nesting-selector": true,
+		// Allow SCSS and CSS module keywords beginning with `@`
 		"at-rule-no-unknown": null,
-		"color-named": "never",
-		"color-no-hex": null,
-		"shorthand-property-no-redundant-values": true,
-		"value-no-vendor-prefix": true,
-		"color-hex-case": "lower",
-		"color-hex-length": "short", // https://youtu.be/Sd14d1t5vbQ?t=888
-		"function-name-case": "lower",
-		"string-quotes": "double",
-		"length-zero-no-unit": true,
-		"unit-case": "lower",
-		"value-keyword-case": "lower",
-		"property-case": "lower",
-		// ...
-		"no-empty-source": null,
-		// ...
-		// "linebreaks": ["unix", { "severity": "warning" }], // FIX: autofix not working properly
-		"no-eol-whitespace": true,
-		"no-missing-end-of-source-newline": true,
-		"no-empty-first-line": true,
-
-		"plugin/8-point-grid": {
-			base: 4,
-			whitelist: ["2px", "1px"],
-			ignore: [
-				"width",
-				"height",
-				"min-width",
-				"min-height",
-				"max-width",
-				"max-height",
-			],
-		},
-
-		// FIX: ingores /* styleling-disable */
-		//"a11y/content-property-no-static-value": [true, { "severity": "warning" }],
-		//"a11y/font-size-is-readable": [true, { "severity": "warning" }],
-		//"a11y/media-prefers-reduced-motion": true, // autofix makes code unmaintainable and unreadable
-		//"a11y/media-prefers-color-scheme": [true, { "severity": "warning" }], // autofix makes code unmaintainable and unreadable
-		"a11y/no-obsolete-attribute": [
-			true,
-			{
-				severity: "warning",
-			},
-		],
-		"a11y/no-obsolete-element": [
-			true,
-			{
-				severity: "warning",
-			},
-		],
-		"a11y/no-spread-text": [
-			true,
-			{
-				severity: "warning",
-			},
-		],
-		"a11y/no-outline-none": true,
-		"a11y/no-text-align-justify": [
-			true,
-			{
-				severity: "warning",
-			},
-		],
-		"a11y/selector-pseudo-class-focus": true,
-
-		"plugin/declaration-block-no-ignored-properties": true,
-
-		/*
-		"scale-unlimited/declaration-strict-value": ["/color/", { // consider including font-size
-			ignoreVariables: true,
-			ignoreFunctions: false,
-			ignoreKeywords: {
-				"/color/": ["currentColor", "inherit", "transparent", "initial"]
-			}
-		}],
-		*/
-
-		"plugin/no-low-performance-animation-properties": [
-			true,
-			{
-				ignore: "paint-properties",
-				ignoreProperties: ["color", "background-color"],
-			},
-		],
-
-		"plugin/stylelint-selector-no-empty": true,
-
-		"plugin/selector-tag-no-without-class": ["div", "span"],
-
-		/*
-		"csstools/value-no-unknown-custom-properties": [true, {
-			"importFrom": [
-				"./src/styles/variables.scss"
-			]
-		}],
-		*/
+		"scss/at-rule-no-unknown": true,
 	},
 };

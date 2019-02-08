@@ -1,10 +1,12 @@
 <template>
 	<div v-if="!isSupported" class="warning">
-		<b>Warning:</b> Your Browser is unsupported!
+		<b>Warning:</b>
+		Your Browser is unsupported!
 		<br />
 		<small>
 			This site uses modern web technologies that are only available on
-			<b>Google Chrome (Version >= 69)</b>.
+			<b>Google Chrome (Version >= 69)</b>
+			.
 		</small>
 	</div>
 </template>
@@ -29,11 +31,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import "@/styles/variables.scss";
 .warning {
 	width: calc(100% - 16px);
 	padding: 8px;
 	margin: 8px;
-	color: var(--color-text);
+	color: $color-text;
 	border: 1px solid var(--color-border);
 	border-radius: 4px;
 }

@@ -27,8 +27,8 @@ $color-range: 10%;
 #app {
 	position: relative;
 	padding: 1rem;
-	color: var(--color-text);
-	&:before {
+	color: $color-text;
+	&::before {
 		position: absolute;
 		top: 0;
 		right: 0;
