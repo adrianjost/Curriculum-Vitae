@@ -11,7 +11,7 @@ module.exports = {
 		"plugin:vue/recommended",
 		// https://github.com/prettier/eslint-config-prettier
 		"prettier",
-		"prettier/standard",
+		//"prettier/standard",
 		"prettier/vue",
 	],
 	rules: {

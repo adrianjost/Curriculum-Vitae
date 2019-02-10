@@ -1,5 +1,5 @@
 <template>
-	<section class="text-center">
+	<section class="welcome-msg text-center">
 		<h1 class="header">
 			Welcome
 		</h1>
@@ -36,7 +36,9 @@ export default {
 .text-center {
 	text-align: center;
 }
-
+.welcome-msg {
+	color: #fff;
+}
 .header {
 	font-size: 56px;
 }

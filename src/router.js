@@ -16,11 +16,16 @@ const router = new VueRouter({
 	routes: [
 		{ path: "/nigol", component: loadView("Login") },
 
-		{ path: "/projects", component: loadView("projects"), alias: "/" },
-		{ path: "/about", component: loadView("about") },
-		{ path: "/contact", component: loadView("contact") },
+		{ path: "/projects", component: loadView("Projects"), alias: "/" },
+		{ path: "/about", component: loadView("About") },
+		{ path: "/contact", component: loadView("Contact") },
 
-		{ path: "/:id", component: loadView("details") },
+		{ path: "/:id", component: loadView("Details") },
+		{
+			path: "/:id/edit",
+			component: loadView("Edit"),
+			meta: { isPrivate: true },
+		},
 	],
 });
 

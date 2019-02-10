@@ -3,26 +3,33 @@
 		<TheTitle />
 		<ProjectCardEdit v-if="isAuthenticated" class="projectcard" />
 		<ProjectCardTemplate
-			v-for="(data, index) in demoCards"
+			v-for="(data, index) in articles"
+			:id="data.id"
 			:key="index"
 			:img="data.img"
 			:data="{ ...data, img: data.img + `i=${index}` }"
 			:class="{ projectcard: true, inverted: index % 2 }"
 		>
 			<h2 class="title">
-				{{ data.title }}
-				<small class="category">{{ data.category }}</small>
+				{{ data.title.trim()
+				}}<small class="category">{{ data.category.trim() }}</small>
 			</h2>
 			<h3 class="subtitle">{{ dateToString(data.date) }}</h3>
 			<p class="description">{{ data.description }}</p>
 			<div class="actions">
 				<template v-if="isAuthenticated">
-					<RouterLink :to="`/settings/edit/${data.id}`">
+					<button
+						:checked="data.isPublished"
+						type="checkbox"
+						@click="setPublishState(data, !data.isPublished)"
+					>
+						{{ data.isPublished ? "unpublish" : "publish" }}
+					</button>
+					<RouterLink :to="`/${data.id}/edit`">
 						edit
 					</RouterLink>
-					<button @click="deleteArticle(data.id)">delete</button>
 				</template>
-				<a v-if="data.src" :href="data.src">Mehr erfahren →</a>
+				<a v-if="data.src" target="_blank" :href="data.src">Read more →</a>
 			</div>
 		</ProjectCardTemplate>
 	</div>
@@ -30,7 +37,8 @@
 
 <script>
 import TheTitle from "@/components/TheTitle.vue";
-import ProjectCardEdit from "@/components/ProjectCardEdit.vue";
+const ProjectCardEdit = () =>
+	import(/* webpackChunkName: "view-[request]" */ "@/components/ProjectCardEdit.vue");
 import ProjectCardTemplate from "@/components/ProjectCardTemplate.vue";
 
 export default {
@@ -40,7 +48,7 @@ export default {
 		ProjectCardTemplate,
 	},
 	computed: {
-		demoCards() {
+		articles() {
 			return this.$store.getters["projects/list"];
 		},
 		isAuthenticated() {
@@ -48,11 +56,6 @@ export default {
 		},
 	},
 	methods: {
-		deleteArticle(id) {
-			if (window.confirm("sure?")) {
-				this.$store.dispatch("projects/delete", id);
-			}
-		},
 		dateToString(timestamp) {
 			if (!timestamp) {
 				return;
@@ -60,6 +63,10 @@ export default {
 			const date = new Date(Date.parse(timestamp));
 			const options = { year: "numeric", month: "long" };
 			return date.toLocaleDateString("de-DE", options);
+		},
+		setPublishState(obj, state) {
+			obj.isPublished = state;
+			this.$store.dispatch("projects/set", obj);
 		},
 	},
 };

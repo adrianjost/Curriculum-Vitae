@@ -15,16 +15,7 @@ export default function firebaseSync() {
 			if (user) {
 				return store.dispatch("auth/login", user);
 			} else {
-				await store.dispatch("auth/logout");
-				store
-					.dispatch(
-						"projects/openDBChannel",
-						{
-							where: [["isPublished", "==", true]],
-						},
-						{ root: true }
-					)
-					.catch(console.error); // eslint-disable-line no-console
+				return store.dispatch("auth/logout");
 			}
 		});
 	};

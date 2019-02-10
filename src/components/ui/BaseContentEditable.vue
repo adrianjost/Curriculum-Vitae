@@ -24,6 +24,14 @@ export default {
 	data() {
 		return { isEmpty: true };
 	},
+	watch: {
+		value: function(to) {
+			this.setEmptystate(this.value);
+		},
+	},
+	mounted() {
+		this.setEmptystate(this.value);
+	},
 	methods: {
 		setEmptystate(newText) {
 			this.isEmpty = newText === "";
@@ -35,10 +43,11 @@ export default {
 @import "@/styles/variables.scss";
 
 .input {
-	border-bottom: 1px solid transparent;
+	border: 1px solid transparent;
+	border-radius: 0.125em;
 	transition: border 0.3s ease;
 	&:focus {
-		border-bottom-color: inherit;
+		border-color: inherit;
 		outline: none;
 	}
 }

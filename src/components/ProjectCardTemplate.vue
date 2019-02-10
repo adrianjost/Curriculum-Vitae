@@ -84,7 +84,7 @@ export default {
 .subtitle {
 	padding-top: 0;
 	font-size: 1em;
-	color: #999;
+	font-weight: normal;
 }
 .description {
 	display: block;

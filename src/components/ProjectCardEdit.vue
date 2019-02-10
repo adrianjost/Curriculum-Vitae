@@ -1,7 +1,7 @@
 <template>
 	<ProjectCardTemplate :img="data.img">
 		<template slot="image">
-			<FileUpload @url="upload" />
+			<FileUpload @uploaded="uploaded" />
 		</template>
 		<h2 class="title">
 			<ContentEditable v-model="data.title" placeholder="Titel" />
@@ -12,6 +12,7 @@
 		<p class="description">
 			<ContentEditable
 				v-model="data.description"
+				class="input-description"
 				placeholder="you are awesome!"
 			/>
 		</p>
@@ -34,6 +35,7 @@
 		</label>
 		<div class="actions">
 			<button class="button" @click="saveArticle()">Save</button>
+			<button @click="deleteArticle(data.id)">delete</button>
 		</div>
 	</ProjectCardTemplate>
 </template>
@@ -44,10 +46,6 @@ import ContentEditable from "./ui/BaseContentEditable.vue";
 import BaseInput from "./ui/BaseInput.vue";
 import FileUpload from "./FileUpload.vue";
 
-import { firebase } from "@firebase/app";
-import "@firebase/storage";
-const storage = firebase.storage();
-
 export default {
 	name: "ProjectCard",
 	components: {
@@ -56,19 +54,51 @@ export default {
 		ContentEditable,
 		ProjectCardTemplate,
 	},
+	props: {
+		id: {
+			type: String,
+			default: "",
+		},
+	},
 	data() {
 		return {
 			data: {},
 		};
 	},
+	computed: {
+		savedData() {
+			return this.$store.getters["projects/get"](this.id);
+		},
+	},
+	watch: {
+		savedData: function(to) {
+			this.importSaved(to);
+		},
+	},
+	created() {
+		this.importSaved();
+	},
 	methods: {
-		upload(url) {
+		uploaded(url) {
 			this.data.img = url;
 			this.$forceUpdate();
 		},
 		saveArticle() {
 			this.$store.dispatch("projects/set", this.data);
+			this.$emit("saved", this.data);
 			this.data = {};
+		},
+		deleteArticle(id) {
+			if (window.confirm("sure?")) {
+				this.$store.dispatch("projects/delete", id);
+				this.$emit("deleted");
+			}
+		},
+		importSaved(newData) {
+			newData = newData || this.savedData;
+			if (this.id && (newData || {}).id) {
+				this.data = newData;
+			}
 		},
 	},
 };
@@ -79,5 +109,8 @@ export default {
 
 .button {
 	color: inherit;
+}
+.input-description {
+	display: block;
 }
 </style>

@@ -15,6 +15,10 @@
 </template>
 
 <script>
+import { firebase } from "@firebase/app";
+import "@firebase/storage";
+const storage = firebase.storage();
+
 export default {
 	data() {
 		return {
@@ -35,7 +39,7 @@ export default {
 				null,
 				() => {
 					this.uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-						this.$emit("url", downloadURL);
+						this.$emit("uploaded", downloadURL);
 					});
 				}
 			);
@@ -65,8 +69,9 @@ export default {
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
-	color: #999;
-	border: 2px dashed #999;
+	color: #333;
+	filter: drop-shadow(0 0 4px #fff);
+	border: 2px dashed #333;
 	border-radius: 2em;
 	.progress {
 		position: absolute;

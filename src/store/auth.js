@@ -23,26 +23,18 @@ const mutations = {
 const actions = {
 	async login(store, user) {
 		store.commit("login", user);
-		const syncedStores = [
-			store
-				.dispatch("projects/openDBChannel", null, { root: true })
-				.catch(console.error), // eslint-disable-line no-console
-		];
-		return Promise.all(syncedStores);
+		await store
+			.dispatch("projects/openDBChannel", null, { root: true })
+			.catch(console.error); // eslint-disable-line no-console
 	},
 	async logout(store) {
 		try {
-			const syncedStores = [
-				firebase.auth().signOut(),
-				store
-					.dispatch(
-						"projects/closeDBChannel",
-						{ clearModule: true },
-						{ root: true }
-					)
-					.catch(console.error), // eslint-disable-line no-console
-			];
-			await Promise.all(syncedStores);
+			await store.dispatch("projects/closeDBChannel", {}, { root: true });
+			await store.dispatch(
+				"projects/fetchAndAdd",
+				{ where: [["isPublished", "==", true]], orderBy: ["date", "desc"] },
+				{ root: true }
+			);
 			store.commit("logout");
 		} catch (error) {
 			console.error(error); // eslint-disable-line no-console
