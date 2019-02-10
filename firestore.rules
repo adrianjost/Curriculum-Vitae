@@ -1,0 +1,10 @@
+service cloud.firestore {
+	match /databases/{database}/documents {
+		function isAuthenticated(){
+			return request.auth!=null;
+		}
+		match /projects/{id} {
+			allow read, write: if isAuthenticated();
+		}
+	}
+}

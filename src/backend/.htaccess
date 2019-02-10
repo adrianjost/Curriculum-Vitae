@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Protected Area"
-AuthUserFile /customers/a/8/d/hackedit.de/httpd.www/beta-adrianjost/backend/.htpasswd
-Require valid-user

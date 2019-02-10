@@ -1,0 +1,40 @@
+@import "./reset";
+@import "./variables";
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,700|Raleway");
+
+body,
+#app {
+	width: 100%;
+	min-height: 100vh;
+	font-family: "Raleway", sans-serif;
+	font-size: 18px;
+}
+
+@media screen and (max-width: 700px) {
+	font-size: 16px;
+}
+
+@for $i from 1 through 6 {
+	h#{$i},
+	.h#{$i} {
+		font-family: "Quicksand", sans-serif;
+	}
+}
+
+.container {
+	width: 100%;
+	padding-right: 0;
+	padding-left: 0;
+	margin: 0 auto;
+}
+
+.contents {
+	display: contents;
+}
+
+input:not([type="checkbox"]):not([type="radio"]) {
+	width: 100%;
+	color: $color-text;
+	background: transparent;
+	border: none;
+}
