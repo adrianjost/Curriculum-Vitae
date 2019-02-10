@@ -3,6 +3,7 @@ const fetch = require("isomorphic-fetch");
 
 module.exports = {
 	mode: "universal",
+	srcDir: "src/",
 
 	/*
 	 ** Headers of the page

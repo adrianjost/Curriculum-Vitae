@@ -25,5 +25,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./../node_modules/firebaseui/dist/firebaseui.css";
+@import "./../../node_modules/firebaseui/dist/firebaseui.css";
 </style>
