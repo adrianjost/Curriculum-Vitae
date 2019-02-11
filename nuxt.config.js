@@ -2,7 +2,7 @@ const pkg = require("./package");
 const fetch = require("isomorphic-fetch");
 
 module.exports = {
-	mode: "universal",
+	mode: "spa",
 	srcDir: "src/",
 
 	/*
@@ -26,7 +26,7 @@ module.exports = {
 	/*
 	 ** Global CSS
 	 */
-	css: [],
+	css: ["@styles/base.scss"],
 
 	/*
 	 ** Plugins to load before mounting the App
@@ -45,6 +45,8 @@ module.exports = {
 		/*
 		 ** You can extend webpack config here
 		 */
+		analyze: true,
+		extractCSS: true,
 		extend(config, ctx) {
 			// Run ESLint on save
 			if (ctx.isDev && ctx.isClient) {
@@ -55,10 +57,17 @@ module.exports = {
 					exclude: /(node_modules)/,
 				});
 			}
+			config.optimization = {
+				splitChunks: {
+					chunks: "all",
+				},
+			};
 		},
 	},
 
 	generate: {
+		analyze: true,
+		extractCSS: true,
 		routes: function() {
 			return fetch(
 				"https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/"

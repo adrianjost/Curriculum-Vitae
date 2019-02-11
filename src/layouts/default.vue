@@ -15,9 +15,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "../styles/base";
-</style>
 <style lang="scss" scoped>
 @import "../styles/variables";
 $color-range: 10%;

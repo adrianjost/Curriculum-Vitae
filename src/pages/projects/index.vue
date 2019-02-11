@@ -1,28 +1,20 @@
 <template>
 	<div>
-		<ProjectCardTemplate
+		<ProjectCard
 			v-for="(data, index) in projects"
 			:id="data.id"
 			:key="index"
-			:img="data.img"
-			:data="{ ...data, img: data.img + `i=${index}` }"
-			:class="{ projectcard: true, inverted: index % 2 }"
-		>
-			<h2 class="title">
-				{{ data.title.trim()
-				}}<small class="category">{{ data.category.trim() }}</small>
-			</h2>
-			<h3 class="subtitle">{{ dateToString(data.date) }}</h3>
-			<p class="description">{{ data.description }}</p>
-			<div class="actions">
-				<a v-if="data.src" target="_blank" :href="data.src">Read more →</a>
-			</div>
-		</ProjectCardTemplate>
+			:data="data"
+			:class="{
+				projectcard: true,
+				inverted: index % 2,
+			}"
+		/>
 	</div>
 </template>
 
 <script>
-import ProjectCardTemplate from "@/components/ProjectCardTemplate.vue";
+import ProjectCard from "@/components/ProjectCard.vue";
 import fetch from "isomorphic-fetch";
 
 export default {
@@ -45,17 +37,7 @@ export default {
 		}
 	},
 	components: {
-		ProjectCardTemplate,
-	},
-	methods: {
-		dateToString(timestamp) {
-			if (!timestamp) {
-				return;
-			}
-			const date = new Date(Date.parse(timestamp));
-			const options = { year: "numeric", month: "long" };
-			return date.toLocaleDateString("de-DE", options);
-		},
+		ProjectCard,
 	},
 };
 </script>

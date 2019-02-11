@@ -64,27 +64,16 @@ export default {
 .title {
 	padding-bottom: 0;
 	text-transform: capitalize;
-	.category {
-		&::before {
-			display: inline-block;
-			width: 0.5em;
-			height: 0.1em;
-			margin-right: 0.25em;
-			margin-bottom: 0.25em;
-			margin-left: 0.25em;
-			content: "";
-			background: $color-text;
-			border-radius: 1em;
-		}
-
-		font-size: 0.75em;
-		color: $color-secondary;
-	}
 }
 .subtitle {
 	padding-top: 0;
 	font-size: 1em;
 	font-weight: normal;
+}
+.category {
+	font-size: 1.25em;
+	font-weight: bold;
+	color: $color-secondary;
 }
 .description {
 	display: block;
