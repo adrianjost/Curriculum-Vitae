@@ -2,7 +2,7 @@ const pkg = require("./package");
 const fetch = require("isomorphic-fetch");
 
 module.exports = {
-	mode: "spa",
+	mode: "universal",
 	srcDir: "src/",
 
 	/*
@@ -16,6 +16,22 @@ module.exports = {
 			{ hid: "description", name: "description", content: pkg.description },
 		],
 		link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+	},
+	router: {
+		base: process.env.BASE || "/",
+	},
+	icon: {
+		// Icon options
+		sizes: [16, 120, 144, 152, 192, 384, 512, 1024, 2048],
+	},
+	manifest: {
+		name: "Adrian Jost",
+		short_name: "Adrian Jost",
+		lang: "de-de",
+		start_url: "/?homescreen=true",
+		display: "standalone",
+		background_color: "#fff",
+		theme_color: "#FF1744",
 	},
 
 	/*
@@ -45,8 +61,8 @@ module.exports = {
 		/*
 		 ** You can extend webpack config here
 		 */
-		analyze: true,
-		extractCSS: true,
+		//analyze: true,
+		//extractCSS: true,
 		extend(config, ctx) {
 			// Run ESLint on save
 			if (ctx.isDev && ctx.isClient) {
@@ -66,8 +82,6 @@ module.exports = {
 	},
 
 	generate: {
-		analyze: true,
-		extractCSS: true,
 		routes: function() {
 			return fetch(
 				"https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/"

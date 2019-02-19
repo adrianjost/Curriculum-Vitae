@@ -21,8 +21,7 @@
 
 	"files.exclude": {
 		"**/*.log": true,
-		"**/*.log*": true,
-		"**/dist": true
+		"**/*.log*": true
 	},
 
 	// ===
