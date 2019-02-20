@@ -1,6 +1,9 @@
 language: node_js
 node_js:
   - lts/*
+install:
+  - yarn install --production=false
+  - cd functions && yarn install --production=false && cd functions ..
 script:
   - yarn travis
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
@@ -14,7 +17,3 @@ deploy:
   provider: firebase
   on:
     branch: V3-SSR
-after_success:
-  - firebase use --token $FIREBASE_TOKEN curriculum-vitae-5cd0a
-  - firebase --non-interactive --token $FIREBASE_TOKEN
-  - firebase deploy
