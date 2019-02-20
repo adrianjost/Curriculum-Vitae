@@ -1,6 +1,21 @@
 <template>
 	<ProjectCardTemplate>
-		<img slot="image" class="image--cover" :src="data.img" />
+		<picture slot="image" :alt="'image for' + data.title">
+			<source
+				v-for="breakpoint in imgBreakpoints"
+				:key="breakpoint.break"
+				:media="`(min-width: ${breakpoint.break}px)`"
+				:srcset="
+					`https://aridbtumen.cloudimg.io/width/${breakpoint.size}/x/${
+						data.img
+					}`
+				"
+			/>
+			<img
+				class="image--cover"
+				:src="`https://aridbtumen.cloudimg.io/width/700/x/${data.img}`"
+			/>
+		</picture>
 
 		<h2 class="title">
 			{{ data.title }}
@@ -26,6 +41,25 @@ export default {
 			type: Object,
 			required: true,
 		},
+	},
+	data() {
+		return {
+			// breakpoint
+			imgBreakpoints: [
+				{
+					break: 950,
+					size: 700,
+				},
+				{
+					break: 550,
+					size: 650,
+				},
+				{
+					break: 300,
+					size: 300,
+				},
+			],
+		};
 	},
 	methods: {
 		dateToString(timestamp) {
