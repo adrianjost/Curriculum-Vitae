@@ -1,6 +1,6 @@
 <template>
 	<article class="card">
-		<div class="img" :style="{ 'background-image': `url(${img})` }">
+		<div class="img">
 			<div class="image-overlay">
 				<slot name="image" />
 			</div>
@@ -43,8 +43,6 @@ export default {
 	position: relative;
 	grid-area: img;
 	padding-bottom: 70%;
-	background-position: center;
-	background-size: cover;
 	.image-overlay {
 		position: absolute;
 		top: 0;
@@ -110,7 +108,7 @@ export default {
 	.card {
 		display: block;
 	}
-	.desc {
+	.description {
 		padding: 0 1.5rem 1rem;
 	}
 }

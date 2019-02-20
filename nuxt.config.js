@@ -62,7 +62,7 @@ module.exports = {
 		 ** You can extend webpack config here
 		 */
 		//analyze: true,
-		//extractCSS: true,
+		extractCSS: true,
 		extend(config, ctx) {
 			// Run ESLint on save
 			if (ctx.isDev && ctx.isClient) {
@@ -82,6 +82,7 @@ module.exports = {
 	},
 
 	generate: {
+		extractCSS: true,
 		routes: function() {
 			return fetch(
 				"https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/"

@@ -12,7 +12,9 @@ cache:
 deploy:
   skip_cleanup: true
   provider: firebase
-  token:
-    secure: "aTrYv4hnXdnqugWVq4R7xpiCajtfhquoiB5LAig0h5xRDYCTq+6rG7hCC9GltK2ggFNCV8cX32V2TBPEfldm23BJOKSmvJtpW84Sj/VXKdQ2rhIyVeirZ8Jc915XopN8MPcirmA1UxSef6xfqwM4xq1kxqbNOAVxFa1ih1uJbTCDQP8EOkcOWxpFQi/g1IQZ225Y/95vrhrsUvglDzRg1wO/8C/xMe7MzWL+ZGElgJ1dzGFiv9qY5LZS3SjQ35NKNpfTZHN99Q9v0iqettfeNMC8cxjVQPPF89R6UD17VrFMjH85+sfE6U4/nZrCcPmTQZ3mwDK7E3sadV3XFjohc7zHwfxNRBnjPfB0WXPI9h6fcyWEV5jJ6cf11QuUCXT1euMN2uTWoNaGrST2x+wOcgyTGXPqkVi6qdseDzdjhM9POKIQKp6hBQfGUFCMWUIdZDJRRZTeBvfLzNcK+YKjICqVhXMQDW/56NIopQHP4k0tzjWeferF0J6hB4X56t2sIpdcisCQgrIEWwjgdE4/lb1/mANCS8hMPTvUC3yKi7JVsTf0UemFb5asRmPHMhAuxKySCWYGQIzHVu28kGHsl0ZaDHlgou4Bl8/IOWrctDW/M+VEIkl7jSfJcUR2Tvn2GofuPO2c5CL76pf/qZQsVhh6FVX0adYyuzFZbY5x3tM="
   on:
     branch: V3-SSR
+after_success:
+  - firebase use --token $FIREBASE_TOKEN curriculum-vitae-5cd0a
+  - firebase --non-interactive --token $FIREBASE_TOKEN
+  - firebase deploy

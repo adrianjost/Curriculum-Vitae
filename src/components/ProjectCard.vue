@@ -1,5 +1,7 @@
 <template>
-	<ProjectCardTemplate :img="data.img">
+	<ProjectCardTemplate>
+		<img slot="image" class="image--cover" :src="data.img" />
+
 		<h2 class="title">
 			{{ data.title }}
 		</h2>
@@ -37,3 +39,10 @@ export default {
 	},
 };
 </script>
+<style scoped>
+.image--cover {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+</style>
