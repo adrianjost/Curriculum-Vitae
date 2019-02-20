@@ -1,16 +1,16 @@
 {
 	"indexes": [
 		{
-			"collectionGroup": "projects",
+			"collectionId": "projects",
 			"queryScope": "COLLECTION",
 			"fields": [
 				{
 					"fieldPath": "isPublished",
-					"order": "ASCENDING"
+					"mode": "ASCENDING"
 				},
 				{
 					"fieldPath": "date",
-					"order": "DESCENDING"
+					"mode": "DESCENDING"
 				}
 			]
 		}
