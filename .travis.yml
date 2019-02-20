@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "lts/*"
+  - lts/*
 script:
   - yarn travis
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
@@ -9,3 +9,10 @@ notifications:
 cache:
   directories:
     - node_modules
+deploy:
+  skip_cleanup: true
+  provider: firebase
+  token:
+    secure: D5VLm93F5WLhmuDGI4k9gpPZRtaPM6hbejOV/koV0/RTJndV47DPjeujSweQG9w2D6AJv7HZpcVhZh63PtOZKqK60lHcuiTY0XycGxGgEz9siYxZthGcbQ+nS9l/FObjEUIWKWdtBhdcPQ4TbtF0Do4/xiN9n3D0vlXBE3dhu2xO7px3Or9uLfJ0DQmdZ0/KNE2qIDUY0B2ISzx5tkrawv3+nXn2teLrNANyVaDHde2TPEQRDeAdOUrY1Ma0BzNMZwmIEkkEUEcJ//FqYlbiwhHanRe/2l2phwJqshSZfO1hwRCa938G9jjQok6K9RQ6ZC2qjJ55/1khZ7UEEz6PpWmugn7+sc5rf/glb67elnp/Uji7tjIHU6OsMSAa03rd5sgybsis2UuUGhgNW1ZrV+k8KOZBmVOr3Rx1iC1rb/mCb/JGFqEjZS+fwbPQFJ7R1RH4lX5vhzAGLNj8+bL98tmJZnhVO7aVUi/fZ99nUrVtpO7oN64Hs/lx938oErckmYsDATndyg55aNvKBYusk28fybzTS/VEbwwJC2VxdQ2d9XJxuSZvk44hjLE/ZQxKRPuzDIBMf82T4bJLz5JPQaizW5RZnty+E9+jR4g5sX8zb8pYWpYup8Lq6fnM7OQALd7qrp/BpfFJqfQpKu9RJpO9TSpakXdJShl8G7TRnAA=
+  on:
+    branch: V3-SSR
