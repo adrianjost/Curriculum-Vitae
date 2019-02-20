@@ -3,7 +3,9 @@ node_js:
   - lts/*
 install:
   - yarn install --production=false
-  - cd functions && yarn install --production=false && cd ..
+  - cd functions
+  - yarn install --production=false
+  - cd ..
 script:
   - yarn travis
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
