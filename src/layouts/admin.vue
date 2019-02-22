@@ -36,8 +36,6 @@ export default {
 						redirect: this.$route.path,
 					},
 				});
-			} else {
-				this.fetchProjects();
 			}
 		});
 	},

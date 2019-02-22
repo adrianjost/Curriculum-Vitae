@@ -5,13 +5,14 @@
 		>
 			{{ label }}
 		</span>
-		<input v-model="internalValue" :type="type" v-bind="$attrs" />
-	</label>
+		<textarea ref="textArea" v-model="internalValue" v-bind="$attrs"
+	/></label>
 </template>
 
 <script>
+import autosize from "autosize";
 export default {
-	name: "BaseInput",
+	name: "BaseTextarea",
 	props: {
 		value: {
 			type: String,
@@ -20,10 +21,6 @@ export default {
 		label: {
 			type: String,
 			default: "",
-		},
-		type: {
-			type: String,
-			default: "text",
 		},
 	},
 	data() {
@@ -41,6 +38,9 @@ export default {
 			}
 		},
 	},
+	mounted() {
+		autosize(this.$refs.textArea);
+	},
 };
 </script>
 
@@ -52,8 +52,6 @@ label {
 	display: block;
 	margin: 1em 0 0.75em;
 	clear: both;
-	border: 1px solid $color-text;
-	border-radius: 4px;
 }
 .label {
 	position: absolute;
@@ -65,11 +63,13 @@ label {
 	border-left: 1px solid #fff;
 	transform: translateY(-0.75em);
 }
-input {
+textarea {
 	width: 100%;
 	padding: 8px $input-padding-left;
+	resize: vertical !important;
 	background: transparent;
-	border: none;
+	border: 1px solid $color-text;
+	border-radius: 4px;
 	outline: none;
 	transition: color 0.2s linear;
 	&:focus {

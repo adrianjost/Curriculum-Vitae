@@ -45,7 +45,8 @@ export default {
 	position: relative;
 	display: inline-block;
 	padding: 0 1em;
-	color: #ccc;
+	font-weight: bold;
+	color: #fffa;
 	text-decoration: none;
 	cursor: pointer;
 	&.nuxt-link-exact-active {

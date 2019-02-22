@@ -35,6 +35,9 @@ export default {
 			});
 		},
 	},
+	mounted() {
+		this.fetchProjects();
+	},
 	methods: {
 		async fetchProjects() {
 			db.settings({ timestampsInSnapshots: true });

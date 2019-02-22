@@ -1,9 +1,15 @@
 <template>
 	<div>
-		Contact
+		<ContactCard />
 	</div>
 </template>
 
 <script>
-export default {};
+import ContactCard from "@/components/ContactCard.vue";
+
+export default {
+	components: {
+		ContactCard,
+	},
+};
 </script>
