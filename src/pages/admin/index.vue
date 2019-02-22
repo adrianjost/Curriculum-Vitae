@@ -2,25 +2,24 @@
 	<div>
 		<ProjectCardEdit class="projectcard inverted" @saved="addProject($event)" />
 		<ProjectCardEdit
-			v-for="(data, index) in projects"
-			:key="index"
+			v-for="(data, index) in sortedProjects"
+			:key="data.id"
 			:saved-data="data"
 			:class="{
 				projectcard: true,
 				inverted: index % 2,
 			}"
-			@deleted="removeProject(index)"
+			@deleted="removeProject(data.id)"
 		/>
 	</div>
 </template>
 <script>
-import { firebase } from "@firebase/app";
-import "@firebase/auth";
 import { db } from "~/plugins/firebase.js";
 
 import ProjectCardEdit from "@/components/ProjectCardEdit.vue";
 
 export default {
+	layout: "admin",
 	components: {
 		ProjectCardEdit,
 	},
@@ -29,19 +28,12 @@ export default {
 			projects: [],
 		};
 	},
-	beforeMount() {
-		firebase.auth().onAuthStateChanged((user) => {
-			if (!user) {
-				// User signed out.
-				this.$router.push({
-					path: "/nigol",
-					query: {
-						redirect: this.$route.path,
-					},
-				});
-			}
-		});
-		return this.fetchProjects();
+	computed: {
+		sortedProjects() {
+			return this.projects.slice(0).sort((a, b) => {
+				return b.date.localeCompare(a.date);
+			});
+		},
 	},
 	methods: {
 		async fetchProjects() {
@@ -60,8 +52,14 @@ export default {
 		addProject(project) {
 			this.projects.push(project);
 		},
-		removeProject(index) {
-			this.projects.splice(index, 1);
+		removeProject(id) {
+			const projectIndex = this.projects.findIndex(
+				(project) => project.id === id
+			);
+			if (projectIndex === -1) {
+				return;
+			}
+			this.projects.splice(projectIndex, 1);
 		},
 	},
 };

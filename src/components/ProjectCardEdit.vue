@@ -41,7 +41,9 @@
 		</label>
 		<div class="actions">
 			<button class="button" @click="saveArticle()">Save</button>
-			<button @click="deleteArticle(data.id)">delete</button>
+			<button v-if="savedData.id" @click="deleteArticle(data.id)">
+				delete
+			</button>
 		</div>
 	</ProjectCardTemplate>
 </template>
@@ -107,11 +109,11 @@ export default {
 			apiCall
 				.then((res) => {
 					const newData = this.data;
-					newData.id = res.id;
-					this.$emit("saved", newData);
 					if (!this.savedData.id) {
+						newData.id = res.id;
 						this.data = {};
 					}
+					this.$emit("saved", newData);
 				})
 				.catch(console.error);
 		},

@@ -10,14 +10,21 @@ import "@firebase/auth";
 
 export default {
 	name: "Login",
+	data() {
+		return {
+			loginUi: undefined,
+		};
+	},
 	mounted() {
 		let firebaseui = require("firebaseui");
-		const loginUi = new firebaseui.auth.AuthUI(firebase.auth());
+		this.loginUi =
+			firebaseui.auth.AuthUI.getInstance() ||
+			new firebaseui.auth.AuthUI(firebase.auth());
 		const uiConfig = {
 			signInSuccessUrl: this.$route.query.redirect || "/admin",
 			signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
 		};
-		loginUi.start("#firebaseui-auth-container", uiConfig);
+		this.loginUi.start("#firebaseui-auth-container", uiConfig);
 	},
 };
 </script>
