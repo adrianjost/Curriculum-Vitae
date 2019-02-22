@@ -12,7 +12,7 @@
 				"
 			/>
 			<img
-				class="image--cover"
+				class="image--contain"
 				:src="`https://aridbtumen.cloudimg.io/width/700/x/${data.img}`"
 			/>
 		</picture>
@@ -74,9 +74,9 @@ export default {
 };
 </script>
 <style scoped>
-.image--cover {
+.image--contain {
 	width: 100%;
 	height: 100%;
-	object-fit: cover;
+	object-fit: contain;
 }
 </style>

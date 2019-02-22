@@ -69,7 +69,7 @@ export default {
 	font-weight: normal;
 }
 .category {
-	font-size: 1.25em;
+	font-size: 1.25rem;
 	font-weight: bold;
 	color: $color-secondary;
 }

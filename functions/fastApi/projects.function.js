@@ -34,6 +34,7 @@ app.get("/:id", (req, res) => {
 				return res.sendStatus(404);
 			}
 			data = doc.data();
+			data.id = doc.id;
 			if (data.isPublished !== true) {
 				return res.sendStatus(403);
 			}
@@ -52,10 +53,10 @@ app.get("/", (req, res) => {
 		.orderBy("date", "desc")
 		.get()
 		.then((querySnapshot) => {
-			const projects = [];
-			querySnapshot.forEach((doc) => {
-				projects.push(doc.data());
-			});
+			const projects = querySnapshot.docs.map((doc) => ({
+				id: doc.id,
+				...doc.data(),
+			}));
 			return res.json({ status: 200, data: projects });
 		})
 		.catch((error) => {

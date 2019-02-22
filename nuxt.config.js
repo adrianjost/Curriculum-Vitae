@@ -47,7 +47,7 @@ module.exports = {
 	/*
 	 ** Plugins to load before mounting the App
 	 */
-	plugins: [],
+	plugins: [{ src: "@plugins/firebase", ssr: false }],
 
 	/*
 	 ** Nuxt.js modules
@@ -73,16 +73,10 @@ module.exports = {
 					exclude: /(node_modules)/,
 				});
 			}
-			config.optimization = {
-				splitChunks: {
-					chunks: "all",
-				},
-			};
 		},
 	},
 
 	generate: {
-		extractCSS: true,
 		routes: function() {
 			return fetch(
 				"https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/"
