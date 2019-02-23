@@ -22,7 +22,6 @@
 		"eslint-plugin-promise": "^4.0.1"
 	},
 	"engines": {
-		"node": "8",
-		"yarn": "^1.12.0"
+		"node": "8"
 	}
 }
