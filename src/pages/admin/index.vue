@@ -22,7 +22,7 @@
 <script>
 import { db } from "~/plugins/firebase.js";
 
-import ProjectCardEdit from "@/components/ProjectCardEdit.vue";
+import ProjectCardEdit from "~/components/ProjectCardEdit.vue";
 
 export default {
 	layout: "admin",

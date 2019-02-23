@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/styles/variables.scss";
+@import "~/styles/variables.scss";
 $input-padding-left: 12px;
 label {
 	position: relative;

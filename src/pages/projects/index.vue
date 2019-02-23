@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import ProjectCard from "@/components/ProjectCard.vue";
+import ProjectCard from "~/components/ProjectCard.vue";
 import fetch from "isomorphic-fetch";
 
 export default {

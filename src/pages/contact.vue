@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ContactCard from "@/components/ContactCard.vue";
+import ContactCard from "~/components/ContactCard.vue";
 
 export default {
 	components: {

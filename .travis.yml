@@ -15,7 +15,7 @@ script:
 notifications:
   email: false
 cache:
-  yarn
+  yarn: true
   directories:
     - node_modules
 deploy:

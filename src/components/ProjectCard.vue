@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import ProjectCardTemplate from "@/components/ProjectCardTemplate.vue";
+import ProjectCardTemplate from "~/components/ProjectCardTemplate.vue";
 
 export default {
 	components: { ProjectCardTemplate },

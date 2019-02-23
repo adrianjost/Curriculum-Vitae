@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import FirebaseUi from "@/components/FirebaseUi.vue";
+import FirebaseUi from "~/components/FirebaseUi.vue";
 
 export default {
 	components: { FirebaseUi },
