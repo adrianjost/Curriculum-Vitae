@@ -2,31 +2,33 @@
 	<ProjectCardTemplate>
 		<template slot="image">
 			<img
-				class="image--contain"
+				class="image"
 				src="~/static/avatar.svg"
 				:alt="`profile image of Adrian Jost`"
 			/>
 		</template>
-		<h2 class="title">Contact me</h2>
-		<BaseInput
-			v-model="email"
-			type="email"
-			label="Your E-Mail:"
-			name="email"
-			placeholder="your@mail.com"
-			class="i-email"
-		/>
-		<BaseTextarea
-			v-model="message"
-			label="Your Message:"
-			name="message"
-			:placeholder="'Hi Adrian,\nI saw your portfolio and...'"
-			rows="3"
-			class="i-message"
-		/>
-		<div class="actions">
-			<button class="button" @click="sendMessage()">Send →</button>
-		</div>
+		<template slot="text">
+			<h2 class="title">Contact me</h2>
+			<BaseInput
+				v-model="email"
+				type="email"
+				label="Your E-Mail:"
+				name="email"
+				placeholder="your@mail.com"
+				class="i-email"
+			/>
+			<BaseTextarea
+				v-model="message"
+				label="Your Message:"
+				name="message"
+				:placeholder="'Hi Adrian,\nI saw your portfolio and...'"
+				rows="3"
+				class="i-message"
+			/>
+			<div class="actions">
+				<button class="button" @click="sendMessage()">Send →</button>
+			</div>
+		</template>
 	</ProjectCardTemplate>
 </template>
 
@@ -64,11 +66,6 @@ export default {
 @import "@/styles/variables.scss";
 .button {
 	color: inherit;
-}
-.image--contain {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
 }
 .i-email,
 .i-message {

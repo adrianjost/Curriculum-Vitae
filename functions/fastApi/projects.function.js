@@ -24,6 +24,30 @@ try {
 }
 
 const db = admin.firestore();
+
+app.get("/tags", (req, res) => {
+	return db
+		.collection("projects")
+		.where("isPublished", "==", true)
+		.get()
+		.then((querySnapshot) => {
+			const tags = querySnapshot.docs
+				.map((doc) => doc.data().tags || [])
+				.reduce((acc, tags) => {
+					tags.forEach((tag) => {
+						acc[tag] = acc[tag] ? acc[tag] + 1 : 1;
+					});
+					return acc;
+				}, {});
+			const tagList = Object.keys(tags).map((tag) => [tag, tags[tag]]);
+			return res.json({ status: 200, data: tagList });
+		})
+		.catch((error) => {
+			res.status(500);
+			res.send({ status: 500, message: error });
+		});
+});
+
 app.get("/:id", (req, res) => {
 	return db
 		.collection("projects")
@@ -42,7 +66,7 @@ app.get("/:id", (req, res) => {
 		})
 		.catch((error) => {
 			res.status(500);
-			res.send(error);
+			res.send({ status: 500, message: error });
 		});
 });
 

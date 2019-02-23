@@ -12,22 +12,23 @@
 				"
 			/>
 			<img
-				class="image--contain"
+				class="image"
 				:src="`https://aridbtumen.cloudimg.io/width/700/x/${data.img}`"
 			/>
 		</picture>
-
-		<h2 class="title">
-			{{ data.title }}
-		</h2>
-		<h3 class="subtitle">
-			<span class="category">{{ data.category }}</span> -
-			{{ dateToString(data.date) }}
-		</h3>
-		<p class="description">{{ data.description }}</p>
-		<div class="actions">
-			<a v-if="data.src" target="_blank" :href="data.src">Read more →</a>
-		</div>
+		<template slot="text">
+			<h2 class="title">
+				{{ data.title }}
+			</h2>
+			<h3 class="subtitle">
+				<span class="category">{{ data.category }}</span> -
+				{{ dateToString(data.date) }}
+			</h3>
+			<p class="description">{{ data.description }}</p>
+			<div class="actions">
+				<a v-if="data.src" target="_blank" :href="data.src">Read more →</a>
+			</div>
+		</template>
 	</ProjectCardTemplate>
 </template>
 
@@ -73,10 +74,3 @@ export default {
 	},
 };
 </script>
-<style scoped>
-.image--contain {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
-}
-</style>

@@ -61,7 +61,8 @@ export default {
 	}
 	.nav {
 		position: relative;
-		padding: 1rem 0;
+		padding: 0 0 1rem;
+		margin: 0 0 1rem;
 		text-align: center;
 	}
 }

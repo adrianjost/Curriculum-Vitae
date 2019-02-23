@@ -1,11 +1,13 @@
 <template>
 	<article class="card">
-		<div class="img">
-			<div class="image-overlay">
-				<slot name="image" />
+		<slot>
+			<div class="img-wrapper">
+				<div class="image-overlay">
+					<slot name="image" />
+				</div>
 			</div>
-		</div>
-		<div class="information"><slot /></div>
+			<div class="information"><slot name="text" /></div>
+		</slot>
 	</article>
 </template>
 
@@ -39,7 +41,7 @@ export default {
 		grid-template-areas: "info img";
 	}
 }
-.img {
+.img-wrapper {
 	position: relative;
 	grid-area: img;
 	padding-bottom: 70%;
@@ -49,6 +51,11 @@ export default {
 		left: 0;
 		width: 100%;
 		height: 100%;
+	}
+	.image {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
 	}
 }
 .information {
@@ -108,8 +115,17 @@ export default {
 	.card {
 		display: block;
 	}
-	.description {
-		padding: 0 1.5rem 1rem;
+	.img-wrapper {
+		padding-bottom: 50%;
+
+		/*
+		.image {
+			object-fit: cover;
+		}
+		*/
+	}
+	.information {
+		padding: 0 1rem 1rem;
 	}
 }
 </style>

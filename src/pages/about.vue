@@ -1,9 +1,79 @@
 <template>
-	<div>
-		about
-	</div>
+	<ProjectCardTemplate class="skill-wrapper">
+		<h2 class="h2">things I used</h2>
+		<figure class="skills">
+			<WordCloud :words="tags" class="skill-cloud" />
+		</figure>
+	</ProjectCardTemplate>
 </template>
 
 <script>
-export default {};
+import ProjectCardTemplate from "~/components/ProjectCardTemplate.vue";
+import WordCloud from "~/components/WordCloud.vue";
+
+import fetch from "isomorphic-fetch";
+
+export default {
+	async asyncData(context) {
+		// check if you got a payload first
+		if (context.payload) {
+			// extract the user object passed from nuxt.config.js
+			return { tags: context.payload.tags };
+		} else {
+			// if you got no context, go ahead and make the API request
+			try {
+				const res = await fetch(
+					`https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/tags`
+				);
+				const data = await res.json();
+				return { tags: data.data };
+			} catch (error) {
+				return { tags: [] };
+			}
+		}
+	},
+	components: { ProjectCardTemplate, WordCloud },
+};
 </script>
+
+<style lang="scss" scoped>
+.h2 {
+	font-size: 2.5rem;
+	text-decoration: underline;
+
+	@media screen and (max-width: 700px) {
+		font-size: 1.5rem;
+	}
+}
+
+.skill-wrapper.card {
+	display: block;
+	text-align: center;
+}
+
+.skills {
+	position: relative;
+	padding-bottom: 60%;
+	margin: 0;
+}
+
+$cloud-padding: 2rem;
+.skill-cloud {
+	position: absolute !important;
+	top: $cloud-padding;
+	right: $cloud-padding;
+	bottom: $cloud-padding;
+	left: $cloud-padding;
+	width: auto !important;
+	height: auto !important;
+
+	@media screen and (max-width: 700px) {
+		$cloud-padding: 1rem;
+
+		top: $cloud-padding;
+		right: $cloud-padding;
+		bottom: $cloud-padding;
+		left: $cloud-padding;
+	}
+}
+</style>

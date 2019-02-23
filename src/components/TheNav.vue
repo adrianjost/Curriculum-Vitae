@@ -49,6 +49,10 @@ export default {
 	color: #fffa;
 	text-decoration: none;
 	cursor: pointer;
+
+	@media screen and (max-width: 700px) {
+		padding: 0 0.5em;
+	}
 	&.nuxt-link-exact-active {
 		color: #fff;
 		text-decoration: underline;

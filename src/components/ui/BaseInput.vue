@@ -5,7 +5,14 @@
 		>
 			{{ label }}
 		</span>
-		<input v-model="internalValue" :type="type" v-bind="$attrs" />
+		<slot>
+			<input
+				v-model="internalValue"
+				class="input"
+				:type="type"
+				v-bind="$attrs"
+			/>
+		</slot>
 	</label>
 </template>
 
@@ -59,13 +66,15 @@ label {
 	position: absolute;
 	top: 0;
 	left: $input-padding-left;
+	z-index: 5;
 	font-size: 0.75em;
+	line-height: 1;
 	background: #fff;
 	border-right: 1px solid #fff;
 	border-left: 1px solid #fff;
 	transform: translateY(-0.75em);
 }
-input {
+.input {
 	width: 100%;
 	padding: 8px $input-padding-left;
 	background: transparent;

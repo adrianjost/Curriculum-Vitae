@@ -1,6 +1,10 @@
 <template>
 	<div>
-		<ProjectCardEdit class="projectcard inverted" @saved="addProject($event)" />
+		<ProjectCardEdit
+			class="projectcard inverted"
+			:autocomplete-tags="tags"
+			@saved="addProject($event)"
+		/>
 		<ProjectCardEdit
 			v-for="(data, index) in sortedProjects"
 			:key="data.id"
@@ -9,6 +13,8 @@
 				projectcard: true,
 				inverted: index % 2,
 			}"
+			:autocomplete-tags="tags"
+			@saved="sortedProjects = getSortedProjects()"
 			@deleted="removeProject(data.id)"
 		/>
 	</div>
@@ -26,13 +32,17 @@ export default {
 	data() {
 		return {
 			projects: [],
+			sortedProjects: [],
 		};
 	},
 	computed: {
-		sortedProjects() {
-			return this.projects.slice(0).sort((a, b) => {
-				return b.date.localeCompare(a.date);
-			});
+		tags() {
+			return this.projects
+				.map((project) => project.tags || [])
+				.reduce(
+					(acc, tags) => acc.concat(tags.filter((tag) => !acc.includes(tag))),
+					[]
+				);
 		},
 	},
 	mounted() {
@@ -40,10 +50,8 @@ export default {
 	},
 	methods: {
 		async fetchProjects() {
-			db.settings({ timestampsInSnapshots: true });
 			this.projects = await db
 				.collection("projects")
-				.orderBy("date", "desc")
 				.get()
 				.then((querySnapshot) => {
 					return querySnapshot.docs.map((doc) => ({
@@ -51,9 +59,11 @@ export default {
 						...doc.data(),
 					}));
 				});
+			this.sortedProjects = this.getSortedProjects(this.projects);
 		},
 		addProject(project) {
 			this.projects.push(project);
+			this.sortedProjects = this.getSortedProjects(this.projects);
 		},
 		removeProject(id) {
 			const projectIndex = this.projects.findIndex(
@@ -63,6 +73,42 @@ export default {
 				return;
 			}
 			this.projects.splice(projectIndex, 1);
+			this.sortedProjects = this.getSortedProjects(this.projects);
+		},
+		getSortedProjects(projects) {
+			if (!projects) {
+				projects = this.projects;
+			}
+			return projects.slice(0).sort((a, b) => {
+				// result == -1 => a before b
+				// result ==  0 => unknwon
+				// result ==  1 => b before a
+				const isPublishedResult =
+					!!a.isPublished === !!b.isPublished ? 0 : !!a.isPublished ? 1 : -1;
+				let dateResult = 0;
+				if (a.date && b.date) {
+					dateResult = b.date.localeCompare(a.date);
+				} else if (a.date) {
+					dateResult = 1;
+				} else if (b.date) {
+					dateResult = -1;
+				} else {
+					dateResult = 0;
+				}
+				const result = isPublishedResult === 0 ? dateResult : isPublishedResult;
+				/*
+				console.group(a, b);
+				console.log(isPublishedResult, a.isPublished, b.isPublished);
+				console.log(dateResult, a.date, b.date);
+				console.log(
+					"Result:",
+					result === 0 ? "=" : result < 0 ? "a, b" : "b, a",
+					isPublishedResult === 0 ? dateResult : isPublishedResult
+				);
+				console.groupEnd();
+				*/
+				return result;
+			});
 		},
 	},
 };

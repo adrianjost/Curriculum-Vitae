@@ -1245,6 +1245,13 @@
   dependencies:
     core-js "^2.5.7"
 
+"@johmun/vue-tags-input@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@johmun/vue-tags-input/-/vue-tags-input-2.0.1.tgz#5ca22a573858c8df6c05788e3ffabe92e1baa1df"
+  integrity sha512-1LUsINr6iBROfG31C05qf+XpoM4jLstpLzTmfu+57fxErgP2gGnVB41oz1qVxjKe1gdpOaAZSByhoAm2h0cO3w==
+  dependencies:
+    vue "^2.5.16"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -11490,10 +11497,22 @@ vue-template-es2015-compiler@^1.8.2:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.8.2.tgz#dd73e80ba58bb65dd7a8aa2aeef6089cf6116f2a"
   integrity sha512-cliV19VHLJqFUYbz/XeWXe5CO6guzwd0yrrqqp0bmjlMP3ZZULY7fu8RTC4+3lmHwo6ESVDHFDsvjB15hcR5IA==
 
+vue@^2.5.16:
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.7.tgz#254f188e7621d2d19ee28d0c0442c6d21b53ae2d"
+  integrity sha512-g7ADfQ82QU+j6F/bVDioVQf2ccIMYLuR4E8ev+RsDBlmwRkhGO3HhgF4PF9vpwjdPpxyb1zzLur2nQ2oIMAMEg==
+
 vue@^2.5.22:
   version "2.6.4"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.4.tgz#8a5a44e5740d8b8423a420c8655c97663421fb4d"
   integrity sha512-PbR3FWMgCGjRxRjtWURhcTTBSrA/WHvz9g7v6eCcA0GQQZ0a2W6VrbdP0FKxRU62N9iQSHi3+VYLPfZA8W8m+Q==
+
+vuewordcloud@^18.7.11:
+  version "18.7.11"
+  resolved "https://registry.yarnpkg.com/vuewordcloud/-/vuewordcloud-18.7.11.tgz#285ae2b6d93ac6f1da6e60141227f68a64b30f24"
+  integrity sha1-KFrittk6xvHabmAUEif2imSzDyQ=
+  dependencies:
+    vue "^2.5.16"
 
 vuex-easy-access@^3.1.5:
   version "3.1.5"

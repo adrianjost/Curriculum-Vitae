@@ -20,7 +20,7 @@ export default {
 		return {
 			navRoutes: [
 				{ to: "/admin", title: "Projects" },
-				{ to: "/admin/about", title: "About" },
+				/* { to: "/admin/about", title: "About" }, */
 				{ event: "logout", title: "Logout" },
 			],
 		};
