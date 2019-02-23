@@ -63,5 +63,9 @@
 		"stylelint-config-standard": "^18.2.0",
 		"stylelint-scss": "^3.5.1",
 		"yorkie": "^2.0.0"
+	},
+	"engines": {
+		"node": "^8",
+		"yarn": "^1.12.0"
 	}
 }

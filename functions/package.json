@@ -9,6 +9,9 @@
 		"deploy": "firebase deploy --only functions",
 		"logs": "firebase functions:log"
 	},
+	"installConfig": {
+		"pnp": true
+	},
 	"dependencies": {
 		"camelcase": "^5.0.0",
 		"firebase-admin": "~7.0.0",
@@ -19,6 +22,7 @@
 		"eslint-plugin-promise": "^4.0.1"
 	},
 	"engines": {
-		"node": "8"
+		"node": "8",
+		"yarn": "^1.12.0"
 	}
 }
