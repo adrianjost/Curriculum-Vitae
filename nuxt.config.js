@@ -62,6 +62,7 @@ module.exports = {
 		 ** You can extend webpack config here
 		 */
 		//analyze: true,
+		quiet: false,
 		extractCSS: true,
 		extend(config, ctx) {
 			// Run ESLint on save
