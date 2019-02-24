@@ -1,18 +1,20 @@
 <template>
-	<ul class="nav">
-		<li v-for="route in routes" :key="route.title" class="nav-item-wrapper">
-			<NuxtLink v-if="route.to" class="nav-item" :to="route.to">
-				{{ route.title }}
-			</NuxtLink>
-			<span
-				v-if="route.event"
-				class="nav-item"
-				@click="$emit('navEvent', route.event)"
-			>
-				{{ route.title }}
-			</span>
-		</li>
-	</ul>
+	<nav>
+		<ul v-bind="$attrs" class="nav">
+			<li v-for="route in routes" :key="route.title" class="nav-item-wrapper">
+				<NuxtLink v-if="route.to" class="nav-item" :to="route.to">
+					{{ route.title }}
+				</NuxtLink>
+				<span
+					v-if="route.event"
+					class="nav-item"
+					@click="$emit('navEvent', route.event)"
+				>
+					{{ route.title }}
+				</span>
+			</li>
+		</ul>
+	</nav>
 </template>
 
 <script>

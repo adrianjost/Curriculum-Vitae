@@ -97,7 +97,7 @@ export default {
 		font-family: "Quicksand", sans-serif;
 		font-weight: bold;
 		line-height: 100%;
-		color: $color-primary;
+		color: darken($color-primary, 6%);
 		text-decoration: none;
 		text-transform: uppercase;
 		border-radius: 0.25em;

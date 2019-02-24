@@ -1,8 +1,12 @@
 <template>
 	<div id="app">
-		<TheTitle class="title" />
-		<TheNav class="nav" :routes="navRoutes" />
-		<Nuxt />
+		<header>
+			<TheTitle class="title" />
+			<TheNav class="nav" :routes="navRoutes" />
+		</header>
+		<main>
+			<Nuxt />
+		</main>
 	</div>
 </template>
 
