@@ -60,7 +60,7 @@ export default {
 $cloud-padding: 2rem;
 .skill-cloud {
 	position: absolute !important;
-	top: $cloud-padding;
+	top: 0;
 	right: $cloud-padding;
 	bottom: $cloud-padding;
 	left: $cloud-padding;
@@ -70,7 +70,6 @@ $cloud-padding: 2rem;
 	@media screen and (max-width: 700px) {
 		$cloud-padding: 1rem;
 
-		top: $cloud-padding;
 		right: $cloud-padding;
 		bottom: $cloud-padding;
 		left: $cloud-padding;
