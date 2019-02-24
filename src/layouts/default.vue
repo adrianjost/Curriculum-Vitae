@@ -19,7 +19,7 @@ export default {
 	data() {
 		return {
 			navRoutes: [
-				{ to: "/projects", title: "Projects" },
+				{ to: "/", title: "Projects" },
 				{ to: "/about", title: "About" },
 				{ to: "/contact", title: "Contact" },
 			],

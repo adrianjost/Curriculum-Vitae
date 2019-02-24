@@ -171,10 +171,6 @@ module.exports = {
 						route: "/",
 						payload: projects,
 					});
-					routes.push({
-						route: "/projects",
-						payload: projects,
-					});
 					return routes;
 				});
 		},
