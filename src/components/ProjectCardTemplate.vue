@@ -56,6 +56,9 @@ export default {
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
+		&.image--cover {
+			object-fit: cover;
+		}
 	}
 }
 .information {
@@ -117,12 +120,6 @@ export default {
 	}
 	.img-wrapper {
 		padding-bottom: 50%;
-
-		/*
-		.image {
-			object-fit: cover;
-		}
-		*/
 	}
 	.information {
 		padding: 0 1rem 1rem;

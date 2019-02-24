@@ -31,7 +31,7 @@ export default {
 			if (!user) {
 				// User signed out.
 				this.$router.push({
-					path: "/nigol",
+					path: "/admin/nigol",
 					query: {
 						redirect: this.$route.path,
 					},

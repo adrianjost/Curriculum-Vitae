@@ -3,7 +3,8 @@
 		<template slot="image">
 			<img
 				v-if="data.img"
-				class="image"
+				:class="{ image: true, 'image--cover': data.imgCover }"
+				:style="imgStyles(data)"
 				:src="`https://aridbtumen.cloudimg.io/width/700/x/${data.img}`"
 				:alt="`image for ${data.title}`"
 			/>
@@ -45,6 +46,23 @@
 				label="Link"
 				name="src"
 				placeholder="https://..."
+			/>
+			<BaseInput
+				v-model="data.img"
+				label="Image"
+				name="img-src"
+				placeholder="https://..."
+			/>
+			<label>
+				<input v-model="data.imgCover" type="checkbox" />
+				Image Cover
+			</label>
+			<BaseInput
+				v-if="data.imgCover"
+				v-model="data.imgPosition"
+				label="Position (x y)"
+				name="img-position"
+				placeholder="center center"
 			/>
 			<label>
 				<input v-model="data.isPublished" type="checkbox" />
@@ -143,6 +161,15 @@ export default {
 			newData = newData || this.savedData || {};
 			if (newData.id) {
 				this.data = newData;
+			}
+		},
+		imgStyles(data) {
+			if (!data.imgCover) {
+				return {};
+			} else {
+				return {
+					"object-position": data.imgPosition,
+				};
 			}
 		},
 	},

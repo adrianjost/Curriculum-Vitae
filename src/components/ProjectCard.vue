@@ -2,8 +2,9 @@
 	<ProjectCardTemplate>
 		<VLazyImage
 			slot="image"
-			class="image"
+			:class="{ image: true, 'image--cover': data.imgCover }"
 			:alt="'image for' + data.title"
+			:style="imgStyles(data)"
 			:src="`https://aridbtumen.cloudimg.io/width/700/x/${data.img}`"
 			:src-placeholder="`https://aridbtumen.cloudimg.io/width/30/x/${data.img}`"
 		/>
@@ -62,6 +63,15 @@ export default {
 			const date = new Date(Date.parse(timestamp));
 			const options = { year: "numeric", month: "long" };
 			return date.toLocaleDateString("de-DE", options);
+		},
+		imgStyles(data) {
+			if (!data.imgCover) {
+				return {};
+			} else {
+				return {
+					"object-position": data.imgPosition,
+				};
+			}
 		},
 	},
 };
