@@ -1,5 +1,25 @@
 const pkg = require("./package");
 const fetch = require("isomorphic-fetch");
+var request = require("request").defaults({ encoding: null });
+
+function encodeImage(url) {
+	return new Promise((resolve, reject) => {
+		request.get(
+			`https://aridbtumen.cloudimg.io/width/30/x/${url}`,
+			(error, response, body) => {
+				if (!error && response.statusCode == 200) {
+					data =
+						"data:" +
+						response.headers["content-type"] +
+						";base64," +
+						new Buffer(body).toString("base64");
+					return resolve(data);
+				}
+				return reject(error);
+			}
+		);
+	});
+}
 
 module.exports = {
 	mode: "universal",
@@ -96,13 +116,30 @@ module.exports = {
 				"https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/"
 			)
 				.then((res) => res.json())
-				.then((data) => {
-					return data.data.map((project) => {
-						return {
-							route: "/projects/" + project.id,
-							payload: project,
-						};
+				.then((data) =>
+					Promise.all(
+						data.data.map(async (project) => {
+							if (project.img) {
+								project.imgPlaceholder = await encodeImage(project.img);
+							}
+							return project;
+						})
+					)
+				)
+				.then((projects) => {
+					let routes = projects.map((project) => ({
+						route: "/projects/" + project.id,
+						payload: project,
+					}));
+					routes.push({
+						route: "/",
+						payload: projects,
 					});
+					routes.push({
+						route: "/projects",
+						payload: projects,
+					});
+					return routes;
 				});
 		},
 	},

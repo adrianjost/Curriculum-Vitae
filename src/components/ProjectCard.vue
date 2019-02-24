@@ -3,10 +3,13 @@
 		<VLazyImage
 			slot="image"
 			:class="{ image: true, 'image--cover': data.imgCover }"
-			:alt="'image for' + data.title"
+			:alt="`image for ${data.title}`"
 			:style="imgStyles(data)"
 			:src="`https://aridbtumen.cloudimg.io/width/700/x/${data.img}`"
-			:src-placeholder="`https://aridbtumen.cloudimg.io/width/30/x/${data.img}`"
+			:src-placeholder="
+				data.imgPlaceholder ||
+					`https://aridbtumen.cloudimg.io/width/30/x/${data.img}`
+			"
 		/>
 		<template slot="text">
 			<h2 class="title">
@@ -35,25 +38,6 @@ export default {
 			type: Object,
 			required: true,
 		},
-	},
-	data() {
-		return {
-			// breakpoint
-			imgBreakpoints: [
-				{
-					break: 950,
-					size: 700,
-				},
-				{
-					break: 550,
-					size: 650,
-				},
-				{
-					break: 300,
-					size: 300,
-				},
-			],
-		};
 	},
 	methods: {
 		dateToString(timestamp) {

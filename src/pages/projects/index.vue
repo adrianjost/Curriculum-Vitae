@@ -21,8 +21,8 @@ export default {
 	async asyncData(context) {
 		// check if you got a payload first
 		if (context.payload) {
-			// extract the user object passed from nuxt.config.js
-			return { projects: context.payload.project };
+			// extract the projects object passed from nuxt.config.js
+			return { projects: context.payload };
 		} else {
 			// if you got no context, go ahead and make the API request
 			try {

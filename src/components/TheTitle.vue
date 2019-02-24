@@ -25,7 +25,7 @@ export default {
 	height: $logo-size;
 	margin: 0 auto;
 	background-color: #fff;
-	background-image: url("~static/icon.png");
+	background-image: url("~static/A.min.svg");
 	background-position: center;
 	background-size: cover;
 	border-radius: $logo-size;
