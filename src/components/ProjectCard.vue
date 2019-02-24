@@ -1,21 +1,12 @@
 <template>
 	<ProjectCardTemplate>
-		<picture slot="image" :alt="'image for' + data.title">
-			<source
-				v-for="breakpoint in imgBreakpoints"
-				:key="breakpoint.break"
-				:media="`(min-width: ${breakpoint.break}px)`"
-				:srcset="
-					`https://aridbtumen.cloudimg.io/width/${breakpoint.size}/x/${
-						data.img
-					}`
-				"
-			/>
-			<img
-				class="image"
-				:src="`https://aridbtumen.cloudimg.io/width/700/x/${data.img}`"
-			/>
-		</picture>
+		<VLazyImage
+			slot="image"
+			class="image"
+			:alt="'image for' + data.title"
+			:src="`https://aridbtumen.cloudimg.io/width/700/x/${data.img}`"
+			:src-placeholder="`https://aridbtumen.cloudimg.io/width/30/x/${data.img}`"
+		/>
 		<template slot="text">
 			<h2 class="title">
 				{{ data.title }}
@@ -33,10 +24,11 @@
 </template>
 
 <script>
+import VLazyImage from "v-lazy-image";
 import ProjectCardTemplate from "~/components/ProjectCardTemplate.vue";
 
 export default {
-	components: { ProjectCardTemplate },
+	components: { VLazyImage, ProjectCardTemplate },
 	props: {
 		data: {
 			type: Object,
@@ -74,3 +66,14 @@ export default {
 	},
 };
 </script>
+
+<style lang="scss">
+.v-lazy-image {
+	filter: blur(10px);
+	transition: filter 0.7s;
+}
+
+.v-lazy-image-loaded {
+	filter: blur(0);
+}
+</style>
