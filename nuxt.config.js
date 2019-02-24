@@ -25,6 +25,17 @@ module.exports = {
 	mode: "universal",
 	srcDir: "src/",
 
+	render: {
+		bundleRenderer: {
+			shouldPrefetch: (file, type) => {
+				return !file.includes("admin");
+			},
+			shouldPreload: (file, type) => {
+				return !file.includes("admin");
+			},
+		},
+	},
+
 	/*
 	 ** Headers of the page
 	 */
@@ -67,12 +78,13 @@ module.exports = {
 	/*
 	 ** Plugins to load before mounting the App
 	 */
-	plugins: [{ src: "@plugins/firebase", ssr: false }],
+	plugins: [],
 
 	/*
 	 ** Nuxt.js modules
 	 */
-	modules: ["@nuxtjs/pwa", "@nuxtjs/sitemap"],
+	modules: ["@nuxtjs/pwa", "@nuxtjs/sitemap", "nuxt-purgecss"],
+
 	sitemap: {
 		generate: true,
 		hostname: process.env.BASE_URL || "https://alpha-adrianjost.hackedit.de",
@@ -87,16 +99,40 @@ module.exports = {
 				.then((data) => data.data.map((project) => "/projects/" + project.id));
 		},
 	},
+
+	purgeCSS: {
+		// your settings here
+	},
+
 	/*
 	 ** Build configuration
 	 */
 	build: {
+		analyze: true,
+		quiet: false,
+		extractCSS: true,
+		splitChunks: {
+			layouts: true,
+			pages: true,
+			commons: true,
+		},
+		optimization: {
+			splitChunks: {
+				chunks: "all",
+				automaticNameDelimiter: ".",
+				name: true,
+				minSize: 50000,
+				maxSize: 500000,
+			},
+		},
+		filenames: {
+			app: ({ isDev }) => (isDev ? "[name].js" : "[name].[chunkhash].js"),
+			chunk: ({ isDev }) => (isDev ? "[name].js" : "[name].[chunkhash].js"),
+			css: ({ isDev }) => (isDev ? "[name].css" : "[name].[contenthash].css"),
+		},
 		/*
 		 ** You can extend webpack config here
 		 */
-		//analyze: true,
-		quiet: false,
-		//extractCSS: true,
 		extend(config, ctx) {
 			// Run ESLint on save
 			if (ctx.isDev && ctx.isClient) {

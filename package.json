@@ -5,11 +5,9 @@
 	"author": "Adrian Jost",
 	"private": true,
 	"scripts": {
-		"dev": "cross-env NODE_ENV=development nodemon src/server/index.js --watch server",
-		"build": "nuxt build",
-		"start": "cross-env NODE_ENV=production node src/server/index.js",
-		"generate": "nuxt generate",
-		"deploy": "yarn lint && yarn generate && firebase deploy",
+		"dev": "cross-env NODE_ENV=development nuxt",
+		"build": "nuxt generate",
+		"deploy": "yarn lint && yarn build && firebase deploy",
 		"lint:eslint": "eslint --fix",
 		"lint:stylelint": "stylelint --fix",
 		"lint:prettier": "prettier --write --loglevel warn",
@@ -17,7 +15,7 @@
 		"lint:all:stylelint": "yarn lint:stylelint \"src/**/*.{vue,sass,scss,css}\"",
 		"lint:all:prettier": "yarn lint:prettier \"**/*.{js,json,css,scss,vue,html}\"",
 		"lint": "run-s lint:all:*",
-		"travis": "yarn lint && yarn generate"
+		"travis": "yarn lint && yarn build"
 	},
 	"gitHooks": {
 		"pre-commit": "cross-env PRE_COMMIT=true lint-staged"
@@ -28,23 +26,21 @@
 	"dependencies": {
 		"@firebase/app": "^0.3.6",
 		"@firebase/auth": "^0.9.1",
-		"@firebase/database": "^0.3.9",
 		"@firebase/firestore": "^0.9.3",
+		"@firebase/storage": "^0.2.8",
 		"@johmun/vue-tags-input": "^2.0.1",
-		"@nuxtjs/pwa": "^3.0.0-beta.8",
-		"@nuxtjs/sitemap": "^0.2.0",
 		"autosize": "^4.0.2",
 		"cross-env": "^5.2.0",
-		"express": "^4.16.4",
 		"firebase": "^5.7.3",
 		"firebaseui": "^3.5.1",
 		"isomorphic-fetch": "^2.2.1",
 		"nuxt": "^2.4.0",
 		"v-lazy-image": "^1.3.2",
-		"vuewordcloud": "^18.7.11",
-		"vuex-easy-firestore": "^1.29.0"
+		"vuewordcloud": "^18.7.11"
 	},
 	"devDependencies": {
+		"@nuxtjs/pwa": "^3.0.0-beta.8",
+		"@nuxtjs/sitemap": "^0.2.0",
 		"babel-eslint": "^8.2.1",
 		"cross-env": "^5.2.0",
 		"eslint": "^5.13.0",
@@ -55,9 +51,10 @@
 		"imagemin-lint-staged": "^0.4.0",
 		"lint-staged": "^8.1.2",
 		"node-sass": "^4.11.0",
-		"nodemon": "^1.18.9",
 		"npm-run-all": "^4.1.5",
+		"nuxt-purgecss": "^0.2.1",
 		"prettier": "github:prettier/prettier#3de36e3",
+		"request": "^2.88.0",
 		"sass-loader": "^7.1.0",
 		"stylelint": "^9.10.1",
 		"stylelint-config-prettier": "^4.0.0",

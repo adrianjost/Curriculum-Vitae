@@ -11,6 +11,7 @@ const config = {
 	messagingSenderId: "708068057486",
 };
 
+// initialize if not already done
 if (!firebase.apps.length) {
 	firebase.initializeApp(config);
 	firebase.firestore().settings({ timestampsInSnapshots: true });

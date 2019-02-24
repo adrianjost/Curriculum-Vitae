@@ -67,7 +67,7 @@ export default {
 <style lang="scss">
 @import "~/styles/variables.scss";
 
-.tag-input {
+div.tag-input {
 	background: transparent;
 	border-radius: 4px;
 	.ti-input {

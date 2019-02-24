@@ -14,6 +14,7 @@ import WordCloud from "~/components/WordCloud.vue";
 import fetch from "isomorphic-fetch";
 
 export default {
+	components: { ProjectCardTemplate, WordCloud },
 	async asyncData(context) {
 		// check if you got a payload first
 		if (context.payload) {
@@ -32,7 +33,6 @@ export default {
 			}
 		}
 	},
-	components: { ProjectCardTemplate, WordCloud },
 };
 </script>
 
@@ -55,6 +55,7 @@ export default {
 	position: relative;
 	padding-bottom: 60%;
 	margin: 0;
+	overflow: hidden;
 }
 
 $cloud-padding: 2rem;
