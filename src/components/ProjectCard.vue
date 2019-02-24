@@ -21,7 +21,9 @@
 			</h3>
 			<p class="description">{{ data.description }}</p>
 			<div class="actions">
-				<a v-if="data.src" target="_blank" :href="data.src">Read more →</a>
+				<a v-if="data.src" target="_blank" rel="noreferrer" :href="data.src">
+					Read more →
+				</a>
 			</div>
 		</template>
 	</ProjectCardTemplate>
