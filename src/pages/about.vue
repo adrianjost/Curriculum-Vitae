@@ -18,8 +18,8 @@ export default {
 	async asyncData(context) {
 		// check if you got a payload first
 		if (context.payload) {
-			// extract the user object passed from nuxt.config.js
-			return { tags: context.payload.tags };
+			// extract the tags passed from nuxt.config.js
+			return { tags: context.payload };
 		} else {
 			// if you got no context, go ahead and make the API request
 			try {

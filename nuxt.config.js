@@ -121,8 +121,6 @@ module.exports = {
 				chunks: "all",
 				automaticNameDelimiter: ".",
 				name: true,
-				minSize: 50000,
-				maxSize: 500000,
 			},
 		},
 		filenames: {
