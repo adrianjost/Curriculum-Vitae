@@ -101,13 +101,13 @@ module.exports = {
 				chunks: "all",
 				automaticNameDelimiter: ".",
 				name: true,
-				cacheGroups: {
+				/*cacheGroups: {
 					vendor: {
 						test: /admin/,
 						name: "admin",
 						chunks: "all",
 					},
-				},
+				},*/
 			},
 		},
 		filenames: {
