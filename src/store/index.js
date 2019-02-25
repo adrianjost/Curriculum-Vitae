@@ -1,4 +1,5 @@
 import fetch from "isomorphic-unfetch";
+import base64Img from "base64-img";
 
 export const state = () => ({
 	tags: [],
@@ -35,8 +36,6 @@ function getTags() {
 		.then((res) => res.json())
 		.then((data) => data.data);
 }
-
-var base64Img = require("base64-img");
 
 async function encodeImage(url) {
 	if (!process.server) {

@@ -88,9 +88,9 @@ module.exports = {
 	 ** Build configuration
 	 */
 	build: {
-		analyze: true,
+		//analyze: true,
 		quiet: false,
-		extractCSS: true,
+		//extractCSS: true,
 		html: {
 			minify: {
 				collapseWhitespace: true,
@@ -113,16 +113,15 @@ module.exports = {
 		},
 		optimization: {
 			splitChunks: {
-				chunks: "all",
+				//chunks: "all",
 				automaticNameDelimiter: ".",
 				name: true,
-				/*cacheGroups: {
-					vendor: {
-						test: /admin/,
+				cacheGroups: {
+					admin: {
 						name: "admin",
-						chunks: "all",
+						test: /admin/,
 					},
-				},*/
+				},
 			},
 		},
 		filenames: {
@@ -159,11 +158,9 @@ module.exports = {
 				.then((projects) => {
 					let routes = projects.map((project) => ({
 						route: "/projects/" + project.id,
-						payload: project,
 					}));
 					routes.push({
 						route: "/",
-						payload: projects,
 					});
 					return routes;
 				});
