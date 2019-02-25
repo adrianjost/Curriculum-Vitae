@@ -72,9 +72,6 @@
 		// Warn against new operators with the String, Number, and Boolean objects
 		"no-new-wrappers": 1,
 
-		// Disallow throwing literals as exceptions
-		"no-throw-literal": 2,
-
 		// Require using Error objects as Promise rejection reasons
 		"prefer-promise-reject-errors": 2,
 
