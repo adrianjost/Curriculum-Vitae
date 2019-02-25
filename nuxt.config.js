@@ -91,6 +91,21 @@ module.exports = {
 		analyze: true,
 		quiet: false,
 		extractCSS: true,
+		html: {
+			minify: {
+				collapseWhitespace: true,
+				conservativeCollapse: true,
+				collapseBooleanAttributes: true,
+				decodeEntities: true,
+				minifyCSS: true,
+				minifyJS: true,
+				processConditionalComments: true,
+				removeEmptyAttributes: true,
+				removeRedundantAttributes: true,
+				trimCustomFragments: true,
+				useShortDoctype: true,
+			},
+		},
 		splitChunks: {
 			layouts: true,
 			pages: true,
