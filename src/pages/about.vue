@@ -11,27 +11,12 @@
 import ProjectCardTemplate from "~/components/ProjectCardTemplate.vue";
 import WordCloud from "~/components/WordCloud.vue";
 
-import fetch from "isomorphic-fetch";
-
 export default {
 	components: { ProjectCardTemplate, WordCloud },
-	async asyncData(context) {
-		// check if you got a payload first
-		if (context.payload) {
-			// extract the tags passed from nuxt.config.js
-			return { tags: context.payload };
-		} else {
-			// if you got no context, go ahead and make the API request
-			try {
-				const res = await fetch(
-					`https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/tags`
-				);
-				const data = await res.json();
-				return { tags: data.data };
-			} catch (error) {
-				return { tags: [] };
-			}
-		}
+	computed: {
+		tags() {
+			return this.$store.getters.getTags;
+		},
 	},
 };
 </script>

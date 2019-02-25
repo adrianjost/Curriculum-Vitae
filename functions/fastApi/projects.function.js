@@ -25,7 +25,9 @@ try {
 
 const db = admin.firestore();
 
-app.get("/tags", (req, res) => {
+// METHODS
+
+const getTags = () => {
 	return db
 		.collection("projects")
 		.where("isPublished", "==", true)
@@ -39,7 +41,47 @@ app.get("/tags", (req, res) => {
 					});
 					return acc;
 				}, {});
-			const tagList = Object.keys(tags).map((tag) => [tag, tags[tag]]);
+			return Object.keys(tags).map((tag) => [tag, tags[tag]]);
+		});
+};
+
+const getProject = (id) => {
+	return db
+		.collection("projects")
+		.doc(id)
+		.get()
+		.then((doc) => {
+			if (!doc.exists) {
+				throw { code: 404, message: "" };
+			}
+			data = doc.data();
+			data.id = doc.id;
+			if (data.isPublished !== true) {
+				throw { code: 403, message: "" };
+			}
+			return data;
+		});
+};
+
+const getProjects = () => {
+	return db
+		.collection("projects")
+		.where("isPublished", "==", true)
+		.orderBy("date", "desc")
+		.get()
+		.then((querySnapshot) => {
+			return querySnapshot.docs.map((doc) => ({
+				id: doc.id,
+				...doc.data(),
+			}));
+		});
+};
+
+// ROUTES
+
+app.get("/tags", (req, res) => {
+	return getTags()
+		.then((tagList) => {
 			return res.json({ status: 200, data: tagList });
 		})
 		.catch((error) => {
@@ -49,43 +91,25 @@ app.get("/tags", (req, res) => {
 });
 
 app.get("/:id", (req, res) => {
-	return db
-		.collection("projects")
-		.doc(req.params.id)
-		.get()
-		.then((doc) => {
-			if (!doc.exists) {
-				return res.sendStatus(404);
-			}
-			data = doc.data();
-			data.id = doc.id;
-			if (data.isPublished !== true) {
-				return res.sendStatus(403);
-			}
-			return res.json({ status: 200, data });
+	return getProject(req.params.id)
+		.then((project) => {
+			return res.json({ status: 200, project });
 		})
 		.catch((error) => {
-			res.status(500);
-			res.send({ status: 500, message: error });
+			const errorCode = error.code || 500;
+			res.status(errorCode);
+			res.send({ status: errorCode, message: error.message || error });
 		});
 });
 
 app.get("/", (req, res) => {
-	return db
-		.collection("projects")
-		.where("isPublished", "==", true)
-		.orderBy("date", "desc")
-		.get()
-		.then((querySnapshot) => {
-			const projects = querySnapshot.docs.map((doc) => ({
-				id: doc.id,
-				...doc.data(),
-			}));
+	return getProjects()
+		.then((projects) => {
 			return res.json({ status: 200, data: projects });
 		})
 		.catch((error) => {
 			res.status(500);
-			res.send(error);
+			res.send({ status: 500, message: error });
 		});
 });
 

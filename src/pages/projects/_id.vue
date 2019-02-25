@@ -1,17 +1,18 @@
 <template>
+	<!-- TODO use new layout -->
 	<ProjectCardTemplate
-		:id="data.id"
-		:img="data.img"
-		:data="{ ...data, img: data.img }"
+		:id="project.id"
+		:img="project.img"
+		:data="{ ...project, img: project.img }"
 		:class="{ projectcard: true }"
 	>
 		<h2 class="title">
-			{{ data.title }}<small class="category">{{ data.category }}</small>
+			{{ project.title }}<small class="category">{{ project.category }}</small>
 		</h2>
-		<h3 class="subtitle">{{ dateToString(data.date) }}</h3>
-		<p class="description">{{ data.description }}</p>
+		<h3 class="subtitle">{{ dateToString(project.date) }}</h3>
+		<p class="description">{{ project.description }}</p>
 		<div class="actions">
-			<a v-if="data.src" target="_blank" :href="data.src">Read more →</a>
+			<a v-if="project.src" target="_blank" :href="project.src">Read more →</a>
 		</div>
 	</ProjectCardTemplate>
 </template>
@@ -19,31 +20,14 @@
 <script>
 import ProjectCardTemplate from "~/components/ProjectCardTemplate.vue";
 
-import fetch from "isomorphic-fetch";
-
 export default {
 	components: {
 		ProjectCardTemplate,
 	},
-	async asyncData({ payload, params }) {
-		// check if you got a payload first
-		if (payload) {
-			// extract the project object passed from nuxt.config.js
-			return { data: payload };
-		} else {
-			// if you got no context, go ahead and make the API request
-			try {
-				const res = await fetch(
-					`https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/${
-						params.id
-					}`
-				);
-				const data = await res.json();
-				return { data: data.data };
-			} catch (error) {
-				return { data: {} };
-			}
-		}
+	computed: {
+		project() {
+			return this.$store.getters.getProject(this.$route.params.id);
+		},
 	},
 	methods: {
 		dateToString(timestamp) {
