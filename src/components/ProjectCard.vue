@@ -51,13 +51,7 @@ export default {
 			return date.toLocaleDateString("de-DE", options);
 		},
 		imgStyles(data) {
-			if (!data.imgCover) {
-				return {};
-			} else {
-				return {
-					"object-position": data.imgPosition,
-				};
-			}
+			return data.imgPosition ? { "object-position": data.imgPosition } : {};
 		},
 	},
 };
