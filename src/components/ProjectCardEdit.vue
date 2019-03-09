@@ -58,7 +58,6 @@
 				Image Cover
 			</label>
 			<BaseInput
-				v-if="data.imgCover"
 				v-model="data.imgPosition"
 				label="Position (x y)"
 				name="img-position"
@@ -164,13 +163,7 @@ export default {
 			}
 		},
 		imgStyles(data) {
-			if (!data.imgCover) {
-				return {};
-			} else {
-				return {
-					"object-position": data.imgPosition,
-				};
-			}
+			return data.imgPosition ? { "object-position": data.imgPosition } : {};
 		},
 	},
 };

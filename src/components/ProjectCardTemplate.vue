@@ -45,6 +45,7 @@ export default {
 	position: relative;
 	grid-area: img;
 	padding-bottom: 70%;
+	overflow: hidden;
 	.image-overlay {
 		position: absolute;
 		top: 0;
