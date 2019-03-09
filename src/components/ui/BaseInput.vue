@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<label>
+		<label :class="{ 'with-error': withError }">
 			<span
 				:class="{ label: true, active: internalValue && internalValue !== 0 }"
 			>
@@ -15,7 +15,11 @@
 				/>
 			</slot>
 		</label>
-		<small :style="{ visibility: error ? 'visible' : 'hidden' }" class="error">
+		<small
+			v-if="withError"
+			:style="{ visibility: error ? 'visible' : 'hidden' }"
+			class="error"
+		>
 			{{ error ? error : "valid input" }}
 		</small>
 	</div>
@@ -37,9 +41,13 @@ export default {
 			type: String,
 			default: "text",
 		},
+		withError: {
+			type: Boolean,
+			default: false,
+		},
 		error: {
 			type: String,
-			default: "Invalid argument",
+			default: "",
 		},
 	},
 	data() {
@@ -67,6 +75,10 @@ label {
 	position: relative;
 	display: block;
 	margin: 1em 0 0;
+	&.with-error {
+		margin-bottom: 0.75em;
+	}
+
 	clear: both;
 	border: 1px solid $color-text;
 	border-radius: 4px;

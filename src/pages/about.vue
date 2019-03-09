@@ -1,7 +1,12 @@
 <template>
 	<div>
+		<ProjectCardTemplate>
+			<h2 class="h2">About Me</h2>
+			<p>I'm a 21 years old, passionated web developer.</p>
+		</ProjectCardTemplate>
+
 		<ProjectCardTemplate v-if="work.length">
-			<h2 class="h2">Work</h2>
+			<h2 class="h2">My employers</h2>
 			<Chapter v-for="chapter in work" :key="chapter.key" :data="chapter" />
 		</ProjectCardTemplate>
 

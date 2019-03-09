@@ -9,6 +9,10 @@
 		</template>
 		<template slot="text">
 			<h2 class="title">Contact me</h2>
+			<p class="info">
+				<b>My E-Mail:</b>
+				<span class="encrypted">{{ encrypt("adrianjost@hackedit.de") }}</span>
+			</p>
 			<BaseInput
 				v-model="email"
 				type="email"
@@ -16,6 +20,7 @@
 				name="email"
 				placeholder="your@mail.com"
 				class="i-email"
+				:with-error="true"
 				:error="error.email"
 			/>
 			<BaseTextarea
@@ -25,6 +30,7 @@
 				:placeholder="'Hi Adrian,\nI saw your portfolio and...'"
 				rows="3"
 				class="i-message"
+				:with-error="true"
 				:error="error.message"
 			/>
 			<div class="actions">
@@ -80,7 +86,7 @@ export default {
 				if (!this.email) {
 					error.email = "Required so I can respond to your message.";
 				} else if (!this.email.match(/\S+@\S+\.\S{2,}/)) {
-					error.email = "Your e-mail looks invalid.";
+					error.email = "Your E-Mail looks invalid.";
 				}
 			}
 			if (this.validate.message) {
@@ -100,6 +106,12 @@ export default {
 		},
 	},
 	methods: {
+		encrypt(text) {
+			return text
+				.split("")
+				.reverse()
+				.join("");
+		},
 		sendMessage() {
 			this.validate = { email: true, message: true };
 			if (this.error.email || this.error.message) {
@@ -142,5 +154,14 @@ export default {
 .i-email,
 .i-message {
 	margin: 0.5em 0 0;
+}
+.info {
+	margin: 0.5em 0 0;
+}
+.encrypted {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+	cursor: default;
+	user-select: none;
 }
 </style>

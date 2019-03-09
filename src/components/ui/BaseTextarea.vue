@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<label>
+		<label :class="{ 'with-error': withError }">
 			<span
 				:class="{ label: true, active: internalValue && internalValue !== 0 }"
 			>
@@ -8,7 +8,11 @@
 			</span>
 			<textarea ref="textArea" v-model="internalValue" v-bind="$attrs" />
 		</label>
-		<small :style="{ visibility: error ? 'visible' : 'hidden' }" class="error">
+		<small
+			v-if="withError"
+			:style="{ visibility: error ? 'visible' : 'hidden' }"
+			class="error"
+		>
 			{{ error ? error : "valid input" }}
 		</small>
 	</div>
@@ -26,6 +30,10 @@ export default {
 		label: {
 			type: String,
 			default: "",
+		},
+		withError: {
+			type: Boolean,
+			default: false,
 		},
 		error: {
 			type: String,
@@ -60,6 +68,10 @@ label {
 	position: relative;
 	display: block;
 	margin: 1em 0 0;
+	&.with-error {
+		margin-bottom: 0.75em;
+	}
+
 	clear: both;
 }
 .label {
