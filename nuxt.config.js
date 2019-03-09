@@ -73,7 +73,7 @@ module.exports = {
 		},
 		routes() {
 			return fetch(
-				"https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/"
+				"https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/projects"
 			)
 				.then((res) => res.json())
 				.then((data) => data.data.map((project) => "/projects/" + project.id));
@@ -81,6 +81,7 @@ module.exports = {
 	},
 
 	purgeCSS: {
+		mode: "postcss",
 		// your settings here
 	},
 
@@ -151,7 +152,7 @@ module.exports = {
 	generate: {
 		routes() {
 			return fetch(
-				"https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/"
+				"https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/projects"
 			)
 				.then((res) => res.json())
 				.then((data) => data.data)
