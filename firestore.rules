@@ -10,5 +10,9 @@ service cloud.firestore {
 			allow read: if isAuthenticated() || publishedOnly();
 			allow write: if isAuthenticated();
 		}
+		match /chapters/{id} {
+			allow read: if true;
+			allow write: if isAuthenticated();
+		}
 	}
 }

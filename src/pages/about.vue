@@ -1,6 +1,6 @@
 <template>
 	<ProjectCardTemplate class="skill-wrapper">
-		<h2 class="h2">things I used</h2>
+		<h2 class="h2">Skills</h2>
 		<figure class="skills">
 			<WordCloud :words="tags" class="skill-cloud" />
 		</figure>
@@ -23,6 +23,7 @@ export default {
 
 <style lang="scss" scoped>
 .h2 {
+	padding: 1rem 1.5rem 0;
 	font-size: 2.5rem;
 	text-decoration: underline;
 
@@ -33,7 +34,6 @@ export default {
 
 .skill-wrapper.card {
 	display: block;
-	text-align: center;
 }
 
 .skills {
