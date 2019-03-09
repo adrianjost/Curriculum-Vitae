@@ -1,12 +1,17 @@
 <template>
-	<label>
-		<span
-			:class="{ label: true, active: internalValue && internalValue !== 0 }"
-		>
-			{{ label }}
-		</span>
-		<textarea ref="textArea" v-model="internalValue" v-bind="$attrs"
-	/></label>
+	<div>
+		<label>
+			<span
+				:class="{ label: true, active: internalValue && internalValue !== 0 }"
+			>
+				{{ label }}
+			</span>
+			<textarea ref="textArea" v-model="internalValue" v-bind="$attrs" />
+		</label>
+		<small :style="{ visibility: error ? 'visible' : 'hidden' }" class="error">
+			{{ error ? error : "valid input" }}
+		</small>
+	</div>
 </template>
 
 <script>
@@ -19,6 +24,10 @@ export default {
 			default: "",
 		},
 		label: {
+			type: String,
+			default: "",
+		},
+		error: {
 			type: String,
 			default: "",
 		},
@@ -50,7 +59,7 @@ $input-padding-left: 12px;
 label {
 	position: relative;
 	display: block;
-	margin: 1em 0 0.75em;
+	margin: 1em 0 0;
 	clear: both;
 }
 .label {
@@ -75,5 +84,8 @@ textarea {
 	&:focus {
 		color: $color-text;
 	}
+}
+.error {
+	color: $color-secondary;
 }
 </style>

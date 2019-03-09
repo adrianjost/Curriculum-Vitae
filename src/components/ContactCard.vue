@@ -1,5 +1,5 @@
 <template>
-	<ProjectCardTemplate>
+	<ProjectCardTemplate class="grid">
 		<template slot="image">
 			<img
 				class="image"
@@ -12,21 +12,32 @@
 			<BaseInput
 				v-model="email"
 				type="email"
-				label="Your E-Mail:"
+				label="Your E-Mail"
 				name="email"
 				placeholder="your@mail.com"
 				class="i-email"
+				:error="error.email"
 			/>
 			<BaseTextarea
 				v-model="message"
-				label="Your Message:"
+				label="Your Message"
 				name="message"
 				:placeholder="'Hi Adrian,\nI saw your portfolio and...'"
 				rows="3"
 				class="i-message"
+				:error="error.message"
 			/>
 			<div class="actions">
-				<button class="button" @click="sendMessage()">Send →</button>
+				<button
+					:class="buttonClass"
+					:disabled="status === 'sending'"
+					@click="sendMessage()"
+				>
+					Send Message
+					<span v-if="status === 'success'">✔</span>
+					<span v-else-if="status === 'error'">✖</span>
+					<span v-else>→</span>
+				</button>
 			</div>
 		</template>
 	</ProjectCardTemplate>
@@ -36,6 +47,7 @@
 import ProjectCardTemplate from "./ProjectCardTemplate.vue";
 import BaseInput from "./ui/BaseInput.vue";
 import BaseTextarea from "./ui/BaseTextarea.vue";
+import { setTimeout } from "timers";
 
 export default {
 	name: "ContactCard",
@@ -48,17 +60,77 @@ export default {
 		return {
 			email: "",
 			message: "",
+			status: "ready",
+			validate: {
+				email: false,
+				message: false,
+			},
 		};
 	},
-	watch: {
-		savedData: {
-			handler: function(to) {
-				this.importSaved(to);
-			},
-			deep: true,
+	computed: {
+		buttonClass() {
+			return ["button", this.status];
+		},
+		error() {
+			const error = {
+				email: "",
+				message: "",
+			};
+			if (this.validate.email) {
+				if (!this.email) {
+					error.email = "Required so I can respond to your message.";
+				} else if (!this.email.match(/\S+@\S+\.\S{2,}/)) {
+					error.email = "Your e-mail looks invalid.";
+				}
+			}
+			if (this.validate.message) {
+				if (!this.message) {
+					error.message = "You try to send an empty message?";
+				}
+			}
+			return error;
 		},
 	},
-	methods: {},
+	watch: {
+		email: function(to) {
+			this.validate.email = true;
+		},
+		message: function(to) {
+			this.validate.message = true;
+		},
+	},
+	methods: {
+		sendMessage() {
+			this.validate = { email: true, message: true };
+			if (this.error.email || this.error.message) {
+				return;
+			}
+			const formData = new FormData();
+			formData.append("receiver", "adrianjost@hackedit.de");
+			formData.append("headline", "Contacting Adrian Jost");
+			formData.append(
+				"message",
+				`Message from: ${this.email}\n\n---\n\n${this.message}`
+			);
+			this.status = "sending";
+			fetch("http://mail.hackedit.de/", {
+				method: "post",
+				body: formData,
+			})
+				.then(() => {
+					this.status = "success";
+					this.message = "";
+				})
+				.catch(() => {
+					this.status = "error";
+				})
+				.finally(() => {
+					setTimeout(() => {
+						this.status = "";
+					}, 3000);
+				});
+		},
+	},
 };
 </script>
 
@@ -69,6 +141,6 @@ export default {
 }
 .i-email,
 .i-message {
-	margin: 1em 0 0.5em;
+	margin: 0.5em 0 0;
 }
 </style>

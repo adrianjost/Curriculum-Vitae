@@ -1,19 +1,24 @@
 <template>
-	<label>
-		<span
-			:class="{ label: true, active: internalValue && internalValue !== 0 }"
-		>
-			{{ label }}
-		</span>
-		<slot>
-			<input
-				v-model="internalValue"
-				class="input"
-				:type="type"
-				v-bind="$attrs"
-			/>
-		</slot>
-	</label>
+	<div>
+		<label>
+			<span
+				:class="{ label: true, active: internalValue && internalValue !== 0 }"
+			>
+				{{ label }}
+			</span>
+			<slot>
+				<input
+					v-model="internalValue"
+					class="input"
+					:type="type"
+					v-bind="$attrs"
+				/>
+			</slot>
+		</label>
+		<small :style="{ visibility: error ? 'visible' : 'hidden' }" class="error">
+			{{ error ? error : "valid input" }}
+		</small>
+	</div>
 </template>
 
 <script>
@@ -31,6 +36,10 @@ export default {
 		type: {
 			type: String,
 			default: "text",
+		},
+		error: {
+			type: String,
+			default: "Invalid argument",
 		},
 	},
 	data() {
@@ -57,7 +66,7 @@ $input-padding-left: 12px;
 label {
 	position: relative;
 	display: block;
-	margin: 1em 0 0.75em;
+	margin: 1em 0 0;
 	clear: both;
 	border: 1px solid $color-text;
 	border-radius: 4px;
@@ -84,5 +93,8 @@ label {
 	&:focus {
 		color: $color-text;
 	}
+}
+.error {
+	color: $color-secondary;
 }
 </style>
