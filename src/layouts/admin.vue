@@ -70,8 +70,7 @@ export default {
 }
 
 .nav {
-	top: 1em;
-	right: 0;
+	margin: 0 0 1rem;
 	text-align: center;
 }
 

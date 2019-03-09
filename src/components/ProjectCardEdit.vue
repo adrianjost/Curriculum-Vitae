@@ -1,5 +1,5 @@
 <template>
-	<ProjectCardTemplate>
+	<ProjectCardTemplate class="grid">
 		<template slot="image">
 			<img
 				v-if="data.img"

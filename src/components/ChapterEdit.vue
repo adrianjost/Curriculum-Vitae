@@ -1,10 +1,10 @@
 <template>
-	<ProjectCardTemplate>
+	<ProjectCardTemplate class="grid">
 		<template slot="image">
 			<img
 				v-if="data.img"
 				class="image"
-				:src="`https://aridbtumen.cloudimg.io/width/400/x/${data.img}`"
+				:src="`https://aridbtumen.cloudimg.io/width/100/x/${data.img}`"
 				:alt="`image for ${data.title}`"
 			/>
 			<FileUpload :class="{ invisible: data.img }" @uploaded="uploaded" />

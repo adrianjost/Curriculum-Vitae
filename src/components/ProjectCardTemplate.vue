@@ -27,18 +27,20 @@ export default {
 @import "~/styles/variables.scss";
 
 .card {
-	display: grid;
-	grid-template-areas: "img info";
-	grid-template-rows: 1fr;
-	grid-template-columns: 1fr 1fr;
 	width: 100%;
 	max-width: $content-width-max;
 	margin-right: auto;
 	margin-left: auto;
 	background: #fff;
 	box-shadow: 0 25px 100px rgba(0, 0, 0, 0.5);
-	&.inverted {
-		grid-template-areas: "info img";
+	&.grid {
+		display: grid;
+		grid-template-areas: "img info";
+		grid-template-rows: 1fr;
+		grid-template-columns: 1fr 1fr;
+		&.inverted {
+			grid-template-areas: "info img";
+		}
 	}
 }
 .img-wrapper {
@@ -116,7 +118,7 @@ export default {
 }
 
 @media screen and (max-width: 700px) {
-	.card {
+	.card.grid {
 		display: block;
 	}
 	.img-wrapper {

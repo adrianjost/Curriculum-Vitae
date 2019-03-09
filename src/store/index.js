@@ -4,6 +4,7 @@ import base64Img from "base64-img";
 export const state = () => ({
 	tags: [],
 	projects: [],
+	chapters: [],
 });
 
 export const getters = {
@@ -18,6 +19,17 @@ export const getters = {
 	getTags: (state) => {
 		return state.tags;
 	},
+	getChapters: (state) => {
+		return [...state.chapters].sort((a, b) => b.to.localeCompare(a.to));
+	},
+	getWork: (state, getters) => {
+		return getters.getChapters.filter((chapter) => chapter.section === "work");
+	},
+	getEducation: (state, getters) => {
+		return getters.getChapters.filter(
+			(chapter) => chapter.section === "education"
+		);
+	},
 };
 
 export const mutations = {
@@ -27,11 +39,22 @@ export const mutations = {
 	setTags(state, tags) {
 		state.tags = tags;
 	},
+	setChapters(state, chapters) {
+		state.chapters = chapters;
+	},
 };
 
 function getTags() {
 	return fetch(
 		`https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/tags`
+	)
+		.then((res) => res.json())
+		.then((data) => data.data);
+}
+
+function getChapters() {
+	return fetch(
+		`https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/chapters`
 	)
 		.then((res) => res.json())
 		.then((data) => data.data);
@@ -57,7 +80,7 @@ async function encodeImage(url) {
 
 function getProjects() {
 	return fetch(
-		"https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/"
+		"https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/projects"
 	)
 		.then((res) => res.json())
 		.then((data) =>
@@ -74,9 +97,12 @@ function getProjects() {
 
 export const actions = {
 	async nuxtServerInit({ commit }, NuxtContext) {
-		return Promise.all([getProjects(), getTags()]).then(([projects, tags]) => {
-			commit("setProjects", projects);
-			commit("setTags", tags);
-		});
+		return Promise.all([getProjects(), getTags(), getChapters()]).then(
+			([projects, tags, chapters]) => {
+				commit("setProjects", projects);
+				commit("setTags", tags);
+				commit("setChapters", chapters);
+			}
+		);
 	},
 };

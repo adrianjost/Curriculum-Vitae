@@ -77,12 +77,46 @@ const getProjects = () => {
 		});
 };
 
+const getChapters = () => {
+	return db
+		.collection("chapters")
+		.get()
+		.then((querySnapshot) => {
+			return querySnapshot.docs.map((doc) => ({
+				id: doc.id,
+				...doc.data(),
+			}));
+		});
+};
+
 // ROUTES
 
 app.get("/tags", (req, res) => {
 	return getTags()
 		.then((tagList) => {
 			return res.json({ status: 200, data: tagList });
+		})
+		.catch((error) => {
+			res.status(500);
+			res.send({ status: 500, message: error });
+		});
+});
+
+app.get("/chapters", (req, res) => {
+	return getChapters()
+		.then((tagList) => {
+			return res.json({ status: 200, data: tagList });
+		})
+		.catch((error) => {
+			res.status(500);
+			res.send({ status: 500, message: error });
+		});
+});
+
+app.get("/projects", (req, res) => {
+	return getProjects()
+		.then((projects) => {
+			return res.json({ status: 200, data: projects });
 		})
 		.catch((error) => {
 			res.status(500);
@@ -99,17 +133,6 @@ app.get("/:id", (req, res) => {
 			const errorCode = error.code || 500;
 			res.status(errorCode);
 			res.send({ status: errorCode, message: error.message || error });
-		});
-});
-
-app.get("/", (req, res) => {
-	return getProjects()
-		.then((projects) => {
-			return res.json({ status: 200, data: projects });
-		})
-		.catch((error) => {
-			res.status(500);
-			res.send({ status: 500, message: error });
 		});
 });
 

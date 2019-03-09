@@ -1,5 +1,5 @@
 <template>
-	<ProjectCardTemplate>
+	<ProjectCardTemplate class="grid">
 		<VLazyImage
 			slot="image"
 			:class="{ image: true, 'image--cover': data.imgCover }"

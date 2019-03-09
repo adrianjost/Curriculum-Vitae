@@ -1,6 +1,6 @@
 <template>
 	<nav>
-		<ul v-bind="$attrs" class="nav">
+		<ul v-bind="$attrs" class="navigation">
 			<li v-for="route in routes" :key="route.title" class="nav-item-wrapper">
 				<NuxtLink v-if="route.to" class="nav-item" :to="route.to">
 					{{ route.title }}
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav {
+.navigation {
 	display: block;
 	padding: 0;
 	margin: 0;

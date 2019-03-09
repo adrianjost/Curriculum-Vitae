@@ -1,39 +1,26 @@
 <template>
-	<ProjectCardTemplate>
-		<VLazyImage
-			slot="image"
-			:class="{ image: true, 'image--cover': data.imgCover }"
+	<div class="chapter">
+		<img
+			class="image"
 			:alt="`image for ${data.title}`"
-			:style="imgStyles(data)"
-			:src="`https://aridbtumen.cloudimg.io/width/400/x/${data.img}`"
-			:src-placeholder="
-				data.imgPlaceholder ||
-					`https://aridbtumen.cloudimg.io/width/30/x/${data.img}`
-			"
+			:src="`https://aridbtumen.cloudimg.io/width/100/x/${data.img}`"
 		/>
-		<template slot="text">
+		<div class="text">
 			<h2 class="title">
 				{{ data.title }}
 			</h2>
 			<h3 class="subtitle">
-				{{ dateToString(data.from) }} - {{ dateToString(data.to) }} |
+				<span class="duration">
+					{{ dateToString(data.from) }} - {{ dateToString(data.to) }}
+				</span>
 				{{ data.subtitle }}
 			</h3>
-			<div class="actions">
-				<a v-if="data.src" target="_blank" rel="noreferrer" :href="data.src">
-					Read more →
-				</a>
-			</div>
-		</template>
-	</ProjectCardTemplate>
+		</div>
+	</div>
 </template>
 
 <script>
-import VLazyImage from "v-lazy-image";
-import ProjectCardTemplate from "~/components/ProjectCardTemplate.vue";
-
 export default {
-	components: { VLazyImage, ProjectCardTemplate },
 	props: {
 		data: {
 			type: Object,
@@ -46,23 +33,59 @@ export default {
 				return;
 			}
 			const date = new Date(Date.parse(timestamp));
-			const options = { year: "numeric", month: "long" };
+			const options = { year: "numeric", month: "2-digit" };
 			return date.toLocaleDateString("de-DE", options);
-		},
-		imgStyles(data) {
-			return data.imgPosition ? { "object-position": data.imgPosition } : {};
 		},
 	},
 };
 </script>
 
-<style lang="scss">
-.v-lazy-image {
-	filter: blur(10px);
-	transition: filter 0.7s;
+<style lang="scss" scoped>
+.chapter {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	padding: 0.5rem 0;
+}
+.image {
+	width: 4rem;
+	height: auto;
+	object-fit: contain;
+	margin-right: 1rem;
+}
+.text {
+	flex: 1;
+	.duration::after {
+		content: "| ";
+	}
+}
+.title {
+	padding-bottom: 0;
+	font-weight: bold;
+}
+.subtitle {
+	padding-top: 0;
+	font-weight: lighter;
 }
 
-.v-lazy-image-loaded {
-	filter: blur(0);
+@media screen and (max-width: 700px) {
+	.chapter {
+		flex-wrap: wrap;
+	}
+	.image {
+		width: 100%;
+		height: 3rem;
+		margin: 0;
+	}
+	.text {
+		text-align: center;
+		.duration {
+			&::after {
+				content: "";
+			}
+
+			display: block;
+		}
+	}
 }
 </style>
