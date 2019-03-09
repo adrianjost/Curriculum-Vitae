@@ -20,7 +20,7 @@
 				{{ dateToString(data.date) }}
 			</h3>
 			<p class="description">{{ data.description }}</p>
-			<div class="actions">
+			<div v-if="false" class="actions">
 				<a v-if="data.src" target="_blank" rel="noreferrer" :href="data.src">
 					Read more →
 				</a>
