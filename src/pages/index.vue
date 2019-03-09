@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$space-between: 5rem;
+$space-between: 3rem;
 $space-around: 2rem;
 .projectcard {
 	margin-top: $space-between;

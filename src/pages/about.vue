@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$space-between: 2rem;
+$space-between: 3rem;
 $space-around: 2rem;
 .card {
 	padding: 1rem 1.5rem;
