@@ -1,11 +1,14 @@
 <template>
-	<nav class="bottom-nav">
+	<nav
+		class="bottom-nav"
+		:style="{ 'justify-content': !links.left ? 'flex-end' : '' }"
+	>
 		<NuxtLink v-if="links.left" class="nav-link" :to="links.left.to">
 			<BaseCard class="nav-item is-left">
 				{{ links.left.text }}
 			</BaseCard>
 		</NuxtLink>
-		<div v-if="!links.left || !links.right" class="nav-link"></div>
+		<div v-if="!links.left || !links.right" class="nav-link" />
 		<NuxtLink v-if="links.right" class="nav-link" :to="links.right.to">
 			<BaseCard class="nav-item is-right">
 				{{ links.right.text }}
@@ -39,10 +42,17 @@ export default {
 	margin-top: $spacing-cards;
 }
 .nav-link {
-	flex: 1;
+	@media screen and (min-width: 700px) {
+		flex: 1;
+	}
+
 	text-decoration: none;
 	&:not(:first-child) {
 		margin-left: $spacing-cards;
+
+		@media screen and (max-width: 700px) {
+			margin-left: 0.5rem;
+		}
 	}
 }
 .nav-item {
