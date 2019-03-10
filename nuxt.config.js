@@ -1,6 +1,8 @@
 const pkg = require("./package");
 const fetch = require("isomorphic-unfetch");
 
+import { getAll } from "./apiCalls";
+
 module.exports = {
 	mode: "universal",
 	srcDir: "src/",
@@ -89,7 +91,7 @@ module.exports = {
 	 ** Build configuration
 	 */
 	build: {
-		//analyze: true,
+		analyze: true,
 		quiet: false,
 		//extractCSS: true,
 		html: {
@@ -114,7 +116,7 @@ module.exports = {
 		},
 		optimization: {
 			splitChunks: {
-				//chunks: "all",
+				chunks: "all",
 				automaticNameDelimiter: ".",
 				name: true,
 				cacheGroups: {
@@ -151,20 +153,27 @@ module.exports = {
 
 	generate: {
 		routes() {
-			return fetch(
-				"https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/projects"
-			)
-				.then((res) => res.json())
-				.then((data) => data.data)
-				.then((projects) => {
-					let routes = projects.map((project) => ({
-						route: "/projects/" + project.id,
-					}));
+			return getAll().then((data) => {
+				const projects = data[0];
+				let routes = projects.map((project) => ({
+					route: "/projects/" + project.id,
+					payload: data,
+				}));
+				[
+					"/",
+					"/about",
+					"/contact",
+					"/admin",
+					"/admin/nigol",
+					"/admin/about",
+				].forEach((route) => {
 					routes.push({
-						route: "/",
+						route: route,
+						payload: data,
 					});
-					return routes;
 				});
+				return routes;
+			});
 		},
 	},
 };
