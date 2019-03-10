@@ -43,31 +43,18 @@ export default {
 	color: $color-text;
 }
 
-.title {
-	margin-bottom: 2rem;
-}
-
 .nav {
-	position: absolute;
-	top: 1em;
-	right: 0;
+	position: relative;
+	margin: 0.5rem 0;
+	text-align: center;
+}
+main {
+	margin: 2rem 0;
 }
 
 @media screen and (max-width: 900px) {
 	#app {
 		padding: 1rem;
-	}
-}
-
-@media screen and (max-width: 700px) {
-	.title {
-		margin-bottom: 0;
-	}
-	.nav {
-		position: relative;
-		padding: 0 0 1rem;
-		margin: 0 0 1rem;
-		text-align: center;
 	}
 }
 </style>

@@ -10,15 +10,25 @@
 				inverted: index % 2,
 			}"
 		/>
+		<TheBottomNav class="bottom-nav" :links="ctas" />
 	</div>
 </template>
 
 <script>
 import ProjectCard from "~/components/ProjectCard.vue";
+import TheBottomNav from "~/components/TheBottomNav.vue";
 
 export default {
 	components: {
 		ProjectCard,
+		TheBottomNav,
+	},
+	data() {
+		return {
+			ctas: {
+				right: { to: "/about", text: "About Me" },
+			},
+		};
 	},
 	computed: {
 		projects() {
@@ -29,16 +39,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$space-between: 3rem;
-$space-around: 2rem;
+@import "~/styles/variables.scss";
+
 .projectcard {
-	margin-top: $space-between;
-	margin-bottom: $space-between;
+	margin: $spacing-cards 0;
 	&:first-of-type {
-		margin-top: $space-around;
+		margin-top: 0;
 	}
 	&:last-of-type {
-		margin-bottom: $space-around;
+		margin-bottom: 0;
 	}
 }
 </style>

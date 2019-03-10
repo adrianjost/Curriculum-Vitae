@@ -1,5 +1,5 @@
 <template>
-	<article class="card">
+	<BaseCard class="card">
 		<slot>
 			<div class="img-wrapper">
 				<div class="image-overlay">
@@ -8,12 +8,14 @@
 			</div>
 			<div class="information"><slot name="text" /></div>
 		</slot>
-	</article>
+	</BaseCard>
 </template>
 
 <script>
+import BaseCard from "./ui/BaseCard.vue";
 export default {
 	name: "ProjectCardTemplate",
+	components: { BaseCard },
 	props: {
 		img: {
 			type: String,
@@ -23,24 +25,16 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "~/styles/variables.scss";
 
-.card {
-	width: 100%;
-	max-width: $content-width-max;
-	margin-right: auto;
-	margin-left: auto;
-	background: #fff;
-	box-shadow: 0 25px 100px rgba(0, 0, 0, 0.5);
-	&.grid {
-		display: grid;
-		grid-template-areas: "img info";
-		grid-template-rows: 1fr;
-		grid-template-columns: 1fr 1fr;
-		&.inverted {
-			grid-template-areas: "info img";
-		}
+.grid {
+	display: grid;
+	grid-template-areas: "img info";
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 1fr;
+	&.inverted {
+		grid-template-areas: "info img";
 	}
 }
 .img-wrapper {
@@ -118,7 +112,7 @@ export default {
 }
 
 @media screen and (max-width: 700px) {
-	.card.grid {
+	.grid {
 		display: block;
 	}
 	.img-wrapper {

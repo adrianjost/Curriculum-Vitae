@@ -2,7 +2,14 @@
 	<div>
 		<ProjectCardTemplate>
 			<h2 class="h2">About Me</h2>
-			<p>I'm a 21 years old, passionated web developer.</p>
+			<p>
+				I'm currently studying IT Systems Engineering to improve my
+				architectural and technical background. To put this knowledge into
+				practice I'm working as a front-end developer at the HPI School Cloud.
+				This is the place where my passion for solving problems with code and
+				designing products, that are actually used, comes together.
+			</p>
+			<p>In my spare time, I like to ride my mountain- and road bike.</p>
 		</ProjectCardTemplate>
 
 		<ProjectCardTemplate v-if="work.length">
@@ -25,6 +32,7 @@
 				<WordCloud :words="tags" class="skill-cloud" />
 			</figure>
 		</ProjectCardTemplate>
+		<TheBottomNav class="bottom-nav" :links="ctas" />
 	</div>
 </template>
 
@@ -32,9 +40,18 @@
 import ProjectCardTemplate from "~/components/ProjectCardTemplate.vue";
 import WordCloud from "~/components/WordCloud.vue";
 import Chapter from "~/components/Chapter.vue";
+import TheBottomNav from "~/components/TheBottomNav.vue";
 
 export default {
-	components: { ProjectCardTemplate, WordCloud, Chapter },
+	components: { ProjectCardTemplate, WordCloud, Chapter, TheBottomNav },
+	data() {
+		return {
+			ctas: {
+				left: { to: "/", text: "Projects" },
+				right: { to: "/contact", text: "Contact Me" },
+			},
+		};
+	},
 	computed: {
 		tags() {
 			return this.$store.getters.getTags;
@@ -50,28 +67,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$space-between: 3rem;
-$space-around: 2rem;
+@import "~/styles/variables.scss";
+
 .card {
 	padding: 1rem 1.5rem;
-	margin-top: $space-between;
-	margin-bottom: $space-between;
+	margin: $spacing-cards 0;
 	&:first-of-type {
-		margin-top: $space-around;
+		margin-top: 0;
 	}
 	&:last-of-type {
-		margin-bottom: $space-around;
+		margin-bottom: 0;
 	}
 }
 
 .h2 {
 	padding: 0;
-	font-size: 2.5rem;
-	text-decoration: underline;
-
-	@media screen and (max-width: 700px) {
-		font-size: 1.5rem;
-	}
 }
 
 .skill-wrapper.card {

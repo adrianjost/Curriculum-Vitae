@@ -2,7 +2,6 @@
 	<div class="header">
 		<div class="logo" />
 		<h1 class="title">Adrian Jost</h1>
-		<p class="subtitle">Student - Designer - Developer</p>
 	</div>
 </template>
 
