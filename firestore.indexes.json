@@ -1,0 +1,33 @@
+{
+	"indexes": [
+		{
+			"collectionId": "projects",
+			"queryScope": "COLLECTION",
+			"fields": [
+				{
+					"fieldPath": "isPublished",
+					"mode": "ASCENDING"
+				},
+				{
+					"fieldPath": "date",
+					"mode": "DESCENDING"
+				}
+			]
+		},
+		{
+			"collectionId": "projects",
+			"queryScope": "COLLECTION",
+			"fields": [
+				{
+					"fieldPath": "date",
+					"mode": "DESCENDING"
+				},
+				{
+					"fieldPath": "isPublished",
+					"mode": "ASCENDING"
+				}
+			]
+		}
+	],
+	"fieldOverrides": []
+}
