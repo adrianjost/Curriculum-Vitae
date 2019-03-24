@@ -9,10 +9,13 @@
 $ yarn install
 
 # serve with hot reload at localhost:3000
-$ yarn run dev
+$ yarn dev
 
 # generate static project
-$ yarn run build
+$ yarn build
+
+# deploy to firebase
+$ yarn deploy
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
