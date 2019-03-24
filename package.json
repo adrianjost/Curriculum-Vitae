@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "CV of Adrian Jost",
 	"author": "Adrian Jost",
-	"private": true,
+	"license": "MIT",
 	"scripts": {
 		"dev": "cross-env NODE_ENV=development nuxt",
 		"build": "nuxt generate",

@@ -1,6 +1,7 @@
 const functions = require("firebase-functions");
 const express = require("express");
 const admin = require("firebase-admin");
+const markdown = require("marked");
 
 // INIT
 const app = express();
@@ -77,6 +78,16 @@ const getProjects = () => {
 		});
 };
 
+const getAbout = () => {
+	return db
+		.collection("about")
+		.get()
+		.then((querySnapshot) => {
+			return querySnapshot.docs.map((doc) => doc.data().text).join("");
+		})
+		.then((aboutText) => markdown(aboutText));
+};
+
 const getChapters = () => {
 	return db
 		.collection("chapters")
@@ -106,6 +117,17 @@ app.get("/chapters", (req, res) => {
 	return getChapters()
 		.then((tagList) => {
 			return res.json({ status: 200, data: tagList });
+		})
+		.catch((error) => {
+			res.status(500);
+			res.send({ status: 500, message: error });
+		});
+});
+
+app.get("/about", (req, res) => {
+	return getAbout()
+		.then((about) => {
+			return res.json({ status: 200, data: about });
 		})
 		.catch((error) => {
 			res.status(500);

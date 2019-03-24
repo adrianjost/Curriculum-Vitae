@@ -14,5 +14,9 @@ service cloud.firestore {
 			allow read: if true;
 			allow write: if isAuthenticated();
 		}
+		match /about/{id} {
+			allow read: if true;
+			allow write: if isAuthenticated();
+		}
 	}
 }

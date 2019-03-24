@@ -17,7 +17,7 @@ export default {
 	data() {
 		return {
 			ctas: {
-				left: { to: "/about", text: "About Me" },
+				left: { to: "/", text: "About Me" },
 			},
 		};
 	},

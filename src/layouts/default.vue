@@ -23,8 +23,8 @@ export default {
 	data() {
 		return {
 			navRoutes: [
-				{ to: "/", title: "Projects" },
-				{ to: "/about", title: "About" },
+				{ to: "/projects", title: "Projects" },
+				{ to: "/", title: "About" },
 				{ to: "/contact", title: "Contact" },
 			],
 		};

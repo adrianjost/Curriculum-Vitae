@@ -3,7 +3,7 @@
 		:words="words"
 		font-family="Quicksand"
 		:color="colorMapping"
-		:font-size-ratio="7"
+		:font-size-ratio="5"
 		:spacing="0.7"
 	/>
 </template>
@@ -28,7 +28,7 @@ export default {
 	},
 	methods: {
 		colorMapping([, weight]) {
-			return `rgba(0, 0, 0, ${0.2 + (weight / this.maxValue) * 0.8})`;
+			return `rgba(0, 0, 0, ${0.5 + (weight / this.maxValue) * 0.8})`;
 		},
 	},
 };

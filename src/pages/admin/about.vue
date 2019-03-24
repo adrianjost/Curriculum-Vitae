@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<AboutEdit class="about" />
 		<ChapterEdit @saved="addChapter($event)" />
 		<ChapterEdit
 			v-for="data in sortedChapters"
@@ -15,13 +16,15 @@
 <script>
 import { db } from "~/plugins/firebase.js";
 
+import AboutEdit from "~/components/AboutEdit.vue";
 import ChapterEdit from "~/components/ChapterEdit.vue";
 
 export default {
 	layout: "admin",
-	components: { ChapterEdit },
+	components: { AboutEdit, ChapterEdit },
 	data() {
 		return {
+			about: "",
 			chapters: [],
 			sortedChapters: [],
 		};
@@ -79,6 +82,9 @@ export default {
 <style lang="scss" scoped>
 $space-between: 5rem;
 $space-around: 2rem;
+.about {
+	margin-bottom: $space-between;
+}
 .chapter {
 	margin-top: $space-between;
 	margin-bottom: $space-between;

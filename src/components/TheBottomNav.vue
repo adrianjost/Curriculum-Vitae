@@ -39,6 +39,7 @@ export default {
 
 .bottom-nav {
 	display: flex;
+	justify-content: space-between;
 	margin-top: $spacing-cards;
 }
 .nav-link {

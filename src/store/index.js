@@ -4,6 +4,7 @@ export const state = () => ({
 	tags: [],
 	projects: [],
 	chapters: [],
+	about: [],
 });
 
 export const getters = {
@@ -17,6 +18,9 @@ export const getters = {
 	},
 	getTags: (state) => {
 		return state.tags;
+	},
+	getAbout: (state) => {
+		return state.about;
 	},
 	getChapters: (state) => {
 		return [...state.chapters].sort((a, b) => b.to.localeCompare(a.to));
@@ -38,14 +42,18 @@ export const mutations = {
 	setTags(state, tags) {
 		state.tags = tags;
 	},
+	setAbout(state, about) {
+		state.about = about;
+	},
 	setChapters(state, chapters) {
 		state.chapters = chapters;
 	},
 };
 
-function initStore(commit, projects, tags, chapters) {
+function initStore(commit, projects, tags, about, chapters) {
 	commit("setProjects", projects);
 	commit("setTags", tags);
+	commit("setAbout", about);
 	commit("setChapters", chapters);
 }
 

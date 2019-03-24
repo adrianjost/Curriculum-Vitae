@@ -1,18 +1,25 @@
 import fetch from "isomorphic-unfetch";
 import base64Img from "base64-img";
 
+const apiBaseUrl =
+	process.env.NODE_ENV === "production"
+		? "https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects"
+		: "http://localhost:5000/curriculum-vitae-5cd0a/us-central1/fastApiProjects";
+
 export function getTags() {
-	return fetch(
-		`https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/tags`
-	)
+	return fetch(`${apiBaseUrl}/tags`)
 		.then((res) => res.json())
 		.then((data) => data.data);
 }
 
 export function getChapters() {
-	return fetch(
-		`https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/chapters`
-	)
+	return fetch(`${apiBaseUrl}/chapters`)
+		.then((res) => res.json())
+		.then((data) => data.data);
+}
+
+export function getAbout() {
+	return fetch(`${apiBaseUrl}/about`)
 		.then((res) => res.json())
 		.then((data) => data.data);
 }
@@ -36,9 +43,7 @@ async function encodeImage(url) {
 }
 
 export function getProjects() {
-	return fetch(
-		"https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/projects"
-	)
+	return fetch(`${apiBaseUrl}/projects`)
 		.then((res) => res.json())
 		.then((data) =>
 			Promise.all(
@@ -53,5 +58,5 @@ export function getProjects() {
 }
 
 export function getAll() {
-	return Promise.all([getProjects(), getTags(), getChapters()]);
+	return Promise.all([getProjects(), getTags(), getAbout(), getChapters()]);
 }

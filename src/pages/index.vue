@@ -1,38 +1,63 @@
 <template>
 	<div>
-		<ProjectCard
-			v-for="(data, index) in projects"
-			:id="data.id"
-			:key="index"
-			:data="data"
-			:class="{
-				projectcard: true,
-				inverted: index % 2,
-			}"
-		/>
+		<ProjectCardTemplate>
+			<h2 class="h2">About Me</h2>
+			<!-- eslint-disable-next-line vue/no-v-html -->
+			<div v-html="about" />
+		</ProjectCardTemplate>
+
+		<ProjectCardTemplate class="skill-wrapper">
+			<h2 class="h2">Skills</h2>
+			<figure class="skills">
+				<WordCloud :words="tags" class="skill-cloud" />
+			</figure>
+		</ProjectCardTemplate>
+
+		<ProjectCardTemplate v-if="work.length">
+			<h2 class="h2">My employers</h2>
+			<Chapter v-for="chapter in work" :key="chapter.key" :data="chapter" />
+		</ProjectCardTemplate>
+
+		<ProjectCardTemplate v-if="education.length">
+			<h2 class="h2">Education</h2>
+			<Chapter
+				v-for="chapter in education"
+				:key="chapter.key"
+				:data="chapter"
+			/>
+		</ProjectCardTemplate>
 		<TheBottomNav class="bottom-nav" :links="ctas" />
 	</div>
 </template>
 
 <script>
-import ProjectCard from "~/components/ProjectCard.vue";
+import ProjectCardTemplate from "~/components/ProjectCardTemplate.vue";
+import WordCloud from "~/components/WordCloud.vue";
+import Chapter from "~/components/Chapter.vue";
 import TheBottomNav from "~/components/TheBottomNav.vue";
 
 export default {
-	components: {
-		ProjectCard,
-		TheBottomNav,
-	},
+	components: { ProjectCardTemplate, WordCloud, Chapter, TheBottomNav },
 	data() {
 		return {
 			ctas: {
-				right: { to: "/about", text: "About Me" },
+				left: { to: "/projects", text: "Projects" },
+				right: { to: "/contact", text: "Contact Me" },
 			},
 		};
 	},
 	computed: {
-		projects() {
-			return this.$store.getters.getProjects;
+		about() {
+			return this.$store.getters.getAbout;
+		},
+		tags() {
+			return this.$store.getters.getTags;
+		},
+		work() {
+			return this.$store.getters.getWork;
+		},
+		education() {
+			return this.$store.getters.getEducation;
 		},
 	},
 };
@@ -41,13 +66,52 @@ export default {
 <style lang="scss" scoped>
 @import "~/styles/variables.scss";
 
-.projectcard {
+.card {
+	padding: 1rem 1.5rem;
 	margin: $spacing-cards 0;
 	&:first-of-type {
 		margin-top: 0;
 	}
 	&:last-of-type {
 		margin-bottom: 0;
+	}
+}
+
+.h2 {
+	padding: 0;
+}
+
+.skill-wrapper.card {
+	display: block;
+}
+
+.skills {
+	position: relative;
+	padding-bottom: 60%;
+	margin: 0;
+	overflow: hidden;
+
+	@media screen and (max-width: 700px) {
+		margin: 0 -1.5rem -1.5rem;
+	}
+}
+
+$cloud-padding: 0;
+.skill-cloud {
+	position: absolute !important;
+	top: 0;
+	right: $cloud-padding;
+	bottom: $cloud-padding;
+	left: $cloud-padding;
+	width: auto !important;
+	height: auto !important;
+
+	@media screen and (max-width: 700px) {
+		$cloud-padding: 1rem;
+
+		right: $cloud-padding;
+		bottom: $cloud-padding;
+		left: $cloud-padding;
 	}
 }
 </style>
