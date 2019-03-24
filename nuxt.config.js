@@ -91,7 +91,7 @@ module.exports = {
 	 ** Build configuration
 	 */
 	build: {
-		analyze: true,
+		//analyze: true,
 		quiet: false,
 		//extractCSS: true,
 		html: {
