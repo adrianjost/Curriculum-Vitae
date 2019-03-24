@@ -18,4 +18,4 @@ deploy:
   skip_cleanup: true
   provider: firebase
   on:
-    branch: V3-SSR
+    branch: master
