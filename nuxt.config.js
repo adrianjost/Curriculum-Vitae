@@ -69,10 +69,11 @@ module.exports = {
 
 	sitemap: {
 		generate: true,
-		hostname: process.env.BASE_URL || "https://alpha-adrianjost.hackedit.de",
+		hostname: process.env.BASE_URL || "https://adrianjost.dev",
 		filter({ routes, options }) {
 			return routes.filter((route) => !route.url.includes("admin"));
 		},
+		/*
 		routes() {
 			return fetch(
 				"https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/projects"
@@ -80,6 +81,7 @@ module.exports = {
 				.then((res) => res.json())
 				.then((data) => data.data.map((project) => "/projects/" + project.id));
 		},
+		*/
 	},
 
 	purgeCSS: {
