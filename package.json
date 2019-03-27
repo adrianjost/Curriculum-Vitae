@@ -5,8 +5,7 @@
 	"author": "Adrian Jost",
 	"license": "MIT",
 	"scripts": {
-		"dev": "cross-env NODE_ENV=development 
-		",
+		"dev": "cross-env NODE_ENV=development nuxt",
 		"generate": "nuxt generate",
 		"deploy": "yarn lint && yarn generate && firebase deploy",
 		"lint:eslint": "eslint --fix",
