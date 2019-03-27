@@ -157,10 +157,11 @@ module.exports = {
 		routes() {
 			return getAll().then((data) => {
 				const projects = data[0];
-				let routes = projects.map((project) => ({
+				const routes = [];
+				/* projects.map((project) => ({
 					route: "/projects/" + project.id,
 					payload: data,
-				}));
+				})); */
 				[
 					"/",
 					"/about",
