@@ -1,6 +1,6 @@
 {
 	"name": "curriculum-vitae-ssr",
-	"version": "1.0.0",
+	"version": "3.0.1",
 	"description": "CV of Adrian Jost",
 	"author": "Adrian Jost",
 	"license": "MIT",
@@ -19,9 +19,6 @@
 	},
 	"gitHooks": {
 		"pre-commit": "cross-env PRE_COMMIT=true lint-staged"
-	},
-	"installConfig": {
-		"pnp": true
 	},
 	"dependencies": {
 	},
