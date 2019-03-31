@@ -163,7 +163,7 @@ module.exports = {
 				}));
 				[
 					"/",
-					"/about",
+					"/projects",
 					"/contact",
 					"/admin",
 					"/admin/nigol",
