@@ -11,40 +11,49 @@
 			<h2 class="title">Contact me</h2>
 			<p class="info">
 				<b>My E-Mail:</b>
-				<span class="encrypted">{{ encrypt("adrianjost@hackedit.de") }}</span>
-			</p>
-			<BaseInput
-				v-model="email"
-				type="email"
-				label="Your E-Mail"
-				name="email"
-				placeholder="your@mail.com"
-				class="i-email"
-				:with-error="true"
-				:error="error.email"
-			/>
-			<BaseTextarea
-				v-model="message"
-				label="Your Message"
-				name="message"
-				:placeholder="'Hi Adrian,\nI saw your portfolio and...'"
-				rows="3"
-				class="i-message"
-				:with-error="true"
-				:error="error.message"
-			/>
-			<div class="actions">
+				<span>adrianjost@hackedit.de</span>
 				<button
-					:class="buttonClass"
-					:disabled="status === 'sending'"
-					@click="sendMessage()"
+					:class="['btn-copy', copyStatus]"
+					type="button"
+					@click="copyToClipboard"
 				>
-					Send Message
-					<span v-if="status === 'success'">✔</span>
-					<span v-else-if="status === 'error'">✖</span>
-					<span v-else>→</span>
+					<img class="btn-copy__img" src="@/static/clipboard.svg" />
 				</button>
-			</div>
+			</p>
+			<form>
+				<BaseInput
+					v-model="email"
+					type="email"
+					label="Your E-Mail"
+					name="email"
+					placeholder="your@mail.com"
+					class="i-email"
+					:with-error="true"
+					:error="error.email"
+				/>
+				<BaseTextarea
+					v-model="message"
+					label="Your Message"
+					name="message"
+					:placeholder="'Hi Adrian,\nI saw your portfolio and...'"
+					rows="3"
+					class="i-message"
+					:with-error="true"
+					:error="error.message"
+				/>
+				<div class="actions">
+					<button
+						:class="buttonClass"
+						:disabled="submitStatus === 'sending'"
+						@click="sendMessage()"
+					>
+						Send Message
+						<span v-if="submitStatus === 'success'">✔</span>
+						<span v-else-if="submitStatus === 'error'">✖</span>
+						<span v-else>→</span>
+					</button>
+				</div>
+			</form>
 		</template>
 	</ProjectCardTemplate>
 </template>
@@ -66,7 +75,8 @@ export default {
 		return {
 			email: "",
 			message: "",
-			status: "ready",
+			submitStatus: "ready",
+			copyStatus: "",
 			validate: {
 				email: false,
 				message: false,
@@ -75,7 +85,7 @@ export default {
 	},
 	computed: {
 		buttonClass() {
-			return ["button", this.status];
+			return ["button", this.submitStatus];
 		},
 		error() {
 			const error = {
@@ -91,7 +101,7 @@ export default {
 			}
 			if (this.validate.message) {
 				if (!this.message) {
-					error.message = "You try to send an empty message?";
+					error.message = "You tried to send an empty message?";
 				}
 			}
 			return error;
@@ -106,11 +116,28 @@ export default {
 		},
 	},
 	methods: {
-		encrypt(text) {
-			return text
-				.split("")
-				.reverse()
-				.join("");
+		copyToClipboard() {
+			navigator.permissions
+				.query({ name: "clipboard-write" })
+				.then((result) => {
+					if (result.state == "granted" || result.state == "prompt") {
+						navigator.clipboard
+							.writeText("adrianjost@hackedit.de")
+							.then(() => {
+								/* clipboard successfully set */
+								this.copyStatus = "success";
+							})
+							.catch(() => {
+								/* clipboard write failed */
+								this.copyStatus = "error";
+							})
+							.finally(() => {
+								setTimeout(() => {
+									this.copyStatus = "";
+								}, 500);
+							});
+					}
+				});
 		},
 		sendMessage() {
 			this.validate = { email: true, message: true };
@@ -124,21 +151,24 @@ export default {
 				"message",
 				`Message from: ${this.email}\n\n---\n\n${this.message}`
 			);
-			this.status = "sending";
+			this.submitStatus = "sending";
 			fetch("http://mail.hackedit.de/", {
 				method: "post",
 				body: formData,
 			})
 				.then(() => {
-					this.status = "success";
+					this.submitStatus = "success";
 					this.message = "";
 				})
 				.catch(() => {
-					this.status = "error";
+					this.submitStatus = "error";
 				})
 				.finally(() => {
+					for (const key in this.validate) {
+						this.validate[key] = false;
+					}
 					setTimeout(() => {
-						this.status = "";
+						this.submitStatus = "";
 					}, 3000);
 				});
 		},
@@ -151,17 +181,67 @@ export default {
 .button {
 	color: inherit;
 }
-.i-email,
-.i-message {
-	margin: 0.5em 0 0;
+
+.btn-copy {
+	position: relative;
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	cursor: pointer;
+	background: none;
+	border: none;
+	&.success {
+		outline: none;
+		&::after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 100%;
+			content: "";
+			background: rgba(0, 0, 0, 0.4);
+			border-radius: 50%;
+			animation: scale 0.3s forwards;
+		}
+	}
+	&.error {
+		animation: shake 0.3s forwards;
+	}
+
+	.btn-copy__img {
+		width: 100%;
+		height: 100%;
+	}
 }
-.info {
-	margin: 0.5em 0 0;
+
+@keyframes scale {
+	0% {
+		transform: scale(0);
+	}
+	25%,
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: scale(3);
+		transform-origin: 50% 50%;
+	}
 }
-.encrypted {
-	unicode-bidi: bidi-override;
-	direction: rtl;
-	cursor: default;
-	user-select: none;
+
+@keyframes shake {
+	0% {
+		transform: translateX(0%);
+	}
+	25% {
+		transform: translateX(-50%);
+	}
+	50% {
+		transform: translateX(50%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
 }
 </style>
