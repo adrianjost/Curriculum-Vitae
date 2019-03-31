@@ -2,9 +2,9 @@ import fetch from "isomorphic-unfetch";
 import base64Img from "base64-img";
 
 const apiBaseUrl =
-	process.env.NODE_ENV !== "development"
-		? "https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects"
-		: "http://localhost:5000/curriculum-vitae-5cd0a/us-central1/fastApiProjects";
+	process.env.NODE_ENV === "development"
+		? "http://localhost:5000/curriculum-vitae-5cd0a/us-central1/fastApiProjects"
+		: "https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects";
 
 async function encodeImage(url) {
 	if (!process.server) {

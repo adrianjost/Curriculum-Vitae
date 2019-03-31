@@ -156,11 +156,14 @@ module.exports = {
 	generate: {
 		routes() {
 			return getAll.then((data) => {
+				const routes = [];
+				/*
 				const projects = data[0];
-				let routes = projects.map((project) => ({
+				const routes = projects.map((project) => ({
 					route: "/projects/" + project.id,
 					payload: data,
-				}));
+				});
+				*/
 				[
 					"/",
 					"/projects",
