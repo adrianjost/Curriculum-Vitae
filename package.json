@@ -6,8 +6,8 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "cross-env NODE_ENV=development nuxt",
-		"generate": "nuxt generate",
-		"deploy": "yarn lint && yarn generate && firebase deploy",
+		"build": "nuxt generate",
+		"deploy": "yarn lint && yarn build && firebase deploy",
 		"lint:eslint": "eslint --fix",
 		"lint:stylelint": "stylelint --fix",
 		"lint:prettier": "prettier --write --loglevel warn",
@@ -20,8 +20,7 @@
 	"gitHooks": {
 		"pre-commit": "cross-env PRE_COMMIT=true lint-staged"
 	},
-	"dependencies": {
-	},
+	"dependencies": {},
 	"devDependencies": {
 		"@firebase/app": "^0.3.6",
 		"@firebase/auth": "^0.9.1",
