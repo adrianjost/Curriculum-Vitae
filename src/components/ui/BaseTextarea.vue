@@ -1,27 +1,21 @@
 <template>
-	<div>
-		<label :class="{ 'with-error': withError }">
-			<span
-				:class="{ label: true, active: internalValue && internalValue !== 0 }"
-			>
-				{{ label }}
-			</span>
-			<textarea ref="textArea" v-model="internalValue" v-bind="$attrs" />
-		</label>
-		<small
-			v-if="withError"
-			:style="{ visibility: error ? 'visible' : 'hidden' }"
-			class="error"
-		>
-			{{ error ? error : "valid input" }}
-		</small>
-	</div>
+	<BaseInput
+		:label="label"
+		:with-error="withError"
+		:error="error"
+		v-bind="$attrs"
+	>
+		<textarea ref="textArea" v-model="internalValue" v-bind="$attrs" />
+	</BaseInput>
 </template>
 
 <script>
+import BaseInput from "./BaseInput.vue";
+
 import autosize from "autosize";
 export default {
 	name: "BaseTextarea",
+	components: { BaseInput },
 	props: {
 		value: {
 			type: String,
@@ -64,40 +58,18 @@ export default {
 <style lang="scss" scoped>
 @import "~/styles/variables.scss";
 $input-padding-left: 12px;
-label {
-	position: relative;
-	display: block;
-	margin: 1em 0 0;
-	&.with-error {
-		margin-bottom: 0.75em;
-	}
 
-	clear: both;
-}
-.label {
-	position: absolute;
-	top: 0;
-	left: $input-padding-left;
-	font-size: 0.75em;
-	background: #fff;
-	border-right: 1px solid #fff;
-	border-left: 1px solid #fff;
-	transform: translateY(-0.75em);
-}
 textarea {
 	width: 100%;
 	padding: 8px $input-padding-left;
 	resize: vertical !important;
 	background: transparent;
-	border: 1px solid $color-text;
+	border: 0;
 	border-radius: 4px;
 	outline: none;
 	transition: color 0.2s linear;
 	&:focus {
 		color: $color-text;
 	}
-}
-.error {
-	color: $color-secondary;
 }
 </style>

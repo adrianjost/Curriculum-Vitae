@@ -155,13 +155,15 @@ module.exports = {
 
 	generate: {
 		routes() {
-			return getAll().then((data) => {
-				const projects = data[0];
+			return getAll.then((data) => {
 				const routes = [];
-				/* projects.map((project) => ({
+				/*
+				const projects = data[0];
+				const routes = projects.map((project) => ({
 					route: "/projects/" + project.id,
 					payload: data,
-				})); */
+				});
+				*/
 				[
 					"/",
 					"/projects",

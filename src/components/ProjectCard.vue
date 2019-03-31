@@ -48,7 +48,7 @@ export default {
 			}
 			const date = new Date(Date.parse(timestamp));
 			const options = { year: "numeric", month: "long" };
-			return date.toLocaleDateString("de-DE", options);
+			return date.toLocaleDateString("en-US", options);
 		},
 		imgStyles(data) {
 			return data.imgPosition ? { "object-position": data.imgPosition } : {};

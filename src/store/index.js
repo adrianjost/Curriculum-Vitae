@@ -62,6 +62,6 @@ export const actions = {
 		if (payload) {
 			return initStore(...[commit, ...payload]);
 		}
-		return getAll().then((res) => initStore(...[commit, ...res]));
+		return getAll.then((res) => initStore(...[commit, ...res]));
 	},
 };

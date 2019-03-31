@@ -74,9 +74,9 @@ $input-padding-left: 12px;
 label {
 	position: relative;
 	display: block;
-	margin: 1em 0 0;
-	&.with-error {
-		margin-bottom: 0.75em;
+	margin: 0;
+	&:first-of-type {
+		margin-top: 1rem;
 	}
 
 	clear: both;
@@ -100,6 +100,7 @@ label {
 	padding: 8px $input-padding-left;
 	background: transparent;
 	border: none;
+	border-radius: 4px;
 	outline: none;
 	transition: color 0.2s linear;
 	&:focus {
