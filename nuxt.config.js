@@ -1,9 +1,9 @@
-const pkg = require("./package");
-const fetch = require("isomorphic-unfetch");
+//import fetch from "isomorphic-unfetch"
 
+import pkg from "./package";
 import { getAll } from "./apiCalls";
 
-module.exports = {
+export default {
 	mode: "universal",
 	srcDir: "src/",
 
