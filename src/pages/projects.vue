@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<LazyHydrate when-idle>
 		<ProjectCard
 			v-for="(data, index) in projects"
 			:id="data.id"
@@ -11,15 +11,17 @@
 			}"
 		/>
 		<TheBottomNav class="bottom-nav" :links="ctas" />
-	</div>
+	</LazyHydrate>
 </template>
 
 <script>
+import LazyHydrate from "vue-lazy-hydration";
 import ProjectCard from "~/components/ProjectCard.vue";
 import TheBottomNav from "~/components/TheBottomNav.vue";
 
 export default {
 	components: {
+		LazyHydrate,
 		ProjectCard,
 		TheBottomNav,
 	},
