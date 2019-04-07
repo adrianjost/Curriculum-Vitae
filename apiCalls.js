@@ -21,11 +21,10 @@ async function encodeImage(url) {
 	});
 }
 
-function getData(url) {
-	return fetch(`${apiBaseUrl}/${url}`)
+const getData = (url) =>
+	fetch(`${apiBaseUrl}/${url}`)
 		.then((res) => res.json())
 		.then((data) => data.data);
-}
 
 export const getAbout = getData("about");
 export const getChapters = getData("chapters");
