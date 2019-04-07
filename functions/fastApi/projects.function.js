@@ -26,6 +26,18 @@ try {
 
 const db = admin.firestore();
 
+// HELPER
+
+const sendData = (res) => (data) => {
+	return res.json({ status: 200, data: data });
+};
+
+const sendError = (res) => (error) => {
+	const errorCode = typeof error.code === "number" ? error.code : 500;
+	res.status(errorCode);
+	return res.send({ status: errorCode, message: error.message || error });
+};
+
 // METHODS
 
 const getTags = () => {
@@ -102,60 +114,25 @@ const getChapters = () => {
 
 // ROUTES
 
-app.get("/tags", (req, res) => {
-	return getTags()
-		.then((tagList) => {
-			return res.json({ status: 200, data: tagList });
-		})
-		.catch((error) => {
-			res.status(500);
-			res.send({ status: 500, message: error });
-		});
-});
+const routeMethods = {
+	"/tags": getTags,
+	"/chapters": getChapters,
+	"/about": getAbout,
+	"/projects": getProjects,
+};
 
-app.get("/chapters", (req, res) => {
-	return getChapters()
-		.then((tagList) => {
-			return res.json({ status: 200, data: tagList });
-		})
-		.catch((error) => {
-			res.status(500);
-			res.send({ status: 500, message: error });
-		});
-});
-
-app.get("/about", (req, res) => {
-	return getAbout()
-		.then((about) => {
-			return res.json({ status: 200, data: about });
-		})
-		.catch((error) => {
-			res.status(500);
-			res.send({ status: 500, message: error });
-		});
-});
-
-app.get("/projects", (req, res) => {
-	return getProjects()
-		.then((projects) => {
-			return res.json({ status: 200, data: projects });
-		})
-		.catch((error) => {
-			res.status(500);
-			res.send({ status: 500, message: error });
-		});
-});
+Object.entries(routeMethods).forEach(([route, method]) =>
+	app.get(route, (req, res) => {
+		return method()
+			.then(sendData(res))
+			.catch(sendError(res));
+	})
+);
 
 app.get("/:id", (req, res) => {
 	return getProject(req.params.id)
-		.then((project) => {
-			return res.json({ status: 200, project });
-		})
-		.catch((error) => {
-			const errorCode = error.code || 500;
-			res.status(errorCode);
-			res.send({ status: errorCode, message: error.message || error });
-		});
+		.then(sendData(res))
+		.catch(sendError(res));
 });
 
 exports = module.exports = functions.https.onRequest(app);
