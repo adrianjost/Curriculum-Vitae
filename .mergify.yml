@@ -9,11 +9,10 @@ pull_request_rules:
         strict: true
   - name: automatic merge on CI success and review
     conditions:
-      - status-success=continuous-integration/travis-ci/branch
+      - status-success=continuous-integration/travis-ci/push
       - base=master
       - label!=WIP
       - label~=merge pull
-      - -merged
     actions:
       merge:
         method: merge
