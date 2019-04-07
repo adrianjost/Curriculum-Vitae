@@ -38,6 +38,12 @@ const sendError = (res) => (error) => {
 	return res.send({ status: errorCode, message: error.message || error });
 };
 
+const getDataFromQuerySnapshot = (querySnapshot) =>
+	querySnapshot.docs.map((doc) => ({
+		id: doc.id,
+		...doc.data(),
+	}));
+
 // METHODS
 
 const getTags = () => {
@@ -82,12 +88,7 @@ const getProjects = () => {
 		.where("isPublished", "==", true)
 		.orderBy("date", "desc")
 		.get()
-		.then((querySnapshot) => {
-			return querySnapshot.docs.map((doc) => ({
-				id: doc.id,
-				...doc.data(),
-			}));
-		});
+		.then(getDataFromQuerySnapshot);
 };
 
 const getAbout = () => {
@@ -104,12 +105,7 @@ const getChapters = () => {
 	return db
 		.collection("chapters")
 		.get()
-		.then((querySnapshot) => {
-			return querySnapshot.docs.map((doc) => ({
-				id: doc.id,
-				...doc.data(),
-			}));
-		});
+		.then(getDataFromQuerySnapshot);
 };
 
 // ROUTES
