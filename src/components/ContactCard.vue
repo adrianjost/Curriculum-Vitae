@@ -11,14 +11,21 @@
 			<h2 class="title">Contact me</h2>
 			<p class="info">
 				<b>My E-Mail:</b>
-				<span>adrianjost@hackedit.de</span>
-				<button
-					:class="['btn-copy', copyStatus]"
-					type="button"
-					@click="copyToClipboard"
-				>
-					<img class="btn-copy__img" src="@/static/clipboard.svg" />
-				</button>
+				<span class="content">
+					adrianjost@hackedit.de
+					<button
+						:class="['btn-copy', copyStatus]"
+						type="button"
+						aria-label="copy email to clipboard"
+						@click="copyToClipboard('adrianjost@hackedit.de')"
+					>
+						<img
+							alt="copy icon"
+							class="btn-copy__img"
+							src="@/static/clipboard.svg"
+						/>
+					</button>
+				</span>
 			</p>
 			<form>
 				<BaseInput
@@ -85,7 +92,7 @@ export default {
 	},
 	computed: {
 		buttonClass() {
-			return ["button", this.submitStatus];
+			return [this.submitStatus];
 		},
 		error() {
 			const error = {
@@ -96,12 +103,12 @@ export default {
 				if (!this.email) {
 					error.email = "Required so I can respond to your message.";
 				} else if (!this.email.match(/\S+@\S+\.\S{2,}/)) {
-					error.email = "Your E-Mail looks invalid.";
+					error.email = "This looks wrong. 🤔";
 				}
 			}
 			if (this.validate.message) {
 				if (!this.message) {
-					error.message = "You tried to send an empty message?";
+					error.message = "An empty message? 🤨";
 				}
 			}
 			return error;
@@ -116,13 +123,13 @@ export default {
 		},
 	},
 	methods: {
-		copyToClipboard() {
+		copyToClipboard(text) {
 			navigator.permissions
 				.query({ name: "clipboard-write" })
 				.then((result) => {
 					if (result.state == "granted" || result.state == "prompt") {
 						navigator.clipboard
-							.writeText("adrianjost@hackedit.de")
+							.writeText(text)
 							.then(() => {
 								/* clipboard successfully set */
 								this.copyStatus = "success";
@@ -178,8 +185,9 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/styles/variables.scss";
-.button {
-	color: inherit;
+
+.info > .content {
+	white-space: nowrap;
 }
 
 .btn-copy {

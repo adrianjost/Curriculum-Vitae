@@ -6,19 +6,6 @@ export default {
 	mode: "universal",
 	srcDir: "src/",
 
-	render: {
-		bundleRenderer: {
-			shouldPrefetch: (file, type) => {
-				return false;
-				// return !file.includes("admin");
-			},
-			shouldPreload: (file, type) => {
-				return false;
-				// return !file.includes("admin");
-			},
-		},
-	},
-
 	/*
 	 ** Headers of the page
 	 */
@@ -86,6 +73,7 @@ export default {
 	router: {
 		base: process.env.BASE || "/",
 	},
+
 	build: {
 		analyze: true,
 		quiet: false,
@@ -104,42 +92,7 @@ export default {
 				useShortDoctype: true,
 			},
 		},
-		/*
-		optimization: {
-			splitChunks: {
-				chunks: "all",
-				automaticNameDelimiter: ".",
-				name: true,
-			},
-		},
-		*/
-		/*
-		filenames: {
-			app: ({ isDev }) => (isDev ? "[name].js" : "[name].[chunkhash].js"),
-			chunk: ({ isDev }) => (isDev ? "[name].js" : "[name].[chunkhash].js"),
-			css: ({ isDev }) => (isDev ? "[name].css" : "[name].[contenthash].css"),
-		},
-		/*
-		splitChunks: {
-			layouts: true,
-			pages: true,
-			commons: true,
-		},
-		/*
-		optimization: {
-			splitChunks: {
-				chunks: "all",
-				automaticNameDelimiter: ".",
-				name: true,
-				cacheGroups: {
-					admin: {
-						name: "admin",
-						test: /admin/,
-					},
-				},
-			},
-		},
-		*/
+
 		/*
 		 ** You can extend webpack config here
 		 */
@@ -166,9 +119,9 @@ export default {
 					"/",
 					"/projects",
 					"/contact",
-					// "/admin",
-					// "/admin/nigol",
-					// "/admin/about",
+					"/admin",
+					"/admin/nigol",
+					"/admin/about",
 				].map((route) => ({
 					route: route,
 					payload: data,
