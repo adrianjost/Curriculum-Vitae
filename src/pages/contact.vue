@@ -1,18 +1,19 @@
 <template>
-	<LazyHydrate when-idle>
+	<div>
 		<ContactCard />
 		<TheBottomNav class="bottom-nav" :links="ctas" />
-	</LazyHydrate>
+	</div>
 </template>
 
 <script>
-import LazyHydrate from "vue-lazy-hydration";
 import ContactCard from "~/components/ContactCard.vue";
 import TheBottomNav from "~/components/TheBottomNav.vue";
 
 export default {
+	head: {
+		title: "Contact",
+	},
 	components: {
-		LazyHydrate,
 		ContactCard,
 		TheBottomNav,
 	},

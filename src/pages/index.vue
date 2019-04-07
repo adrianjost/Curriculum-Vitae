@@ -1,5 +1,5 @@
 <template>
-	<LazyHydrate when-idle>
+	<div>
 		<ProjectCardTemplate>
 			<h2 class="h2">About Me</h2>
 			<!-- eslint-disable-next-line vue/no-v-html -->
@@ -27,19 +27,20 @@
 			/>
 		</ProjectCardTemplate>
 		<TheBottomNav class="bottom-nav" :links="ctas" />
-	</LazyHydrate>
+	</div>
 </template>
 
 <script>
-import LazyHydrate from "vue-lazy-hydration";
 import ProjectCardTemplate from "~/components/ProjectCardTemplate.vue";
 import WordCloud from "~/components/WordCloud.vue";
 import Chapter from "~/components/Chapter.vue";
 import TheBottomNav from "~/components/TheBottomNav.vue";
 
 export default {
+	head: {
+		title: "About",
+	},
 	components: {
-		LazyHydrate,
 		ProjectCardTemplate,
 		WordCloud,
 		Chapter,

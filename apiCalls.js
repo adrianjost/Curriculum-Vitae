@@ -7,7 +7,7 @@ const apiBaseUrl =
 		: "https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects";
 
 async function encodeImage(url) {
-	if (!process.server) {
+	if (process.client) {
 		return undefined;
 	}
 
@@ -24,19 +24,19 @@ async function encodeImage(url) {
 	});
 }
 
-export const getTags = fetch(`${apiBaseUrl}/tags`)
+const getTags = fetch(`${apiBaseUrl}/tags`)
 	.then((res) => res.json())
 	.then((data) => data.data);
 
-export const getChapters = fetch(`${apiBaseUrl}/chapters`)
+const getChapters = fetch(`${apiBaseUrl}/chapters`)
 	.then((res) => res.json())
 	.then((data) => data.data);
 
-export const getAbout = fetch(`${apiBaseUrl}/about`)
+const getAbout = fetch(`${apiBaseUrl}/about`)
 	.then((res) => res.json())
 	.then((data) => data.data);
 
-export const getProjects = fetch(`${apiBaseUrl}/projects`)
+const getProjects = fetch(`${apiBaseUrl}/projects`)
 	.then((res) => res.json())
 	.then((data) =>
 		Promise.all(
@@ -49,9 +49,5 @@ export const getProjects = fetch(`${apiBaseUrl}/projects`)
 		)
 	);
 
-export const getAll = Promise.all([
-	getProjects,
-	getTags,
-	getAbout,
-	getChapters,
-]);
+export const getAll = () =>
+	Promise.all([getProjects, getTags, getAbout, getChapters]);

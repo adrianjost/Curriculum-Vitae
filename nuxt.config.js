@@ -1,28 +1,33 @@
-//import fetch from "isomorphic-unfetch"
-
-import pkg from "./package";
-import { getAll } from "./apiCalls";
+// import fetch from "isomorphic-unfetch"
+// import pkg from "./package";
+// import { getAll } from "./apiCalls";
 
 export default {
 	mode: "universal",
 	srcDir: "src/",
 
+	/*
 	render: {
 		bundleRenderer: {
 			shouldPrefetch: (file, type) => {
-				return !file.includes("admin");
+				return false;
+				// return !file.includes("admin");
 			},
 			shouldPreload: (file, type) => {
-				return !file.includes("admin");
+				return false;
+				// return !file.includes("admin");
 			},
 		},
 	},
+	*/
 
 	/*
 	 ** Headers of the page
 	 */
+	/*
 	head: {
-		title: pkg.name,
+		titleTemplate: (titleChunk) =>
+			titleChunk ? "Adrian Jost | %s" : "Adrian Jost",
 		meta: [
 			{ charset: "utf-8" },
 			{ name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -46,7 +51,7 @@ export default {
 		background_color: "#fff",
 		theme_color: "#FF1744",
 	},
-
+	*/
 	/*
 	 ** Customize the progress-bar color
 	 */
@@ -65,7 +70,7 @@ export default {
 	/*
 	 ** Nuxt.js modules
 	 */
-	modules: ["@nuxtjs/pwa", "@nuxtjs/sitemap", "nuxt-purgecss"],
+	// modules: ["@nuxtjs/pwa", "@nuxtjs/sitemap", "nuxt-purgecss"],
 
 	sitemap: {
 		generate: true,
@@ -93,9 +98,11 @@ export default {
 	 ** Build configuration
 	 */
 	build: {
-		//analyze: true,
-		quiet: false,
-		//extractCSS: true,
+		analyze: true,
+		// quiet: false,
+		// extractCSS: true,
+
+		/*
 		html: {
 			minify: {
 				collapseWhitespace: true,
@@ -111,6 +118,19 @@ export default {
 				useShortDoctype: true,
 			},
 		},
+		optimization: {
+			splitChunks: {
+				chunks: "all",
+				automaticNameDelimiter: ".",
+				name: true,
+			},
+		},
+		filenames: {
+			app: ({ isDev }) => (isDev ? "[name].js" : "[name].[chunkhash].js"),
+			chunk: ({ isDev }) => (isDev ? "[name].js" : "[name].[chunkhash].js"),
+			css: ({ isDev }) => (isDev ? "[name].css" : "[name].[contenthash].css"),
+		},
+		/*
 		splitChunks: {
 			layouts: true,
 			pages: true,
@@ -134,12 +154,13 @@ export default {
 			chunk: ({ isDev }) => (isDev ? "[name].js" : "[name].[chunkhash].js"),
 			css: ({ isDev }) => (isDev ? "[name].css" : "[name].[contenthash].css"),
 		},
+		*/
 		/*
 		 ** You can extend webpack config here
 		 */
 		extend(config, ctx) {
 			// Run ESLint on save
-			if (ctx.isDev && ctx.isClient) {
+			if (ctx.isDev && process.client) {
 				config.module.rules.push({
 					enforce: "pre",
 					test: /\.(js|vue)$/,
@@ -155,15 +176,15 @@ export default {
 
 	generate: {
 		routes() {
-			return getAll.then((data) => {
+			return ["/", "/projects", "/contact"];
+			/*
+			return getAll().then((data) => {
 				const routes = [];
-				/*
-				const projects = data[0];
-				const routes = projects.map((project) => ({
-					route: "/projects/" + project.id,
-					payload: data,
-				});
-				*/
+				// const projects = data[0];
+				// const routes = projects.map((project) => ({
+				// 	route: "/projects/" + project.id,
+				// 	payload: data,
+				// });
 				[
 					"/",
 					"/projects",
@@ -179,6 +200,7 @@ export default {
 				});
 				return routes;
 			});
+			*/
 		},
 	},
 };

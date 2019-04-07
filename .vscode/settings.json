@@ -106,5 +106,13 @@
 	// ===
 	// TODO HIGHLIGHT
 	// ===
-	"todohighlight.keywords": ["TODO", "FIX", "REFACTOR"]
+	"todohighlight.keywords": ["TODO", "FIX", "REFACTOR"],
+
+	// ===
+	// LIVE SERVER
+	// ===
+	"liveServer.settings.fullReload": true,
+	"liveServer.settings.host": "localhost",
+	"liveServer.settings.NoBrowser": true,
+	"liveServer.settings.wait": 500
 }
