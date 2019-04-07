@@ -21,9 +21,6 @@
 	"gitHooks": {
 		"pre-commit": "cross-env PRE_COMMIT=true lint-staged"
 	},
-	"installConfig": {
-		"pnp": true
-	},
 	"dependencies": {
 		"@firebase/app": "^0.3.6",
 		"@firebase/auth": "^0.9.1",
