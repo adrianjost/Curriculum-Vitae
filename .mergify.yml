@@ -1,0 +1,23 @@
+pull_request_rules:
+- name: automatic merge for Dependabot pull requests on master
+    conditions:
+      - author=greenkeeper[bot]
+      - label!=greenkeeper
+    actions:
+      merge:
+        method: merge
+  - name: automatic merge on CI success and review
+    conditions:
+      - status-success=continuous-integration/travis-ci/branch
+      - base=master
+      - label!=WIP
+      - label~=merge pull
+      - -merged
+    actions:
+      merge:
+        method: merge
+  - name: delete merged branch
+    conditions:
+      - merged
+    actions:
+      delete_head_branch: {}
