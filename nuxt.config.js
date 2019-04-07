@@ -94,7 +94,6 @@ export default {
 		// quiet: false,
 		// extractCSS: true,
 
-		/*
 		html: {
 			minify: {
 				collapseWhitespace: true,
@@ -110,6 +109,7 @@ export default {
 				useShortDoctype: true,
 			},
 		},
+		/*
 		optimization: {
 			splitChunks: {
 				chunks: "all",
