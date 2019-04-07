@@ -19,6 +19,9 @@ import ProjectCard from "~/components/ProjectCard.vue";
 import TheBottomNav from "~/components/TheBottomNav.vue";
 
 export default {
+	head: {
+		title: "Projects",
+	},
 	components: {
 		ProjectCard,
 		TheBottomNav,

@@ -37,7 +37,15 @@ import Chapter from "~/components/Chapter.vue";
 import TheBottomNav from "~/components/TheBottomNav.vue";
 
 export default {
-	components: { ProjectCardTemplate, WordCloud, Chapter, TheBottomNav },
+	head: {
+		title: "CV",
+	},
+	components: {
+		ProjectCardTemplate,
+		WordCloud,
+		Chapter,
+		TheBottomNav,
+	},
 	data() {
 		return {
 			ctas: {

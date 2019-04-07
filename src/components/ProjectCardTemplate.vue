@@ -86,6 +86,8 @@ export default {
 }
 .actions {
 	margin-top: 0.5em;
+	text-align: right;
+
 	> a,
 	> button {
 		display: inline-block;

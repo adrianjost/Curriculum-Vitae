@@ -2,56 +2,47 @@ import fetch from "isomorphic-unfetch";
 import base64Img from "base64-img";
 
 const apiBaseUrl =
-	process.env.NODE_ENV === "development"
+	process.env.USE_LOCAL_API === "true"
 		? "http://localhost:5000/curriculum-vitae-5cd0a/us-central1/fastApiProjects"
 		: "https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects";
 
+function getResizedImageUrl(url) {
+	return `https://aridbtumen.cloudimg.io/width/30/x/${url}`;
+}
+
 async function encodeImage(url) {
-	if (!process.server) {
+	if (process.client) {
 		return undefined;
 	}
-
 	return new Promise((resolve, reject) => {
-		base64Img.requestBase64(
-			`https://aridbtumen.cloudimg.io/width/30/x/${url}`,
-			(error, res, body) => {
-				if (error) {
-					return reject(error);
-				}
-				resolve(body);
-			}
-		);
+		base64Img.requestBase64(getResizedImageUrl(url), (error, res, body) => {
+			error ? reject(error) : resolve(body);
+		});
 	});
 }
 
-export const getTags = fetch(`${apiBaseUrl}/tags`)
-	.then((res) => res.json())
-	.then((data) => data.data);
+const getData = (urlPath) => () =>
+	fetch(`${apiBaseUrl}/${urlPath}`)
+		.then((res) => res.json())
+		.then((data) => data.data);
 
-export const getChapters = fetch(`${apiBaseUrl}/chapters`)
-	.then((res) => res.json())
-	.then((data) => data.data);
+export const getAbout = getData("about");
+export const getChapters = getData("chapters");
+export const getTags = getData("tags");
 
-export const getAbout = fetch(`${apiBaseUrl}/about`)
-	.then((res) => res.json())
-	.then((data) => data.data);
+export const getProjects = () =>
+	fetch(`${apiBaseUrl}/projects`)
+		.then((res) => res.json())
+		.then((data) =>
+			Promise.all(
+				data.data.map(async (project) => {
+					if (project.img) {
+						project.imgPlaceholder = await encodeImage(project.img);
+					}
+					return project;
+				})
+			)
+		);
 
-export const getProjects = fetch(`${apiBaseUrl}/projects`)
-	.then((res) => res.json())
-	.then((data) =>
-		Promise.all(
-			data.data.map(async (project) => {
-				if (project.img) {
-					project.imgPlaceholder = await encodeImage(project.img);
-				}
-				return project;
-			})
-		)
-	);
-
-export const getAll = Promise.all([
-	getProjects,
-	getTags,
-	getAbout,
-	getChapters,
-]);
+export const getAll = () =>
+	Promise.all([getAbout(), getChapters(), getTags(), getProjects()]);
