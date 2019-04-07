@@ -1,5 +1,7 @@
 # Curriculum-Vitae-SSR
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/adrianjost/Curriculum-Vitae.svg)](https://greenkeeper.io/)
+
 > CV of Adrian Jost
 
 ## Build Setup
