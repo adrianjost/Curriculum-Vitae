@@ -10,6 +10,9 @@
 		"deploy": "firebase deploy --only functions",
 		"logs": "firebase functions:log"
 	},
+	"installConfig": {
+		"pnp": true
+	},
 	"dependencies": {
 		"camelcase": "^5.0.0",
 		"firebase-admin": "~7.2.0",
