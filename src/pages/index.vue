@@ -6,7 +6,7 @@
 					class="image image--cover"
 					style="object-position: center top"
 					src="~/static/ProfileImage.jpg"
-					:alt="`profile image of Adrian Jost`"
+					alt="profile image of Adrian Jost"
 				/>
 			</template>
 			<template slot="text">
