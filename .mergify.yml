@@ -6,6 +6,7 @@ pull_request_rules:
     actions:
       merge:
         method: merge
+        strict: true
   - name: automatic merge on CI success and review
     conditions:
       - status-success=continuous-integration/travis-ci/branch
@@ -16,6 +17,7 @@ pull_request_rules:
     actions:
       merge:
         method: merge
+        strict: true
   - name: delete merged branch
     conditions:
       - merged
