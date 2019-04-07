@@ -21,7 +21,7 @@ async function encodeImage(url) {
 	});
 }
 
-const getData = (urlPath) =>
+const getData = (urlPath) => () =>
 	fetch(`${apiBaseUrl}/${urlPath}`)
 		.then((res) => res.json())
 		.then((data) => data.data);
@@ -30,22 +30,19 @@ export const getAbout = getData("about");
 export const getChapters = getData("chapters");
 export const getTags = getData("tags");
 
-export const getProjects = fetch(`${apiBaseUrl}/projects`)
-	.then((res) => res.json())
-	.then((data) =>
-		Promise.all(
-			data.data.map(async (project) => {
-				if (project.img) {
-					project.imgPlaceholder = await encodeImage(project.img);
-				}
-				return project;
-			})
-		)
-	);
+export const getProjects = () =>
+	fetch(`${apiBaseUrl}/projects`)
+		.then((res) => res.json())
+		.then((data) =>
+			Promise.all(
+				data.data.map(async (project) => {
+					if (project.img) {
+						project.imgPlaceholder = await encodeImage(project.img);
+					}
+					return project;
+				})
+			)
+		);
 
-export const getAll = Promise.all([
-	getAbout,
-	getChapters,
-	getTags,
-	getProjects,
-]);
+export const getAll = () =>
+	Promise.all([getAbout(), getChapters(), getTags(), getProjects()]);

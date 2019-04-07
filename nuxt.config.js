@@ -6,7 +6,6 @@ export default {
 	mode: "universal",
 	srcDir: "src/",
 
-	/*
 	render: {
 		bundleRenderer: {
 			shouldPrefetch: (file, type) => {
@@ -19,7 +18,6 @@ export default {
 			},
 		},
 	},
-	*/
 
 	/*
 	 ** Headers of the page
@@ -80,7 +78,6 @@ export default {
 
 	purgeCSS: {
 		mode: "postcss",
-		// your settings here
 	},
 
 	/*
@@ -91,9 +88,7 @@ export default {
 	},
 	build: {
 		analyze: true,
-		// quiet: false,
-		// extractCSS: true,
-
+		quiet: false,
 		html: {
 			minify: {
 				collapseWhitespace: true,
@@ -117,6 +112,8 @@ export default {
 				name: true,
 			},
 		},
+		*/
+		/*
 		filenames: {
 			app: ({ isDev }) => (isDev ? "[name].js" : "[name].[chunkhash].js"),
 			chunk: ({ isDev }) => (isDev ? "[name].js" : "[name].[chunkhash].js"),
@@ -128,6 +125,7 @@ export default {
 			pages: true,
 			commons: true,
 		},
+		/*
 		optimization: {
 			splitChunks: {
 				chunks: "all",
@@ -140,11 +138,6 @@ export default {
 					},
 				},
 			},
-		},
-		filenames: {
-			app: ({ isDev }) => (isDev ? "[name].js" : "[name].[chunkhash].js"),
-			chunk: ({ isDev }) => (isDev ? "[name].js" : "[name].[chunkhash].js"),
-			css: ({ isDev }) => (isDev ? "[name].css" : "[name].[contenthash].css"),
 		},
 		*/
 		/*
@@ -168,7 +161,7 @@ export default {
 
 	generate: {
 		routes() {
-			return getAll.then((data) => {
+			return getAll().then((data) => {
 				return [
 					"/",
 					"/projects",

@@ -7,7 +7,7 @@
 	"scripts": {
 		"dev": "cross-env NODE_ENV=development nuxt",
 		"analyze": "nuxt build --analyze",
-		"build": "nuxt generate",
+		"build": "cross-env NODE_ENV=production nuxt generate",
 		"deploy": "yarn lint && yarn build && firebase deploy",
 		"lint:eslint": "eslint --fix",
 		"lint:stylelint": "stylelint --fix",
