@@ -1,25 +1,35 @@
 <template>
 	<div>
-		<ProjectCardTemplate>
-			<h2 class="h2">About Me</h2>
-			<!-- eslint-disable-next-line vue/no-v-html -->
-			<div v-html="about" />
+		<ProjectCardTemplate class="grid">
+			<template slot="image">
+				<img
+					class="image image--cover"
+					style="object-position: center top"
+					src="~/static/ProfileImage.jpg"
+					alt="profile image of Adrian Jost"
+				/>
+			</template>
+			<template slot="text">
+				<h2 class="h2">About Me</h2>
+				<!-- eslint-disable-next-line vue/no-v-html -->
+				<div v-html="about" />
+			</template>
 		</ProjectCardTemplate>
 
-		<ProjectCardTemplate class="skill-wrapper">
-			<h2 class="h2">Skills</h2>
+		<ProjectCardTemplate class="skill-wrapper with-padding">
+			<h2 class="h2">My Skills</h2>
 			<figure class="skills">
 				<WordCloud :words="tags" class="skill-cloud" />
 			</figure>
 		</ProjectCardTemplate>
 
-		<ProjectCardTemplate v-if="work.length">
-			<h2 class="h2">My employers</h2>
+		<ProjectCardTemplate v-if="work.length" class="with-padding">
+			<h2 class="h2">My Employers</h2>
 			<Chapter v-for="chapter in work" :key="chapter.key" :data="chapter" />
 		</ProjectCardTemplate>
 
-		<ProjectCardTemplate v-if="education.length">
-			<h2 class="h2">Education</h2>
+		<ProjectCardTemplate v-if="education.length" class="with-padding">
+			<h2 class="h2">My Education</h2>
 			<Chapter
 				v-for="chapter in education"
 				:key="chapter.key"
@@ -75,8 +85,10 @@ export default {
 @import "~/styles/variables.scss";
 
 .card {
-	padding: 1rem 1.5rem;
 	margin: $spacing-cards 0;
+	&.with-padding {
+		padding: 1rem 1.5rem;
+	}
 	&:first-of-type {
 		margin-top: 0;
 	}

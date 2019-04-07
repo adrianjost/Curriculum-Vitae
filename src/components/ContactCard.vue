@@ -4,7 +4,7 @@
 			<img
 				class="image"
 				src="~/static/avatar.svg"
-				:alt="`profile image of Adrian Jost`"
+				alt="avatar of Adrian Jost"
 			/>
 		</template>
 		<template slot="text">
