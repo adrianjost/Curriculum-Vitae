@@ -68,7 +68,7 @@ export default {
 	/*
 	 ** Nuxt.js modules
 	 */
-	// modules: ["@nuxtjs/pwa", "@nuxtjs/sitemap", "nuxt-purgecss"],
+	modules: ["@nuxtjs/pwa", "@nuxtjs/sitemap", "nuxt-purgecss"],
 
 	sitemap: {
 		generate: true,
