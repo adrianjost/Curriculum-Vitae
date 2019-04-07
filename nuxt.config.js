@@ -1,6 +1,6 @@
 // import fetch from "isomorphic-unfetch"
-// import pkg from "./package";
-// import { getAll } from "./apiCalls";
+import pkg from "./package";
+import { getAll } from "./apiCalls";
 
 export default {
 	mode: "universal",
@@ -24,10 +24,9 @@ export default {
 	/*
 	 ** Headers of the page
 	 */
-	/*
 	head: {
 		titleTemplate: (titleChunk) =>
-			titleChunk ? "Adrian Jost | %s" : "Adrian Jost",
+			titleChunk ? `Adrian Jost | ${titleChunk}` : "Adrian Jost",
 		meta: [
 			{ charset: "utf-8" },
 			{ name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -35,13 +34,12 @@ export default {
 		],
 		link: [{ rel: "icon", type: "image/png", href: "/icon.png" }],
 	},
-	router: {
-		base: process.env.BASE || "/",
-	},
+
 	icon: {
 		// Icon options
 		sizes: [16, 120, 144, 152, 192, 384, 512, 1024, 2048],
 	},
+
 	manifest: {
 		name: "Adrian Jost",
 		short_name: "Adrian Jost",
@@ -51,7 +49,7 @@ export default {
 		background_color: "#fff",
 		theme_color: "#FF1744",
 	},
-	*/
+
 	/*
 	 ** Customize the progress-bar color
 	 */
@@ -78,15 +76,6 @@ export default {
 		filter({ routes, options }) {
 			return routes.filter((route) => !route.url.includes("admin"));
 		},
-		/*
-		routes() {
-			return fetch(
-				"https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects/projects"
-			)
-				.then((res) => res.json())
-				.then((data) => data.data.map((project) => "/projects/" + project.id));
-		},
-		*/
 	},
 
 	purgeCSS: {
@@ -97,6 +86,9 @@ export default {
 	/*
 	 ** Build configuration
 	 */
+	router: {
+		base: process.env.BASE || "/",
+	},
 	build: {
 		analyze: true,
 		// quiet: false,
@@ -176,31 +168,19 @@ export default {
 
 	generate: {
 		routes() {
-			return ["/", "/projects", "/contact"];
-			/*
-			return getAll().then((data) => {
-				const routes = [];
-				// const projects = data[0];
-				// const routes = projects.map((project) => ({
-				// 	route: "/projects/" + project.id,
-				// 	payload: data,
-				// });
-				[
+			return getAll.then((data) => {
+				return [
 					"/",
 					"/projects",
 					"/contact",
-					"/admin",
-					"/admin/nigol",
-					"/admin/about",
-				].forEach((route) => {
-					routes.push({
-						route: route,
-						payload: data,
-					});
-				});
-				return routes;
+					// "/admin",
+					// "/admin/nigol",
+					// "/admin/about",
+				].map((route) => ({
+					route: route,
+					payload: data,
+				}));
 			});
-			*/
 		},
 	},
 };

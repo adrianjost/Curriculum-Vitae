@@ -1,4 +1,4 @@
-// import { getAll } from "~/../apiCalls";
+import { getAll } from "~/../apiCalls";
 
 export const state = () => ({
 	tags: [],
@@ -50,20 +50,18 @@ export const mutations = {
 	},
 };
 
-function initStore(commit, projects, tags, about, chapters) {
-	commit("setProjects", projects);
-	commit("setTags", tags);
+function initStore(commit, about, chapters, tags, projects) {
 	commit("setAbout", about);
 	commit("setChapters", chapters);
+	commit("setTags", tags);
+	commit("setProjects", projects);
 }
 
-/*
 export const actions = {
 	nuxtServerInit({ commit }, { payload }) {
 		if (payload) {
 			return initStore(...[commit, ...payload]);
 		}
-		return getAll().then((res) => initStore(...[commit, ...res]));
+		return getAll.then((res) => initStore(...[commit, ...res]));
 	},
 };
-*/

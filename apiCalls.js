@@ -21,8 +21,8 @@ async function encodeImage(url) {
 	});
 }
 
-const getData = (url) =>
-	fetch(`${apiBaseUrl}/${url}`)
+const getData = (urlPath) =>
+	fetch(`${apiBaseUrl}/${urlPath}`)
 		.then((res) => res.json())
 		.then((data) => data.data);
 
@@ -43,5 +43,9 @@ export const getProjects = fetch(`${apiBaseUrl}/projects`)
 		)
 	);
 
-export const getAll = () =>
-	Promise.all([getAbout, getChapters, getTags, getProjects]);
+export const getAll = Promise.all([
+	getAbout,
+	getChapters,
+	getTags,
+	getProjects,
+]);

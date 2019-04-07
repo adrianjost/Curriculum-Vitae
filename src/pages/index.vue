@@ -38,7 +38,7 @@ import TheBottomNav from "~/components/TheBottomNav.vue";
 
 export default {
 	head: {
-		title: "About",
+		title: "CV",
 	},
 	components: {
 		ProjectCardTemplate,
