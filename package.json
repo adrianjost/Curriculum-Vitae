@@ -16,7 +16,7 @@
 		"lint:all:stylelint": "yarn lint:stylelint \"src/**/*.{vue,sass,scss,css}\"",
 		"lint:all:prettier": "yarn lint:prettier \"**/*.{js,json,css,scss,vue,html}\"",
 		"lint": "run-s lint:all:*",
-		"travis": "yarn lint && yarn build"
+		"travis": "yarn lint"
 	},
 	"gitHooks": {
 		"pre-commit": "cross-env PRE_COMMIT=true lint-staged"
