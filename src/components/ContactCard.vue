@@ -12,12 +12,12 @@
 			<p class="info">
 				<b>My E-Mail:</b>
 				<span class="content">
-					adrianjost@hackedit.de
+					me@adrianjost.dev
 					<button
 						:class="['btn-copy', copyStatus]"
 						type="button"
 						aria-label="copy email to clipboard"
-						@click="copyToClipboard('adrianjost@hackedit.de')"
+						@click="copyToClipboard('me@adrianjost.dev')"
 					>
 						<img
 							alt="copy icon"
@@ -152,7 +152,7 @@ export default {
 				return;
 			}
 			const formData = new FormData();
-			formData.append("receiver", "adrianjost@hackedit.de");
+			formData.append("receiver", "me@adrianjost.dev");
 			formData.append("headline", "Contacting Adrian Jost");
 			formData.append(
 				"message",
