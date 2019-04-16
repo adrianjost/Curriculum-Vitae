@@ -6,7 +6,7 @@ pull_request_rules:
       - status-success=greenkeeper/verify
       - status-success~=Travis CI
       - status-success~=WIP
-      - status-success~=deploy preview
+      - status-success~=netlify/relaxed-poincare-913bee/deploy-preview
     actions:
       merge:
         method: merge
@@ -16,7 +16,7 @@ pull_request_rules:
       - label~=merge pull
       - status-success~=Travis CI
       - status-success~=WIP
-      - status-success~=deploy preview
+      - status-success~=netlify/relaxed-poincare-913bee/deploy-preview
     actions:
       merge:
         method: merge
