@@ -16,7 +16,7 @@
 		"lint:all:stylelint": "yarn lint:stylelint \"src/**/*.{vue,sass,scss,css}\"",
 		"lint:all:prettier": "yarn lint:prettier \"**/*.{js,json,css,scss,vue,html}\"",
 		"lint": "run-s lint:all:*",
-		"travis": "yarn lint && yarn build"
+		"travis": "yarn lint"
 	},
 	"gitHooks": {
 		"pre-commit": "cross-env PRE_COMMIT=true lint-staged"
@@ -57,7 +57,7 @@
 		"stylelint-config-recess-order": "^2.0.1",
 		"stylelint-config-standard": "^18.2.0",
 		"stylelint-scss": "^3.5.1",
-		"stylelint": "^9.10.1",
+		"stylelint": "^10.0.0",
 		"yorkie": "^2.0.0"
 	}
 }
