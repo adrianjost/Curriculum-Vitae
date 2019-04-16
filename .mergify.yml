@@ -3,14 +3,20 @@ pull_request_rules:
     conditions:
       - author=greenkeeper[bot]
       - label~=greenkeeper
+      - status-success=greenkeeper/verify
+      - status-success~=Travis CI
+      - status-success~=WIP
+      - status-success~=deploy preview
     actions:
       merge:
         method: merge
         strict: true
   - name: automatic merge on CI success and review
     conditions:
-      - label!=WIP
       - label~=merge pull
+      - status-success~=Travis CI
+      - status-success~=WIP
+      - status-success~=deploy preview
     actions:
       merge:
         method: merge
