@@ -56,9 +56,8 @@ export default {
 	modules: ["@nuxtjs/pwa", "@nuxtjs/sitemap", "nuxt-purgecss"],
 
 	sitemap: {
-		generate: true,
 		hostname: process.env.BASE_URL || "https://adrianjost.dev",
-		filter({ routes, options }) {
+		filter({ routes }) {
 			return routes.filter((route) => !route.url.includes("admin"));
 		},
 	},
@@ -124,6 +123,7 @@ export default {
 					"/admin/about",
 				].map((route) => ({
 					route: route,
+					url: route,
 					payload: data,
 				}));
 			});
