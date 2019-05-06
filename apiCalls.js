@@ -21,8 +21,16 @@ async function encodeImage(url) {
 	});
 }
 
+const logInvalid = (res) => {
+	if (res.code < 200 || res.code >= 300) {
+		console.error("Error", res);
+	}
+	return res;
+};
+
 const getData = (urlPath) => () =>
 	fetch(`${apiBaseUrl}/${urlPath}`)
+		.then(logInvalid)
 		.then((res) => res.json())
 		.then((data) => data.data);
 
@@ -32,6 +40,7 @@ export const getTags = getData("tags");
 
 export const getProjects = () =>
 	fetch(`${apiBaseUrl}/projects`)
+		.then(logInvalid)
 		.then((res) => res.json())
 		.then((data) =>
 			Promise.all(

@@ -6,7 +6,6 @@
 
 <script>
 import { firebase } from "~/plugins/firebase.js";
-import "@firebase/auth";
 
 export default {
 	name: "Login",
