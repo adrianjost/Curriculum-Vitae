@@ -47,3 +47,42 @@ body::before {
 .v-lazy-image-loaded {
 	filter: blur(0);
 }
+
+// Nuxt page transitions
+.page-enter-active,
+.slide-left-enter-active,
+.slide-right-enter-active,
+.page-leave-active,
+.slide-left-leave-active,
+.slide-right-leave-active {
+	transition-duration: 0.5s;
+	transition-property: opacity, transform;
+}
+
+.page-enter-active,
+.slide-left-enter-active,
+.slide-right-enter-active {
+	transition-timing-function: ease-out;
+}
+.page-leave-active,
+.slide-left-leave-active,
+.slide-right-leave-active {
+	transition-timing-function: ease-in;
+}
+
+.page-enter,
+.page-leave-active {
+	opacity: 0;
+}
+
+.slide-left-enter,
+.slide-right-leave-active {
+	opacity: 0;
+	transform: translate(25vw, 0);
+}
+
+.slide-left-leave-active,
+.slide-right-enter {
+	opacity: 0;
+	transform: translate(-25vw, 0);
+}

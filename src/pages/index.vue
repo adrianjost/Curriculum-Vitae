@@ -46,6 +46,8 @@ import WordCloud from "~/components/WordCloud.vue";
 import Chapter from "~/components/Chapter.vue";
 import TheBottomNav from "~/components/TheBottomNav.vue";
 
+import transition from "~/mixins/transition";
+
 export default {
 	head: {
 		title: "CV",
@@ -56,6 +58,7 @@ export default {
 		Chapter,
 		TheBottomNav,
 	},
+	mixins: [transition],
 	data() {
 		return {
 			ctas: {

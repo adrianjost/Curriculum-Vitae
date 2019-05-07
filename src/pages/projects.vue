@@ -18,14 +18,18 @@
 import ProjectCard from "~/components/ProjectCard.vue";
 import TheBottomNav from "~/components/TheBottomNav.vue";
 
+import transition from "~/mixins/transition";
+
 export default {
 	head: {
 		title: "Projects",
 	},
+
 	components: {
 		ProjectCard,
 		TheBottomNav,
 	},
+	mixins: [transition],
 	data() {
 		return {
 			ctas: {
