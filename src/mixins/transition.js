@@ -17,7 +17,7 @@ export default {
 			transitionName = outerPages[to.name];
 		} else if (from.name === "contact") {
 			transitionName = "slide-right";
-		} else if (from.name === "about") {
+		} else if (from.name === "projects") {
 			transitionName = "slide-left";
 		}
 

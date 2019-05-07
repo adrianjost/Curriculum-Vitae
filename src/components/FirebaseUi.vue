@@ -29,6 +29,5 @@ export default {
 </script>
 
 <style lang="scss">
-/* purgecss ignore */
 @import "firebaseui/dist/firebaseui.css";
 </style>
