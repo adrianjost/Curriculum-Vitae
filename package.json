@@ -5,7 +5,9 @@
 	"author": "Adrian Jost",
 	"license": "MIT",
 	"scripts": {
-		"dev": "cross-env NODE_ENV=development nuxt",
+		"dev:nuxt": "cross-env NODE_ENV=development nuxt",
+		"dev:functions": "cd functions && yarn serve",
+		"dev": "run-p dev:*",
 		"analyze": "nuxt build --analyze",
 		"build": "cross-env NODE_ENV=production nuxt generate",
 		"deploy": "yarn lint && yarn build && firebase deploy",
