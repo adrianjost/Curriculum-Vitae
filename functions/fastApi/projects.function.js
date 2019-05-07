@@ -33,6 +33,7 @@ const sendData = (res) => (data) => {
 };
 
 const sendError = (res) => (error) => {
+	console.error(error);
 	const errorCode = typeof error.code === "number" ? error.code : 500;
 	res.status(errorCode);
 	return res.send({ status: errorCode, message: error.message || error });
