@@ -29,7 +29,7 @@ export default {
 			],
 		};
 	},
-	created() {
+	mounted() {
 		firebase.auth().onAuthStateChanged((user) => {
 			if (!user) {
 				// User signed out.
