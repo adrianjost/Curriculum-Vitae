@@ -61,5 +61,8 @@
 		"stylelint-scss": "^3.5.1",
 		"stylelint": "^10.0.0",
 		"yorkie": "^2.0.0"
+	},
+	"engines": {
+		"node": ">=8"
 	}
 }

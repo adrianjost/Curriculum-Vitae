@@ -22,7 +22,7 @@ async function encodeImage(url) {
 }
 
 const logInvalid = (res) => {
-	if (res.code < 200 || res.code >= 300) {
+	if (res.status < 200 || res.status >= 300) {
 		console.error("Error", res);
 	}
 	return res;
