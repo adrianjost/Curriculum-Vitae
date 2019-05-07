@@ -12,11 +12,11 @@ export default {
 			contact: "slide-left",
 		};
 
-		if (outerPages[to.name]) {
-			transitionName = outerPages[to.name];
-		} else {
-			transitionName = from.name === "contact" ? "slide-right" : "slide-left";
-		}
+		const transitionName = outerPages[to.name]
+			? outerPages[to.name]
+			: from.name === "contact"
+			? "slide-right"
+			: "slide-left";
 
 		return {
 			name: transitionName,
