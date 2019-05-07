@@ -1,10 +1,7 @@
 {
-  "groups": {
-    "default": {
-      "packages": [
-        "functions/package.json",
-        "package.json"
-      ]
-    }
-  }
+	"groups": {
+		"default": {
+			"packages": ["functions/package.json", "package.json"]
+		}
+	}
 }
