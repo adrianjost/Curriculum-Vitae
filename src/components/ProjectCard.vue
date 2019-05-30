@@ -20,6 +20,8 @@
 				{{ dateToString(data.date) }}
 			</h3>
 			<p class="description">{{ data.description }}</p>
+			<b>Used Tools:</b>
+			<Pills :data="data.tags" />
 			<div v-if="false" class="actions">
 				<a v-if="data.src" target="_blank" rel="noreferrer" :href="data.src">
 					Read more →
@@ -32,9 +34,10 @@
 <script>
 import VLazyImage from "v-lazy-image";
 import ProjectCardTemplate from "~/components/ProjectCardTemplate.vue";
+import Pills from "~/components/Pills.vue";
 
 export default {
-	components: { VLazyImage, ProjectCardTemplate },
+	components: { VLazyImage, ProjectCardTemplate, Pills },
 	props: {
 		data: {
 			type: Object,
