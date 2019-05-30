@@ -64,6 +64,10 @@
 				placeholder="center center"
 			/>
 			<label>
+				<input v-model="data.featured" type="checkbox" />
+				featured
+			</label>
+			<label>
 				<input v-model="data.isPublished" type="checkbox" />
 				published
 			</label>

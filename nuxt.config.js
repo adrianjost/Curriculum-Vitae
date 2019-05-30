@@ -70,7 +70,7 @@ export default {
 	},
 
 	build: {
-		analyze: true,
+		analyze: process.env.NODE_ENV !== "production",
 		quiet: false,
 		html: {
 			minify: {
