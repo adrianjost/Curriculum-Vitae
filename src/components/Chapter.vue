@@ -1,21 +1,26 @@
 <template>
 	<div class="chapter">
-		<img
-			class="image"
-			:alt="`image for ${data.title}`"
-			:src="`https://aridbtumen.cloudimg.io/width/100/x/${data.img}`"
-		/>
-		<div class="text">
-			<h2 class="title">
-				{{ data.title }}
-			</h2>
-			<h3 class="subtitle">
-				<span class="duration">
-					{{ dateToString(data.from) }} - {{ dateToString(data.to) }}
-				</span>
-				{{ data.subtitle }}
-			</h3>
+		<div class="summary">
+			<img
+				class="image"
+				:alt="`image for ${data.title}`"
+				:src="`https://aridbtumen.cloudimg.io/width/100/x/${data.img}`"
+			/>
+			<div class="info">
+				<h3 class="title">
+					{{ data.title }}
+				</h3>
+				<h4 class="subtitle">
+					<span class="duration">
+						{{ dateToString(data.from) }} - {{ dateToString(data.to) }}
+					</span>
+					{{ data.subtitle }}
+				</h4>
+			</div>
 		</div>
+		<p v-if="data.description" class="description">
+			{{ data.description }}
+		</p>
 	</div>
 </template>
 
@@ -42,10 +47,12 @@ export default {
 
 <style lang="scss" scoped>
 .chapter {
+	padding: 0.5rem 0;
+}
+.summary {
 	display: flex;
 	flex-wrap: nowrap;
 	align-items: center;
-	padding: 0.5rem 0;
 }
 .image {
 	width: 4rem;
@@ -53,7 +60,7 @@ export default {
 	object-fit: contain;
 	margin-right: 1rem;
 }
-.text {
+.info {
 	flex: 1;
 	.duration::after {
 		content: "| ";
@@ -67,18 +74,25 @@ export default {
 	padding-top: 0;
 	font-weight: lighter;
 }
+.description {
+	column-count: 2;
+	column-rule: 1px solid grey;
+}
 
 @media screen and (max-width: 700px) {
-	.chapter {
+	.chapter:not(:last-of-type) {
+		border-bottom: 1px solid gray;
+	}
+	.summary {
 		flex-wrap: wrap;
 	}
 	.image {
 		width: 100%;
 		height: 3rem;
 		margin: 0;
+		object-position: left;
 	}
-	.text {
-		text-align: center;
+	.info {
 		.duration {
 			&::after {
 				content: "";
@@ -86,6 +100,9 @@ export default {
 
 			display: block;
 		}
+	}
+	.description {
+		column-count: 1;
 	}
 }
 </style>
