@@ -27,9 +27,9 @@ export default {
 	padding: 8px 12px;
 	margin: 4px 2px;
 	font-size: 0.75em;
-	color: #fff;
 	text-transform: uppercase;
-	background: $color-primary;
+	background: transparent;
+	border: 1px solid $color-primary;
 	border-radius: 3em;
 }
 </style>
