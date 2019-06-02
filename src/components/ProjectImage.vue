@@ -120,15 +120,15 @@ export default {
 .click-area {
 	width: 100%;
 	height: 100%;
+	user-select: none;
 	.hint {
 		position: absolute;
 		bottom: 0;
-		left: 3px;
-		width: calc(100% - 6px);
+		left: 0;
+		width: 100%;
 		padding: 0.5rem;
 		text-align: center;
 		background: #fff;
-		border-bottom: 2px solid $color-secondary;
 		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
 		opacity: 0;
 		transition: opacity 0.3s ease-in-out 0.1s;
@@ -149,7 +149,7 @@ export default {
 	}
 	&:focus {
 		outline: none;
-		&::before,
+		&:not(:hover)::before,
 		.hint {
 			opacity: 1;
 		}
