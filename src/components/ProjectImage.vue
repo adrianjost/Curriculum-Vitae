@@ -1,6 +1,6 @@
 <template>
 	<div
-		tabindex="1"
+		tabindex="0"
 		class="click-area"
 		@click="toggleZoom"
 		@keydown.enter="toggleZoom"
