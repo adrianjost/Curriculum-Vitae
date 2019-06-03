@@ -1,16 +1,18 @@
 <template>
 	<ProjectCardTemplate class="grid">
-		<VLazyImage
-			slot="image"
-			:class="{ image: true, 'image--cover': data.imgCover }"
-			:alt="`image for ${data.title}`"
-			:style="imgStyles(data)"
-			:src="`https://aridbtumen.cloudimg.io/width/700/x/${data.img}`"
-			:src-placeholder="
-				data.imgPlaceholder ||
-					`https://aridbtumen.cloudimg.io/width/30/x/${data.img}`
-			"
-		/>
+		<div slot="image" style="position: relative;width: 100%;height: 100%;">
+			<ProjectImage
+				:alt="`image for ${data.title}`"
+				:image-cover="data.imgCover"
+				:image-position="data.imgPosition"
+				:src="`https://aridbtumen.cloudimg.io/width/700/x/${data.img}`"
+				:src-placeholder="
+					data.imgPlaceholder ||
+						`https://aridbtumen.cloudimg.io/width/30/x/${data.img}`
+				"
+			/>
+		</div>
+
 		<template slot="text">
 			<h2 class="title">
 				{{ data.title }}
@@ -32,12 +34,12 @@
 </template>
 
 <script>
-import VLazyImage from "v-lazy-image";
 import ProjectCardTemplate from "~/components/ProjectCardTemplate.vue";
 import Pills from "~/components/Pills.vue";
+import ProjectImage from "~/components/ProjectImage.vue";
 
 export default {
-	components: { VLazyImage, ProjectCardTemplate, Pills },
+	components: { ProjectCardTemplate, Pills, ProjectImage },
 	props: {
 		data: {
 			type: Object,
@@ -53,20 +55,19 @@ export default {
 			const options = { year: "numeric", month: "long" };
 			return date.toLocaleDateString("en-US", options);
 		},
-		imgStyles(data) {
-			return data.imgPosition ? { "object-position": data.imgPosition } : {};
-		},
 	},
 };
 </script>
 
-<style lang="scss">
-.v-lazy-image {
-	filter: blur(10px);
-	transition: filter 0.7s;
-}
+<style lang="scss" scoped>
+/deep/ {
+	.v-lazy-image {
+		filter: blur(10px);
+		transition: filter 0.7s;
+	}
 
-.v-lazy-image-loaded {
-	filter: blur(0);
+	.v-lazy-image-loaded {
+		filter: blur(0);
+	}
 }
 </style>
