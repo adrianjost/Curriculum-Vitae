@@ -46,6 +46,13 @@
 					<option value="education">Education</option>
 				</select>
 			</BaseInput>
+			<BaseInput class="description" label="Description">
+				<ContentEditable
+					v-model="data.description"
+					class="input-description"
+					placeholder="you are awesome!"
+				/>
+			</BaseInput>
 			<div class="actions">
 				<button class="button" @click="saveArticle()">Save</button>
 				<button v-if="savedData.id" @click="deleteArticle(data.id)">
