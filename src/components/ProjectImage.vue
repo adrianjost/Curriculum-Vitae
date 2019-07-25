@@ -39,6 +39,37 @@ const transition = {
 };
 
 export default {
+	components: {
+		VLazyImage,
+		Frame: posed.div({
+			zoomedOut: {
+				applyAtEnd: { display: "none" },
+				opacity: 0,
+			},
+			zoomedIn: {
+				applyAtStart: { display: "block" },
+				opacity: 1,
+			},
+		}),
+		ZoomImage: posed.div({
+			zoomedOut: {
+				position: "absolute",
+				width: "100%",
+				height: "100%",
+				transition,
+				flip: true,
+			},
+			zoomedIn: {
+				position: "fixed",
+				top: 0,
+				left: 0,
+				width: "100%",
+				height: "100%",
+				transition,
+				flip: true,
+			},
+		}),
+	},
 	props: {
 		isZoomedIn: {
 			type: Boolean,
@@ -79,37 +110,6 @@ export default {
 				event.preventDefault();
 			}
 		},
-	},
-	components: {
-		VLazyImage,
-		Frame: posed.div({
-			zoomedOut: {
-				applyAtEnd: { display: "none" },
-				opacity: 0,
-			},
-			zoomedIn: {
-				applyAtStart: { display: "block" },
-				opacity: 1,
-			},
-		}),
-		ZoomImage: posed.div({
-			zoomedOut: {
-				position: "absolute",
-				width: "100%",
-				height: "100%",
-				transition,
-				flip: true,
-			},
-			zoomedIn: {
-				position: "fixed",
-				top: 0,
-				left: 0,
-				width: "100%",
-				height: "100%",
-				transition,
-				flip: true,
-			},
-		}),
 	},
 };
 </script>
