@@ -54,7 +54,7 @@
 		"node-sass": "^4.11.0",
 		"npm-run-all": "^4.1.5",
 		"prettier": "github:prettier/prettier#3de36e3",
-		"sass-loader": "^7.1.0",
+		"sass-loader": "^8.0.0",
 		"stylelint": "^10.0.0",
 		"stylelint-config-prettier": "^5.0.0",
 		"stylelint-config-recess-order": "^2.0.1",
