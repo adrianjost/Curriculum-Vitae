@@ -43,7 +43,7 @@
 		"@nuxtjs/pwa": "^3.0.0-beta.8",
 		"@nuxtjs/sitemap": "^1.0.0",
 		"babel-eslint": "^10.0.1",
-		"cross-env": "^5.2.0",
+		"cross-env": "^6.0.0",
 		"eslint": "^6.1.0",
 		"eslint-config-prettier": "^6.0.0",
 		"eslint-loader": "^3.0.0",
