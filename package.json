@@ -14,11 +14,10 @@
 		"lint:eslint": "eslint --fix",
 		"lint:stylelint": "stylelint --fix",
 		"lint:prettier": "prettier --write --loglevel warn",
-		"lint:all:eslint": "npm run lint:eslint --ext .js,.vue .",
+		"lint:all:eslint": "npm run lint:eslint -- --ext .js,.vue .",
 		"lint:all:stylelint": "npm run lint:stylelint \"src/**/*.{vue,sass,scss,css}\"",
 		"lint:all:prettier": "npm run lint:prettier \"**/*.{js,json,css,scss,vue,html}\"",
-		"lint": "run-s lint:all:*",
-		"travis": "npm run lint"
+		"lint": "run-s lint:all:*"
 	},
 	"gitHooks": {
 		"pre-commit": "cross-env PRE_COMMIT=true lint-staged"
