@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import { firebase } from "@firebase/app";
-import "@firebase/auth";
+import * as firebase from "firebase/app";
+import "firebase/auth";
 import TheNav from "../components/TheNav.vue";
 
 export default {

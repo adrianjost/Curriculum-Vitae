@@ -2,19 +2,19 @@ language: node_js
 node_js:
   - "8"
 install:
-  - yarn install --production=false
+  - npm ci
   - cd functions
-  - yarn install --production=false
+  - npm ci
   - cd ..
 script:
-  - yarn travis
+  - npm run travis
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
 notifications:
   email: false
 cache:
   directories:
     - node_modules
-before_deploy: yarn build
+before_deploy: npm run build
 deploy:
   skip_cleanup: true
   provider: firebase

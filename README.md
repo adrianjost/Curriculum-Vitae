@@ -18,14 +18,14 @@
 
 ```bash
 # install dependencies
-$ yarn install
+$ npm run install
 
 # serve with hot reload at localhost:3000
-$ yarn dev
+$ npm run dev
 
 # generate static project
-$ yarn build
+$ npm run build
 
 # build & deploy to firebase
-$ yarn deploy
+$ npm run deploy
 ```
