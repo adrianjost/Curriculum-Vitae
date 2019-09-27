@@ -1,6 +1,6 @@
 <template>
 	<BaseInput :label="label">
-		<no-ssr>
+		<client-only>
 			<VueTagsInput
 				v-model="newTag"
 				class="tag-input"
@@ -9,7 +9,7 @@
 				:placeholder="placeholder"
 				@tags-changed="tagsChanged"
 			/>
-		</no-ssr>
+		</client-only>
 	</BaseInput>
 </template>
 

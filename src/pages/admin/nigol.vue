@@ -3,9 +3,9 @@
 		<h1 class="header">
 			Sign in to continue
 		</h1>
-		<no-ssr>
+		<client-only>
 			<FirebaseUi />
-		</no-ssr>
+		</client-only>
 	</section>
 </template>
 

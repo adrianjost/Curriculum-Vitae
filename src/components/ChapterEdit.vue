@@ -54,10 +54,14 @@
 				/>
 			</BaseInput>
 			<div class="actions">
-				<button class="button" @click="saveArticle()">Save</button>
-				<button v-if="savedData.id" @click="deleteArticle(data.id)">
+				<button
+					v-if="savedData.id"
+					class="btn-secondary"
+					@click="deleteArticle(data.id)"
+				>
 					delete
 				</button>
+				<button @click="saveArticle()">Save</button>
 			</div>
 		</template>
 	</ProjectCardTemplate>
@@ -171,7 +175,7 @@ export default {
 		}
 	}
 }
-.button {
+.btn-secondary {
 	color: inherit;
 }
 .input-description {

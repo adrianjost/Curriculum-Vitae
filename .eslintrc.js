@@ -42,7 +42,7 @@ module.exports = {
 					"transition-group",
 					"keep-alive",
 					"slot",
-					"no-ssr",
+					"client-only",
 				],
 			},
 		],
