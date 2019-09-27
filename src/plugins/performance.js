@@ -1,9 +1,13 @@
 import { firebase } from "~/plugins/firebase.js";
 import "firebase/performance";
 
+let perf;
 const enablePerfMetrics = () => {
-	const perf = firebase.performance();
-
+	if (perf) {
+		return;
+	}
+	perf = firebase.performance();
+	/*
 	document.addEventListener("mousedown", () => {
 		const trace = perf.trace("UserEvents");
 		trace.incrementMetric("Mouse Clicks", 1);
@@ -14,6 +18,7 @@ const enablePerfMetrics = () => {
 			trace.incrementMetric("Key Presses", 1);
 		}
 	});
+	*/
 };
 
 if (process.env.NODE_ENV === "production") {
