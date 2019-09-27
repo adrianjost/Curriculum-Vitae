@@ -1,6 +1,6 @@
-import { firebase } from "@firebase/app";
-import "@firebase/firestore";
-import "@firebase/storage";
+import * as firebase from "firebase/app";
+import "firebase/firestore";
+import "firebase/storage";
 
 const config = {
 	apiKey: "AIzaSyDlyFP3-bIBwQ_JcvlaPkJD88WoEUlF9eg",
@@ -9,11 +9,14 @@ const config = {
 	projectId: "curriculum-vitae-5cd0a",
 	storageBucket: "curriculum-vitae-5cd0a.appspot.com",
 	messagingSenderId: "708068057486",
+	appId: "1:708068057486:web:a1dff7d0bd7af2da",
 };
 
 // initialize if not already done
-if (!firebase.apps.length) {
+try {
 	firebase.initializeApp(config);
+} catch (e) {
+	console.warn("firebase already initialized => skipping");
 }
 
 const db = firebase.firestore();
