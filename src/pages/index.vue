@@ -114,9 +114,9 @@ export default {
 
 .skills {
 	position: relative;
-	padding-bottom: 60%;
+	padding-bottom: 64%;
 	margin: 0;
-	overflow: hidden;
+	// overflow: hidden;
 
 	@media screen and (max-width: 700px) {
 		margin: 0 -1.5rem -1.5rem;
