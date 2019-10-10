@@ -48,6 +48,8 @@ import TheBottomNav from "~/components/TheBottomNav.vue";
 
 import transition from "~/mixins/transition";
 
+import tags from "./tags";
+
 export default {
 	head: {
 		title: "CV",
@@ -72,6 +74,8 @@ export default {
 			return this.$store.getters.getAbout;
 		},
 		tags() {
+			// TODO remove
+			return tags.map(([value, key]) => [key, value]);
 			return this.$store.getters.getTags;
 		},
 		work() {
