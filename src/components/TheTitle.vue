@@ -1,6 +1,6 @@
 <template>
 	<div class="header">
-		<div class="logo" />
+		<!-- <div class="logo" /> -->
 		<h1 class="title">Adrian Jost</h1>
 	</div>
 </template>
@@ -16,6 +16,8 @@ export default {
 	color: #fff;
 	text-align: center;
 }
+
+/*
 .logo {
 	$logo-size: 7rem;
 
@@ -36,6 +38,7 @@ export default {
 		height: $logo-size;
 	}
 }
+*/
 .title,
 .subtitle {
 	padding: 0;

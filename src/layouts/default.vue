@@ -51,6 +51,9 @@ export default {
 main {
 	margin: 2rem 0;
 }
+.title {
+	padding-top: 2rem;
+}
 
 @media screen and (max-width: 900px) {
 	#app {

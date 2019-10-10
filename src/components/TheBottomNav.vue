@@ -1,5 +1,6 @@
 <template>
 	<nav
+		aria-label="Bottom"
 		class="bottom-nav"
 		:style="{ 'justify-content': !links.left ? 'flex-end' : '' }"
 	>

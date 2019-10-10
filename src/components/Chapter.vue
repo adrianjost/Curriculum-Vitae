@@ -2,8 +2,9 @@
 	<div class="chapter">
 		<div class="summary">
 			<img
+				role="presentation"
 				class="image"
-				:alt="`image for ${data.title}`"
+				alt=""
 				:src="`https://aridbtumen.cloudimg.io/width/100/x/${data.img}`"
 			/>
 			<div class="info">

@@ -1,5 +1,5 @@
 <template>
-	<nav>
+	<nav aria-label="Main">
 		<ul v-bind="$attrs" class="navigation">
 			<li v-for="route in routes" :key="route.title" class="nav-item-wrapper">
 				<NuxtLink v-if="route.to" class="nav-item" :to="route.to">
