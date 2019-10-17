@@ -153,6 +153,7 @@ export default {
 			}
 			const formData = new FormData();
 			formData.append("receiver", "me@adrianjost.dev");
+			formData.append("sender", this.email);
 			formData.append("headline", "Contacting Adrian Jost");
 			formData.append(
 				"message",
@@ -163,12 +164,18 @@ export default {
 				method: "post",
 				body: formData,
 			})
-				.then(() => {
+				.then((res) => {
+					if (!res.ok) {
+						throw new Error(
+							`${res.status}${res.statusText ? `- ${res.statusText}` : ""}`
+						);
+					}
 					this.submitStatus = "success";
 					this.message = "";
 				})
-				.catch(() => {
+				.catch((error) => {
 					this.submitStatus = "error";
+					console.error(error);
 				})
 				.finally(() => {
 					for (const key in this.validate) {
