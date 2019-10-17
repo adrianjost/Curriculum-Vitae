@@ -159,7 +159,7 @@ export default {
 				`Message from: ${this.email}\n\n---\n\n${this.message}`
 			);
 			this.submitStatus = "sending";
-			fetch("https://mail.hackedit.de/?origin=https://adrianjost.dev", {
+			fetch("https://mail.hackedit.de/?origin=adrianjost.dev", {
 				method: "post",
 				body: formData,
 			})
