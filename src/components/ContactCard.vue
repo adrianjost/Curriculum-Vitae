@@ -27,12 +27,17 @@
 					</button>
 				</span>
 			</p>
-			<form>
+			<form
+				action="https://mail.hackedit.de?origin=adrianjost.dev&redirect=https%3A%2F%2Fadrianjost.dev%2Fmailsuccess"
+				method="post"
+			>
+				<input type="hidden" name="receiver" value="me@adrianjost.dev" />
+				<input type="hidden" name="headline" value="Contacting Adrian Jost" />
 				<BaseInput
 					v-model="email"
 					type="email"
 					label="Your E-Mail"
-					name="email"
+					name="sender"
 					placeholder="your@mail.com"
 					class="i-email"
 					:with-error="true"
@@ -50,9 +55,10 @@
 				/>
 				<div class="actions">
 					<button
+						type="Submit"
 						:class="buttonClass"
 						:disabled="submitStatus === 'sending'"
-						@click="sendMessage()"
+						@click.prevent="sendMessage()"
 					>
 						Send Message
 						<span v-if="submitStatus === 'success'">✔</span>
@@ -151,14 +157,17 @@ export default {
 			if (this.error.email || this.error.message) {
 				return;
 			}
+			const mailData = {
+				sender: this.email,
+				receiver: "me@adrianjost.dev",
+				headline: "Contacting Adrian Jost",
+				message: `Message from: ${this.email}\n\n---\n\n${this.message}`,
+			};
 			const formData = new FormData();
-			formData.append("receiver", "me@adrianjost.dev");
-			formData.append("sender", this.email);
-			formData.append("headline", "Contacting Adrian Jost");
-			formData.append(
-				"message",
-				`Message from: ${this.email}\n\n---\n\n${this.message}`
-			);
+			Object.entries(mailData).forEach(([key, value]) => {
+				formData.append(key, value);
+			});
+			return this.mailTo();
 			this.submitStatus = "sending";
 			fetch("https://mail.hackedit.de/?origin=adrianjost.dev", {
 				method: "post",
@@ -176,6 +185,7 @@ export default {
 				.catch((error) => {
 					this.submitStatus = "error";
 					console.error(error);
+					this.mailTo();
 				})
 				.finally(() => {
 					for (const key in this.validate) {
@@ -185,6 +195,11 @@ export default {
 						this.submitStatus = "";
 					}, 3000);
 				});
+		},
+		mailTo() {
+			const { sender, message } = this;
+			const mailto_link = `mailto:me@adrianjost.dev?subject=Hi%20Adrian&body=${message}`;
+			const win = window.open(mailto_link, "emailWindow");
 		},
 	},
 };
