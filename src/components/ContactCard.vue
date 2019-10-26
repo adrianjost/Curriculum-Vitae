@@ -11,13 +11,12 @@
 			<h2 class="title">Contact me</h2>
 			<p class="info">
 				<b>My E-Mail:</b>
-				<span class="content">
+				<span class="content" @click="copyToClipboard('me@adrianjost.dev')">
 					me@adrianjost.dev
 					<button
 						:class="['btn-copy', copyStatus]"
 						type="button"
 						aria-label="copy email to clipboard"
-						@click="copyToClipboard('me@adrianjost.dev')"
 					>
 						<img
 							alt="copy icon"
@@ -30,6 +29,7 @@
 			<form
 				action="https://mail.hackedit.de?origin=adrianjost.dev&redirect=https%3A%2F%2Fadrianjost.dev%2Fmailsuccess"
 				method="post"
+				@submit.prevent="sendMessage()"
 			>
 				<input type="hidden" name="receiver" value="me@adrianjost.dev" />
 				<input type="hidden" name="headline" value="Contacting Adrian Jost" />
@@ -58,7 +58,6 @@
 						type="Submit"
 						:class="buttonClass"
 						:disabled="submitStatus === 'sending'"
-						@click.prevent="sendMessage()"
 					>
 						Send Message
 						<span v-if="submitStatus === 'success'">✔</span>
@@ -167,7 +166,7 @@ export default {
 			Object.entries(mailData).forEach(([key, value]) => {
 				formData.append(key, value);
 			});
-			return this.mailTo();
+
 			this.submitStatus = "sending";
 			fetch("https://mail.hackedit.de/?origin=adrianjost.dev", {
 				method: "post",
