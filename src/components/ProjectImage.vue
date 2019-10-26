@@ -149,7 +149,7 @@ export default {
 	}
 	&:focus {
 		outline: none;
-		&:not(:hover)::before,
+		&::before,
 		.hint {
 			opacity: 1;
 		}
