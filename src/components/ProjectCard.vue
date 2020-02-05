@@ -13,7 +13,7 @@
 			/>
 		</div>
 
-		<template slot="text">
+		<template v-slot:text>
 			<h2 class="title">
 				{{ data.title }}
 			</h2>
@@ -23,12 +23,59 @@
 			</h3>
 			<p class="description">{{ data.description }}</p>
 			<b>Used Tools:</b>
-			<Pills :data="data.tags" />
-			<div v-if="false" class="actions">
-				<a v-if="data.src" target="_blank" rel="noreferrer" :href="data.src">
-					Read more →
-				</a>
-			</div>
+			<Pills :data="data.tags" class="tools" />
+			<template v-if="data.repo || data.demo || data.npm || data.src">
+				<b>Links:</b>
+				<div class="actions">
+					<div class="actions icon-actions">
+						<a
+							v-if="data.repo"
+							:href="data.repo"
+							target="_blank"
+							rel="noreferrer"
+							class="action"
+							title="check out the code repository"
+						>
+							<img
+								class="action-icon"
+								rel="presentation"
+								src="@/static/Icon-GitHub.svg"
+							/>
+						</a>
+						<a
+							v-if="data.npm"
+							:href="data.npm"
+							target="_blank"
+							rel="noreferrer"
+							class="action"
+							title="view the published package"
+						>
+							<img
+								class="action-icon"
+								rel="presentation"
+								src="@/static/Icon-NPM.svg"
+							/>
+						</a>
+						<a
+							v-if="data.demo"
+							:href="data.demo"
+							target="_blank"
+							rel="noreferrer"
+							class="action"
+							title="show me more"
+						>
+							<img
+								class="action-icon"
+								rel="presentation"
+								src="@/static/Icon-Demo.svg"
+							/>
+						</a>
+					</div>
+					<a v-if="data.src" target="_blank" rel="noreferrer" :href="data.src">
+						Read more →
+					</a>
+				</div>
+			</template>
 		</template>
 	</ProjectCardTemplate>
 </template>
@@ -68,6 +115,25 @@ export default {
 
 	.v-lazy-image-loaded {
 		filter: blur(0);
+	}
+}
+
+.tools {
+	&:not(:last-of-type) {
+		margin-bottom: 1em;
+	}
+}
+
+.actions {
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 0;
+	&.icon-actions {
+		margin: 0;
+	}
+	.action-icon {
+		height: 2em;
 	}
 }
 </style>
