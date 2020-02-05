@@ -14,6 +14,10 @@ export default {
 	 * more are defined in the default layout
 	 */
 	head: {
+		htmlAttrs: {
+			lang: "en",
+			prefix: "og: http://ogp.me/ns#",
+		},
 		titleTemplate: (titleChunk) =>
 			titleChunk ? `Adrian Jost | ${titleChunk}` : "Adrian Jost",
 		meta: [
