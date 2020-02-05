@@ -1,12 +1,12 @@
 name: Broken Link Checker
 
-on: [push]
-#   schedule:
-#     - cron: "*/5 * * * *"
+on:
+  schedule:
+    - cron: "*/10 * * * *"
 
 jobs:
   broken-link-checker:
     runs-on: ubuntu-latest
     steps:
-      - name: blc
-        run: npx -p broken-link-checker blc -go http://adrianjost.dev/projects
+      - name: check project links
+        run: npx -p broken-link-checker blc -gor http://adrianjost.dev
