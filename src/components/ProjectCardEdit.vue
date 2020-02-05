@@ -43,8 +43,26 @@
 			/>
 			<BaseInput
 				v-model="data.src"
-				label="Link"
+				label="More Info"
 				name="src"
+				placeholder="https://..."
+			/>
+			<BaseInput
+				v-model="data.repo"
+				label="Repo"
+				name="repo"
+				placeholder="https://..."
+			/>
+			<BaseInput
+				v-model="data.npm"
+				label="NPM"
+				name="npm"
+				placeholder="https://..."
+			/>
+			<BaseInput
+				v-model="data.demo"
+				label="Demo"
+				name="demo"
 				placeholder="https://..."
 			/>
 			<BaseInput
