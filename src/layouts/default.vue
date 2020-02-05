@@ -14,6 +14,17 @@
 import TheTitle from "../components/TheTitle.vue";
 import TheNav from "../components/TheNav.vue";
 
+import ProfileImage from "~/static/ProfileImage.jpg";
+import pkg from "~/../package.json";
+
+const META = {
+	author: "Adrian Jost",
+	title: "Adrian Jost",
+	description: pkg.description,
+	image: `${process.env.baseUrl}${ProfileImage}`,
+	url: "https://adrianjost.dev",
+};
+
 export default {
 	name: "Default",
 	components: {
@@ -26,6 +37,24 @@ export default {
 				{ to: "/projects", title: "Projects" },
 				{ to: "/", title: "About" },
 				{ to: "/contact", title: "Contact" },
+			],
+		};
+	},
+	head() {
+		return {
+			meta: [
+				{ property: "author", content: META.author },
+				{ property: "description", content: META.description },
+
+				{ property: "og:title", content: META.title },
+				{ property: "og:description", content: META.description },
+				{ property: "og:image", content: META.image },
+				{ property: "og:url", content: META.url },
+
+				{ name: "twitter:title", content: META.title },
+				{ name: "twitter:description", content: META.description },
+				{ name: "twitter:image", content: META.image },
+				{ name: "twitter:card", content: "summary_large_image" },
 			],
 		};
 	},

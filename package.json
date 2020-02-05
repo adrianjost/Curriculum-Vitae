@@ -1,7 +1,7 @@
 {
 	"name": "adrianjost-cv",
 	"version": "3.1.0",
-	"description": "CV of Adrian Jost",
+	"description": "Personal Homepage of Adrian Jost including most of his project work and contact information.",
 	"author": "Adrian Jost",
 	"license": "MIT",
 	"scripts": {

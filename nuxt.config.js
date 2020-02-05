@@ -6,8 +6,12 @@ export default {
 	mode: "universal",
 	srcDir: "src/",
 
-	/*
-	 ** Headers of the page
+	env: {
+		baseUrl: process.env.BASE_URL || "https://adrianjost.dev",
+	},
+	/**
+	 * Headers of the page
+	 * more are defined in the default layout
 	 */
 	head: {
 		titleTemplate: (titleChunk) =>
@@ -15,7 +19,6 @@ export default {
 		meta: [
 			{ charset: "utf-8" },
 			{ name: "viewport", content: "width=device-width, initial-scale=1" },
-			{ hid: "description", name: "description", content: pkg.description },
 		],
 		link: [{ rel: "icon", type: "image/png", href: "/icon.png" }],
 		__dangerouslyDisableSanitizers: ["script"],
@@ -78,7 +81,7 @@ export default {
 	},
 
 	build: {
-		analyze: true,
+		analyze: false,
 		quiet: false,
 		html: {
 			minify: {

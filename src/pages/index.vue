@@ -49,9 +49,6 @@ import TheBottomNav from "~/components/TheBottomNav.vue";
 import transition from "~/mixins/transition";
 
 export default {
-	head: {
-		title: "CV",
-	},
 	components: {
 		ProjectCardTemplate,
 		WordCloud,
@@ -80,6 +77,9 @@ export default {
 		education() {
 			return this.$store.getters.getEducation;
 		},
+	},
+	head: {
+		title: "About Me",
 	},
 };
 </script>
