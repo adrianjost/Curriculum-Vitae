@@ -22,7 +22,7 @@ const META = {
 	title: "Adrian Jost",
 	description: pkg.description,
 	image: `${process.env.baseUrl}${ProfileImageHeader}`,
-	url: "https://adrianjost.dev",
+	url: process.env.baseUrl,
 };
 
 export default {
