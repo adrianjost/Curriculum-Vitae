@@ -1,7 +1,7 @@
 {
 	"name": "adrianjost-cv",
 	"version": "3.1.0",
-	"description": "Personal Homepage of Adrian Jost.You can find most of his project work and his contact information. If you are impressed you could even offer him a nice Job. ;) He would be very happy to head from you!",
+	"description": "Personal Homepage of Adrian Jost. You can find most of his project work and his contact information. If you are impressed you could even offer him a nice Job. ;) He would be very happy to head from you!",
 	"author": "Adrian Jost",
 	"license": "MIT",
 	"scripts": {

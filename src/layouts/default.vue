@@ -49,7 +49,9 @@ export default {
 				{ property: "og:title", content: META.title },
 				{ property: "og:description", content: META.description },
 				{ property: "og:image", content: META.image },
+				{ property: "og:image:src", content: META.image },
 				{ property: "og:url", content: META.url },
+				{ property: "og:type", content: "website" },
 
 				{ name: "twitter:title", content: META.title },
 				{ name: "twitter:description", content: META.description },
