@@ -1,7 +1,7 @@
 name: Broken Link Checker
 
 on:
-  schedule:
+  schedules:
     - cron: "*/10 * * * *"
 
 jobs:
