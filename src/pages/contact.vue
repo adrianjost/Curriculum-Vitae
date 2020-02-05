@@ -17,15 +17,15 @@ export default {
 		TheBottomNav,
 	},
 	mixins: [transition],
-	head: {
-		title: "Contact",
-	},
 	data() {
 		return {
 			ctas: {
 				left: { to: "/", text: "About Me" },
 			},
 		};
+	},
+	head: {
+		title: "Contact",
 	},
 };
 </script>

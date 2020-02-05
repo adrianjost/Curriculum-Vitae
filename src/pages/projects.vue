@@ -21,10 +21,6 @@ import TheBottomNav from "~/components/TheBottomNav.vue";
 import transition from "~/mixins/transition";
 
 export default {
-	head: {
-		title: "Projects",
-	},
-
 	components: {
 		ProjectCard,
 		TheBottomNav,
@@ -41,6 +37,9 @@ export default {
 		projects() {
 			return this.$store.getters.getProjects;
 		},
+	},
+	head: {
+		title: "Projects",
 	},
 };
 </script>

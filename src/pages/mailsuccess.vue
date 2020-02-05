@@ -32,15 +32,15 @@ export default {
 		TheBottomNav,
 	},
 	mixins: [transition],
-	head: {
-		title: "E-Mail delivered",
-	},
 	data() {
 		return {
 			ctas: {
 				left: { to: "/contact", text: "Zurück" },
 			},
 		};
+	},
+	head: {
+		title: "E-Mail delivered",
 	},
 };
 </script>
