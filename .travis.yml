@@ -18,6 +18,6 @@ before_deploy: npm run build
 deploy:
   skip_cleanup: true
   provider: script
-  script: npx -p firebase-tools firebase deploy
+  script: npx -p firebase-tools firebase deploy --token $FIREBASE_TOKEN
   on:
     branch: master
