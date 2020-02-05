@@ -18,6 +18,6 @@ before_deploy: npm run build
 deploy:
   skip_cleanup: true
   provider: script
-  script: npx firebase deploy
+  script: npx -p firebase-tools firebase deploy
   on:
     branch: master
