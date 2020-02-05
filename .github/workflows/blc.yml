@@ -1,0 +1,11 @@
+name: Broken Link Checker
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron: "0 14 * * *"
+jobs:
+  broken-link-checker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: blc
+        run: npx -p broken-link-checker blc -go http://adrianjost.dev/projects
