@@ -43,15 +43,18 @@ export default {
 	head() {
 		return {
 			meta: [
-				{ property: "author", content: META.author },
+				{ name: "author", property: "author", content: META.author },
 				{ property: "description", content: META.description },
 
-				{ property: "og:title", content: META.title },
-				{ property: "og:description", content: META.description },
-				{ property: "og:image", content: META.image },
+				{ name: "title", property: "og:title", content: META.title },
+				{
+					name: "description",
+					property: "og:description",
+					content: META.description,
+				},
+				{ name: "image", property: "og:image", content: META.image },
 				{ property: "og:image:src", content: META.image },
 				{ property: "og:url", content: META.url },
-				{ property: "og:type", content: "website" },
 
 				{ name: "twitter:title", content: META.title },
 				{ name: "twitter:description", content: META.description },
