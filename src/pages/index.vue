@@ -9,11 +9,6 @@
 					alt="profile image of Adrian Jost"
 				/>
 			</template>
-			<template slot="text">
-				<h2 class="h2">About Me</h2>
-				<!-- eslint-disable-next-line vue/no-v-html -->
-				<div v-html="about" />
-			</template>
 		</ProjectCardTemplate>
 
 		<ProjectCardTemplate class="skill-wrapper with-padding">
@@ -22,20 +17,7 @@
 				<WordCloud :words="tags" class="skill-cloud" />
 			</figure>
 		</ProjectCardTemplate>
-
-		<ProjectCardTemplate v-if="work.length" class="with-padding">
-			<h2 class="h2">My Employers</h2>
-			<Chapter v-for="chapter in work" :key="chapter.key" :data="chapter" />
-		</ProjectCardTemplate>
-
-		<ProjectCardTemplate v-if="education.length" class="with-padding">
-			<h2 class="h2">My Education</h2>
-			<Chapter
-				v-for="chapter in education"
-				:key="chapter.key"
-				:data="chapter"
-			/>
-		</ProjectCardTemplate>
+		>
 		<TheBottomNav class="bottom-nav" :links="ctas" />
 	</div>
 </template>
@@ -43,7 +25,7 @@
 <script>
 import ProjectCardTemplate from "~/components/ProjectCardTemplate.vue";
 import WordCloud from "~/components/WordCloud.vue";
-import Chapter from "~/components/Chapter.vue";
+// import Chapter from "~/components/Chapter.vue";
 import TheBottomNav from "~/components/TheBottomNav.vue";
 
 import transition from "~/mixins/transition";
@@ -57,7 +39,7 @@ export default {
 	components: {
 		ProjectCardTemplate,
 		WordCloud,
-		Chapter,
+		// Chapter,
 		TheBottomNav,
 	},
 	mixins: [transition],
@@ -70,19 +52,10 @@ export default {
 		};
 	},
 	computed: {
-		about() {
-			return this.$store.getters.getAbout;
-		},
 		tags() {
 			// TODO remove
 			return tags.map(([value, key]) => [key, value]);
 			return this.$store.getters.getTags;
-		},
-		work() {
-			return this.$store.getters.getWork;
-		},
-		education() {
-			return this.$store.getters.getEducation;
 		},
 	},
 };

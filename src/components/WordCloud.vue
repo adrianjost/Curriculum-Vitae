@@ -3,8 +3,8 @@
 		:words="relevantWords"
 		font-family="Quicksand"
 		:color="colorMapping"
-		:font-size-ratio="6"
-		:spacing="0.5"
+		:font-size-ratio="5"
+		:spacing="0.6"
 	/>
 </template>
 

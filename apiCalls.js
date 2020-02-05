@@ -53,5 +53,5 @@ export const getProjects = () =>
 			)
 		);
 
-export const getAll = () =>
-	Promise.all([getAbout(), getChapters(), getTags(), getProjects()]);
+export const getAll = () => Promise.resolve([]);
+//Promise.all([getAbout(), getChapters(), getTags(), getProjects()]);
