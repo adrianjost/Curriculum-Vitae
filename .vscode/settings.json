@@ -114,5 +114,8 @@
 	"liveServer.settings.fullReload": true,
 	"liveServer.settings.host": "localhost",
 	"liveServer.settings.NoBrowser": true,
-	"liveServer.settings.wait": 500
+	"liveServer.settings.wait": 500,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	}
 }
