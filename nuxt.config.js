@@ -1,5 +1,3 @@
-// import fetch from "isomorphic-unfetch"
-import pkg from "./package";
 import { getAll } from "./apiCalls";
 
 export default {
