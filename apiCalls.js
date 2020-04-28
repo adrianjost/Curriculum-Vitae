@@ -1,5 +1,11 @@
-import fetch from "isomorphic-unfetch";
+import originalFetch from "isomorphic-unfetch";
+import fetchRetry from "fetch-retry";
 import base64Img from "base64-img";
+
+const fetch = fetchRetry(originalFetch, {
+	retries: 3,
+	retryDelay: 1000,
+});
 
 const apiBaseUrl =
 	process.env.API_URL || process.env.NODE_ENV === "development"
