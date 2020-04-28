@@ -1,3 +1,4 @@
 HTTP/1.1 200 OK
+Content-Type: application/json
 
 {"status": 200,"data": "<p>I strive to develop software that is accessible to everyone. </p>\n<p>That&#39;s why I have specialized in web development and put special emphasis on accessibility, usability and performance. However, the speed of development should not suffer, which is why I love to automate things and try out new supporting tools whenever possible. </p>\n<p>Even though I am young I already have over 10 years of coding experience and been building websites for over 5 years now.</p>\n<p>Learning new things every day is for me the key to developing the best software available! You don&#39;t believe me? Check out all my projects ;)</p>\n<p>In my spare time, I like to ride and repair my mountain- and road bike 🚲.</p>\n"}
