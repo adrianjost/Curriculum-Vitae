@@ -8,11 +8,13 @@ const fetch = fetchRetry(originalFetch, {
 });
 
 const apiBaseUrl =
-	process.env.API_URL || process.env.NODE_ENV === "development"
+	process.env.API_URL ||
+	(process.env.NODE_ENV === "development"
 		? "http://localhost:5000/curriculum-vitae-5cd0a/us-central1/fastApiProjects"
-		: "https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects";
+		: "https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects");
 
 function getResizedImageUrl(url) {
+	// TODO: mock cloudimg API for network independant tests
 	return `https://aridbtumen.cloudimg.io/width/30/x/${url}`;
 }
 
