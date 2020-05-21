@@ -14,7 +14,7 @@ const apiBaseUrl =
 		: "https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects");
 
 function getResizedImageUrl(url) {
-	// TODO [$5ec63cc7096a09000766bf1c]: mock cloudimg API for network independant tests
+	// TODO [#159]: mock cloudimg API for network independant tests
 	return `https://aridbtumen.cloudimg.io/width/30/x/${url}`;
 }
 
