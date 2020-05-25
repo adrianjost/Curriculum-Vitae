@@ -20,7 +20,7 @@ My Employers
 HPI Schul-Cloud
 02.2017 - 03.2020 Web Developer
 
-My first task was to make minor UI adjustments and design the UI of new tools, but also to implement it. As time went by I was assigned more and more responsibilities and now I am one of the longest active developers in the project. Sadly, the development team changed a couple of times in the last 2 years, which resulted in some really bad code and architectures. For this reason I was allowed to invest more and more time in the documentation and onboarding of new developers and I am now one of the lead developers in the complete rewrite of the frontend.  My task is to integrate the learnings, from the first version, into the second version and prevent the failures we had done before. This means that I develop a new architecture for the project together with a small team,  I integrate workflow supporting tools (e.g. for documentation or git workflows) and develop concepts on how to optimize our code quality and test coverage.
+My first task was to make minor UI adjustments and design the UI of new tools, but also to implement it. As time went by I was assigned more and more responsibilities and now I am one of the longest active developers in the project. Sadly, the development team changed a couple of times in the last 2 years, which resulted in some really bad code and architectures. For this reason I was allowed to invest more and more time in the documentation and onboarding of new developers and I am now one of the lead developers in the complete rewrite of the frontend. My task is to integrate the learnings, from the first version, into the second version and prevent the failures we had done before. This means that I develop a new architecture for the project together with a small team, I integrate workflow supporting tools (e.g. for documentation or git workflows) and develop concepts on how to optimize our code quality and test coverage.
 
 Lightball SC
 10.2016 - 01.2017 Angular App Developer
@@ -56,7 +56,7 @@ My Employers
 HPI Schul-Cloud
 02.2017 - 03.2020 Web Developer
 
-My first task was to make minor UI adjustments and design the UI of new tools, but also to implement it. As time went by I was assigned more and more responsibilities and now I am one of the longest active developers in the project. Sadly, the development team changed a couple of times in the last 2 years, which resulted in some really bad code and architectures. For this reason I was allowed to invest more and more time in the documentation and onboarding of new developers and I am now one of the lead developers in the complete rewrite of the frontend.  My task is to integrate the learnings, from the first version, into the second version and prevent the failures we had done before. This means that I develop a new architecture for the project together with a small team,  I integrate workflow supporting tools (e.g. for documentation or git workflows) and develop concepts on how to optimize our code quality and test coverage.
+My first task was to make minor UI adjustments and design the UI of new tools, but also to implement it. As time went by I was assigned more and more responsibilities and now I am one of the longest active developers in the project. Sadly, the development team changed a couple of times in the last 2 years, which resulted in some really bad code and architectures. For this reason I was allowed to invest more and more time in the documentation and onboarding of new developers and I am now one of the lead developers in the complete rewrite of the frontend. My task is to integrate the learnings, from the first version, into the second version and prevent the failures we had done before. This means that I develop a new architecture for the project together with a small team, I integrate workflow supporting tools (e.g. for documentation or git workflows) and develop concepts on how to optimize our code quality and test coverage.
 
 Lightball SC
 10.2016 - 01.2017 Angular App Developer
@@ -92,7 +92,7 @@ click to zoom
 Surge.Sh Teardown GitHub Action
 Work - December 2019
 
-At work we  deploy all pull requests to surge.sh. To reduce the amount of deployed pages I developed this GitHub Action to tear down all projects that match a RegEx
+At work we deploy all pull requests to surge.sh. To reduce the amount of deployed pages I developed this GitHub Action to tear down all projects that match a RegEx
 
 Used Tools:
 JAVASCRIPT
@@ -161,7 +161,7 @@ click to zoom
 Dedent Tabs
 Hobby - June 2019
 
-The package dmnd/dedent is pretty awesome, but it is lacking support for tab indentation and is not maintained anymore. For that reason I continued maintaing it and published dedent-tabs wich is now downloaded over 10.000x per Week.
+The package dmnd/dedent is pretty awesome, but it is lacking support for tab indentation and is not maintained anymore. For that reason I continued maintaing it and published dedent-tabs wich is now downloaded over 10.000x per Week.
 
 Used Tools:
 NODE.JS
@@ -357,7 +357,7 @@ click to zoom
 Stepcraft CNC GRBL Controler
 Hobby - May 2016
 
-Our school got an awesome Stepcraft CNC but the software was horrible. Sadly the used controller was proprietary. The solution: I wired up an arduino (with a lot of reverse engineering), uploaded some software. We can now use any public available GRBL Software like the one provieded by easel.com. 
+Our school got an awesome Stepcraft CNC but the software was horrible. Sadly the used controller was proprietary. The solution: I wired up an arduino (with a lot of reverse engineering), uploaded some software. We can now use any public available GRBL Software like the one provieded by easel.com.
 
 Used Tools:
 ARDUINO
@@ -422,7 +422,7 @@ click to zoom
 Substitution Plan Upload System
 Hobby - March 2015
 
-My school uses an custom made software for displying and managing substitutions. I extended this software with an automatic upload script to our school server. We can now view our substitions online on our website.
+My school uses an custom made software for displying and managing substitutions. I extended this software with an automatic upload script to our school server. We can now view our substitions online on our website.
 
 Used Tools:
 HTML5
@@ -446,7 +446,7 @@ click to zoom
 Robocup World Championship Eindhoven
 Hobby - June 2013
 
-After the success at the German Championship in the Robocup Junior, my team and I were allowed to participate at the World Championship in Eindhoven. Unfortunately this year we were not as successful as last year. Nevertheless it was a great experience and we had a lot of fun.
+After the success at the German Championship in the Robocup Junior, my team and I were allowed to participate at the World Championship in Eindhoven. Unfortunately this year we were not as successful as last year. Nevertheless it was a great experience and we had a lot of fun.
 
 Used Tools:
 ARDUINO
