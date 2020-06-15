@@ -57,7 +57,7 @@
 		"imagemin-lint-staged": "^0.4.0",
 		"jest": "^26.0.1",
 		"jest-environment-node": "^26.0.1",
-		"jest-playwright-preset": "^0.2.3",
+		"jest-playwright-preset": "^0.2.5",
 		"lint-staged": "^10.2.10",
 		"mockserver": "^3.1.1",
 		"node-sass": "^4.14.1",
