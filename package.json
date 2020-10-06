@@ -33,7 +33,7 @@
 		"autosize": "^4.0.2",
 		"base64-img": "^1.0.4",
 		"fetch-retry": "^4.0.1",
-		"firebase": "^7.22.0",
+		"firebase": "^7.22.1",
 		"firebaseui": "^4.6.1",
 		"isomorphic-unfetch": "^3.1.0",
 		"nuxt": "^2.14.6",
@@ -43,7 +43,7 @@
 	},
 	"devDependencies": {
 		"@babel/runtime-corejs3": "^7.11.2",
-		"@nuxtjs/pwa": "^3.0.2",
+		"@nuxtjs/pwa": "^3.1.0",
 		"@nuxtjs/sitemap": "^2.4.0",
 		"babel-eslint": "^10.1.0",
 		"core-js": "^3.6.5",
