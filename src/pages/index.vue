@@ -69,7 +69,7 @@ export default {
 			return this.$store.getters.getAbout;
 		},
 		tags() {
-			return this.$store.getters.getTags;
+			return this.$store.getters.getTags.filter(([tag, amount]) => amount > 1);
 		},
 		work() {
 			return this.$store.getters.getWork;

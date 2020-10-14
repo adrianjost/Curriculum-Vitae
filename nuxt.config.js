@@ -1,7 +1,6 @@
 import { getAll } from "./apiCalls";
 
 export default {
-	mode: "universal",
 	srcDir: "src/",
 
 	env: {
