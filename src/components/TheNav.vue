@@ -8,7 +8,7 @@
 				<span
 					v-if="route.event"
 					class="nav-item"
-					@click="$emit('navEvent', route.event)"
+					@click="$emit('navigation', route.event)"
 				>
 					{{ route.title }}
 				</span>

@@ -2,7 +2,7 @@
 	<div id="app">
 		<header>
 			<h1 class="title">Administration</h1>
-			<TheNav class="nav" :routes="navRoutes" @navEvent="handleNavEvent" />
+			<TheNav class="nav" :routes="navRoutes" @navigation="handleNavEvent" />
 		</header>
 		<main>
 			<Nuxt />
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import firebase from "firebase/app";
+import * as firebase from "firebase/app";
 import "firebase/auth";
 import TheNav from "../components/TheNav.vue";
 
