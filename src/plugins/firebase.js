@@ -9,7 +9,7 @@ const config = {
 	projectId: "curriculum-vitae-5cd0a",
 	storageBucket: "curriculum-vitae-5cd0a.appspot.com",
 	messagingSenderId: "708068057486",
-	appId: "1:708068057486:web:a1dff7d0bd7af2da"
+	appId: "1:708068057486:web:a1dff7d0bd7af2da",
 };
 
 // initialize if not already done
