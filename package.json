@@ -46,7 +46,7 @@
 		"@nuxtjs/pwa": "^3.3.2",
 		"@nuxtjs/sitemap": "^2.4.0",
 		"babel-eslint": "^10.1.0",
-		"core-js": "^3.8.0",
+		"core-js": "^3.8.1",
 		"cross-env": "^7.0.3",
 		"eslint": "^7.14.0",
 		"eslint-config-prettier": "^7.0.0",
