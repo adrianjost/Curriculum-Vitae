@@ -58,10 +58,10 @@ function initStore(commit, about, chapters, tags, projects) {
 }
 
 export const actions = {
-	nuxtServerInit({ commit }, { payload }) {
+	async nuxtServerInit({ commit }, { payload }) {
 		if (payload) {
 			return initStore(...[commit, ...payload]);
 		}
-		return getAll().then((res) => initStore(...[commit, ...res]));
+		return await getAll().then((res) => initStore(...[commit, ...res]));
 	},
 };

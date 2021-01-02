@@ -20,5 +20,6 @@ export default {
 	margin-left: auto;
 	background: #fff;
 	box-shadow: 0 25px 100px rgba(0, 0, 0, 0.5);
+	contain: content;
 }
 </style>

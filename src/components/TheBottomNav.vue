@@ -58,6 +58,8 @@ export default {
 	}
 }
 .nav-item {
+	content-visibility: auto;
+	contain-intrinsic-size: 1px 57px;
 	padding: 1em;
 	font-weight: bold;
 	background: #fff;
