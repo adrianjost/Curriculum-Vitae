@@ -3,9 +3,10 @@
 		tabindex="0"
 		class="click-area"
 		@click="toggleZoom"
-		@keydown.enter="toggleZoom"
+		@keydown.prevent.enter="toggleZoom"
+		@keydown.prevent.space="toggleZoom"
 		@keydown.tab="preventIfFullscreen"
-		@keydown.esc="zoomOut"
+		@keydown.prevent.esc="zoomOut"
 	>
 		<ZoomImage
 			:pose="pose"
@@ -22,9 +23,7 @@
 			/>
 		</ZoomImage>
 		<Frame :pose="pose" class="frame" />
-		<div class="hint">
-			click to zoom
-		</div>
+		<div class="hint">click to zoom</div>
 	</div>
 </template>
 
