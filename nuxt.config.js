@@ -2,7 +2,7 @@ import { getAll } from "./apiCalls";
 
 export default {
 	srcDir: "src/",
-
+	target: "static",
 	env: {
 		baseUrl: process.env.BASE_URL || "https://adrianjost.dev",
 	},
