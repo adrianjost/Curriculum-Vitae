@@ -13,7 +13,9 @@
 				</h3>
 				<h4 class="subtitle">
 					<span class="duration">
-						{{ dateToString(data.from) }} - {{ dateToString(data.to) }}
+						{{ dateToString(data.from) }} -
+						<template v-if="isActive">now </template>
+						<template v-else>{{ dateToString(data.to) }} </template>
 					</span>
 					{{ data.subtitle }}
 				</h4>
@@ -31,6 +33,11 @@ export default {
 		data: {
 			type: Object,
 			required: true,
+		},
+	},
+	computed: {
+		isActive() {
+			return new Date(Date.parse(this.data.to)) >= Date.now();
 		},
 	},
 	methods: {
