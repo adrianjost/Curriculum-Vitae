@@ -17,15 +17,10 @@ In my spare time, I like to ride and repair my mountain- and road bike 🚲.
 
 My Skills
 My Employers
-Afilio
-04.2020 - now Software Engineer
-
-As a Software Engineer, I developed new features for the app, helped the customer service to achieve their tasks, and helped to keep everything stable and alive.
-
 HPI Schul-Cloud
 02.2017 - 03.2020 Web Developer
 
-My first task was to make minor UI adjustments and design the UI of new tools, but also to implement it. As time went by I was assigned more and more responsibilities and now I am one of the longest active developers in the project. Sadly, the development team changed a couple of times in the last 2 years, which resulted in some really bad code and architectures. For this reason I was allowed to invest more and more time in the documentation and onboarding of new developers and I am now one of the lead developers in the complete rewrite of the frontend.  My task is to integrate the learnings, from the first version, into the second version and prevent the failures we had done before. This means that I develop a new architecture for the project together with a small team,  I integrate workflow supporting tools (e.g. for documentation or git workflows) and develop concepts on how to optimize our code quality and test coverage.
+My first task was to make minor UI adjustments and design the UI of new tools, but also to implement it. As time went by I was assigned more and more responsibilities and now I am one of the longest active developers in the project. Sadly, the development team changed a couple of times in the last 2 years, which resulted in some really bad code and architectures. For this reason I was allowed to invest more and more time in the documentation and onboarding of new developers and I am now one of the lead developers in the complete rewrite of the frontend. My task is to integrate the learnings, from the first version, into the second version and prevent the failures we had done before. This means that I develop a new architecture for the project together with a small team, I integrate workflow supporting tools (e.g. for documentation or git workflows) and develop concepts on how to optimize our code quality and test coverage.
 
 Lightball SC
 10.2016 - 01.2017 Angular App Developer
@@ -56,15 +51,10 @@ In my spare time, I like to ride and repair my mountain- and road bike 🚲.
 
 My Skills
 My Employers
-Afilio
-04.2020 - now Software Engineer
-
-As a Software Engineer, I developed new features for the app, helped the customer service to achieve their tasks, and helped to keep everything stable and alive.
-
 HPI Schul-Cloud
 02.2017 - 03.2020 Web Developer
 
-My first task was to make minor UI adjustments and design the UI of new tools, but also to implement it. As time went by I was assigned more and more responsibilities and now I am one of the longest active developers in the project. Sadly, the development team changed a couple of times in the last 2 years, which resulted in some really bad code and architectures. For this reason I was allowed to invest more and more time in the documentation and onboarding of new developers and I am now one of the lead developers in the complete rewrite of the frontend.  My task is to integrate the learnings, from the first version, into the second version and prevent the failures we had done before. This means that I develop a new architecture for the project together with a small team,  I integrate workflow supporting tools (e.g. for documentation or git workflows) and develop concepts on how to optimize our code quality and test coverage.
+My first task was to make minor UI adjustments and design the UI of new tools, but also to implement it. As time went by I was assigned more and more responsibilities and now I am one of the longest active developers in the project. Sadly, the development team changed a couple of times in the last 2 years, which resulted in some really bad code and architectures. For this reason I was allowed to invest more and more time in the documentation and onboarding of new developers and I am now one of the lead developers in the complete rewrite of the frontend. My task is to integrate the learnings, from the first version, into the second version and prevent the failures we had done before. This means that I develop a new architecture for the project together with a small team, I integrate workflow supporting tools (e.g. for documentation or git workflows) and develop concepts on how to optimize our code quality and test coverage.
 
 Lightball SC
 10.2016 - 01.2017 Angular App Developer
@@ -95,46 +85,10 @@ exports[`Homepage "/projects" should match snapshot 1`] = `
 "Adrian Jost
 ProjectsAboutContact
 click to zoom
-PWCamera
-Hobby - December 2020
-
-A simple camera PWA to show the capabilities of the web. It works completely offline, you can use all the connected cameras and is using the File Access API to save all photos in a local directory on your device.
-
-Used Tools:
-SERVICEWORKER
-JAVASCRIPT
-CSS3
-HTML5
-Links:
-READ MORE →
-click to zoom
-PWACalculator
-Hobby - May 2020
-
-A simple calculator web app that works like native and has full offline support. No network connection required.
-
-Used Tools:
-JAVASCRIPT
-CSS3
-HTML5
-SERVICEWORKER
-Links:
-click to zoom
-GitHub File Sync Action
-Hobby - May 2020
-
-I wanted to configure some actions for multiple repositories in a single location, so I wrote a GitHub Action to sync files between git repositories.
-
-Used Tools:
-JAVASCRIPT
-GITHUB ACTIONS
-NODE.JS
-Links:
-click to zoom
 Surge.Sh Teardown GitHub Action
 Work - December 2019
 
-At work we  deploy all pull requests to surge.sh. To reduce the amount of deployed pages I developed this GitHub Action to tear down all projects that match a RegEx
+At work we deploy all pull requests to surge.sh. To reduce the amount of deployed pages I developed this GitHub Action to tear down all projects that match a RegEx
 
 Used Tools:
 JAVASCRIPT
@@ -144,7 +98,7 @@ click to zoom
 SmartLight V3
 Hobby - November 2019
 
-Version 3 of my own Smart Home Lighting System is featuring gradient support for using it as a light alert in the morning. It is planned to be compatible with a wide variety of devices and supports all features of the previous versions plus a beautiful new minimalistic ui.
+Version 3 of my own Smart Home Lighting System is featuring gradient support for using it as a light alert in the morning. It is planned to be compatible with a wide variaty of devices and supports all features of the previous versions plus a beautiful new minimalistic ui.
 
 Used Tools:
 GIT
@@ -188,7 +142,7 @@ click to zoom
 Vue Filter Component
 Work - July 2019
 
-Vue Filter Component for FeathersJS inspired by the UI of Googles Webmaster Console. The complete UI is exchangeable and it offers an API to customise the output query for different databases.
+Vue Filter Component for FeathersJS inspired by the UI of Googles Webmaster Console. The complete UI is exchangeable and it offers an API to customize the output query for different databases.
 
 Used Tools:
 VUE.JS
@@ -203,7 +157,7 @@ click to zoom
 Dedent Tabs
 Hobby - June 2019
 
-The package dmnd/dedent is pretty awesome, but it is lacking support for tab indentation and is not maintained anymore. For that reason I continued maintaining it and published dedent-tabs which is now downloaded over 10.000x per Week.
+The package dmnd/dedent is pretty awesome, but it is lacking support for tab indentation and is not maintained anymore. For that reason I continued maintaing it and published dedent-tabs wich is now downloaded over 10.000x per Week.
 
 Used Tools:
 NODE.JS
@@ -228,7 +182,7 @@ click to zoom
 Nextcloud Metadata Plugin
 University - January 2019
 
-For research, my fellow students and I implemented an prototype of an Nextcloud Plugin that can display additional, externally saved metadata for files.
+For research, my fellow students and I implemented an prototype of an Nextcloud Plugin that can display additional, externaly saved metadata for files.
 
 Used Tools:
 NEXTCLOUD
@@ -291,7 +245,7 @@ click to zoom
 SmartLight V2
 Hobby - April 2018
 
-Version 2 of SmartLight was very experimental to test out new real time websocket communication and fancy features like live-music synchronisation.
+Version 2
 
 Used Tools:
 JAVASCRIPT
@@ -320,7 +274,7 @@ click to zoom
 RC Car Lighting System
 Hobby - August 2017
 
-With the help of an Arduino I read out the throttle control of the RC receiver and was able to control the brake light accordingly. Additionally I developed circuit boards for the LEDs to mount them easily.
+With the help of an Arduinos I read out the throttle control of the RC receiver and was able to control the brake light accordingly. Additionally I developed circuit boards for the LEDs to mount them easily.
 
 Used Tools:
 ARDUINO
@@ -332,7 +286,7 @@ click to zoom
 FastFeed
 Hobby - May 2017
 
-Mobile Internet is really expensive in Germany. I developed FastFeed to be able to read news even when the reception is poor. A super small web-app, which causes only minimal traffic.
+Mobile Internet is really expensive in Germany. I developed FastFeed to be able to read news even when the reception is poor. A super small webapp, which causes only minimal traffic.
 
 Used Tools:
 HTML5
@@ -368,6 +322,7 @@ CSS3
 GIT
 ANGULAR 1
 IONIC
+Links:
 click to zoom
 Websnooze V1
 Hobby - August 2016
@@ -384,7 +339,7 @@ click to zoom
 Open Gallery
 Hobby - July 2016
 
-Photosharing and Collecting made easy. The concept of this file sharing software is, to easily collect all photos from all participants at an event. It's meant to be a higher quality, low effort replacement for photo-sharing in WhatsApp-Groups.
+Photosharing and Collecting made easy.
 
 Used Tools:
 PHP
@@ -398,7 +353,7 @@ click to zoom
 Stepcraft CNC GRBL Controler
 Hobby - May 2016
 
-Our school got an awesome Stepcraft CNC but the software was horrible. Sadly the used controller was proprietary. The solution: I wired up an Arduino (with a lot of reverse engineering), uploaded some software. We can now use any public available GRBL Software like the one provided by easel.com. 
+Our school got an awesome Stepcraft CNC but the software was horrible. Sadly the used controller was proprietary. The solution: I wired up an arduino (with a lot of reverse engineering), uploaded some software. We can now use any public available GRBL Software like the one provieded by easel.com.
 
 Used Tools:
 ARDUINO
@@ -420,7 +375,7 @@ click to zoom
 LED Coaster
 Hobby - April 2016
 
-We had an CNC machine, and I had some free-time and a lot of ideas. One of those was an cool coaster concept that doubled as a lamp at the late afternoon BBQ parties. The Coaster illuminates your drink and you get some colorful light at your party while still be able to see your friends.
+We had an CNC machine, and I had some freetime and a lot of ideas. One of those was an cool coaster concept that doubled as a lamp at the late afternoon BBQ partys. The Coaster illuminates your drink and you get some colorfull light at your party while still be able to see your friends.
 
 Used Tools:
 CNC
@@ -463,7 +418,7 @@ click to zoom
 Substitution Plan Upload System
 Hobby - March 2015
 
-My school uses an custom made software for displaying and managing substitutions. I extended this software with an automatic upload script to our school server. We can now view our substitutions online on our website.
+My school uses an custom made software for displying and managing substitutions. I extended this software with an automatic upload script to our school server. We can now view our substitions online on our website.
 
 Used Tools:
 HTML5
@@ -487,7 +442,7 @@ click to zoom
 Robocup World Championship Eindhoven
 Hobby - June 2013
 
-After the success at the German Championship in the Robocup Junior, my team and I were allowed to participate at the World Championship in Eindhoven. Unfortunately this year we were not as successful as last year. Nevertheless it was a great experience and we had a lot of fun.
+After the success at the German Championship in the Robocup Junior, my team and I were allowed to participate at the World Championship in Eindhoven. Unfortunately this year we were not as successful as last year. Nevertheless it was a great experience and we had a lot of fun.
 
 Used Tools:
 ARDUINO
