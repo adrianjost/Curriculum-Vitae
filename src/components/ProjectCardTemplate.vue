@@ -1,5 +1,5 @@
 <template>
-	<BaseCard class="project-card card">
+	<BaseCard class="card">
 		<slot>
 			<div class="img-wrapper">
 				<div class="image-overlay">
@@ -27,11 +27,6 @@ export default {
 
 <style lang="scss">
 @import "~/styles/variables.scss";
-
-.project-card {
-	content-visibility: auto;
-	contain-intrinsic-size: 1px 430px;
-}
 
 .grid {
 	display: grid;
