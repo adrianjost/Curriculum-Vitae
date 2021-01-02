@@ -65,6 +65,7 @@ export default {
 	justify-content: center;
 	padding: 2rem;
 	color: $color-text;
+	contain: content;
 }
 .title {
 	padding-bottom: 0;
