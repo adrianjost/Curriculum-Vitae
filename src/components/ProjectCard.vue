@@ -1,6 +1,6 @@
 <template>
 	<ProjectCardTemplate class="grid">
-		<div slot="image" style="position: relative;width: 100%;height: 100%;">
+		<div slot="image" style="position: relative; width: 100%; height: 100%">
 			<ProjectImage
 				:alt="`image for ${data.title}`"
 				:image-cover="data.imgCover"
@@ -8,12 +8,12 @@
 				:src="`https://aridbtumen.cloudimg.io/width/700/x/${data.img}`"
 				:src-placeholder="
 					data.imgPlaceholder ||
-						`https://aridbtumen.cloudimg.io/width/30/x/${data.img}`
+					`https://aridbtumen.cloudimg.io/width/30/x/${data.img}`
 				"
 			/>
 		</div>
 
-		<template v-slot:text>
+		<template #text>
 			<h2 class="title">
 				{{ data.title }}
 			</h2>

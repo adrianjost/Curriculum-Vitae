@@ -25,7 +25,7 @@ export default {
 		return { isEmpty: true };
 	},
 	watch: {
-		value: function(to) {
+		value: function (to) {
 			this.setEmptystate(this.value);
 		},
 	},

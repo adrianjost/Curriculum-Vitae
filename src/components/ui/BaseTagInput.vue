@@ -58,7 +58,10 @@ export default {
 	},
 	methods: {
 		tagsChanged(newTags) {
-			this.$emit("update", newTags.map((tag) => tag.text));
+			this.$emit(
+				"update",
+				newTags.map((tag) => tag.text)
+			);
 			this.newTag = "";
 		},
 	},

@@ -5,7 +5,7 @@
 		:error="error"
 		v-bind="$attrs"
 	>
-		<textarea ref="textArea" v-model="internalValue" v-bind="$attrs" />
+		<textarea ref="textArea" v-bind="$attrs" v-model="internalValue" />
 	</BaseInput>
 </template>
 
@@ -38,12 +38,12 @@ export default {
 		return { internalValue: this.value };
 	},
 	watch: {
-		internalValue: function(to) {
+		internalValue: function (to) {
 			if (to !== this.value) {
 				this.$emit("input", to);
 			}
 		},
-		value: function(to) {
+		value: function (to) {
 			if (to !== this.internalValue) {
 				this.internalValue = to;
 			}

@@ -120,10 +120,10 @@ export default {
 		},
 	},
 	watch: {
-		email: function(to) {
+		email: function (to) {
 			this.validate.email = true;
 		},
-		message: function(to) {
+		message: function (to) {
 			this.validate.message = true;
 		},
 	},

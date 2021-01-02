@@ -33,13 +33,13 @@ export default {
 			},
 		};
 	},
+	head: {
+		title: "Projects",
+	},
 	computed: {
 		projects() {
 			return this.$store.getters.getProjects;
 		},
-	},
-	head: {
-		title: "Projects",
 	},
 };
 </script>

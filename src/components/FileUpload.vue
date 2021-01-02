@@ -25,7 +25,7 @@ export default {
 		};
 	},
 	watch: {
-		uploadTask: function() {
+		uploadTask: function () {
 			this.uploadTask.on(
 				"state_changed",
 				(sp) => {

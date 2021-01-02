@@ -134,7 +134,7 @@ export default {
 	},
 	watch: {
 		savedData: {
-			handler: function(to) {
+			handler: function (to) {
 				this.importSaved(to);
 			},
 			deep: true,

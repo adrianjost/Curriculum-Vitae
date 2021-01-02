@@ -20,8 +20,8 @@ import AboutEdit from "~/components/AboutEdit.vue";
 import ChapterEdit from "~/components/ChapterEdit.vue";
 
 export default {
-	layout: "admin",
 	components: { AboutEdit, ChapterEdit },
+	layout: "admin",
 	data() {
 		return {
 			about: "",

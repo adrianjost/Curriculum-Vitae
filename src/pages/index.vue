@@ -64,6 +64,9 @@ export default {
 			},
 		};
 	},
+	head: {
+		title: "About Me",
+	},
 	computed: {
 		about() {
 			return this.$store.getters.getAbout;
@@ -77,9 +80,6 @@ export default {
 		education() {
 			return this.$store.getters.getEducation;
 		},
-	},
-	head: {
-		title: "About Me",
 	},
 };
 </script>

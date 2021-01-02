@@ -103,10 +103,7 @@ const getAbout = () => {
 };
 
 const getChapters = () => {
-	return db
-		.collection("chapters")
-		.get()
-		.then(getDataFromQuerySnapshot);
+	return db.collection("chapters").get().then(getDataFromQuerySnapshot);
 };
 
 // ROUTES
@@ -120,16 +117,12 @@ const routeMethods = {
 
 Object.entries(routeMethods).forEach(([route, method]) =>
 	app.get(route, (req, res) => {
-		return method()
-			.then(sendData(res))
-			.catch(sendError(res));
+		return method().then(sendData(res)).catch(sendError(res));
 	})
 );
 
 app.get("/:id", (req, res) => {
-	return getProject(req.params.id)
-		.then(sendData(res))
-		.catch(sendError(res));
+	return getProject(req.params.id).then(sendData(res)).catch(sendError(res));
 });
 
 exports = module.exports = functions.https.onRequest(app);

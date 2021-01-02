@@ -1,8 +1,6 @@
 <template>
 	<section class="welcome-msg text-center">
-		<h1 class="header">
-			Sign in to continue
-		</h1>
+		<h1 class="header">Sign in to continue</h1>
 		<client-only>
 			<FirebaseUi />
 		</client-only>
