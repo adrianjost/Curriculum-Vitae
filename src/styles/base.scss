@@ -57,7 +57,7 @@ body::before {
 .slide-left-leave-active,
 .slide-right-leave-active {
 	transition-duration: 0.5s;
-	transition-property: opacity, transform;
+	transition-property: filter, transform;
 }
 
 .page-enter-active,
@@ -73,17 +73,17 @@ body::before {
 
 .page-enter,
 .page-leave-active {
-	opacity: 0;
+	filter: opacity(0);
 }
 
 .slide-left-enter,
 .slide-right-leave-active {
-	opacity: 0;
+	filter: opacity(0);
 	transform: translateX(25vw);
 }
 
 .slide-left-leave-active,
 .slide-right-enter {
-	opacity: 0;
+	filter: opacity(0);
 	transform: translateX(-25vw);
 }
