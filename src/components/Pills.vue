@@ -1,6 +1,6 @@
 <template>
 	<div class="pills">
-		<span v-for="pill in data" :key="pill" class="pill">{{ pill }}</span>
+		<span v-for="pill in sortedData" :key="pill" class="pill">{{ pill }}</span>
 	</div>
 </template>
 
@@ -10,6 +10,11 @@ export default {
 		data: {
 			type: Array,
 			default: () => [],
+		},
+	},
+	computed: {
+		sortedData() {
+			return [...this.data].sort((a, b) => a.localeCompare(b));
 		},
 	},
 };
