@@ -5,7 +5,7 @@ name: CI
     - cron: "0 7 * * *"
 jobs:
   test:
-    name: Test
+    name: Lint & Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
