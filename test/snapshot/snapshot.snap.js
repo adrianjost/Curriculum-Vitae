@@ -73,7 +73,8 @@ exports[`Homepage "/contact" should match snapshot 1`] = `
 ProjectsAboutContact
 Contact Me
 
-My E-Mail: me@adrianjost.dev 
+My E-Mail: 
+me@adrianjost.dev
 
 Your E-Mail
 Your Message
@@ -91,8 +92,8 @@ Work - December 2019
 At work we deploy all pull requests to surge.sh. To reduce the amount of deployed pages I developed this GitHub Action to tear down all projects that match a RegEx
 
 Used Tools:
-JAVASCRIPT
 GITHUB ACTIONS
+JAVASCRIPT
 Links:
 click to zoom
 SmartLight V3
@@ -101,17 +102,17 @@ Hobby - November 2019
 Version 3 of my own Smart Home Lighting System is featuring gradient support for using it as a light alert in the morning. It is planned to be compatible with a wide variaty of devices and supports all features of the previous versions plus a beautiful new minimalistic ui.
 
 Used Tools:
+ARDUINO
+CSS3
+EASYEDA
+FIREBASE
 GIT
 HTML5
-VUE.JS
-FIREBASE
-CSS3
 JAVASCRIPT
-ARDUINO
-TRAVIS CI
-VUEX
-EASYEDA
 SOLDERING
+TRAVIS CI
+VUE.JS
+VUEX
 Links:
 READ MORE →
 click to zoom
@@ -121,11 +122,11 @@ Hobby - November 2019
 As part of SmartLight V3 I developed a two channel color picker that I also published on npmjs.org.
 
 Used Tools:
-VUE.JS
-JAVASCRIPT
-GIT
 CSS3
+GIT
 HTML5
+JAVASCRIPT
+VUE.JS
 Links:
 click to zoom
 Markdown 2 Latex Converter
@@ -134,9 +135,9 @@ Hobby - August 2019
 I was to lazy to write my bachelor thesis with Latex, so I've build a Markdown to Latex Converter 😅.
 
 Used Tools:
+GIT
 JAVASCRIPT
 NODE.JS
-GIT
 Links:
 click to zoom
 Vue Filter Component
@@ -145,12 +146,12 @@ Work - July 2019
 Vue Filter Component for FeathersJS inspired by the UI of Googles Webmaster Console. The complete UI is exchangeable and it offers an API to customize the output query for different databases.
 
 Used Tools:
-VUE.JS
 CSS3
-JAVASCRIPT
-GIT
 FEATHERSJS
+GIT
+JAVASCRIPT
 MONGODB
+VUE.JS
 Links:
 READ MORE →
 click to zoom
@@ -160,8 +161,8 @@ Hobby - June 2019
 The package dmnd/dedent is pretty awesome, but it is lacking support for tab indentation and is not maintained anymore. For that reason I continued maintaing it and published dedent-tabs wich is now downloaded over 10.000x per Week.
 
 Used Tools:
-NODE.JS
 JAVASCRIPT
+NODE.JS
 Links:
 click to zoom
 Slate.JS Sorting Task Plugin
@@ -170,13 +171,13 @@ University - February 2019
 As part of the course \\"Web Development with Web Frameworks\\" we have developed a Slate.JS plugin, which will transfer the educational concept of sorting tasks into the digital world. We focused our development on a super simple, intuitive design for students and teachers. In addition, we focused on writing really clean code to ensure a smooth transition to the core editor development team.
 
 Used Tools:
-REACT
-JAVASCRIPT
-CSS3
-HTML5
 BEM
-SLATE.JS
+CSS3
 GIT
+HTML5
+JAVASCRIPT
+REACT
+SLATE.JS
 Links:
 click to zoom
 Nextcloud Metadata Plugin
@@ -185,10 +186,10 @@ University - January 2019
 For research, my fellow students and I implemented an prototype of an Nextcloud Plugin that can display additional, externaly saved metadata for files.
 
 Used Tools:
+GIT
+JAVASCRIPT
 NEXTCLOUD
 PHP
-JAVASCRIPT
-GIT
 Links:
 click to zoom
 Console TicTacToe
@@ -197,8 +198,8 @@ Hobby - November 2018
 Just for fun, I created a basic TicTacToe game that you can run in your browsers console.
 
 Used Tools:
-JAVASCRIPT
 GIT
+JAVASCRIPT
 Links:
 click to zoom
 Modular Text Editor
@@ -207,12 +208,12 @@ University - July 2018
 I think Smalltalk is a dead language, but we got the task to develop a component-based, modular editor, similar to the editors of Gitbook.io and Wordpress (Gutenberg). We have done our best to ensure good usability.
 
 Used Tools:
-SQUEAK
-SMALLTALK
+COVERALLS.IO
 GIT
 SCRUM
+SMALLTALK
+SQUEAK
 TRAVIS CI
-COVERALLS.IO
 Links:
 click to zoom
 Metadaten Editor
@@ -221,13 +222,13 @@ University - June 2018
 In the seminar \\"Web Programming and Web Frameworks\\" we developed a content management software for teaching content.
 
 Used Tools:
-VUE.JS
-GIT
-JAVASCRIPT
 CSS3
-HTML5
 FEATHERSJS
+GIT
+HTML5
+JAVASCRIPT
 TRAVIS CI
+VUE.JS
 Links:
 click to zoom
 Robot Competition
@@ -248,10 +249,10 @@ Hobby - April 2018
 Version 2
 
 Used Tools:
-JAVASCRIPT
-VUE.JS
 FIREBASE
 GIT
+JAVASCRIPT
+VUE.JS
 Links:
 READ MORE →
 click to zoom
@@ -261,12 +262,12 @@ Hobby - September 2017
 My own smart home lighting system. I designed it with the goal of a simple setup process, an frictionless UI and very cheap hardware.
 
 Used Tools:
-JAVASCRIPT
 ARDUINO
-HTML5
 CSS3
-GIT
 EASYEDA
+GIT
+HTML5
+JAVASCRIPT
 SOLDERING
 Links:
 READ MORE →
@@ -278,8 +279,8 @@ With the help of an Arduinos I read out the throttle control of the RC receiver 
 
 Used Tools:
 ARDUINO
-SOLDERING
 KICAD
+SOLDERING
 Links:
 READ MORE →
 click to zoom
@@ -289,8 +290,8 @@ Hobby - May 2017
 Mobile Internet is really expensive in Germany. I developed FastFeed to be able to read news even when the reception is poor. A super small webapp, which causes only minimal traffic.
 
 Used Tools:
-HTML5
 CSS3
+HTML5
 JAVASCRIPT
 SERVICEWORKER
 Links:
@@ -301,11 +302,11 @@ Hobby - March 2017
 My first own Wordpress theme. The focus of the development was on performance, minimalism and extensibility. To this day, I use it in my blog to ensure optimal loading times.
 
 Used Tools:
-WORDPRESS
-HTML5
 CSS3
+HTML5
 JAVASCRIPT
 PHP
+WORDPRESS
 Links:
 READ MORE →
 click to zoom
@@ -315,13 +316,13 @@ Work - December 2016
 For the company Lightball SSC I finished the development of the quiz app \\"Quissen\\". It is using Angular 1 with an Wordpress REST Backend.
 
 Used Tools:
-JAVASCRIPT
-WORDPRESS
-HTML5
+ANGULAR 1
 CSS3
 GIT
-ANGULAR 1
+HTML5
 IONIC
+JAVASCRIPT
+WORDPRESS
 Links:
 click to zoom
 Websnooze V1
@@ -330,11 +331,11 @@ Hobby - August 2016
 Having multiple monitors at your desktop is awesome, but sometimes you aren't using it. Why not showing some calm images on it to keep you relaxed and balanced on work. Websnooze was an application that showed you images from unsplash.com in your new tab page or on a dedicated webpage.
 
 Used Tools:
-JAVASCRIPT
-HTML5
-CSS3
-SERVICEWORKER
 CHROME EXTENSION
+CSS3
+HTML5
+JAVASCRIPT
+SERVICEWORKER
 click to zoom
 Open Gallery
 Hobby - July 2016
@@ -342,10 +343,10 @@ Hobby - July 2016
 Photosharing and Collecting made easy.
 
 Used Tools:
-PHP
-JAVASCRIPT
 CSS3
 HTML5
+JAVASCRIPT
+PHP
 SQL
 SQLITE
 Links:
@@ -388,9 +389,9 @@ Hobby - November 2015
 As a student I was tired of actively searching for new substitution lessons or school news. So I developed a telegram bot that can inform me about these things. @archenhold_bot
 
 Used Tools:
-TELEGRAM
-PYTHON
 PHP
+PYTHON
+TELEGRAM
 Links:
 click to zoom
 VisualAdvise
@@ -409,9 +410,9 @@ Hobby - April 2015
 For our school I developed an app, which could manage the most important data for students, such as substitutions, study plans and homework.
 
 Used Tools:
-THUNKABLE APP BUILDER
-PHP
 MIT APP INVENTOR
+PHP
+THUNKABLE APP BUILDER
 Links:
 READ MORE →
 click to zoom
@@ -421,8 +422,8 @@ Hobby - March 2015
 My school uses an custom made software for displying and managing substitutions. I extended this software with an automatic upload script to our school server. We can now view our substitions online on our website.
 
 Used Tools:
-HTML5
 CSS3
+HTML5
 JAVASCRIPT
 Links:
 READ MORE →
@@ -433,10 +434,10 @@ Hobby - June 2014
 At our school we had the privilege to have full control over our website, unfortunately it was not mobile friendly at that time. So my first real web development project was to make this site mobile and friendly. The architecture isn't great, but it works with solid performance thanks to clever caching techniques.
 
 Used Tools:
-PHP
+CSS3
 HTML5
 JAVASCRIPT
-CSS3
+PHP
 Links:
 click to zoom
 Robocup World Championship Eindhoven
@@ -446,9 +447,9 @@ After the success at the German Championship in the Robocup Junior, my team and 
 
 Used Tools:
 ARDUINO
-SOLDERING
 BRICXCC
 KICAD
+SOLDERING
 click to zoom
 Robocup 2013 - German Champion
 Hobby - March 2013
@@ -457,8 +458,8 @@ After successful participation at the World Championships 2012, my team and I fi
 
 Used Tools:
 ARDUINO
-KICAD
 BRIXCC
+KICAD
 SOLDERING
 click to zoom
 Robocup 2012 - World Champion
@@ -468,8 +469,8 @@ After successful qualification both at the Berlin and the German Championships, 
 
 Used Tools:
 ARDUINO
-KICAD
 BRICXCC
+KICAD
 SOLDERING
 Links:"
 `;
