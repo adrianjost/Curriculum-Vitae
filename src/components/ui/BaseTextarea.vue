@@ -5,7 +5,7 @@
 		:error="error"
 		v-bind="$attrs"
 	>
-		<textarea ref="textArea" v-bind="$attrs" v-model="internalValue" />
+		<textarea ref="textArea" v-model="internalValue" rows="3" v-bind="$attrs" />
 	</BaseInput>
 </template>
 
