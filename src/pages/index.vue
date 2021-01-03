@@ -13,6 +13,62 @@
 				<h2 class="h2">About Me</h2>
 				<!-- eslint-disable-next-line vue/no-v-html -->
 				<div v-html="about" />
+				<div class="actions">
+					<div class="actions icon-actions">
+						<a
+							href="https://github.com/adrianjost"
+							target="_blank"
+							rel="noreferrer"
+							class="action"
+							title="My GitHub Profile"
+						>
+							<img
+								class="action-icon"
+								rel="presentation"
+								src="@/static/Icon-GitHub.svg"
+							/>
+						</a>
+						<a
+							href="https://adrianjost.medium.com/"
+							target="_blank"
+							rel="noreferrer"
+							class="action"
+							title="My Medium Profile"
+						>
+							<img
+								class="action-icon"
+								rel="presentation"
+								src="@/static/Icon-Medium.svg"
+							/>
+						</a>
+						<a
+							href="https://de.linkedin.com/in/adrianjost"
+							target="_blank"
+							rel="noreferrer"
+							class="action"
+							title="My LinkedIn Profile"
+						>
+							<img
+								class="action-icon"
+								rel="presentation"
+								src="@/static/Icon-Linkedin.svg"
+							/>
+						</a>
+						<a
+							href="https://www.npmjs.com/~adrianjost"
+							target="_blank"
+							rel="noreferrer"
+							class="action"
+							title="My NPM Profile"
+						>
+							<img
+								class="action-icon"
+								rel="presentation"
+								src="@/static/Icon-NPM.svg"
+							/>
+						</a>
+					</div>
+				</div>
 			</template>
 		</ProjectCardTemplate>
 
@@ -101,7 +157,28 @@ export default {
 }
 
 .h2 {
-	padding: 0;
+	padding-bottom: 0;
+
+	@media screen and (min-width: 700px) {
+		padding-top: 0;
+	}
+}
+
+.actions {
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 0;
+
+	@media screen and (min-width: 700px) {
+		margin-bottom: -0.5em;
+	}
+	&.icon-actions {
+		margin: 0;
+	}
+	.action-icon {
+		height: 2em;
+	}
 }
 
 .skill-wrapper.card {
