@@ -12,7 +12,7 @@
 			<p class="info">
 				<b>My E-Mail:</b>
 				<span class="content" @click="copyToClipboard('me@adrianjost.dev')">
-					me@adrianjost.dev
+					<span>me@adrianjost.dev</span>
 					<button
 						:class="['btn-copy', copyStatus]"
 						type="button"
@@ -208,6 +208,8 @@ export default {
 @import "~/styles/variables.scss";
 
 .info > .content {
+	display: inline-flex;
+	align-items: center;
 	white-space: nowrap;
 }
 
@@ -216,6 +218,7 @@ export default {
 	display: inline-block;
 	width: 1em;
 	height: 1em;
+	margin-left: 0.25em;
 	cursor: pointer;
 	background: none;
 	border: none;
