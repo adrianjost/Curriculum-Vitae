@@ -60,7 +60,7 @@ export default {
 .nav-item {
 	contain: content;
 	content-visibility: auto;
-	contain-intrinsic-size: 150px 57px;
+	contain-intrinsic-size: 1px 57px;
 	padding: 1em;
 	font-weight: bold;
 	background: #fff;
