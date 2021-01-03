@@ -17,6 +17,7 @@
 		"test:snapshot:serve": "npx serve --no-clipboard --listen 4001 --config test/snapshot/serve.json dist",
 		"test:snapshot:jest": "jest --config ./test/snapshot/jest.config.js --runInBand",
 		"test:snapshot": "start-test test:snapshot:serve http://localhost:4001 test:snapshot:jest",
+		"test": "npm run test:build && npm run test:snapshot",
 		"lint:eslint": "eslint --fix",
 		"lint:stylelint": "stylelint --fix",
 		"lint:prettier": "prettier --write --loglevel warn",
