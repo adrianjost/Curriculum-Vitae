@@ -4,7 +4,6 @@
 			<img
 				role="presentation"
 				class="image"
-				alt=""
 				:src="`https://aridbtumen.cloudimg.io/width/100/x/${data.img}`"
 			/>
 			<div class="info">
