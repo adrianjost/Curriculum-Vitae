@@ -1,0 +1,34 @@
+name: CI
+'on':
+  push:
+  schedule:
+    - cron: "0 7 * * *"
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci && cd functions && npm ci && cd ..
+      - name: Lint
+        run: npm run lint
+      - name: Test
+        run: npm run test
+  deploy:
+    name: Deploy
+    needs: test
+    runs-on: ubuntu-latest
+    # if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci && cd functions && npm ci && cd ..
+      - name: Build Project
+        run: npm run build
+      - name: Build Project
+        run: npx -p firebase-tools firebase deploy --token $FIREBASE_TOKEN
+        env:
+          BASE: '/'
+          BASE_URL: 'https://adrianjost.dev'
+          FIREBASE_TOKEN: '${{ secrets.FIREBASE_TOKEN }}'
