@@ -33,7 +33,7 @@
 		"@johmun/vue-tags-input": "^2.1.0",
 		"autosize": "^4.0.2",
 		"base64-img": "^1.0.4",
-		"fetch-retry": "^4.0.1",
+		"fetch-retry": "^4.1.0",
 		"firebase": "^8.2.6",
 		"firebaseui": "^4.7.3",
 		"isomorphic-unfetch": "^3.1.0",
