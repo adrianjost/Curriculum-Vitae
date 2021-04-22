@@ -71,7 +71,7 @@
 		"start-server-and-test": "^1.12.1",
 		"stylelint": "^13.11.0",
 		"stylelint-config-prettier": "^8.0.2",
-		"stylelint-config-recess-order": "^2.3.0",
+		"stylelint-config-recess-order": "^2.4.0",
 		"stylelint-config-standard": "^20.0.0",
 		"stylelint-scss": "^3.19.0",
 		"vue": "^2.6.12",
