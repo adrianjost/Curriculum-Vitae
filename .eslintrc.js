@@ -13,7 +13,6 @@ module.exports = {
 		"plugin:vue/recommended",
 		// https://github.com/prettier/eslint-config-prettier
 		"prettier",
-		"prettier/vue",
 	],
 	rules: {
 		// Only allow debugger in development
