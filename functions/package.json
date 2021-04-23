@@ -23,6 +23,6 @@
 		"firebase-tools": "^9.10.0"
 	},
 	"engines": {
-		"node": "10"
+		"node": "12"
 	}
 }
