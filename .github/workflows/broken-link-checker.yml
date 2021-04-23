@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check project links
-        run: npx -p broken-link-checker blc -gor http://adrianjost.dev
+        run: npx -p broken-link-checker blc -gor http://adrianjost.dev  --exclude linkedin.com/in/adrianjost
