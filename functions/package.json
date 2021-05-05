@@ -20,7 +20,7 @@
 	"devDependencies": {
 		"eslint": "^7.25.0",
 		"eslint-plugin-promise": "^5.1.0",
-		"firebase-tools": "^9.10.0"
+		"firebase-tools": "^9.10.1"
 	},
 	"engines": {
 		"node": "12"
