@@ -20,8 +20,8 @@ jobs:
         run: npm run lint
       - name: Test
         run: npm run test
-  deploy:
-    name: Deploy
+  deployFrontend:
+    name: Deploy Frontend
     needs: test
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
@@ -40,6 +40,17 @@ jobs:
           BASE: '/'
           BASE_URL: 'https://adrianjost.dev'
       - name: Deploy to Firebase
-        run: npx -p firebase-tools firebase deploy --token $FIREBASE_TOKEN
+        run: npx -p firebase-tools firebase deploy --only hosting --token $FIREBASE_TOKEN
+        env:
+          FIREBASE_TOKEN: '${{ secrets.FIREBASE_TOKEN }}'
+  deployBackend:
+    name: Deploy Backend
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy to Firebase
+        run: npx -p firebase-tools firebase deploy --only functions --token $FIREBASE_TOKEN
         env:
           FIREBASE_TOKEN: '${{ secrets.FIREBASE_TOKEN }}'
