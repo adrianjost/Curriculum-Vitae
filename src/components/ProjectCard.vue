@@ -40,6 +40,9 @@
 								class="action-icon"
 								alt="GitHub Logo"
 								src="@/static/Icon-GitHub.svg"
+								width="36"
+								height="36"
+								loading="lazy"
 							/>
 						</a>
 						<a
@@ -54,6 +57,9 @@
 								class="action-icon"
 								alt="NPM Logo"
 								src="@/static/Icon-NPM.svg"
+								width="36"
+								height="36"
+								loading="lazy"
 							/>
 						</a>
 						<a
@@ -68,6 +74,9 @@
 								class="action-icon"
 								alt="Play Icon"
 								src="@/static/Icon-Demo.svg"
+								width="36"
+								height="36"
+								loading="lazy"
 							/>
 						</a>
 					</div>

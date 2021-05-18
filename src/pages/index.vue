@@ -26,6 +26,9 @@
 								class="action-icon"
 								alt="GitHub Icon"
 								src="@/static/Icon-GitHub.svg"
+								width="36"
+								height="36"
+								loading="lazy"
 							/>
 						</a>
 						<a
@@ -39,6 +42,9 @@
 								class="action-icon"
 								alt="Medium.com Icon"
 								src="@/static/Icon-Medium.svg"
+								width="36"
+								height="36"
+								loading="lazy"
 							/>
 						</a>
 						<a
@@ -52,6 +58,9 @@
 								class="action-icon"
 								alt="LinkedIn Icon"
 								src="@/static/Icon-Linkedin.svg"
+								width="36"
+								height="36"
+								loading="lazy"
 							/>
 						</a>
 						<a
@@ -65,6 +74,9 @@
 								class="action-icon"
 								alt="NPM Icon"
 								src="@/static/Icon-NPM.svg"
+								width="36"
+								height="36"
+								loading="lazy"
 							/>
 						</a>
 					</div>

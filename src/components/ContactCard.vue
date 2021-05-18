@@ -22,6 +22,9 @@
 							alt="copy icon"
 							class="btn-copy__img"
 							src="@/static/clipboard.svg"
+							width="36"
+							height="36"
+							loading="lazy"
 						/>
 					</button>
 				</span>

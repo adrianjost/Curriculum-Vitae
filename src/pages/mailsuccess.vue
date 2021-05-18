@@ -6,6 +6,9 @@
 					class="image"
 					src="~/static/email.svg"
 					alt="avatar of Adrian Jost"
+					width="56"
+					height="56"
+					loading="eager"
 				/>
 			</template>
 			<template slot="text">
