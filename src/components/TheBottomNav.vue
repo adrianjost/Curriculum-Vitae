@@ -59,6 +59,7 @@ export default {
 }
 .nav-item {
 	contain: content;
+	contain: layout paint style;
 	content-visibility: auto;
 	contain-intrinsic-size: 1px 57px;
 	padding: 1em;

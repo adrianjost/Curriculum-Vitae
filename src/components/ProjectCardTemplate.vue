@@ -66,6 +66,7 @@ export default {
 	padding: 2rem;
 	color: $color-text;
 	contain: content;
+	contain: layout paint style;
 }
 .title {
 	padding-bottom: 0;
