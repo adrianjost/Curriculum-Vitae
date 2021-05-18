@@ -53,7 +53,7 @@ export default {
 	}
 }
 .subtitle {
-	font-family: "Quicksand", sans-serif;
+	font-family: "Quicksand", Roboto, Helvetica, sans-serif;
 	font-size: 2rem;
 	letter-spacing: -0.02em;
 

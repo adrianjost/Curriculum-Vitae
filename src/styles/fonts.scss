@@ -2,6 +2,7 @@
 	font-family: "Quicksand";
 	font-style: normal;
 	font-weight: 400;
+	font-display: optional;
 	src: local("Quicksand Regular"), local("Quicksand-Regular"),
 		url(~static/fonts/Quicksand/Quicksand-Regular.woff2) format("woff2"),
 		url(~static/fonts/Quicksand/Quicksand-Regular.woff) format("woff"),
@@ -17,6 +18,7 @@
 	font-family: "Quicksand";
 	font-style: normal;
 	font-weight: 700;
+	font-display: optional;
 	src: local("Quicksand Bold"), local("Quicksand-Bold"),
 		url(~static/fonts/Quicksand/Quicksand-Bold.woff2) format("woff2"),
 		url(~static/fonts/Quicksand/Quicksand-Bold.woff) format("woff"),
@@ -32,6 +34,7 @@
 	font-family: "Raleway";
 	font-style: normal;
 	font-weight: 400;
+	font-display: optional;
 	src: local("Raleway"), local("Raleway Regular"), local("Raleway-Regular"),
 		url(~static/fonts/Raleway/Raleway-Regular.woff2) format("woff2"),
 		url(~static/fonts/Raleway/Raleway-Regular.woff) format("woff"),

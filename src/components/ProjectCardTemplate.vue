@@ -96,7 +96,7 @@ export default {
 		display: inline-block;
 		padding: 0.3em 0.5em;
 		margin: 0 0.25em;
-		font-family: "Quicksand", sans-serif;
+		font-family: "Quicksand", Roboto, Helvetica, sans-serif;
 		font-weight: bold;
 		line-height: 100%;
 		color: darken($color-primary, 6%);

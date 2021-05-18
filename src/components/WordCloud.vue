@@ -1,7 +1,7 @@
 <template>
 	<VueWordCloud
 		:words="words"
-		font-family="Quicksand, sans-serif"
+		font-family="Quicksand, Roboto, Helvetica, sans-serif"
 		:color="colorMapping"
 		:font-size-ratio="5"
 		:spacing="0.7"
