@@ -151,4 +151,18 @@ export default {
 			});
 		},
 	},
+
+	render: {
+		bundleRenderer: {
+			shouldPreload: (file, type) => {
+				if (["script", "style"].includes(type)) {
+					return true;
+				}
+				if (type === "font") {
+					return file.endsWith(".woff2");
+				}
+				return false;
+			},
+		},
+	},
 };
