@@ -24,7 +24,7 @@
 						>
 							<img
 								class="action-icon"
-								rel="presentation"
+								alt="GitHub Icon"
 								src="@/static/Icon-GitHub.svg"
 							/>
 						</a>
@@ -37,7 +37,7 @@
 						>
 							<img
 								class="action-icon"
-								rel="presentation"
+								alt="Medium.com Icon"
 								src="@/static/Icon-Medium.svg"
 							/>
 						</a>
@@ -50,7 +50,7 @@
 						>
 							<img
 								class="action-icon"
-								rel="presentation"
+								alt="LinkedIn Icon"
 								src="@/static/Icon-Linkedin.svg"
 							/>
 						</a>
@@ -63,7 +63,7 @@
 						>
 							<img
 								class="action-icon"
-								rel="presentation"
+								alt="NPM Icon"
 								src="@/static/Icon-NPM.svg"
 							/>
 						</a>

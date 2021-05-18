@@ -38,7 +38,7 @@
 						>
 							<img
 								class="action-icon"
-								rel="presentation"
+								alt="GitHub Logo"
 								src="@/static/Icon-GitHub.svg"
 							/>
 						</a>
@@ -52,7 +52,7 @@
 						>
 							<img
 								class="action-icon"
-								rel="presentation"
+								alt="NPM Logo"
 								src="@/static/Icon-NPM.svg"
 							/>
 						</a>
@@ -66,7 +66,7 @@
 						>
 							<img
 								class="action-icon"
-								rel="presentation"
+								alt="Play Icon"
 								src="@/static/Icon-Demo.svg"
 							/>
 						</a>
