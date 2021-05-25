@@ -31,7 +31,7 @@
 	},
 	"dependencies": {
 		"@johmun/vue-tags-input": "^2.1.0",
-		"autosize": "^4.0.4",
+		"autosize": "^5.0.0",
 		"base64-img": "^1.0.4",
 		"fetch-retry": "^4.1.1",
 		"firebase": "^8.6.2",
