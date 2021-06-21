@@ -43,7 +43,7 @@
 		"vuewordcloud": "^18.7.12"
 	},
 	"devDependencies": {
-		"@babel/runtime-corejs3": "^7.14.6",
+		"@babel/runtime-corejs3": "^7.14.7",
 		"@nuxtjs/pwa": "^3.3.5",
 		"@nuxtjs/sitemap": "^2.4.0",
 		"babel-eslint": "^10.1.0",
