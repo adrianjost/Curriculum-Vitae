@@ -1,7 +1,7 @@
 <template>
-	<section class="card">
+	<article class="card">
 		<slot />
-	</section>
+	</article>
 </template>
 
 <script>

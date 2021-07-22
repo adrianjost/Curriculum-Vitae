@@ -118,13 +118,19 @@ export default {
 
 @media screen and (max-width: 700px) {
 	.grid {
-		display: block;
+		display: flex;
+		flex-direction: column;
 	}
 	.img-wrapper {
 		padding-bottom: 50%;
 	}
 	.information {
+		flex-grow: 1;
 		padding: 0 1rem 1rem;
+		.description {
+			max-height: 50vh;
+			overflow-y: auto;
+		}
 	}
 }
 </style>

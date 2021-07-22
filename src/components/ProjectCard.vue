@@ -127,6 +127,10 @@ export default {
 	}
 }
 
+.description {
+	flex-grow: 1;
+}
+
 .tools {
 	&:not(:last-of-type) {
 		margin-bottom: 1em;
