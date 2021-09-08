@@ -15,12 +15,12 @@
 		"firebase-admin": "~9.11.1",
 		"firebase-functions": "^3.15.4",
 		"glob": "^7.1.7",
-		"marked": "^3.0.2"
+		"marked": "^3.0.3"
 	},
 	"devDependencies": {
 		"eslint": "^7.32.0",
 		"eslint-plugin-promise": "^5.1.0",
-		"firebase-tools": "^9.17.0"
+		"firebase-tools": "^9.18.0"
 	},
 	"engines": {
 		"node": "12"
