@@ -10,7 +10,7 @@ const fetch = fetchRetry(originalFetch, {
 const apiBaseUrl =
 	process.env.API_URL ||
 	(process.env.NODE_ENV === "development"
-		? "http://localhost:5000/curriculum-vitae-5cd0a/us-central1/fastApiProjects"
+		? "http://localhost:3001/curriculum-vitae-5cd0a/us-central1/fastApiProjects"
 		: "https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects");
 
 function getResizedImageUrl(url) {

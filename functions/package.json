@@ -4,7 +4,7 @@
 	"license": "MIT",
 	"scripts": {
 		"lint": "eslint . --fix",
-		"serve": "npx -p firebase-tools firebase serve --only functions",
+		"serve": "npx -p firebase-tools firebase serve --only functions --port=3001",
 		"shell": "npx -p firebase-tools firebase functions:shell",
 		"start": "npm run shell",
 		"deploy": "npx -p firebase-tools firebase deploy --only functions",
@@ -23,6 +23,6 @@
 		"firebase-tools": "^9.23.0"
 	},
 	"engines": {
-		"node": "12"
+		"node": "16"
 	}
 }
