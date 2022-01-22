@@ -11,7 +11,7 @@
 		"logs": "npx -p firebase-tools firebase functions:log"
 	},
 	"dependencies": {
-		"camelcase": "^6.2.1",
+		"camelcase": "^6.3.0",
 		"firebase-admin": "~10.0.2",
 		"firebase-functions": "^3.16.0",
 		"glob": "^7.2.0",
