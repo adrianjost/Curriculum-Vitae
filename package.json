@@ -38,7 +38,7 @@
 		"firebaseui": "^5.0.0",
 		"isomorphic-unfetch": "^3.1.0",
 		"nuxt": "^2.15.8",
-		"v-lazy-image": "^1.4.0",
+		"v-lazy-image": "^2.0.1",
 		"vue-pose": "^0.5.1",
 		"vuewordcloud": "^18.7.12"
 	},
