@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import VLazyImage from "v-lazy-image";
+import VLazyImage from "v-lazy-image/v2";
 
 import posed from "vue-pose";
 
