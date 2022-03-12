@@ -1,5 +1,5 @@
 import { firebase } from "~/plugins/firebase.js";
-import "firebase/performance";
+import "firebase/compat/performance";
 
 let perf;
 const enablePerfMetrics = () => {
