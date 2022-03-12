@@ -157,12 +157,15 @@ export default {
 
 .card {
 	margin: $spacing-cards 0;
+
 	&.with-padding {
 		padding: 1rem 1.5rem;
 	}
+
 	&:first-of-type {
 		margin-top: 0;
 	}
+
 	&:last-of-type {
 		margin-bottom: 0;
 	}
@@ -185,9 +188,11 @@ export default {
 	@media screen and (min-width: 700px) {
 		margin-bottom: -0.5em;
 	}
+
 	&.icon-actions {
 		margin: 0;
 	}
+
 	.action-icon {
 		height: 2em;
 	}
@@ -209,6 +214,7 @@ export default {
 }
 
 $cloud-padding: 0;
+
 .skill-cloud {
 	position: absolute !important;
 	top: 0;

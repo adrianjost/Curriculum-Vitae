@@ -82,15 +82,19 @@ export default {
 <style lang="scss" scoped>
 $space-between: 5rem;
 $space-around: 2rem;
+
 .about {
 	margin-bottom: $space-between;
 }
+
 .chapter {
 	margin-top: $space-between;
 	margin-bottom: $space-between;
+
 	&:first-of-type {
 		margin-top: $space-around;
 	}
+
 	&:last-of-type {
 		margin-bottom: $space-around;
 	}

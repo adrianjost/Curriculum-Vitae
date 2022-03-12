@@ -138,9 +138,11 @@ export default {
 	align-items: center;
 	justify-content: space-between;
 	margin-top: 0;
+
 	&.icon-actions {
 		margin: 0;
 	}
+
 	.action-icon {
 		height: 2em;
 	}

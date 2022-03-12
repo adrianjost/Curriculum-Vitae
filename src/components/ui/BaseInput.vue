@@ -71,10 +71,12 @@ export default {
 <style lang="scss" scoped>
 @import "~/styles/variables.scss";
 $input-padding-left: 12px;
+
 label {
 	position: relative;
 	display: block;
 	margin: 0;
+
 	&:first-of-type {
 		margin-top: 1rem;
 	}
@@ -83,6 +85,7 @@ label {
 	border: 1px solid $color-text;
 	border-radius: 4px;
 }
+
 .label {
 	position: absolute;
 	top: 0;
@@ -95,6 +98,7 @@ label {
 	border-left: 1px solid #fff;
 	transform: translateY(-0.75em);
 }
+
 .input {
 	width: 100%;
 	padding: 8px $input-padding-left;
@@ -103,10 +107,12 @@ label {
 	border-radius: 4px;
 	outline: none;
 	transition: color 0.2s linear;
+
 	&:focus {
 		color: $color-text;
 	}
 }
+
 .error {
 	color: $color-secondary;
 }

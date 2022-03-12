@@ -82,9 +82,11 @@ export default {
 	margin: 0.5rem 0;
 	text-align: center;
 }
+
 main {
 	margin: 2rem 0;
 }
+
 .title {
 	padding-top: 2rem;
 }

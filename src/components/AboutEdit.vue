@@ -56,16 +56,20 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/styles/variables.scss";
+
 .card {
 	padding: 0.5em;
 }
+
 .about-me {
 	width: 100%;
 	min-height: 5em;
 }
+
 .actions .button {
 	margin: 0;
 }
+
 textarea {
 	resize: vertical;
 }

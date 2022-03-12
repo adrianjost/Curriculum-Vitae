@@ -73,6 +73,7 @@ export default {
 	filter: drop-shadow(0 0 4px #fff);
 	border: 2px dashed $color-primary;
 	border-radius: 2em;
+
 	.progress {
 		position: absolute;
 		bottom: 0;
@@ -82,6 +83,7 @@ export default {
 		transform-origin: 0 0;
 	}
 }
+
 .hidden {
 	display: none;
 }

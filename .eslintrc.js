@@ -4,9 +4,11 @@ module.exports = {
 		browser: true,
 		node: true,
 	},
+	parser: "vue-eslint-parser",
 	parserOptions: {
-		parser: "babel-eslint",
+		parser: "@babel/eslint-parser",
 		sourceType: "module",
+		requireConfigFile: false,
 	},
 	extends: [
 		// https://github.com/vuejs/eslint-plugin-vue#bulb-rules
@@ -45,5 +47,6 @@ module.exports = {
 				],
 			},
 		],
+		"vue/multi-word-component-names": "off", // incompatible with nuxt routing
 	},
 };

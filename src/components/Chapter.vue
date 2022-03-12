@@ -56,31 +56,38 @@ export default {
 .chapter {
 	padding: 0.5rem 0;
 }
+
 .summary {
 	display: flex;
 	flex-wrap: nowrap;
 	align-items: center;
 }
+
 .image {
 	width: 4rem;
 	height: auto;
 	object-fit: contain;
 	margin-right: 1rem;
 }
+
 .info {
 	flex: 1;
+
 	.duration::after {
 		content: "| ";
 	}
 }
+
 .title {
 	padding-bottom: 0;
 	font-weight: bold;
 }
+
 .subtitle {
 	padding-top: 0;
 	font-weight: lighter;
 }
+
 .description {
 	column-count: 2;
 	column-rule: 1px solid grey;
@@ -90,15 +97,18 @@ export default {
 	.chapter:not(:last-of-type) {
 		border-bottom: 1px solid gray;
 	}
+
 	.summary {
 		flex-wrap: wrap;
 	}
+
 	.image {
 		width: 100%;
 		height: 3rem;
 		margin: 0;
 		object-position: left;
 	}
+
 	.info {
 		.duration {
 			&::after {
@@ -108,6 +118,7 @@ export default {
 			display: block;
 		}
 	}
+
 	.description {
 		column-count: 1;
 	}

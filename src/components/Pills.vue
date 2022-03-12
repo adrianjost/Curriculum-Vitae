@@ -22,11 +22,13 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/styles/variables.scss";
+
 .pills {
 	// prevent whitespaces to affect spacing
 	display: flex;
 	flex-wrap: wrap;
 }
+
 .pill {
 	display: inline-block;
 	padding: 8px 12px;

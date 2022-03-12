@@ -44,6 +44,7 @@ export default {
 	padding: 0;
 	margin: 0;
 }
+
 .title {
 	font-size: 4rem;
 	font-weight: bold;
@@ -52,6 +53,7 @@ export default {
 		font-size: 2.5rem;
 	}
 }
+
 .subtitle {
 	font-family: "Quicksand", Roboto, Helvetica, sans-serif;
 	font-size: 2rem;

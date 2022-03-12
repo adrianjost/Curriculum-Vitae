@@ -193,12 +193,15 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/styles/variables.scss";
+
 .btn-secondary {
 	color: inherit;
 }
+
 .input-description {
 	display: block;
 }
+
 .invisible {
 	opacity: 0;
 }

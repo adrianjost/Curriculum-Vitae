@@ -73,12 +73,15 @@ export default {
 div.tag-input {
 	background: transparent;
 	border-radius: 4px;
+
 	.ti-input {
 		border: 0;
 	}
+
 	.ti-tag {
 		background-color: $color-primary;
 	}
+
 	.ti-autocomplete {
 		width: calc(100% + 2px);
 		margin-right: -1px;

@@ -19,9 +19,11 @@ export default {
 .text-center {
 	text-align: center;
 }
+
 .welcome-msg {
 	color: #fff;
 }
+
 .header {
 	font-size: 32px;
 }

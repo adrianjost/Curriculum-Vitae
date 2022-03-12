@@ -68,6 +68,7 @@ textarea {
 	border-radius: 4px;
 	outline: none;
 	transition: color 0.2s linear;
+
 	&:focus {
 		color: $color-text;
 	}

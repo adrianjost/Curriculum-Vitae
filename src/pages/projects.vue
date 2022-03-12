@@ -49,9 +49,11 @@ export default {
 
 .projectcard {
 	margin: $spacing-cards 0;
+
 	&:first-of-type {
 		margin-top: 0;
 	}
+
 	&:last-of-type {
 		margin-bottom: 0;
 	}

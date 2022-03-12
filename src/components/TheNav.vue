@@ -36,13 +36,16 @@ export default {
 	margin: 0;
 	list-style: none;
 }
+
 .nav-item-wrapper {
 	display: inline-block;
 	border-right: 1px solid #fff;
+
 	&:last-of-type {
 		border-right: 0;
 	}
 }
+
 .nav-item {
 	position: relative;
 	display: inline-block;
@@ -55,10 +58,12 @@ export default {
 	@media screen and (max-width: 700px) {
 		padding: 0 0.5em;
 	}
+
 	&.nuxt-link-exact-active {
 		color: #fff;
 		text-decoration: underline;
 	}
+
 	&::before {
 		position: absolute;
 		top: -1em;

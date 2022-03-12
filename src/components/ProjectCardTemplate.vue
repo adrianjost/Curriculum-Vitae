@@ -33,15 +33,18 @@ export default {
 	grid-template-areas: "img info";
 	grid-template-rows: 1fr;
 	grid-template-columns: 1fr 1fr;
+
 	&.inverted {
 		grid-template-areas: "info img";
 	}
 }
+
 .img-wrapper {
 	position: relative;
 	grid-area: img;
 	padding-bottom: 70%;
 	overflow: hidden;
+
 	.image-overlay {
 		position: absolute;
 		top: 0;
@@ -49,15 +52,18 @@ export default {
 		width: 100%;
 		height: 100%;
 	}
+
 	.image {
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
+
 		&.image--cover {
 			object-fit: cover;
 		}
 	}
 }
+
 .information {
 	display: flex;
 	flex-direction: column;
@@ -68,25 +74,30 @@ export default {
 	contain: content;
 	contain: layout paint style;
 }
+
 .title {
 	padding-bottom: 0;
 	text-transform: capitalize;
 }
+
 .subtitle {
 	padding-top: 0;
 	font-size: 1em;
 	font-weight: normal;
 }
+
 .category {
 	font-size: 1.25rem;
 	font-weight: bold;
 	color: $color-secondary;
 }
+
 .description {
 	display: block;
 	width: 100%;
 	margin: 1em 0;
 }
+
 .actions {
 	margin-top: 0.5em;
 	text-align: right;
@@ -103,12 +114,15 @@ export default {
 		text-decoration: none;
 		text-transform: uppercase;
 		border-radius: 0.25em;
+
 		&:first-child {
 			margin-left: -0.5em;
 		}
+
 		&:last-child {
 			margin-right: -0.5em;
 		}
+
 		&:hover,
 		&:focus {
 			background: #0002;
@@ -120,9 +134,11 @@ export default {
 	.grid {
 		display: block;
 	}
+
 	.img-wrapper {
 		padding-bottom: 50%;
 	}
+
 	.information {
 		padding: 0 1rem 1rem;
 	}

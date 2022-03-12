@@ -225,8 +225,10 @@ export default {
 	cursor: pointer;
 	background: none;
 	border: none;
+
 	&.success {
 		outline: none;
+
 		&::after {
 			position: absolute;
 			top: 0;
@@ -240,6 +242,7 @@ export default {
 			animation: scale 0.3s forwards;
 		}
 	}
+
 	&.error {
 		animation: shake 0.3s forwards;
 	}
@@ -254,10 +257,12 @@ export default {
 	0% {
 		transform: scale(0);
 	}
+
 	25%,
 	50% {
 		opacity: 1;
 	}
+
 	100% {
 		opacity: 0;
 		transform: scale(3);
@@ -269,12 +274,15 @@ export default {
 	0% {
 		transform: translateX(0%);
 	}
+
 	25% {
 		transform: translateX(-50%);
 	}
+
 	50% {
 		transform: translateX(50%);
 	}
+
 	100% {
 		transform: translateX(0%);
 	}

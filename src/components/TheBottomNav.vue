@@ -43,12 +43,14 @@ export default {
 	justify-content: space-between;
 	margin-top: $spacing-cards;
 }
+
 .nav-link {
 	@media screen and (min-width: 700px) {
 		flex: 1;
 	}
 
 	text-decoration: none;
+
 	&:not(:first-child) {
 		margin-left: $spacing-cards;
 
@@ -57,6 +59,7 @@ export default {
 		}
 	}
 }
+
 .nav-item {
 	contain: content;
 	contain: layout paint style;
@@ -66,17 +69,22 @@ export default {
 	font-weight: bold;
 	background: #fff;
 	transition: color 0.3s ease-in-out;
+
 	&:hover {
 		color: $color-secondary;
 	}
+
 	&.is-left {
 		text-align: left;
+
 		&::before {
 			content: "←";
 		}
 	}
+
 	&.is-right {
 		text-align: right;
+
 		&::after {
 			content: "→";
 		}

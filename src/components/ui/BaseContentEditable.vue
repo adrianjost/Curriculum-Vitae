@@ -41,17 +41,21 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~/styles/variables.scss";
+
 .input {
 	border: 1px solid transparent;
 	border-radius: 0.125em;
 	transition: border 0.3s ease;
+
 	&:focus {
 		border-color: inherit;
 		outline: none;
 	}
 }
+
 .is-empty {
 	display: inline-block;
+
 	&[data-placeholder]::after {
 		content: attr(data-placeholder);
 		opacity: 0.5;

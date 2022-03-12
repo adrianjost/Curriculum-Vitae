@@ -155,32 +155,40 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/styles/variables.scss";
+
 .subtitle {
 	margin: 0;
 }
+
 .daterange {
 	display: flex;
 	flex-wrap: wrap;
 
 	@media screen and (min-width: 700px) {
 		flex-wrap: nowrap;
+
 		.dateinput {
 			flex: 1;
+
 			&:not(:first-of-type) {
 				margin-left: 0.5rem;
 			}
+
 			&:not(:last-of-type) {
 				margin-right: 0.5rem;
 			}
 		}
 	}
 }
+
 .btn-secondary {
 	color: inherit;
 }
+
 .input-description {
 	display: block;
 }
+
 .invisible {
 	opacity: 0;
 }

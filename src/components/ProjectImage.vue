@@ -120,6 +120,7 @@ export default {
 	width: 100%;
 	height: 100%;
 	user-select: none;
+
 	.hint {
 		position: absolute;
 		bottom: 0;
@@ -132,6 +133,7 @@ export default {
 		opacity: 0;
 		transition: opacity 0.3s ease-in-out 0.1s;
 	}
+
 	&::before {
 		position: absolute;
 		top: 0;
@@ -146,8 +148,10 @@ export default {
 		opacity: 0;
 		transition: opacity 0.3s ease-in-out 0.1s;
 	}
+
 	&:focus {
 		outline: none;
+
 		&::before,
 		.hint {
 			opacity: 1;
@@ -157,6 +161,7 @@ export default {
 
 .image {
 	object-fit: contain;
+
 	&.image--cover {
 		object-fit: cover;
 	}
@@ -166,15 +171,18 @@ export default {
 	width: 100%;
 	height: 100%;
 	cursor: zoom-in;
+
 	&.zoomed {
 		z-index: 4;
 		cursor: zoom-out;
+
 		.image {
 			object-position: center center !important;
 			object-fit: contain !important;
 		}
 	}
 }
+
 .frame {
 	position: fixed;
 	top: 0;
