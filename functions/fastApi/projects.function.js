@@ -1,7 +1,7 @@
 const functions = require("firebase-functions");
 const express = require("express");
 const admin = require("firebase-admin");
-const markdown = require("marked");
+const { marked } = require("marked");
 
 // INIT
 const app = express();
@@ -99,7 +99,7 @@ const getAbout = () => {
 		.then((querySnapshot) => {
 			return querySnapshot.docs.map((doc) => doc.data().text).join("");
 		})
-		.then((aboutText) => markdown(aboutText));
+		.then((aboutText) => marked(aboutText));
 };
 
 const getChapters = () => {
