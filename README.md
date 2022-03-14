@@ -12,8 +12,6 @@
 
 ![CI Status](https://github.com/adrianjost/Curriculum-Vitae/workflows/CI/badge.svg) [![Netlify Status](https://api.netlify.com/api/v1/badges/76d4368d-8878-4a88-ae7c-f3ea1afdc840/deploy-status)](https://app.netlify.com/sites/relaxed-poincare-913bee/deploys) [![Broken Link Checker](https://github.com/adrianjost/Curriculum-Vitae/workflows/Broken%20Link%20Checker/badge.svg)](https://github.com/adrianjost/Curriculum-Vitae/actions?query=workflow%3A%22Broken+Link+Checker%22)
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d7b37affcb4540f59442d4f87bd88bb8)](https://www.codacy.com/app/adrianjost/Curriculum-Vitae?utm_source=github.com&utm_medium=referral&utm_content=adrianjost/Curriculum-Vitae&utm_campaign=Badge_Grade)
-
 ## Development
 
 ```bash
