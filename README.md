@@ -10,7 +10,7 @@
 
 ### Status
 
-![CI Status](https://github.com/adrianjost/Curriculum-Vitae/workflows/CI/badge.svg) [![Netlify Status](https://api.netlify.com/api/v1/badges/76d4368d-8878-4a88-ae7c-f3ea1afdc840/deploy-status)](https://app.netlify.com/sites/relaxed-poincare-913bee/deploys) [![Broken Link Checker](https://github.com/adrianjost/Curriculum-Vitae/workflows/Broken%20Link%20Checker/badge.svg)](https://github.com/adrianjost/Curriculum-Vitae/actions?query=workflow%3A%22Broken+Link+Checker%22)
+[![CI Status](https://github.com/adrianjost/Curriculum-Vitae/actions/workflows/ci.yml/badge.svg)](https://github.com/adrianjost/Curriculum-Vitae/actions/workflows/ci.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/76d4368d-8878-4a88-ae7c-f3ea1afdc840/deploy-status)](https://app.netlify.com/sites/relaxed-poincare-913bee/deploys) [![Broken Link Checker](https://github.com/adrianjost/Curriculum-Vitae/workflows/Broken%20Link%20Checker/badge.svg)](https://github.com/adrianjost/Curriculum-Vitae/actions/workflows/broken-link-checker.yml)
 
 ## Development
 
