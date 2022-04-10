@@ -15,7 +15,7 @@
 		"firebase-admin": "^10.0.2",
 		"firebase-functions": "^3.20.0",
 		"glob": "^7.2.0",
-		"marked": "^4.0.12"
+		"marked": "^4.0.13"
 	},
 	"devDependencies": {
 		"eslint": "^8.13.0",
