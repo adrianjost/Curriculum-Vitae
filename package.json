@@ -55,7 +55,7 @@
 		"eslint-plugin-prettier": "^4.0.0",
 		"eslint-plugin-promise": "^6.0.0",
 		"eslint-plugin-vue": "^8.6.0",
-		"firebase-tools": "^10.7.0",
+		"firebase-tools": "^10.7.1",
 		"imagemin-lint-staged": "^0.4.0",
 		"jest": "^27.5.1",
 		"jest-environment-node": "^27.5.1",
