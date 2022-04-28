@@ -47,7 +47,7 @@
 		"@babel/runtime-corejs3": "^7.17.9",
 		"@nuxtjs/pwa": "^3.3.5",
 		"@nuxtjs/sitemap": "^2.4.0",
-		"core-js": "^3.22.2",
+		"core-js": "^3.22.3",
 		"cross-env": "^7.0.3",
 		"eslint": "^8.14.0",
 		"eslint-config-prettier": "^8.5.0",
