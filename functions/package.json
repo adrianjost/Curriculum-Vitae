@@ -13,7 +13,7 @@
 	"dependencies": {
 		"camelcase": "^6.3.0",
 		"firebase-admin": "^10.0.2",
-		"firebase-functions": "^3.20.1",
+		"firebase-functions": "^3.21.0",
 		"glob": "^8.0.1",
 		"marked": "^4.0.14"
 	},
