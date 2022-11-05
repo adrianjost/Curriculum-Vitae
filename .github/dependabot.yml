@@ -1,75 +1,23 @@
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-    time: "01:00"
-    timezone: Europe/Berlin
-  open-pull-requests-limit: 99
-  versioning-strategy: increase
-  ignore:
-  - dependency-name: core-js
-    versions:
-    - 3.10.0
-    - 3.10.2
-  - dependency-name: firebase
-    versions:
-    - 8.2.10
-    - 8.3.0
-    - 8.3.1
-    - 8.3.2
-    - 8.3.3
-    - 8.4.0
-  - dependency-name: firebase-tools
-    versions:
-    - 9.6.0
-    - 9.6.1
-    - 9.7.0
-    - 9.8.0
-    - 9.9.0
-  - dependency-name: y18n
-    versions:
-    - 4.0.1
-  - dependency-name: eslint
-    versions:
-    - 7.22.0
-    - 7.23.0
-  - dependency-name: eslint-plugin-vue
-    versions:
-    - 7.7.0
-    - 7.8.0
-  - dependency-name: playwright-chromium
-    versions:
-    - 1.9.2
-  - dependency-name: nuxt
-    versions:
-    - 2.15.3
-  - dependency-name: jest-playwright-preset
-    versions:
-    - 1.5.0
-    - 1.5.1
-  - dependency-name: eslint-config-prettier
-    versions:
-    - 8.0.0
-    - 8.1.0
-- package-ecosystem: npm
-  directory: "/functions"
-  schedule:
-    interval: daily
-    time: "01:00"
-    timezone: Europe/Berlin
-  open-pull-requests-limit: 99
-  versioning-strategy: increase
-  ignore:
-  - dependency-name: firebase-tools
-    versions:
-    - 9.6.0
-    - 9.6.1
-    - 9.7.0
-    - 9.8.0
-    - 9.9.0
-  - dependency-name: eslint
-    versions:
-    - 7.22.0
-    - 7.23.0
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "01:00"
+      timezone: Europe/Berlin
+    open-pull-requests-limit: 99
+    versioning-strategy: increase
+    ignore:
+      - dependency-name: core-js
+        versions:
+          - 3.10.0
+          - 3.10.2
+  - package-ecosystem: npm
+    directory: "/functions"
+    schedule:
+      interval: daily
+      time: "01:00"
+      timezone: Europe/Berlin
+    open-pull-requests-limit: 99
+    versioning-strategy: increase
