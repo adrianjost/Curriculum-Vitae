@@ -115,8 +115,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-/deep/ {
+<style lang="scss">
+.grid {
 	.v-lazy-image {
 		filter: blur(10px);
 		transition: filter 0.7s;
@@ -126,7 +126,9 @@ export default {
 		filter: blur(0);
 	}
 }
+</style>
 
+<style lang="scss" scoped>
 .tools {
 	&:not(:last-of-type) {
 		margin-bottom: 1em;
