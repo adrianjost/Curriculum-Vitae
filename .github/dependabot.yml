@@ -6,7 +6,7 @@ updates:
       interval: daily
       time: "01:00"
       timezone: Europe/Berlin
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 25
     versioning-strategy: increase
     ignore:
       - dependency-name: core-js
