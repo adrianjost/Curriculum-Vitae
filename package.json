@@ -63,7 +63,7 @@
 		"mockserver": "^3.1.1",
 		"npm-run-all": "^4.1.5",
 		"playwright-chromium": "^1.28.0",
-		"prettier": "^2.6.2",
+		"prettier": "^2.8.0",
 		"sass": "^1.56.1",
 		"sass-loader": "^10.2.1",
 		"serve": "^14.1.2",
