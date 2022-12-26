@@ -13,7 +13,7 @@
 	"dependencies": {
 		"firebase-admin": "^11.4.1",
 		"firebase-functions": "^4.1.1",
-		"marked": "^4.2.4"
+		"marked": "^4.2.5"
 	},
 	"devDependencies": {
 		"eslint": "^8.30.0",
