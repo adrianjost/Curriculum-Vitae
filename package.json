@@ -59,7 +59,7 @@
 		"jest": "^27.5.1",
 		"jest-environment-node": "^27.5.1",
 		"jest-playwright-preset": "^1.7.2",
-		"lint-staged": "^13.1.2",
+		"lint-staged": "^13.2.3",
 		"mockserver": "^3.1.1",
 		"npm-run-all": "^4.1.5",
 		"playwright-chromium": "^1.30.0",
