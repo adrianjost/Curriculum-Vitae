@@ -1,8 +1,8 @@
 <img src="./src/static/avatar.svg" alt="Avatar of Adrian Jost" height="200" align="right">
 
-# Curriculum vitae of Adrian Jost
+# ⭐ Curriculum vitae of Adrian Jost
 
-## Preview: [https://adrianjost.dev](https://adrianjost.dev)
+## 🌐 Deployment: [https://adrianjost.dev](https://adrianjost.dev)
 
 ### Technology
 
