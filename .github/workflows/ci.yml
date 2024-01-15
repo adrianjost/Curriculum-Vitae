@@ -1,8 +1,8 @@
 name: CI
-'on':
+"on":
   push:
     branches:
-    - main
+      - main
   schedule:
     - cron: "0 7 * * *"
 jobs:
@@ -10,12 +10,12 @@ jobs:
     name: Lint & Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Cache node modules
         uses: actions/cache@v2
         with:
           path: ~/.npm
-          key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
+          key: "${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}"
       - name: Install dependencies
         run: npm ci && cd functions && npm ci && cd ..
       - name: Lint
@@ -28,38 +28,41 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Cache node modules
         uses: actions/cache@v2
         with:
           path: ~/.npm
-          key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
+          key: "${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}"
       - name: Install dependencies
         run: npm ci && cd functions && npm ci && cd ..
       - name: Build Project for Production
         run: npm run build
         env:
-          BASE: '/'
-          BASE_URL: 'https://adrianjost.dev'
+          BASE: "/"
+          BASE_URL: "https://adrianjost.dev"
       - name: Deploy to Firebase
-        run: npx -p firebase-tools firebase deploy --only hosting --token $FIREBASE_TOKEN
-        env:
-          FIREBASE_TOKEN: '${{ secrets.FIREBASE_TOKEN }}'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_CURRICULUM_VITAE_5CD0A }}"
+          channelId: live
+          projectId: curriculum-vitae-5cd0a
   deployBackend:
     name: Deploy Backend
     needs: test
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Cache node modules
         uses: actions/cache@v2
         with:
           path: ~/.npm
-          key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
+          key: "${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}"
       - name: Install dependencies
         run: npm ci && cd functions && npm ci && cd ..
       - name: Deploy to Firebase
         run: npx -p firebase-tools firebase deploy --only functions --token $FIREBASE_TOKEN
         env:
-          FIREBASE_TOKEN: '${{ secrets.FIREBASE_TOKEN }}'
+          FIREBASE_TOKEN: "${{ secrets.FIREBASE_TOKEN }}"

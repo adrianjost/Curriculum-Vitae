@@ -116,6 +116,6 @@
 	"liveServer.settings.NoBrowser": true,
 	"liveServer.settings.wait": 500,
 	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": true
+		"source.fixAll.eslint": "explicit"
 	}
 }
