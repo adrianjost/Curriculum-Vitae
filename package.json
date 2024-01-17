@@ -34,7 +34,7 @@
 		"autosize": "^6.0.1",
 		"base64-img": "^1.0.4",
 		"fetch-retry": "^5.0.2",
-		"firebase": "^9.17.1",
+		"firebase": "^10.7.1",
 		"firebaseui": "^6.1.0",
 		"isomorphic-unfetch": "^4.0.2",
 		"nuxt": "^3.9.2",
