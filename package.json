@@ -45,7 +45,7 @@
 	},
 	"devDependencies": {
 		"@babel/eslint-parser": "^7.23.9",
-		"@babel/runtime-corejs3": "^7.23.8",
+		"@babel/runtime-corejs3": "^7.23.9",
 		"@nuxtjs/pwa": "^3.3.5",
 		"@nuxtjs/sitemap": "^5.0.5",
 		"core-js": "^3.35.1",
