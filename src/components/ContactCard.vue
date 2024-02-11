@@ -56,6 +56,16 @@
 					:with-error="true"
 					:error="error.message"
 				/>
+				<BaseInput
+					v-model="myName"
+					type="text"
+					label="Confirm my name"
+					name="myName"
+					placeholder="Adrian"
+					class="i-name"
+					:with-error="true"
+					:error="error.myName"
+				/>
 				<div class="actions">
 					<button
 						type="Submit"
@@ -90,11 +100,13 @@ export default {
 		return {
 			email: "",
 			message: "",
+			myName: "",
 			submitStatus: "ready",
 			copyStatus: "",
 			validate: {
 				email: false,
 				message: false,
+				myName: false,
 			},
 		};
 	},
@@ -106,6 +118,7 @@ export default {
 			const error = {
 				email: "",
 				message: "",
+				myName: "",
 			};
 			if (this.validate.email) {
 				if (!this.email) {
@@ -119,6 +132,11 @@ export default {
 					error.message = "An empty message? 🤨";
 				}
 			}
+			if (this.validate.myName) {
+				if (!this.myName.includes("Adrian")) {
+					error.myName = "Please confirm MY name.";
+				}
+			}
 			return error;
 		},
 	},
@@ -128,6 +146,9 @@ export default {
 		},
 		message: function (to) {
 			this.validate.message = true;
+		},
+		myName: function (to) {
+			this.validate.myName = true;
 		},
 	},
 	methods: {
@@ -155,8 +176,8 @@ export default {
 				});
 		},
 		sendMessage() {
-			this.validate = { email: true, message: true };
-			if (this.error.email || this.error.message) {
+			this.validate = { email: true, message: true, myName: true };
+			if (this.error.email || this.error.message || this.error.myName) {
 				return;
 			}
 			const mailData = {
