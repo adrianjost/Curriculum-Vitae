@@ -44,7 +44,7 @@
 		"vuewordcloud": "^18.7.12"
 	},
 	"devDependencies": {
-		"@babel/eslint-parser": "^7.18.2",
+		"@babel/eslint-parser": "^7.23.10",
 		"@babel/runtime-corejs3": "^7.20.13",
 		"@nuxtjs/pwa": "^3.3.5",
 		"@nuxtjs/sitemap": "^2.4.0",
@@ -67,7 +67,7 @@
 		"prettier": "^2.8.4",
 		"sass": "^1.58.1",
 		"sass-loader": "^10.2.1",
-		"serve": "^14.2.0",
+		"serve": "^14.2.1",
 		"start-server-and-test": "^1.15.4",
 		"stylelint": "^13.13.1",
 		"stylelint-config-prettier": "^9.0.5",
