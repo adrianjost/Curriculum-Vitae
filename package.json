@@ -58,7 +58,7 @@
 		"firebase-tools": "^11.23.1",
 		"imagemin-lint-staged": "^0.5.1",
 		"jest": "^27.5.1",
-		"jest-environment-node": "^27.5.1",
+		"jest-environment-node": "^29.7.0",
 		"jest-playwright-preset": "^1.7.2",
 		"lint-staged": "^13.1.2",
 		"mockserver": "^3.1.1",
