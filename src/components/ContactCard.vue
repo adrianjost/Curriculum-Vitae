@@ -192,7 +192,7 @@ export default {
 			});
 
 			this.submitStatus = "sending";
-			fetch("https://mail.hackedit.de/?origin=adrianjost.dev", {
+			fetch("https://contactform.hackedit.de/?origin=adrianjost.dev&trigger=jsformsubmit", {
 				method: "post",
 				body: formData,
 			})
