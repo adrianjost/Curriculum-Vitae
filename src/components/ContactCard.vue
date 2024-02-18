@@ -30,7 +30,7 @@
 				</span>
 			</p>
 			<form
-				action="https://mail.hackedit.de?origin=adrianjost.dev&redirect=https%3A%2F%2Fadrianjost.dev%2Fmailsuccess"
+				action="https://contactform.hackedit.de?origin=adrianjost.dev&redirect=https%3A%2F%2Fadrianjost.dev%2Fmailsuccess&trigger=formsubmit"
 				method="post"
 				@submit.prevent="sendMessage()"
 			>
