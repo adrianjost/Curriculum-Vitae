@@ -184,7 +184,7 @@ export default {
 				sender: this.email,
 				receiver: "me@adrianjost.dev",
 				headline: "Contacting Adrian Jost",
-				message: `Message from: ${this.email}\n\n---\n\n${this.message}`,
+				message: this.message,
 			};
 			const formData = new FormData();
 			Object.entries(mailData).forEach(([key, value]) => {
