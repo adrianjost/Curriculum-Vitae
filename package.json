@@ -50,7 +50,7 @@
 		"@nuxtjs/sitemap": "^2.4.0",
 		"core-js": "^3.26.1",
 		"cross-env": "^7.0.3",
-		"eslint": "^8.34.0",
+		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^8.6.0",
 		"eslint-plugin-prettier": "^4.0.0",
 		"eslint-plugin-promise": "^6.0.0",
