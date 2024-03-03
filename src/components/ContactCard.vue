@@ -57,14 +57,14 @@
 					:error="error.message"
 				/>
 				<BaseInput
-					v-model="myName"
+					v-model="confirm"
 					type="text"
 					label="Confirm my name"
-					name="myName"
+					name="confirm"
 					placeholder="Adrian"
 					class="i-name"
 					:with-error="true"
-					:error="error.myName"
+					:error="error.confirm"
 				/>
 				<div class="actions">
 					<button
@@ -100,13 +100,13 @@ export default {
 		return {
 			email: "",
 			message: "",
-			myName: "",
+			confirm: "",
 			submitStatus: "ready",
 			copyStatus: "",
 			validate: {
 				email: false,
 				message: false,
-				myName: false,
+				confirm: false,
 			},
 		};
 	},
@@ -118,7 +118,7 @@ export default {
 			const error = {
 				email: "",
 				message: "",
-				myName: "",
+				confirm: "",
 			};
 			if (this.validate.email) {
 				if (!this.email) {
@@ -132,9 +132,9 @@ export default {
 					error.message = "An empty message? 🤨";
 				}
 			}
-			if (this.validate.myName) {
-				if (!this.myName.includes("Adrian")) {
-					error.myName = "Please confirm MY name.";
+			if (this.validate.confirm) {
+				if (!this.confirm.includes("Adrian")) {
+					error.confirm = "Please confirm MY name.";
 				}
 			}
 			return error;
@@ -147,8 +147,8 @@ export default {
 		message: function (to) {
 			this.validate.message = true;
 		},
-		myName: function (to) {
-			this.validate.myName = true;
+		confirm: function (to) {
+			this.validate.confirm = true;
 		},
 	},
 	methods: {
@@ -176,11 +176,12 @@ export default {
 				});
 		},
 		sendMessage() {
-			this.validate = { email: true, message: true, myName: true };
-			if (this.error.email || this.error.message || this.error.myName) {
+			this.validate = { email: true, message: true, confirm: true };
+			if (this.error.email || this.error.message || this.error.confirm) {
 				return;
 			}
 			const mailData = {
+				confirm: this.confirm,
 				sender: this.email,
 				receiver: "me@adrianjost.dev",
 				headline: "Contacting Adrian Jost",
@@ -192,10 +193,13 @@ export default {
 			});
 
 			this.submitStatus = "sending";
-			fetch("https://contactform.hackedit.de/?origin=adrianjost.dev&trigger=jsformsubmit", {
-				method: "post",
-				body: formData,
-			})
+			fetch(
+				"https://contactform.hackedit.de/?origin=adrianjost.dev&trigger=jsformsubmit",
+				{
+					method: "post",
+					body: formData,
+				}
+			)
 				.then((res) => {
 					if (!res.ok) {
 						throw new Error(
