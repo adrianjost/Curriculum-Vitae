@@ -11,7 +11,7 @@
 		"logs": "npx -p firebase-tools firebase functions:log"
 	},
 	"dependencies": {
-		"firebase-admin": "^12.1.0",
+		"firebase-admin": "^12.1.1",
 		"firebase-functions": "^5.0.1",
 		"marked": "^12.0.2"
 	},
