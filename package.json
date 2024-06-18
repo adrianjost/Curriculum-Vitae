@@ -37,7 +37,7 @@
 		"firebase": "^10.12.2",
 		"firebaseui": "^6.1.0",
 		"isomorphic-unfetch": "^4.0.2",
-		"nuxt": "^2.17.3",
+		"nuxt": "^3.12.2",
 		"postcss": "^8.4.38",
 		"v-lazy-image": "^2.1.1",
 		"vue-pose": "^0.5.1",
@@ -75,7 +75,7 @@
 		"stylelint-config-standard": "^22.0.0",
 		"stylelint-scss": "^3.21.0",
 		"vue": "^2.6.14",
-		"webpack": "^4.47.0",
+		"webpack": "^5.92.0",
 		"yorkie": "^2.0.0"
 	},
 	"engines": {
