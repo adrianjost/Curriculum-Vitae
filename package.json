@@ -44,7 +44,7 @@
 		"vuewordcloud": "^18.7.12"
 	},
 	"devDependencies": {
-		"@babel/eslint-parser": "^7.24.5",
+		"@babel/eslint-parser": "^7.24.7",
 		"@babel/runtime-corejs3": "^7.24.5",
 		"@nuxtjs/pwa": "^3.3.5",
 		"@nuxtjs/sitemap": "^2.4.0",
