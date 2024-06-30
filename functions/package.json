@@ -13,12 +13,12 @@
 	"dependencies": {
 		"firebase-admin": "^12.1.1",
 		"firebase-functions": "^5.0.1",
-		"marked": "^12.0.2"
+		"marked": "^13.0.1"
 	},
 	"devDependencies": {
 		"eslint": "^9.4.0",
 		"eslint-plugin-promise": "^6.2.0",
-		"firebase-tools": "^13.10.2"
+		"firebase-tools": "^13.12.0"
 	},
 	"engines": {
 		"node": "16"
