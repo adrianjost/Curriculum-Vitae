@@ -16,7 +16,7 @@
 		"marked": "^13.0.3"
 	},
 	"devDependencies": {
-		"eslint": "^9.6.0",
+		"eslint": "^9.8.0",
 		"eslint-plugin-promise": "^7.0.0",
 		"firebase-tools": "^13.14.2"
 	},
