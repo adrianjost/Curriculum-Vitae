@@ -38,14 +38,14 @@
 		"firebaseui": "^6.1.0",
 		"isomorphic-unfetch": "^4.0.2",
 		"nuxt": "^2.17.3",
-		"postcss": "^8.4.49",
+		"postcss": "^8.5.3",
 		"v-lazy-image": "^2.1.1",
 		"vue-pose": "^0.5.1",
 		"vuewordcloud": "^18.7.12"
 	},
 	"devDependencies": {
 		"@babel/eslint-parser": "^7.25.9",
-		"@babel/runtime-corejs3": "^7.26.0",
+		"@babel/runtime-corejs3": "^7.26.9",
 		"@nuxtjs/pwa": "^3.3.5",
 		"@nuxtjs/sitemap": "^2.4.0",
 		"core-js": "^3.39.0",
