@@ -14,6 +14,7 @@
 	</div>
 </template>
 <script>
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "~/lib/firebase.js";
 
 import AboutEdit from "~/components/AboutEdit.vue";
@@ -44,15 +45,14 @@ export default {
 	},
 	methods: {
 		async fetchChapters() {
-			this.chapters = await db
-				.collection("chapters")
-				.get()
-				.then((querySnapshot) => {
+			this.chapters = await getDocs(collection(db, "chapters")).then(
+				(querySnapshot) => {
 					return querySnapshot.docs.map((doc) => ({
 						id: doc.id,
 						...doc.data(),
 					}));
-				});
+				}
+			);
 			this.sortedChapters = this.getSortedChapters(this.chapters);
 		},
 		addChapter(project) {

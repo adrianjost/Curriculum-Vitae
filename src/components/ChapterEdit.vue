@@ -68,6 +68,7 @@
 </template>
 
 <script>
+import { addDoc, collection, deleteDoc, doc, setDoc } from "firebase/firestore";
 import ProjectCardTemplate from "./ProjectCardTemplate.vue";
 import ContentEditable from "./ui/BaseContentEditable.vue";
 import BaseInput from "./ui/BaseInput.vue";
@@ -111,9 +112,10 @@ export default {
 		this.importSaved();
 	},
 	beforeMount() {
-		this.doc = this.savedData.id
-			? db.collection("chapters").doc(this.savedData.id)
-			: db.collection("chapters");
+		this.collectionRef = collection(db, "chapters");
+		this.docRef = this.savedData.id
+			? doc(this.collectionRef, this.savedData.id)
+			: null;
 	},
 	methods: {
 		uploaded(url) {
@@ -123,12 +125,13 @@ export default {
 		saveArticle() {
 			const newData = this.data;
 			const apiCall = this.savedData.id
-				? this.doc.set(newData, { merge: true })
-				: this.doc.add(newData);
+				? setDoc(this.docRef, newData, { merge: true })
+				: addDoc(this.collectionRef, newData);
 			apiCall
 				.then((res) => {
 					if (!this.savedData.id) {
 						newData.id = res.id;
+						this.docRef = doc(this.collectionRef, newData.id);
 						this.data = {};
 					}
 					this.$emit("saved", newData);
@@ -137,8 +140,7 @@ export default {
 		},
 		deleteArticle(id) {
 			if (window.confirm("sure?")) {
-				this.doc
-					.delete()
+				deleteDoc(this.docRef)
 					.then(() => {
 						this.$emit("deleted");
 					})

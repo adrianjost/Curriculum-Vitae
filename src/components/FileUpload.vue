@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { storage } from "~/lib/firebase.js";
 
 export default {
@@ -35,7 +36,7 @@ export default {
 				},
 				null,
 				() => {
-					this.uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+					getDownloadURL(this.uploadTask.snapshot.ref).then((downloadURL) => {
 						this.$emit("uploaded", downloadURL);
 					});
 				}
@@ -49,7 +50,7 @@ export default {
 			});
 		},
 		upload(file) {
-			this.uploadTask = storage.ref(file.name).put(file);
+			this.uploadTask = uploadBytesResumable(ref(storage, file.name), file);
 		},
 	},
 };

@@ -1,13 +1,13 @@
 import { defineNuxtPlugin } from "#app";
-import { firebase } from "~/lib/firebase.js";
-import "firebase/compat/performance";
+import { getPerformance } from "firebase/performance";
+import { app } from "~/lib/firebase.js";
 
 let perf;
 const enablePerfMetrics = () => {
 	if (perf) {
 		return;
 	}
-	perf = firebase.performance();
+	perf = getPerformance(app);
 	/*
 	document.addEventListener("mousedown", () => {
 		const trace = perf.trace("UserEvents");

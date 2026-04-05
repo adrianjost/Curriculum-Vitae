@@ -1,6 +1,7 @@
-import firebase from "firebase/compat/app";
-import "firebase/compat/firestore";
-import "firebase/compat/storage";
+import { getApp, getApps, initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const config = {
 	apiKey: "AIzaSyBC8UNa0JZAXq0IYO-LjH3aUT8_2OROnhs",
@@ -13,10 +14,9 @@ const config = {
 };
 
 // Initialize once and reuse app instance across client reloads.
-const app = firebase.apps.length
-	? firebase.app()
-	: firebase.initializeApp(config);
-const db = app.firestore();
-const storage = app.storage();
+const app = getApps().length ? getApp() : initializeApp(config);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
 
-export { firebase, db, storage };
+export { app, auth, db, storage };

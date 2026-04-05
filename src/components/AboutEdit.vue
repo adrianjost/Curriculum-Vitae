@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { collection, getDocs, setDoc } from "firebase/firestore";
 import ProjectCardTemplate from "./ProjectCardTemplate.vue";
 
 import { db } from "~/lib/firebase.js";
@@ -29,18 +30,15 @@ export default {
 		};
 	},
 	created() {
-		db.collection("about")
-			.get()
-			.then((querySnapshot) => {
-				const doc = querySnapshot.docs[0];
-				this.doc = db.collection("about").doc(doc.id);
-				this.text = doc.data().text;
-			});
+		getDocs(collection(db, "about")).then((querySnapshot) => {
+			const doc = querySnapshot.docs[0];
+			this.doc = doc.ref;
+			this.text = doc.data().text;
+		});
 	},
 	methods: {
 		saveArticle() {
-			this.doc
-				.set({ text: this.text }, { merge: true })
+			setDoc(this.doc, { text: this.text }, { merge: true })
 				.then((res) => {
 					this.$emit("saved", this.text);
 				})

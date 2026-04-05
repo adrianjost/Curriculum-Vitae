@@ -20,6 +20,7 @@
 	</div>
 </template>
 <script>
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "~/lib/firebase.js";
 
 import ProjectCardEdit from "~/components/ProjectCardEdit.vue";
@@ -50,15 +51,14 @@ export default {
 	},
 	methods: {
 		async fetchProjects() {
-			this.projects = await db
-				.collection("projects")
-				.get()
-				.then((querySnapshot) => {
+			this.projects = await getDocs(collection(db, "projects")).then(
+				(querySnapshot) => {
 					return querySnapshot.docs.map((doc) => ({
 						id: doc.id,
 						...doc.data(),
 					}));
-				});
+				}
+			);
 			this.sortedProjects = this.getSortedProjects(this.projects);
 		},
 		addProject(project) {

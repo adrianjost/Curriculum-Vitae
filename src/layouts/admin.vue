@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "~/lib/firebase.js";
 import TheNav from "../components/TheNav.vue";
 
 export default {
@@ -30,7 +30,7 @@ export default {
 		};
 	},
 	mounted() {
-		firebase.auth().onAuthStateChanged((user) => {
+		onAuthStateChanged(auth, (user) => {
 			if (!user) {
 				// User signed out.
 				this.$router.push({
@@ -45,7 +45,7 @@ export default {
 	methods: {
 		handleNavEvent(event) {
 			if (event === "logout") {
-				firebase.auth().signOut();
+				signOut(auth);
 				this.$router.push("/");
 			}
 		},
