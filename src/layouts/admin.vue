@@ -2,10 +2,19 @@
 	<div id="app">
 		<header>
 			<h1 class="title">Administration</h1>
+			<p v-if="currentUser" class="auth-meta">
+				Signed in as {{ currentUser.email }}
+			</p>
 			<TheNav class="nav" :routes="navRoutes" @navigation="handleNavEvent" />
 		</header>
-		<main>
+		<main v-if="authReady && currentUser">
 			<NuxtPage />
+		</main>
+		<main v-else-if="!authReady">
+			<p class="status">Checking authentication...</p>
+		</main>
+		<main v-else>
+			<p class="status">Redirecting to sign in...</p>
 		</main>
 	</div>
 </template>
@@ -22,6 +31,9 @@ export default {
 	},
 	data() {
 		return {
+			authReady: false,
+			currentUser: null,
+			unsubscribeAuthState: null,
 			navRoutes: [
 				{ to: "/admin", title: "Projects" },
 				{ to: "/admin/about", title: "About" },
@@ -30,7 +42,9 @@ export default {
 		};
 	},
 	mounted() {
-		onAuthStateChanged(auth, (user) => {
+		this.unsubscribeAuthState = onAuthStateChanged(auth, (user) => {
+			this.currentUser = user;
+			this.authReady = true;
 			if (!user) {
 				// User signed out.
 				this.$router.push({
@@ -42,10 +56,15 @@ export default {
 			}
 		});
 	},
+	beforeUnmount() {
+		if (this.unsubscribeAuthState) {
+			this.unsubscribeAuthState();
+		}
+	},
 	methods: {
-		handleNavEvent(event) {
+		async handleNavEvent(event) {
 			if (event === "logout") {
-				signOut(auth);
+				await signOut(auth);
 				this.$router.push("/");
 			}
 		},
@@ -69,9 +88,22 @@ export default {
 	text-align: center;
 }
 
+.auth-meta {
+	margin-top: 0.5rem;
+	margin-bottom: 0;
+	font-size: 0.95rem;
+	text-align: center;
+	opacity: 0.9;
+}
+
 .nav {
 	margin: 0 0 1rem;
 	text-align: center;
+}
+
+.status {
+	text-align: center;
+	opacity: 0.9;
 }
 
 @media screen and (width <= 900px) {

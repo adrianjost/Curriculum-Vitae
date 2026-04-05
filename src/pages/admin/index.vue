@@ -1,23 +1,27 @@
 <template>
 	<div>
+		<p v-if="isLoading" class="state-message">Loading projects...</p>
+		<p v-if="loadError" class="state-message error">{{ loadError }}</p>
 		<client-only>
-			<ProjectCardEdit
-				class="projectcard inverted"
-				:autocomplete-tags="tags"
-				@saved="addProject($event)"
-			/>
-			<ProjectCardEdit
-				v-for="(data, index) in sortedProjects"
-				:key="data.id"
-				:saved-data="data"
-				:class="{
-					projectcard: true,
-					inverted: index % 2,
-				}"
-				:autocomplete-tags="tags"
-				@saved="sortedProjects = getSortedProjects()"
-				@deleted="removeProject(data.id)"
-			/>
+			<template v-if="!loadError">
+				<ProjectCardEdit
+					class="projectcard inverted"
+					:autocomplete-tags="tags"
+					@saved="addProject($event)"
+				/>
+				<ProjectCardEdit
+					v-for="(data, index) in sortedProjects"
+					:key="data.id"
+					:saved-data="data"
+					:class="{
+						projectcard: true,
+						inverted: index % 2,
+					}"
+					:autocomplete-tags="tags"
+					@saved="sortedProjects = getSortedProjects()"
+					@deleted="removeProject(data.id)"
+				/>
+			</template>
 		</client-only>
 	</div>
 </template>
@@ -34,6 +38,8 @@ export default {
 	layout: "admin",
 	data() {
 		return {
+			isLoading: false,
+			loadError: "",
 			projects: [],
 			sortedProjects: [],
 		};
@@ -53,15 +59,29 @@ export default {
 	},
 	methods: {
 		async fetchProjects() {
-			this.projects = await getDocs(collection(db, "projects")).then(
-				(querySnapshot) => {
-					return querySnapshot.docs.map((doc) => ({
-						id: doc.id,
-						...doc.data(),
-					}));
+			this.isLoading = true;
+			this.loadError = "";
+
+			try {
+				this.projects = await getDocs(collection(db, "projects")).then(
+					(querySnapshot) => {
+						return querySnapshot.docs.map((doc) => ({
+							id: doc.id,
+							...doc.data(),
+						}));
+					}
+				);
+				this.sortedProjects = this.getSortedProjects(this.projects);
+			} catch (error) {
+				if (error?.code === "permission-denied") {
+					this.loadError =
+						"You are signed in, but this account has no editor permission.";
+				} else {
+					this.loadError = "Could not load projects. Please try again.";
 				}
-			);
-			this.sortedProjects = this.getSortedProjects(this.projects);
+			} finally {
+				this.isLoading = false;
+			}
 		},
 		addProject(project) {
 			this.projects.push(project);
@@ -119,6 +139,16 @@ export default {
 <style lang="scss" scoped>
 $space-between: 5rem;
 $space-around: 2rem;
+
+.state-message {
+	color: #fff;
+	text-align: center;
+	opacity: 0.9;
+
+	&.error {
+		color: #f8b4b4;
+	}
+}
 
 .projectcard {
 	margin-top: $space-between;
