@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<ProjectCardTemplate class="grid">
-			<template slot="image">
+			<template #image>
 				<img
 					class="image"
 					src="/email.svg"
@@ -11,7 +11,7 @@
 					loading="eager"
 				/>
 			</template>
-			<template slot="text">
+			<template #text>
 				<h2 class="title">E-Mail delivered</h2>
 				<p class="info">
 					Thank you for your E-Mail. <br />

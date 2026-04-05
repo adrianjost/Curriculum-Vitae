@@ -14,9 +14,11 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from "vue";
 import BaseInput from "./BaseInput.vue";
-const VueTagsInput = () =>
-	process.client ? import("@johmun/vue-tags-input") : {};
+const VueTagsInput = defineAsyncComponent(() =>
+	import("@vojtechlanka/vue-tags-input").then((module) => module.VueTagsInput)
+);
 
 export default {
 	name: "BaseTagInput",

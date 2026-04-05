@@ -1,6 +1,6 @@
 <template>
 	<ProjectCardTemplate class="grid">
-		<template slot="image">
+		<template #image>
 			<img
 				v-if="data.img"
 				class="image"
@@ -9,7 +9,7 @@
 			/>
 			<FileUpload :class="{ invisible: data.img }" @uploaded="uploaded" />
 		</template>
-		<template slot="text">
+		<template #text>
 			<h2 class="title">
 				<ContentEditable v-model="data.title" placeholder="Titel" />
 			</h2>

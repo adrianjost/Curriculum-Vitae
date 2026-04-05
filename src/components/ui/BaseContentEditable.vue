@@ -3,15 +3,19 @@
 		:class="{ input: true, 'is-empty': isEmpty }"
 		contenteditable="true"
 		:data-placeholder="placeholder"
-		@input="setEmptystate($event.target.innerText)"
-		@blur="$emit('input', $event.target.innerText)"
-		v-text="value"
+		@input="onInput($event)"
+		@blur="onInput($event)"
+		v-text="currentValue"
 	/>
 </template>
 
 <script>
 export default {
 	props: {
+		modelValue: {
+			type: String,
+			default: undefined,
+		},
 		value: {
 			type: String,
 			default: "",
@@ -24,17 +28,31 @@ export default {
 	data() {
 		return { isEmpty: true };
 	},
+	computed: {
+		currentValue() {
+			return this.modelValue !== undefined ? this.modelValue : this.value;
+		},
+	},
 	watch: {
-		value: function (to) {
-			this.setEmptystate(this.value);
+		modelValue: function () {
+			this.setEmptystate(this.currentValue);
+		},
+		value: function () {
+			this.setEmptystate(this.currentValue);
 		},
 	},
 	mounted() {
-		this.setEmptystate(this.value);
+		this.setEmptystate(this.currentValue);
 	},
 	methods: {
+		onInput(event) {
+			const text = event.target.innerText;
+			this.setEmptystate(text);
+			this.$emit("update:modelValue", text);
+			this.$emit("input", text);
+		},
 		setEmptystate(newText) {
-			this.isEmpty = newText === "";
+			this.isEmpty = (newText || "") === "";
 		},
 	},
 };

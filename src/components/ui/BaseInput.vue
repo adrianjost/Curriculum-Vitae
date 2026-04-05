@@ -29,8 +29,12 @@
 export default {
 	name: "BaseInput",
 	props: {
+		modelValue: {
+			type: [String, Number],
+			default: undefined,
+		},
 		value: {
-			type: String,
+			type: [String, Number],
 			default: "",
 		},
 		label: {
@@ -51,16 +55,27 @@ export default {
 		},
 	},
 	data() {
-		return { internalValue: this.value };
+		return {
+			internalValue:
+				this.modelValue !== undefined ? this.modelValue : this.value,
+		};
 	},
 	watch: {
 		internalValue: function (to) {
-			if (to !== this.value) {
+			const currentValue =
+				this.modelValue !== undefined ? this.modelValue : this.value;
+			if (to !== currentValue) {
+				this.$emit("update:modelValue", to);
 				this.$emit("input", to);
 			}
 		},
+		modelValue: function (to) {
+			if (to !== undefined && to !== this.internalValue) {
+				this.internalValue = to;
+			}
+		},
 		value: function (to) {
-			if (to !== this.internalValue) {
+			if (this.modelValue === undefined && to !== this.internalValue) {
 				this.internalValue = to;
 			}
 		},
