@@ -30,7 +30,7 @@ module.exports = {
 						{
 							allow: ["warn", "error"],
 						},
-				  ]
+					]
 				: "off",
 		"vue/component-name-in-template-casing": [
 			"error",
