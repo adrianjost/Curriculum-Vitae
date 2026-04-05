@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables";
+@use "@/styles/variables";
 
 .pills {
 	// prevent whitespaces to affect spacing

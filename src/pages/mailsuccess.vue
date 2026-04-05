@@ -4,7 +4,7 @@
 			<template slot="image">
 				<img
 					class="image"
-					src="~/static/email.svg"
+					src="/email.svg"
 					alt="avatar of Adrian Jost"
 					width="56"
 					height="56"

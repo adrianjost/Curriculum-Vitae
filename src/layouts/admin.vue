@@ -5,7 +5,7 @@
 			<TheNav class="nav" :routes="navRoutes" @navigation="handleNavEvent" />
 		</header>
 		<main>
-			<Nuxt />
+			<NuxtPage />
 		</main>
 	</div>
 </template>
@@ -54,7 +54,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables";
+@use "@/styles/variables";
 
 #app {
 	position: relative;

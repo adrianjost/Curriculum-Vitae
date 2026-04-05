@@ -40,7 +40,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@use "src/styles/variables";
+@use "@/styles/variables";
 
 .input {
 	border: 1px solid transparent;

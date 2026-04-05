@@ -1,8 +1,7 @@
-import originalFetch from "isomorphic-unfetch";
 import fetchRetry from "fetch-retry";
 import base64Img from "base64-img";
 
-const fetch = fetchRetry(originalFetch, {
+const fetch = fetchRetry(globalThis.fetch.bind(globalThis), {
 	retries: 3,
 	retryDelay: 1000,
 });

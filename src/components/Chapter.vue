@@ -42,7 +42,7 @@ export default {
 			}
 			const date = new Date(Date.parse(timestamp));
 			const options = { year: "numeric", month: "2-digit" };
-			return date.toLocaleDateString("de-DE", options);
+			return date.toLocaleDateString("en-US", options);
 		},
 	},
 };

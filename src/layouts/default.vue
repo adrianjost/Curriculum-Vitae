@@ -5,7 +5,7 @@
 			<TheNav class="nav" :routes="navRoutes" />
 		</header>
 		<main>
-			<Nuxt />
+			<NuxtPage />
 		</main>
 	</div>
 </template>
@@ -14,14 +14,13 @@
 import TheTitle from "../components/TheTitle.vue";
 import TheNav from "../components/TheNav.vue";
 
-import ProfileImageHeader from "~/static/ProfileImageHeader.jpg";
 import pkg from "~/../package.json";
 
 const META = {
 	author: "Adrian Jost",
 	title: "Adrian Jost",
 	description: pkg.description,
-	image: `${process.env.baseUrl}${ProfileImageHeader}`,
+	image: `${process.env.baseUrl}/ProfileImageHeader.jpg`,
 	url: process.env.baseUrl,
 };
 
@@ -67,7 +66,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables";
+@use "@/styles/variables";
 
 #app {
 	position: relative;

@@ -68,7 +68,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@use "src/styles/variables";
+@use "@/styles/variables";
 
 div.tag-input {
 	background: transparent;

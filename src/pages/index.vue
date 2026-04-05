@@ -1,18 +1,21 @@
 <template>
 	<div>
 		<ProjectCardTemplate class="grid">
-			<template slot="image">
+			<template #image>
 				<img
 					class="image image--cover"
 					style="object-position: center top"
-					src="~/static/ProfileImage.jpg"
+					src="/ProfileImage.jpg"
 					alt="profile image of Adrian Jost"
 				/>
 			</template>
-			<template slot="text">
+			<template #text>
 				<h2 class="h2">About Me</h2>
 				<!-- eslint-disable-next-line vue/no-v-html -->
-				<div v-html="about" />
+				<div v-if="about" v-html="about" />
+				<p v-else class="empty-state">
+					About content is temporarily unavailable.
+				</p>
 				<div class="actions">
 					<div class="actions icon-actions">
 						<a
@@ -25,7 +28,7 @@
 							<img
 								class="action-icon"
 								alt="GitHub Icon"
-								src="@/static/Icon-GitHub.svg"
+								src="/Icon-GitHub.svg"
 								width="36"
 								height="36"
 								loading="lazy"
@@ -41,7 +44,7 @@
 							<img
 								class="action-icon"
 								alt="Medium.com Icon"
-								src="@/static/Icon-Medium.svg"
+								src="/Icon-Medium.svg"
 								width="36"
 								height="36"
 								loading="lazy"
@@ -57,7 +60,7 @@
 							<img
 								class="action-icon"
 								alt="LinkedIn Icon"
-								src="@/static/Icon-Linkedin.svg"
+								src="/Icon-Linkedin.svg"
 								width="36"
 								height="36"
 								loading="lazy"
@@ -73,7 +76,7 @@
 							<img
 								class="action-icon"
 								alt="NPM Icon"
-								src="@/static/Icon-NPM.svg"
+								src="/Icon-NPM.svg"
 								width="36"
 								height="36"
 								loading="lazy"
@@ -82,13 +85,6 @@
 					</div>
 				</div>
 			</template>
-		</ProjectCardTemplate>
-
-		<ProjectCardTemplate class="skill-wrapper with-padding">
-			<h2 class="h2">My Skills</h2>
-			<figure class="skills">
-				<WordCloud :words="tags" class="skill-cloud" />
-			</figure>
 		</ProjectCardTemplate>
 
 		<ProjectCardTemplate v-if="work.length" class="with-padding">
@@ -110,7 +106,6 @@
 
 <script>
 import ProjectCardTemplate from "~/components/ProjectCardTemplate.vue";
-import WordCloud from "~/components/WordCloud.vue";
 import Chapter from "~/components/Chapter.vue";
 import TheBottomNav from "~/components/TheBottomNav.vue";
 
@@ -119,7 +114,6 @@ import transition from "~/mixins/transition";
 export default {
 	components: {
 		ProjectCardTemplate,
-		WordCloud,
 		Chapter,
 		TheBottomNav,
 	},
@@ -153,7 +147,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables";
+@use "@/styles/variables";
 
 .card {
 	margin: variables.$spacing-cards 0;
@@ -202,6 +196,10 @@ export default {
 	display: block;
 }
 
+.empty-state {
+	margin: 0.75rem 0 0;
+}
+
 .skills {
 	position: relative;
 	padding-bottom: 60%;
@@ -211,6 +209,15 @@ export default {
 	@media screen and (width <= 700px) {
 		margin: 0 -1.5rem -1.5rem;
 	}
+}
+
+.skills-text-fallback {
+	max-height: 0;
+	margin: 0;
+	overflow: hidden;
+	white-space: pre-line;
+	pointer-events: none;
+	opacity: 0;
 }
 
 $cloud-padding: 0;

@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables";
+@use "@/styles/variables";
 
 $input-padding-left: 12px;
 

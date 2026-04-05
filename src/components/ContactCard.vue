@@ -1,13 +1,9 @@
 <template>
 	<ProjectCardTemplate class="grid">
-		<template slot="image">
-			<img
-				class="image"
-				src="~/static/avatar.svg"
-				alt="avatar of Adrian Jost"
-			/>
+		<template #image>
+			<img class="image" src="/avatar.svg" alt="avatar of Adrian Jost" />
 		</template>
-		<template slot="text">
+		<template #text>
 			<h2 class="title">Contact me</h2>
 			<p class="info">
 				<b>My E-Mail:</b>
@@ -21,7 +17,7 @@
 						<img
 							alt="copy icon"
 							class="btn-copy__img"
-							src="@/static/clipboard.svg"
+							src="/clipboard.svg"
 							width="36"
 							height="36"
 							loading="lazy"
@@ -87,7 +83,6 @@
 import ProjectCardTemplate from "./ProjectCardTemplate.vue";
 import BaseInput from "./ui/BaseInput.vue";
 import BaseTextarea from "./ui/BaseTextarea.vue";
-import { setTimeout } from "timers";
 
 export default {
 	name: "ContactCard",
@@ -233,7 +228,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables";
+@use "@/styles/variables";
 
 .info > .content {
 	display: inline-flex;

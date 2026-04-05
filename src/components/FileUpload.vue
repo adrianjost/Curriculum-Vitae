@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { storage } from "~/plugins/firebase.js";
+import { storage } from "~/lib/firebase.js";
 
 export default {
 	data() {
@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables";
+@use "@/styles/variables";
 
 .upload {
 	position: absolute;

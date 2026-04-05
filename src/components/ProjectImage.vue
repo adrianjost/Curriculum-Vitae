@@ -8,10 +8,7 @@
 		@keydown.tab="preventIfFullscreen"
 		@keydown.prevent.esc="zoomOut"
 	>
-		<ZoomImage
-			:pose="pose"
-			:class="{ 'image-wrapper': true, zoomed: isZoomed }"
-		>
+		<div :class="{ 'image-wrapper': true, zoomed: isZoomed }">
 			<VLazyImage
 				v-bind="$attrs"
 				:style="{ 'object-position': imagePosition }"
@@ -21,53 +18,18 @@
 					isZoomed,
 				}"
 			/>
-		</ZoomImage>
-		<Frame :pose="pose" class="frame" />
+		</div>
+		<div :class="{ frame: true, visible: isZoomed }" />
 		<div class="hint">click to zoom</div>
 	</div>
 </template>
 
 <script>
-import VLazyImage from "v-lazy-image/v2";
-
-import posed from "vue-pose";
-
-const transition = {
-	duration: 400,
-	ease: [0.08, 0.69, 0.2, 0.99],
-};
+import VLazyImage from "v-lazy-image";
 
 export default {
 	components: {
 		VLazyImage,
-		Frame: posed.div({
-			zoomedOut: {
-				applyAtEnd: { display: "none" },
-				opacity: 0,
-			},
-			zoomedIn: {
-				applyAtStart: { display: "block" },
-				opacity: 1,
-			},
-		}),
-		ZoomImage: posed.div({
-			zoomedOut: {
-				position: "absolute",
-				width: "100%",
-				height: "100%",
-				transition,
-				flip: true,
-			},
-			zoomedIn: {
-				position: "fixed",
-				top: 0,
-				left: 0,
-				width: "100%",
-				height: "100%",
-				transition,
-				flip: true,
-			},
-		}),
 	},
 	props: {
 		isZoomedIn: {
@@ -87,9 +49,6 @@ export default {
 		};
 	},
 	computed: {
-		pose() {
-			return this.isZoomed ? "zoomedIn" : "zoomedOut";
-		},
 		toggleZoom() {
 			return this.isZoomed ? this.zoomOut : this.zoomIn;
 		},
@@ -114,7 +73,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables";
+@use "@/styles/variables";
 
 .click-area {
 	width: 100%;
@@ -168,11 +127,16 @@ export default {
 }
 
 .image-wrapper {
+	position: absolute;
 	width: 100%;
 	height: 100%;
 	cursor: zoom-in;
+	transition: all 0.4s cubic-bezier(0.08, 0.69, 0.2, 0.99);
 
 	&.zoomed {
+		position: fixed;
+		top: 0;
+		left: 0;
 		z-index: 4;
 		cursor: zoom-out;
 
@@ -188,9 +152,15 @@ export default {
 	top: 0;
 	left: 0;
 	z-index: 3;
-	display: none;
 	width: 100%;
 	height: 100%;
+	pointer-events: none;
 	background: #fff;
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
+
+	&.visible {
+		opacity: 1;
+	}
 }
 </style>

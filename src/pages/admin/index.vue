@@ -20,7 +20,7 @@
 	</div>
 </template>
 <script>
-import { db } from "~/plugins/firebase.js";
+import { db } from "~/lib/firebase.js";
 
 import ProjectCardEdit from "~/components/ProjectCardEdit.vue";
 

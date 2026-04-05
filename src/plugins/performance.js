@@ -1,4 +1,5 @@
-import { firebase } from "~/plugins/firebase.js";
+import { defineNuxtPlugin } from "#app";
+import { firebase } from "~/lib/firebase.js";
 import "firebase/compat/performance";
 
 let perf;
@@ -21,6 +22,8 @@ const enablePerfMetrics = () => {
 	*/
 };
 
-if (process.env.NODE_ENV === "production") {
-	enablePerfMetrics();
-}
+export default defineNuxtPlugin(() => {
+	if (process.env.NODE_ENV === "production") {
+		enablePerfMetrics();
+	}
+});

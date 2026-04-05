@@ -12,14 +12,11 @@ const config = {
 	appId: "1:708068057486:web:a1dff7d0bd7af2da",
 };
 
-// initialize if not already done
-try {
-	firebase.initializeApp(config);
-} catch (e) {
-	console.warn("firebase already initialized => skipping");
-}
-
-const db = firebase.firestore();
-const storage = firebase.storage();
+// Initialize once and reuse app instance across client reloads.
+const app = firebase.apps.length
+	? firebase.app()
+	: firebase.initializeApp(config);
+const db = app.firestore();
+const storage = app.storage();
 
 export { firebase, db, storage };

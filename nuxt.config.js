@@ -1,7 +1,9 @@
-import { getAll } from "./apiCalls";
-
 export default {
+	compatibilityDate: "2026-04-05",
 	srcDir: "src/",
+	dir: {
+		public: "src/static",
+	},
 	target: "static",
 	env: {
 		baseUrl: process.env.BASE_URL || "https://adrianjost.dev",
@@ -55,7 +57,7 @@ export default {
 	/*
 	 ** Global CSS
 	 */
-	css: ["@styles/base.scss"],
+	css: ["~/styles/base.scss"],
 
 	/*
 	 ** Plugins to load before mounting the App
@@ -63,16 +65,9 @@ export default {
 	plugins: [{ src: "~/plugins/performance.js", mode: "client" }],
 
 	/*
-	 ** Nuxt.js modules
+	 ** Nuxt modules
 	 */
-	modules: ["@nuxtjs/pwa", "@nuxtjs/sitemap"],
-
-	sitemap: {
-		hostname: process.env.BASE_URL || "https://adrianjost.dev",
-		filter({ routes }) {
-			return routes.filter((route) => !route.url.includes("admin"));
-		},
-	},
+	modules: [],
 
 	/*
 	 ** Build configuration
@@ -133,22 +128,10 @@ export default {
 		},
 	},
 
-	generate: {
-		routes() {
-			return getAll().then((data) => {
-				return [
-					"/",
-					"/projects",
-					"/contact",
-					"/admin",
-					"/admin/nigol",
-					"/admin/about",
-				].map((route) => ({
-					route: route,
-					url: route,
-					payload: data,
-				}));
-			});
+	nitro: {
+		prerender: {
+			routes: ["/", "/about", "/projects", "/contact", "/mailsuccess"],
+			ignore: ["/admin", "/admin/about", "/admin/nigol"],
 		},
 	},
 

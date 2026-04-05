@@ -15,7 +15,7 @@
 <script>
 import ProjectCardTemplate from "./ProjectCardTemplate.vue";
 
-import { db } from "~/plugins/firebase.js";
+import { db } from "~/lib/firebase.js";
 
 export default {
 	name: "ProjectCard",
@@ -55,7 +55,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables";
+@use "@/styles/variables";
 
 .card {
 	padding: 0.5em;

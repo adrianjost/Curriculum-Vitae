@@ -106,7 +106,7 @@ import BaseInput from "./ui/BaseInput.vue";
 import FileUpload from "./FileUpload.vue";
 import BaseTagInput from "./ui/BaseTagInput.vue";
 
-import { db } from "~/plugins/firebase.js";
+import { db } from "~/lib/firebase.js";
 
 export default {
 	name: "ProjectCard",
@@ -192,7 +192,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables";
+@use "@/styles/variables";
 
 .btn-secondary {
 	color: inherit;

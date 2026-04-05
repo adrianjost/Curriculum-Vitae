@@ -1,14 +1,16 @@
 <template>
 	<ProjectCardTemplate class="grid">
-		<div slot="image" style="position: relative; width: 100%; height: 100%">
-			<ProjectImage
-				:alt="`image for ${data.title}`"
-				:image-cover="data.imgCover"
-				:image-position="data.imgPosition"
-				:src="data.img"
-				:src-placeholder="data.imgPlaceholder || data.img"
-			/>
-		</div>
+		<template #image>
+			<div style="position: relative; width: 100%; height: 100%">
+				<ProjectImage
+					:alt="`image for ${data.title}`"
+					:image-cover="data.imgCover"
+					:image-position="data.imgPosition"
+					:src="data.img"
+					:src-placeholder="data.imgPlaceholder || data.img"
+				/>
+			</div>
+		</template>
 
 		<template #text>
 			<h2 class="title">
@@ -36,7 +38,7 @@
 							<img
 								class="action-icon"
 								alt="GitHub Logo"
-								src="@/static/Icon-GitHub.svg"
+								src="/Icon-GitHub.svg"
 								width="36"
 								height="36"
 								loading="lazy"
@@ -53,7 +55,7 @@
 							<img
 								class="action-icon"
 								alt="NPM Logo"
-								src="@/static/Icon-NPM.svg"
+								src="/Icon-NPM.svg"
 								width="36"
 								height="36"
 								loading="lazy"
@@ -70,7 +72,7 @@
 							<img
 								class="action-icon"
 								alt="Play Icon"
-								src="@/static/Icon-Demo.svg"
+								src="/Icon-Demo.svg"
 								width="36"
 								height="36"
 								loading="lazy"

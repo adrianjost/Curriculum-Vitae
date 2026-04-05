@@ -28,8 +28,8 @@ body::before {
 	content: "";
 	background: linear-gradient(
 		30deg,
-		color.adjust(variables.$color-primary, $lightness: $color-range * 1.5) 30%,
-		color.adjust(variables.$color-primary, $lightness: $color-range * 0.5)
+		color.adjust(variables.$color-primary, $lightness: $color-range * -1.5) 30%,
+		color.adjust(variables.$color-primary, $lightness: $color-range * -0.5)
 	);
 }
 

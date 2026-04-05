@@ -14,7 +14,7 @@
 	</div>
 </template>
 <script>
-import { db } from "~/plugins/firebase.js";
+import { db } from "~/lib/firebase.js";
 
 import AboutEdit from "~/components/AboutEdit.vue";
 import ChapterEdit from "~/components/ChapterEdit.vue";

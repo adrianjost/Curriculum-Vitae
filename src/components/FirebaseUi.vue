@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { firebase } from "~/plugins/firebase.js";
+import { firebase } from "~/lib/firebase.js";
 
 export default {
 	name: "Login",

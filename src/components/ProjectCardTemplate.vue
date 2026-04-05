@@ -27,7 +27,7 @@ export default {
 
 <style lang="scss">
 @use "sass:color";
-@use "src/styles/variables";
+@use "@/styles/variables";
 
 .grid {
 	display: grid;
