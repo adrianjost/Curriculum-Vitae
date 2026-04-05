@@ -7,7 +7,10 @@ for (const path of paths) {
 		await page.goto(path);
 		const body = await page.locator("body").textContent();
 		const normalized = body
-			.replace(/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/gi, "<buildId>")
+			.replace(
+				/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/gi,
+				"<buildId>"
+			)
 			.replace(/\b\d{13}\b/g, "<timestamp>");
 		await expect(normalized).toMatchSnapshot(`${path.slice(1) || "index"}.txt`);
 	});
