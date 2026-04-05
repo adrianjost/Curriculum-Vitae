@@ -8,11 +8,6 @@ updates:
       timezone: Europe/Berlin
     open-pull-requests-limit: 25
     versioning-strategy: increase
-    ignore:
-      - dependency-name: core-js
-        versions:
-          - 3.10.0
-          - 3.10.2
   - package-ecosystem: npm
     directory: "/functions"
     schedule:
