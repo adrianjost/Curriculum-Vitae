@@ -39,7 +39,6 @@
 		"nuxt": "^4.4.2",
 		"postcss": "^8.5.3",
 		"sharp": "^0.34.5",
-		"v-lazy-image": "^2.1.1",
 		"vuex": "^4.1.0"
 	},
 	"devDependencies": {
