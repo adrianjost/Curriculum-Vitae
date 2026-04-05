@@ -59,7 +59,7 @@ export default {
 		padding: 0 0.5em;
 	}
 
-	&.nuxt-link-exact-active {
+	&.router-link-exact-active {
 		color: #fff;
 		text-decoration: underline;
 	}
