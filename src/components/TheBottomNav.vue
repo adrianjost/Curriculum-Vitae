@@ -78,7 +78,7 @@ export default {
 		text-align: left;
 
 		&::before {
-			content: "←";
+			content: "← ";
 		}
 	}
 
@@ -86,7 +86,7 @@ export default {
 		text-align: right;
 
 		&::after {
-			content: "→";
+			content: " →";
 		}
 	}
 }

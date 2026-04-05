@@ -114,19 +114,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.grid {
-	.v-lazy-image {
-		filter: blur(10px);
-		transition: filter 0.7s;
-	}
-
-	.v-lazy-image-loaded {
-		filter: blur(0);
-	}
-}
-</style>
-
 <style lang="scss" scoped>
 .tools {
 	&:not(:last-of-type) {

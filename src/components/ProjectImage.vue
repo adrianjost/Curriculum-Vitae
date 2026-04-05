@@ -9,14 +9,18 @@
 		@keydown.prevent.esc="zoomOut"
 	>
 		<div :class="{ 'image-wrapper': true, zoomed: isZoomed }">
-			<VLazyImage
-				v-bind="$attrs"
+			<img
+				ref="lazyImage"
+				:src="currentImageSrc"
 				:style="{ 'object-position': imagePosition }"
 				:class="{
 					'image--cover': imageCover,
 					image: true,
 					isZoomed,
+					'lazy-image': true,
+					'lazy-image-loaded': isImageLoaded,
 				}"
+				:alt="alt"
 			/>
 		</div>
 		<div :class="{ frame: true, visible: isZoomed }" />
@@ -25,12 +29,7 @@
 </template>
 
 <script>
-import VLazyImage from "v-lazy-image";
-
 export default {
-	components: {
-		VLazyImage,
-	},
 	props: {
 		isZoomedIn: {
 			type: Boolean,
@@ -42,18 +41,83 @@ export default {
 			type: String,
 			default: "",
 		},
+		src: {
+			type: String,
+			required: true,
+		},
+		srcPlaceholder: {
+			type: String,
+			required: true,
+		},
+		alt: {
+			type: String,
+			default: "",
+		},
 	},
 	data() {
 		return {
 			isZoomed: false,
+			isImageLoaded: false,
+			observer: null,
 		};
 	},
 	computed: {
+		currentImageSrc() {
+			// Show actual image if it's loaded, otherwise show placeholder
+			return this.isImageLoaded ? this.src : this.srcPlaceholder;
+		},
 		toggleZoom() {
 			return this.isZoomed ? this.zoomOut : this.zoomIn;
 		},
 	},
+	mounted() {
+		this.setupIntersectionObserver();
+	},
+	beforeUnmount() {
+		if (this.observer) {
+			this.observer.disconnect();
+		}
+	},
 	methods: {
+		setupIntersectionObserver() {
+			if (!this.$refs.lazyImage) return;
+
+			// Create intersection observer to detect when image is near viewport
+			this.observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							this.loadImage();
+						}
+					});
+				},
+				{
+					rootMargin: "50px", // Start loading 50px before image enters viewport
+				}
+			);
+
+			this.observer.observe(this.$refs.lazyImage);
+		},
+		loadImage() {
+			if (this.isImageLoaded) {
+				return;
+			}
+
+			// Preload the image to ensure it's fully fetched before displaying
+			const img = new Image();
+			img.onload = () => {
+				this.isImageLoaded = true;
+				// FIXME: this src update should not be necessary
+				this.$refs.lazyImage.src = this.src;
+			};
+			img.onerror = () => {
+				console.error(`Failed to load image: ${this.src}`);
+				this.isImageLoaded = true; // Still mark as loaded to avoid infinite retry
+				// FIXME: this src update should not be necessary
+				this.$refs.lazyImage.src = this.src;
+			};
+			img.src = this.src;
+		},
 		zoomIn() {
 			window.addEventListener("scroll", this.zoomOut);
 			this.isZoomed = true;
@@ -162,5 +226,14 @@ export default {
 	&.visible {
 		opacity: 1;
 	}
+}
+
+.lazy-image {
+	filter: blur(10px);
+	transition: filter 0.7s;
+}
+
+.lazy-image-loaded {
+	filter: blur(0);
 }
 </style>
