@@ -24,35 +24,23 @@ function getSharp() {
 }
 
 async function fetchImageBuffer(url) {
-	const attempts = [
-		{},
-		{
-			headers: {
-				accept: "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
-				"cache-control": "no-cache",
-				pragma: "no-cache",
-				"user-agent":
-					"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
-			},
+	const response = await globalThis.fetch(url, {
+		method: "GET",
+		redirect: "follow",
+		headers: {
+			accept: "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
+			"cache-control": "no-cache",
+			pragma: "no-cache",
+			"user-agent":
+				"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
 		},
-	];
+	});
 
-	let lastStatus;
-	for (const attempt of attempts) {
-		const response = await globalThis.fetch(url, {
-			method: "GET",
-			redirect: "follow",
-			...attempt,
-		});
-
-		if (response.ok) {
-			return Buffer.from(await response.arrayBuffer());
-		}
-
-		lastStatus = response.status;
+	if (!response.ok) {
+		throw new Error(`Failed to load image for placeholder: ${response.status}`);
 	}
 
-	throw new Error(`Failed to load image for placeholder: ${lastStatus}`);
+	return Buffer.from(await response.arrayBuffer());
 }
 
 async function encodeImage(url) {
@@ -61,7 +49,9 @@ async function encodeImage(url) {
 	}
 
 	const sharp = await getSharp();
-	const imageBuffer = await fetchImageBuffer(url);
+	const imageBuffer = await fetchImageBuffer(
+		`https://adrianjost.twic.pics/gcs/${url.split("/").pop()}&twic=v1/resize=30`
+	);
 	const resizedBuffer = await sharp(imageBuffer)
 		.resize({
 			height: 30,

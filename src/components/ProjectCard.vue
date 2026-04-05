@@ -6,8 +6,8 @@
 					:alt="`image for ${data.title}`"
 					:image-cover="data.imgCover"
 					:image-position="data.imgPosition"
-					:src="data.img"
-					:src-placeholder="data.imgPlaceholder || data.img"
+					:src="resizedImg"
+					:src-placeholder="data.imgPlaceholder || placeholderImgFallback"
 				/>
 			</div>
 		</template>
@@ -99,6 +99,14 @@ export default {
 		data: {
 			type: Object,
 			required: true,
+		},
+	},
+	computed: {
+		resizedImg() {
+			return `https://adrianjost.twic.pics/gcs/${this.data.img.split("/").pop()}&twic=v1/resize=700`;
+		},
+		placeholderImgFallback() {
+			return `https://adrianjost.twic.pics/gcs/${this.data.img.split("/").pop()}&twic=v1/resize=30`;
 		},
 	},
 	methods: {

@@ -1,7 +1,7 @@
 <template>
 	<div class="chapter">
 		<div class="summary">
-			<img role="presentation" class="image" :src="data.img" />
+			<img role="presentation" class="image" :src="imgURL" />
 			<div class="info">
 				<h3 class="title">
 					{{ data.title }}
@@ -33,6 +33,9 @@ export default {
 	computed: {
 		isActive() {
 			return new Date(Date.parse(this.data.to)) >= Date.now();
+		},
+		imgURL() {
+			return `https://adrianjost.twic.pics/gcs/${this.data.img.split("/").pop()}&twic=v1/resize=100`;
 		},
 	},
 	methods: {

@@ -4,7 +4,7 @@
 			<img
 				v-if="data.img"
 				class="image"
-				:src="data.img"
+				:src="imgURL"
 				:alt="`image for ${data.title}`"
 			/>
 			<FileUpload :class="{ invisible: data.img }" @uploaded="uploaded" />
@@ -93,6 +93,11 @@ export default {
 		return {
 			data: {},
 		};
+	},
+	computed: {
+		imgURL() {
+			return `https://adrianjost.twic.pics/gcs/${this.data.img.split("/").pop()}&twic=v1/resize=100`;
+		},
 	},
 	watch: {
 		savedData: {
