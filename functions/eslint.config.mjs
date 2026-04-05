@@ -1,5 +1,4 @@
 import { defineConfig } from "eslint/config";
-import promise from "eslint-plugin-promise";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
@@ -16,10 +15,6 @@ const compat = new FlatCompat({
 export default defineConfig([
 	{
 		extends: compat.extends("eslint:recommended"),
-
-		plugins: {
-			promise,
-		},
 
 		languageOptions: {
 			ecmaVersion: 2020,
@@ -60,9 +55,6 @@ export default defineConfig([
 			"handle-callback-err": 2,
 			"no-path-concat": 1,
 			"prefer-arrow-callback": 1,
-			"promise/always-return": 2,
-			"promise/catch-or-return": 2,
-			"promise/no-nesting": 1,
 		},
 	},
 	{
