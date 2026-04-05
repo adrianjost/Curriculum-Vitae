@@ -90,6 +90,7 @@ export default {
 			default: () => ({}),
 		},
 	},
+	emits: ["saved", "deleted"],
 	data() {
 		return {
 			data: {},

@@ -54,6 +54,7 @@ export default {
 			default: "",
 		},
 	},
+	emits: ["update:isZoomedIn"],
 	data() {
 		return {
 			isZoomed: false,

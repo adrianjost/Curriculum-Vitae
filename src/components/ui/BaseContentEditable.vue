@@ -25,6 +25,7 @@ export default {
 			default: "",
 		},
 	},
+	emits: ["update:modelValue", "input"],
 	data() {
 		return { isEmpty: true };
 	},

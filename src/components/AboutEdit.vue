@@ -23,6 +23,7 @@ export default {
 	components: {
 		ProjectCardTemplate,
 	},
+	emits: ["saved"],
 	data() {
 		return {
 			doc: undefined,

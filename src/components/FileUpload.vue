@@ -19,6 +19,7 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { storage } from "~/lib/firebase.js";
 
 export default {
+	emits: ["uploaded"],
 	data() {
 		return {
 			progressUpload: 0,
