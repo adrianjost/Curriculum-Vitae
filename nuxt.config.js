@@ -67,13 +67,21 @@ export default {
 	/*
 	 ** Nuxt modules
 	 */
-	modules: ["@nuxtjs/sitemap"],
+	modules: [
+		[
+			"@nuxtjs/sitemap",
+			{
+				sitemaps: {
+					pages: {
+						urls: ["/", "/about", "/projects", "/contact"],
+					},
+				},
+			},
+		],
+	],
 
-	sitemap: {
-		hostname: process.env.BASE_URL || "https://adrianjost.dev",
-		filter({ routes }) {
-			return routes.filter((route) => !route.url.includes("admin"));
-		},
+	site: {
+		url: process.env.BASE_URL || "https://adrianjost.dev",
 	},
 
 	/*
