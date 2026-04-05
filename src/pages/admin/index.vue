@@ -1,22 +1,24 @@
 <template>
 	<div>
-		<ProjectCardEdit
-			class="projectcard inverted"
-			:autocomplete-tags="tags"
-			@saved="addProject($event)"
-		/>
-		<ProjectCardEdit
-			v-for="(data, index) in sortedProjects"
-			:key="data.id"
-			:saved-data="data"
-			:class="{
-				projectcard: true,
-				inverted: index % 2,
-			}"
-			:autocomplete-tags="tags"
-			@saved="sortedProjects = getSortedProjects()"
-			@deleted="removeProject(data.id)"
-		/>
+		<client-only>
+			<ProjectCardEdit
+				class="projectcard inverted"
+				:autocomplete-tags="tags"
+				@saved="addProject($event)"
+			/>
+			<ProjectCardEdit
+				v-for="(data, index) in sortedProjects"
+				:key="data.id"
+				:saved-data="data"
+				:class="{
+					projectcard: true,
+					inverted: index % 2,
+				}"
+				:autocomplete-tags="tags"
+				@saved="sortedProjects = getSortedProjects()"
+				@deleted="removeProject(data.id)"
+			/>
+		</client-only>
 	</div>
 </template>
 <script>

@@ -1,16 +1,18 @@
 <template>
 	<div>
-		<AboutEdit class="about" />
-		<ChapterEdit @saved="addChapter($event)" />
-		<ChapterEdit
-			v-for="data in sortedChapters"
-			:key="data.id"
-			class="chapter"
-			:saved-data="data"
-			:autocomplete-tags="tags"
-			@saved="sortedChapters = getSortedChapters()"
-			@deleted="removeChapter(data.id)"
-		/>
+		<client-only>
+			<AboutEdit class="about" />
+			<ChapterEdit @saved="addChapter($event)" />
+			<ChapterEdit
+				v-for="data in sortedChapters"
+				:key="data.id"
+				class="chapter"
+				:saved-data="data"
+				:autocomplete-tags="tags"
+				@saved="sortedChapters = getSortedChapters()"
+				@deleted="removeChapter(data.id)"
+			/>
+		</client-only>
 	</div>
 </template>
 <script>

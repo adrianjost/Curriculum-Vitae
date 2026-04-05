@@ -146,7 +146,6 @@ export default {
 	nitro: {
 		prerender: {
 			routes: ["/", "/about", "/projects", "/contact", "/mailsuccess"],
-			ignore: ["/admin", "/admin/about", "/admin/nigol"],
 		},
 	},
 
