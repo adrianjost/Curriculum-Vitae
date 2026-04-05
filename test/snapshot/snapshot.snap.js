@@ -16,6 +16,25 @@ Learning new things every day is for me the key to developing the best software 
 In my spare time, I like to ride and repair my mountain- and road bike 🚲.
 
 My Skills
+Javascript
+CSS3
+HTML5
+Git
+soldering
+Arduino
+PHP
+Vue.js
+KiCad
+Travis CI
+BricxCC
+Node.js
+ServiceWorker
+Firebase
+Wordpress
+EasyEDA
+FeathersJS
+CNC
+Easel
 My Employers
 HPI Schul-Cloud
 02.2017 - 03.2020 Web Developer
@@ -50,6 +69,25 @@ Learning new things every day is for me the key to developing the best software 
 In my spare time, I like to ride and repair my mountain- and road bike 🚲.
 
 My Skills
+Javascript
+CSS3
+HTML5
+Git
+soldering
+Arduino
+PHP
+Vue.js
+KiCad
+Travis CI
+BricxCC
+Node.js
+ServiceWorker
+Firebase
+Wordpress
+EasyEDA
+FeathersJS
+CNC
+Easel
 My Employers
 HPI Schul-Cloud
 02.2017 - 03.2020 Web Developer
@@ -78,6 +116,7 @@ me@adrianjost.dev
 
 Your E-Mail
 Your Message
+Confirm my name
 SEND MESSAGE →
  About Me"
 `;
