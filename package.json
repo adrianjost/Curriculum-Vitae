@@ -20,7 +20,7 @@
 		"test": "npm run test:build && npm run test:snapshot",
 		"lint:eslint": "eslint --fix",
 		"lint:stylelint": "stylelint --fix",
-		"lint:prettier": "prettier --write --loglevel warn",
+		"lint:prettier": "prettier --write --log-level warn",
 		"lint:all:eslint": "npm run lint:eslint -- --ext .js,.vue .",
 		"lint:all:stylelint": "npm run lint:stylelint \"src/**/*.{vue,sass,scss,css}\"",
 		"lint:all:prettier": "npm run lint:prettier \"**/*.{js,json,css,scss,vue,html}\"",
