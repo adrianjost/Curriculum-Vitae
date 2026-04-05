@@ -63,7 +63,7 @@
 		"postcss-html": "^1.8.1",
 		"prettier": "^3.8.1",
 		"sass": "^1.99.0",
-		"sass-loader": "^10.5.2",
+		"sass-loader": "^16.0.7",
 		"serve": "^14.2.6",
 		"start-server-and-test": "^3.0.0",
 		"stylelint": "^17.6.0",
@@ -74,7 +74,7 @@
 		"stylelint-order": "^8.1.1",
 		"stylelint-scss": "^7.0.0",
 		"vue": "^3.5.32",
-		"webpack": "^4.47.0",
+		"webpack": "^5.105.4",
 		"yorkie": "^2.0.0"
 	},
 	"engines": {
