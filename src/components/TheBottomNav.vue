@@ -36,23 +36,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/styles/variables.scss";
+@use "src/styles/variables.scss";
 
 .bottom-nav {
 	display: flex;
 	justify-content: space-between;
-	margin-top: $spacing-cards;
+	margin-top: variables.$spacing-cards;
 }
 
 .nav-link {
+	text-decoration: none;
+
 	@media screen and (min-width: 700px) {
 		flex: 1;
 	}
 
-	text-decoration: none;
-
 	&:not(:first-child) {
-		margin-left: $spacing-cards;
+		margin-left: variables.$spacing-cards;
 
 		@media screen and (max-width: 700px) {
 			margin-left: 0.5rem;
@@ -71,7 +71,7 @@ export default {
 	transition: color 0.3s ease-in-out;
 
 	&:hover {
-		color: $color-secondary;
+		color: variables.$color-secondary;
 	}
 
 	&.is-left {

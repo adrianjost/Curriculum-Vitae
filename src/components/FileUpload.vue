@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/styles/variables.scss";
+@use "src/styles/variables.scss";
 
 .upload {
 	position: absolute;
@@ -68,10 +68,10 @@ export default {
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
-	color: $color-primary;
+	color: variables.$color-primary;
 	cursor: pointer;
 	filter: drop-shadow(0 0 4px #fff);
-	border: 2px dashed $color-primary;
+	border: 2px dashed variables.$color-primary;
 	border-radius: 2em;
 
 	.progress {

@@ -153,10 +153,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/styles/variables.scss";
+@use "src/styles/variables.scss";
 
 .card {
-	margin: $spacing-cards 0;
+	margin: variables.$spacing-cards 0;
 
 	&.with-padding {
 		padding: 1rem 1.5rem;

@@ -69,7 +69,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/styles/variables.scss";
+@use "src/styles/variables.scss";
 $input-padding-left: 12px;
 
 label {
@@ -82,7 +82,7 @@ label {
 	}
 
 	clear: both;
-	border: 1px solid $color-text;
+	border: 1px solid variables.$color-text;
 	border-radius: 4px;
 }
 
@@ -109,11 +109,11 @@ label {
 	transition: color 0.2s linear;
 
 	&:focus {
-		color: $color-text;
+		color: variables.$color-text;
 	}
 }
 
 .error {
-	color: $color-secondary;
+	color: variables.$color-secondary;
 }
 </style>

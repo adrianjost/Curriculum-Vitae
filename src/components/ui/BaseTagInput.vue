@@ -68,7 +68,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~/styles/variables.scss";
+@use "src/styles/variables.scss";
 
 div.tag-input {
 	background: transparent;
@@ -79,7 +79,7 @@ div.tag-input {
 	}
 
 	.ti-tag {
-		background-color: $color-primary;
+		background-color: variables.$color-primary;
 	}
 
 	.ti-autocomplete {

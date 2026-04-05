@@ -67,14 +67,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/variables";
+@use "src/styles/variables";
 
 #app {
 	position: relative;
-	max-width: $content-width-max;
+	max-width: variables.$content-width-max;
 	padding: 1rem;
 	margin: 0 auto;
-	color: $color-text;
+	color: variables.$color-text;
 }
 
 .nav {

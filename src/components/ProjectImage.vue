@@ -114,7 +114,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/styles/variables.scss";
+@use "src/styles/variables.scss";
 
 .click-area {
 	width: 100%;
@@ -144,7 +144,7 @@ export default {
 		height: 100%;
 		cursor: zoom-in;
 		content: "";
-		border: 3px solid $color-secondary;
+		border: 3px solid variables.$color-secondary;
 		opacity: 0;
 		transition: opacity 0.3s ease-in-out 0.1s;
 	}

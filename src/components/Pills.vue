@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/styles/variables.scss";
+@use "src/styles/variables.scss";
 
 .pills {
 	// prevent whitespaces to affect spacing
@@ -36,7 +36,7 @@ export default {
 	font-size: 0.75em;
 	text-transform: uppercase;
 	background: transparent;
-	border: 1px solid $color-primary;
+	border: 1px solid variables.$color-primary;
 	border-radius: 3em;
 }
 </style>

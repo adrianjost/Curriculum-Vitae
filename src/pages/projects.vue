@@ -45,10 +45,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/styles/variables.scss";
+@use "src/styles/variables.scss";
 
 .projectcard {
-	margin: $spacing-cards 0;
+	margin: variables.$spacing-cards 0;
 
 	&:first-of-type {
 		margin-top: 0;

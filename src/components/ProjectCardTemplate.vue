@@ -26,7 +26,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~/styles/variables.scss";
+@use "sass:color";
+@use "src/styles/variables.scss";
 
 .grid {
 	display: grid;
@@ -70,7 +71,7 @@ export default {
 	grid-area: info;
 	justify-content: center;
 	padding: 2rem;
-	color: $color-text;
+	color: variables.$color-text;
 	contain: content;
 	contain: layout paint style;
 }
@@ -89,7 +90,7 @@ export default {
 .category {
 	font-size: 1.25rem;
 	font-weight: bold;
-	color: $color-secondary;
+	color: variables.$color-secondary;
 }
 
 .description {
@@ -110,7 +111,7 @@ export default {
 		font-family: "Quicksand", Roboto, Helvetica, sans-serif;
 		font-weight: bold;
 		line-height: 100%;
-		color: darken($color-primary, 6%);
+		color: color.adjust(variables.$color-primary, $lightness: -6%);
 		text-decoration: none;
 		text-transform: uppercase;
 		border-radius: 0.25em;

@@ -1,6 +1,7 @@
-@import "./reset";
-@import "./variables";
-@import "./fonts";
+@use "sass:color";
+@use "reset";
+@use "variables";
+@use "fonts";
 
 body,
 #app {
@@ -29,8 +30,8 @@ body::before {
 	content: "";
 	background: linear-gradient(
 		30deg,
-		darken($color-primary, $color-range * 1.5) 30%,
-		lighten($color-primary, $color-range * 0.5)
+		color.adjust(variables.$color-primary, $lightness: $color-range * 1.5) 30%,
+		color.adjust(variables.$color-primary, $lightness: $color-range * 0.5)
 	);
 }
 

@@ -11,11 +11,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/styles/variables.scss";
+@use "src/styles/variables.scss";
 
 .card {
 	width: 100%;
-	max-width: $content-width-max;
+	max-width: variables.$content-width-max;
 	margin-right: auto;
 	margin-left: auto;
 	background: #fff;

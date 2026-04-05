@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/styles/variables.scss";
+@use "src/styles/variables.scss";
 $input-padding-left: 12px;
 
 textarea {
@@ -70,7 +70,7 @@ textarea {
 	transition: color 0.2s linear;
 
 	&:focus {
-		color: $color-text;
+		color: variables.$color-text;
 	}
 }
 </style>
