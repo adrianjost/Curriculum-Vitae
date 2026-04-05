@@ -92,3 +92,5 @@ sw.*
 # Firebase
 .firebase
 /.output
+/playwright-report
+/test-results
