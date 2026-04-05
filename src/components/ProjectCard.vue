@@ -5,11 +5,8 @@
 				:alt="`image for ${data.title}`"
 				:image-cover="data.imgCover"
 				:image-position="data.imgPosition"
-				:src="`https://aridbtumen.cloudimg.io/width/700/x/${data.img}`"
-				:src-placeholder="
-					data.imgPlaceholder ||
-					`https://aridbtumen.cloudimg.io/width/30/x/${data.img}`
-				"
+				:src="data.img"
+				:src-placeholder="data.imgPlaceholder || data.img"
 			/>
 		</div>
 

@@ -1,11 +1,7 @@
 <template>
 	<div class="chapter">
 		<div class="summary">
-			<img
-				role="presentation"
-				class="image"
-				:src="`https://aridbtumen.cloudimg.io/width/100/x/${data.img}`"
-			/>
+			<img role="presentation" class="image" :src="data.img" />
 			<div class="info">
 				<h3 class="title">
 					{{ data.title }}

@@ -5,7 +5,7 @@
 				v-if="data.img"
 				:class="{ image: true, 'image--cover': data.imgCover }"
 				:style="imgStyles(data)"
-				:src="`https://aridbtumen.cloudimg.io/width/700/x/${data.img}`"
+				:src="data.img"
 				:alt="`image for ${data.title}`"
 			/>
 			<FileUpload :class="{ invisible: data.img }" @uploaded="uploaded" />

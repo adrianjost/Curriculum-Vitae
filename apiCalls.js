@@ -15,7 +15,7 @@ const apiBaseUrl =
 
 function getResizedImageUrl(url) {
 	// TODO [#159]: mock cloudimg API for network independant tests
-	return `https://aridbtumen.cloudimg.io/width/30/x/${url}`;
+	return url;
 }
 
 async function encodeImage(url) {
