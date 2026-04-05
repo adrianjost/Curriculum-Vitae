@@ -153,7 +153,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables.scss";
+@use "src/styles/variables";
 
 .card {
 	margin: variables.$spacing-cards 0;
@@ -174,7 +174,7 @@ export default {
 .h2 {
 	padding-bottom: 0;
 
-	@media screen and (min-width: 700px) {
+	@media screen and (width >= 700px) {
 		padding-top: 0;
 	}
 }
@@ -185,7 +185,7 @@ export default {
 	justify-content: space-between;
 	margin-top: 0;
 
-	@media screen and (min-width: 700px) {
+	@media screen and (width >= 700px) {
 		margin-bottom: -0.5em;
 	}
 
@@ -208,7 +208,7 @@ export default {
 	margin: 0;
 	overflow: hidden;
 
-	@media screen and (max-width: 700px) {
+	@media screen and (width <= 700px) {
 		margin: 0 -1.5rem -1.5rem;
 	}
 }
@@ -217,14 +217,11 @@ $cloud-padding: 0;
 
 .skill-cloud {
 	position: absolute !important;
-	top: 0;
-	right: $cloud-padding;
-	bottom: $cloud-padding;
-	left: $cloud-padding;
+	inset: 0 $cloud-padding $cloud-padding;
 	width: auto !important;
 	height: auto !important;
 
-	@media screen and (max-width: 700px) {
+	@media screen and (width <= 700px) {
 		$cloud-padding: 1rem;
 
 		right: $cloud-padding;

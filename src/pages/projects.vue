@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables.scss";
+@use "src/styles/variables";
 
 .projectcard {
 	margin: variables.$spacing-cards 0;

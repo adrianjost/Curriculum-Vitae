@@ -56,17 +56,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables.scss";
+@use "src/styles/variables";
+
 $input-padding-left: 12px;
 
 textarea {
 	width: 100%;
 	padding: 8px $input-padding-left;
 	resize: vertical !important;
+	outline: none;
 	background: transparent;
 	border: 0;
 	border-radius: 4px;
-	outline: none;
 	transition: color 0.2s linear;
 
 	&:focus {

@@ -66,8 +66,8 @@ export default {
 .image {
 	width: 4rem;
 	height: auto;
-	object-fit: contain;
 	margin-right: 1rem;
+	object-fit: contain;
 }
 
 .info {
@@ -93,7 +93,7 @@ export default {
 	column-rule: 1px solid grey;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (width <= 700px) {
 	.chapter:not(:last-of-type) {
 		border-bottom: 1px solid gray;
 	}

@@ -69,21 +69,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables.scss";
+@use "src/styles/variables";
+
 $input-padding-left: 12px;
 
 label {
 	position: relative;
+	clear: both;
 	display: block;
 	margin: 0;
+	border: 1px solid variables.$color-text;
+	border-radius: 4px;
 
 	&:first-of-type {
 		margin-top: 1rem;
 	}
-
-	clear: both;
-	border: 1px solid variables.$color-text;
-	border-radius: 4px;
 }
 
 .label {
@@ -102,10 +102,10 @@ label {
 .input {
 	width: 100%;
 	padding: 8px $input-padding-left;
+	outline: none;
 	background: transparent;
 	border: none;
 	border-radius: 4px;
-	outline: none;
 	transition: color 0.2s linear;
 
 	&:focus {

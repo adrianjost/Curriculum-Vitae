@@ -56,23 +56,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables.scss";
+@use "src/styles/variables";
 
 .upload {
 	position: absolute;
-	top: 5%;
-	right: 5%;
-	bottom: 5%;
-	left: 5%;
+	inset: 5%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
 	color: variables.$color-primary;
 	cursor: pointer;
-	filter: drop-shadow(0 0 4px #fff);
 	border: 2px dashed variables.$color-primary;
 	border-radius: 2em;
+	filter: drop-shadow(0 0 4px #fff);
 
 	.progress {
 		position: absolute;

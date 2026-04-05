@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables.scss";
+@use "src/styles/variables";
 
 .card {
 	width: 100%;
@@ -19,6 +19,6 @@ export default {
 	margin-right: auto;
 	margin-left: auto;
 	background: #fff;
-	box-shadow: 0 25px 100px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 25px 100px rgb(0 0 0 / 50%);
 }
 </style>

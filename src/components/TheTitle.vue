@@ -49,17 +49,17 @@ export default {
 	font-size: 4rem;
 	font-weight: bold;
 
-	@media screen and (max-width: 600px) {
+	@media screen and (width <= 600px) {
 		font-size: 2.5rem;
 	}
 }
 
 .subtitle {
-	font-family: "Quicksand", Roboto, Helvetica, sans-serif;
+	font-family: Quicksand, Roboto, Helvetica, sans-serif;
 	font-size: 2rem;
 	letter-spacing: -0.02em;
 
-	@media screen and (max-width: 600px) {
+	@media screen and (width <= 600px) {
 		font-size: 1.2rem;
 	}
 }

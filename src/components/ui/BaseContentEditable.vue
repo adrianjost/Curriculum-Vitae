@@ -40,7 +40,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@use "src/styles/variables.scss";
+@use "src/styles/variables";
 
 .input {
 	border: 1px solid transparent;
@@ -48,8 +48,8 @@ export default {
 	transition: border 0.3s ease;
 
 	&:focus {
-		border-color: inherit;
 		outline: none;
+		border-color: inherit;
 	}
 }
 

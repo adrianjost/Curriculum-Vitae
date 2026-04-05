@@ -27,13 +27,11 @@ export default {
 
 <style lang="scss">
 @use "sass:color";
-@use "src/styles/variables.scss";
+@use "src/styles/variables";
 
 .grid {
 	display: grid;
-	grid-template-areas: "img info";
-	grid-template-rows: 1fr;
-	grid-template-columns: 1fr 1fr;
+	grid-template: "img info" 1fr / 1fr 1fr;
 
 	&.inverted {
 		grid-template-areas: "info img";
@@ -71,9 +69,9 @@ export default {
 	grid-area: info;
 	justify-content: center;
 	padding: 2rem;
-	color: variables.$color-text;
 	contain: content;
 	contain: layout paint style;
+	color: variables.$color-text;
 }
 
 .title {
@@ -108,12 +106,12 @@ export default {
 		display: inline-block;
 		padding: 0.3em 0.5em;
 		margin: 0 0.25em;
-		font-family: "Quicksand", Roboto, Helvetica, sans-serif;
+		font-family: Quicksand, Roboto, Helvetica, sans-serif;
 		font-weight: bold;
 		line-height: 100%;
 		color: color.adjust(variables.$color-primary, $lightness: -6%);
-		text-decoration: none;
 		text-transform: uppercase;
+		text-decoration: none;
 		border-radius: 0.25em;
 
 		&:first-child {
@@ -131,7 +129,7 @@ export default {
 	}
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (width <= 700px) {
 	.grid {
 		display: block;
 	}

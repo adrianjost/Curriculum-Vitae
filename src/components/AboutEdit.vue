@@ -55,7 +55,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables.scss";
+@use "src/styles/variables";
 
 .card {
 	padding: 0.5em;

@@ -91,7 +91,7 @@ main {
 	padding-top: 2rem;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (width <= 900px) {
 	#app {
 		padding: 1rem;
 	}

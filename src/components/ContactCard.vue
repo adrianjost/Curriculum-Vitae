@@ -233,7 +233,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables.scss";
+@use "src/styles/variables";
 
 .info > .content {
 	display: inline-flex;
@@ -262,7 +262,7 @@ export default {
 			width: 100%;
 			height: 100%;
 			content: "";
-			background: rgba(0, 0, 0, 0.4);
+			background: rgb(0 0 0 / 40%);
 			border-radius: 50%;
 			animation: scale 0.3s forwards;
 		}

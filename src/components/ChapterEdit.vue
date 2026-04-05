@@ -154,7 +154,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables.scss";
+@use "src/styles/variables";
 
 .subtitle {
 	margin: 0;
@@ -164,7 +164,7 @@ export default {
 	display: flex;
 	flex-wrap: wrap;
 
-	@media screen and (min-width: 700px) {
+	@media screen and (width >= 700px) {
 		flex-wrap: nowrap;
 
 		.dateinput {

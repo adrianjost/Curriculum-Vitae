@@ -114,7 +114,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables.scss";
+@use "src/styles/variables";
 
 .click-area {
 	width: 100%;
@@ -129,7 +129,7 @@ export default {
 		padding: 0.5rem;
 		text-align: center;
 		background: #fff;
-		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+		box-shadow: 0 0 10px 0 rgb(0 0 0 / 25%);
 		opacity: 0;
 		transition: opacity 0.3s ease-in-out 0.1s;
 	}
@@ -177,8 +177,8 @@ export default {
 		cursor: zoom-out;
 
 		.image {
-			object-position: center center !important;
 			object-fit: contain !important;
+			object-position: center center !important;
 		}
 	}
 }

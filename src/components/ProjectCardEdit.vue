@@ -192,7 +192,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables.scss";
+@use "src/styles/variables";
 
 .btn-secondary {
 	color: inherit;

@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "src/styles/variables.scss";
+@use "src/styles/variables";
 
 .bottom-nav {
 	display: flex;
@@ -47,25 +47,25 @@ export default {
 .nav-link {
 	text-decoration: none;
 
-	@media screen and (min-width: 700px) {
+	@media screen and (width >= 700px) {
 		flex: 1;
 	}
 
 	&:not(:first-child) {
 		margin-left: variables.$spacing-cards;
 
-		@media screen and (max-width: 700px) {
+		@media screen and (width <= 700px) {
 			margin-left: 0.5rem;
 		}
 	}
 }
 
 .nav-item {
+	contain-intrinsic-size: 1px 57px;
+	padding: 1em;
 	contain: content;
 	contain: layout paint style;
 	content-visibility: auto;
-	contain-intrinsic-size: 1px 57px;
-	padding: 1em;
 	font-weight: bold;
 	background: #fff;
 	transition: color 0.3s ease-in-out;
