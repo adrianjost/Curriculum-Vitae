@@ -3,7 +3,7 @@ const configPrettier = require("eslint-config-prettier");
 
 module.exports = [
 	{
-		ignores: ["node_modules/**", "dist/**", ".nuxt/**", "functions/**"],
+		ignores: ["node_modules/**", "dist/**", ".output/**", ".nuxt/**"],
 	},
 	...pluginVue.configs["flat/recommended"],
 	{

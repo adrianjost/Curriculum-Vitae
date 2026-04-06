@@ -4,7 +4,6 @@ export default {
 	dir: {
 		public: "src/static",
 	},
-	target: "static",
 	env: {
 		baseUrl: process.env.BASE_URL || "https://adrianjost.dev",
 	},
