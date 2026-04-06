@@ -35,7 +35,11 @@ export default {
 	components: {
 		ProjectCardEdit,
 	},
-	layout: "admin",
+	setup() {
+		definePageMeta({
+			layout: "admin",
+		});
+	},
 	data() {
 		return {
 			isLoading: false,

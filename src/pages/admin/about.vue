@@ -24,7 +24,11 @@ import ChapterEdit from "~/components/ChapterEdit.vue";
 
 export default {
 	components: { AboutEdit, ChapterEdit },
-	layout: "admin",
+	setup() {
+		definePageMeta({
+			layout: "admin",
+		});
+	},
 	data() {
 		return {
 			about: "",

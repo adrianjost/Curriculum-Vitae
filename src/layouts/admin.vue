@@ -89,11 +89,11 @@ export default {
 }
 
 .auth-meta {
-	margin-top: 0.5rem;
-	margin-bottom: 0;
+	margin-block: 0.5rem;
 	font-size: 0.95rem;
 	text-align: center;
 	opacity: 0.9;
+	color: #fff;
 }
 
 .nav {
