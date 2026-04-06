@@ -10,6 +10,7 @@ jobs:
   test:
     name: Lint & Test
     runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/main'
     steps:
       - uses: actions/checkout@v6
       - name: Setup Node.js
@@ -22,9 +23,8 @@ jobs:
         run: npm run lint
       - name: Test
         run: npm run test
-  deployFrontend:
-    name: Deploy Frontend
-    needs: test
+  deploy:
+    name: Lint & Test & Deploy
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
@@ -35,6 +35,10 @@ jobs:
           node-version: '24'
       - name: Install dependencies
         run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Test
+        run: npm run test
       - name: Build Project for Production
         run: npm run build
         env:
