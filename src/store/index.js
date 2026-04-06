@@ -1,7 +1,6 @@
 import { getAll } from "~/../apiCalls";
 
 export const state = () => ({
-	tags: [],
 	projects: [],
 	chapters: [],
 	about: [],
@@ -15,9 +14,6 @@ export const getters = {
 	},
 	getProjects: (state) => {
 		return state.projects;
-	},
-	getTags: (state) => {
-		return state.tags;
 	},
 	getAbout: (state) => {
 		return state.about;
@@ -39,9 +35,6 @@ export const mutations = {
 	setProjects(state, projects) {
 		state.projects = projects;
 	},
-	setTags(state, tags) {
-		state.tags = tags;
-	},
 	setAbout(state, about) {
 		state.about = about;
 	},
@@ -50,10 +43,9 @@ export const mutations = {
 	},
 };
 
-function initStore(commit, about, chapters, tags, projects) {
+function initStore(commit, about, chapters, projects) {
 	commit("setAbout", about);
 	commit("setChapters", chapters);
-	commit("setTags", tags);
 	commit("setProjects", projects);
 }
 

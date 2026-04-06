@@ -5,7 +5,6 @@ import { getAll } from "~/../apiCalls";
 const storeFactory = () =>
 	createStore({
 		state: () => ({
-			tags: [],
 			projects: [],
 			chapters: [],
 			about: [],
@@ -14,7 +13,6 @@ const storeFactory = () =>
 			getProject: (state) => (id) =>
 				state.projects.find((project) => project.id === id) || {},
 			getProjects: (state) => state.projects,
-			getTags: (state) => state.tags,
 			getAbout: (state) => state.about,
 			getChapters: (state) =>
 				[...state.chapters].sort((a, b) => b.to.localeCompare(a.to)),
@@ -29,9 +27,6 @@ const storeFactory = () =>
 			setProjects(state, projects) {
 				state.projects = projects;
 			},
-			setTags(state, tags) {
-				state.tags = tags;
-			},
 			setAbout(state, about) {
 				state.about = about;
 			},
@@ -41,10 +36,9 @@ const storeFactory = () =>
 		},
 		actions: {
 			initStore({ commit }, payload) {
-				const [about, chapters, tags, projects] = payload;
+				const [about, chapters, projects] = payload;
 				commit("setAbout", about);
 				commit("setChapters", chapters);
-				commit("setTags", tags);
 				commit("setProjects", projects);
 			},
 		},

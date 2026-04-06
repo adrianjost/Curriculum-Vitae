@@ -5,9 +5,7 @@
 	"author": "Adrian Jost",
 	"license": "MIT",
 	"scripts": {
-		"dev:nuxt": "nuxt dev",
-		"dev:functions": "cd functions && npm run serve",
-		"dev": "start-test dev:functions http://localhost:3001/curriculum-vitae-5cd0a/us-central1/fastApiProjects/projects dev:nuxt",
+		"dev": "nuxt dev",
 		"analyze": "nuxt build --analyze",
 		"build": "cross-env NODE_ENV=production nuxt generate",
 		"deploy": "npm run lint && npm run build && firebase deploy",
@@ -35,6 +33,7 @@
 		"autosize": "^6.0.1",
 		"fetch-retry": "^6.0.0",
 		"firebase": "^12.11.0",
+		"marked": "^17.0.6",
 		"nuxt": "^4.4.2",
 		"postcss": "^8.5.3",
 		"sharp": "^0.34.5",

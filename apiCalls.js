@@ -1,15 +1,15 @@
 import fetchRetry from "fetch-retry";
+import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
+import { marked } from "marked";
+import { db } from "./src/lib/firebase.js";
 
 const fetch = fetchRetry(globalThis.fetch.bind(globalThis), {
 	retries: 3,
 	retryDelay: 1000,
 });
 
-const apiBaseUrl =
-	process.env.API_URL ||
-	(process.env.NODE_ENV === "development"
-		? "http://localhost:3001/curriculum-vitae-5cd0a/us-central1/fastApiProjects"
-		: "https://us-central1-curriculum-vitae-5cd0a.cloudfunctions.net/fastApiProjects");
+const apiBaseUrl = process.env.API_URL;
+const shouldUseMockApi = Boolean(apiBaseUrl);
 
 let sharpModulePromise;
 
@@ -64,37 +64,66 @@ async function encodeImage(url) {
 	return `data:image/webp;base64,${resizedBuffer.toString("base64")}`;
 }
 
-const logInvalid = (res) => {
-	if (res.status < 200 || res.status >= 300) {
-		console.error("Error", res);
-	}
-	return res;
-};
+const getDataFromSnapshot = (querySnapshot) =>
+	querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 
-const getData = (urlPath) => () =>
-	fetch(`${apiBaseUrl}/${urlPath}`)
-		.then(logInvalid)
-		.then((res) => res.json())
-		.then((data) => data.data);
+const fetchMockData = (urlPath) =>
+	fetch(`${apiBaseUrl}/${urlPath}`).then((res) => {
+		if (!res.ok) {
+			throw new Error(`Mock API request failed (${res.status}) for ${urlPath}`);
+		}
+		return res.json().then((json) => json.data);
+	});
 
-export const getAbout = getData("about");
-export const getChapters = getData("chapters");
-export const getTags = getData("tags");
+const getAboutFromMockApi = () => fetchMockData("about");
+const getChaptersFromMockApi = () => fetchMockData("chapters");
+const getProjectsFromMockApi = () =>
+	fetchMockData("projects").then((projects) =>
+		Promise.all(
+			projects.map(async (project) => {
+				if (project.img) {
+					project.imgPlaceholder = await encodeImage(project.img);
+				}
+				return project;
+			})
+		)
+	);
+
+export const getAbout = () =>
+	shouldUseMockApi
+		? getAboutFromMockApi()
+		: getDocs(collection(db, "about"))
+				.then((snapshot) =>
+					snapshot.docs.map((doc) => doc.data().text).join("")
+				)
+				.then((text) => marked(text));
+
+export const getChapters = () =>
+	shouldUseMockApi
+		? getChaptersFromMockApi()
+		: getDocs(collection(db, "chapters")).then(getDataFromSnapshot);
 
 export const getProjects = () =>
-	fetch(`${apiBaseUrl}/projects`)
-		.then(logInvalid)
-		.then((res) => res.json())
-		.then((data) =>
-			Promise.all(
-				data.data.map(async (project) => {
-					if (project.img) {
-						project.imgPlaceholder = await encodeImage(project.img);
-					}
-					return project;
-				})
+	shouldUseMockApi
+		? getProjectsFromMockApi()
+		: getDocs(
+				query(
+					collection(db, "projects"),
+					where("isPublished", "==", true),
+					orderBy("date", "desc")
+				)
 			)
-		);
+				.then(getDataFromSnapshot)
+				.then((projects) =>
+					Promise.all(
+						projects.map(async (project) => {
+							if (project.img) {
+								project.imgPlaceholder = await encodeImage(project.img);
+							}
+							return project;
+						})
+					)
+				);
 
 export const getAll = () =>
-	Promise.all([getAbout(), getChapters(), getTags(), getProjects()]);
+	Promise.all([getAbout(), getChapters(), getProjects()]);

@@ -91,9 +91,9 @@ export default {
 .auth-meta {
 	margin-block: 0.5rem;
 	font-size: 0.95rem;
+	color: #fff;
 	text-align: center;
 	opacity: 0.9;
-	color: #fff;
 }
 
 .nav {
