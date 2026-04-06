@@ -11,20 +11,13 @@ const fetch = fetchRetry(globalThis.fetch.bind(globalThis), {
 const apiBaseUrl = process.env.API_URL;
 const shouldUseMockApi = Boolean(apiBaseUrl);
 
-let sharpModulePromise;
-
-function getSharp() {
-	if (!sharpModulePromise) {
-		sharpModulePromise = import("sharp").then(
-			(module) => module.default || module
-		);
+async function encodeImage(url) {
+	if (process.client) {
+		return undefined;
 	}
 
-	return sharpModulePromise;
-}
-
-async function fetchImageBuffer(url) {
-	const response = await globalThis.fetch(url, {
+	const resizedUrl = `https://adrianjost.twic.pics/gcs/${url.split("/").pop()}&twic=v1/resize=30`;
+	const response = await globalThis.fetch(resizedUrl, {
 		method: "GET",
 		redirect: "follow",
 		headers: {
@@ -40,28 +33,9 @@ async function fetchImageBuffer(url) {
 		throw new Error(`Failed to load image for placeholder: ${response.status}`);
 	}
 
-	return Buffer.from(await response.arrayBuffer());
-}
-
-async function encodeImage(url) {
-	if (process.client) {
-		return undefined;
-	}
-
-	const sharp = await getSharp();
-	const imageBuffer = await fetchImageBuffer(
-		`https://adrianjost.twic.pics/gcs/${url.split("/").pop()}&twic=v1/resize=30`
-	);
-	const resizedBuffer = await sharp(imageBuffer)
-		.resize({
-			height: 30,
-			fit: "inside",
-			withoutEnlargement: true,
-		})
-		.webp({ quality: 60 })
-		.toBuffer();
-
-	return `data:image/webp;base64,${resizedBuffer.toString("base64")}`;
+	const buffer = Buffer.from(await response.arrayBuffer());
+	const contentType = response.headers.get("content-type") || "image/jpeg";
+	return `data:${contentType};base64,${buffer.toString("base64")}`;
 }
 
 const getDataFromSnapshot = (querySnapshot) =>
