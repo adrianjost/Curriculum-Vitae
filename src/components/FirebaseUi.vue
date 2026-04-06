@@ -11,7 +11,7 @@
 import {
 	GoogleAuthProvider,
 	onAuthStateChanged,
-	signInWithRedirect,
+	signInWithPopup,
 } from "firebase/auth";
 import { auth } from "~/lib/firebase.js";
 
@@ -45,7 +45,7 @@ export default {
 			const provider = new GoogleAuthProvider();
 
 			try {
-				await signInWithRedirect(auth, provider);
+				await signInWithPopup(auth, provider);
 			} catch (error) {
 				this.loginError = error?.message || "Login failed. Please try again.";
 			} finally {
