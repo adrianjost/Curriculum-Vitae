@@ -202,6 +202,13 @@ export default {
 <style lang="scss" scoped>
 @use "@/styles/variables";
 
+.title {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25em;
+	padding: 0;
+}
+
 .btn-secondary {
 	color: inherit;
 }
