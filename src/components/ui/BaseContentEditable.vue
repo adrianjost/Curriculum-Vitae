@@ -5,7 +5,6 @@
 		:data-placeholder="placeholder"
 		@input="onInput($event)"
 		@blur="onInput($event)"
-		v-text="currentValue"
 	/>
 </template>
 
@@ -35,17 +34,24 @@ export default {
 		},
 	},
 	watch: {
-		modelValue: function () {
-			this.setEmptystate(this.currentValue);
+		modelValue: function (newVal) {
+			this.updateContent(newVal);
 		},
-		value: function () {
-			this.setEmptystate(this.currentValue);
+		value: function (newVal) {
+			this.updateContent(newVal);
 		},
 	},
 	mounted() {
-		this.setEmptystate(this.currentValue);
+		this.updateContent(this.currentValue);
 	},
 	methods: {
+		updateContent(newText) {
+			// Only update if the text actually changed to avoid cursor jumping
+			if (this.$el.innerText !== newText) {
+				this.$el.innerText = newText;
+			}
+			this.setEmptystate(newText);
+		},
 		onInput(event) {
 			const text = event.target.innerText;
 			this.setEmptystate(text);
