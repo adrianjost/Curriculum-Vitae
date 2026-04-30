@@ -33,7 +33,7 @@
 		"autosize": "^6.0.1",
 		"fetch-retry": "^6.0.0",
 		"firebase": "^12.12.1",
-		"marked": "^17.0.6",
+		"marked": "^18.0.2",
 		"nuxt": "^4.4.4",
 		"postcss": "^8.5.3",
 		"vuex": "^4.1.0"
