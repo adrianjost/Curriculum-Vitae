@@ -59,7 +59,7 @@
 		"sass": "^1.99.0",
 		"sass-loader": "^16.0.7",
 		"serve": "^14.2.6",
-		"start-server-and-test": "^3.0.0",
+		"start-server-and-test": "^3.0.2",
 		"stylelint": "^17.9.1",
 		"stylelint-config-html": "^1.1.0",
 		"stylelint-config-recess-order": "^7.7.0",
