@@ -47,7 +47,7 @@
 		"eslint": "^10.2.1",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-prettier": "^5.5.5",
-		"eslint-plugin-vue": "^10.9.0",
+		"eslint-plugin-vue": "^10.9.1",
 		"firebase-tools": "^15.16.0",
 		"imagemin-lint-staged": "^0.5.1",
 		"lint-staged": "^16.4.0",
