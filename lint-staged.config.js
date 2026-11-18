@@ -8,5 +8,4 @@ module.exports = {
 		"git add",
 	],
 	"*.scss": ["npm run lint:stylelint", "npm run lint:prettier", "git add"],
-	"*.{png,jpeg,jpg,gif,svg}": ["imagemin-lint-staged", "git add"],
 };
